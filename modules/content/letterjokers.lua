@@ -220,21 +220,19 @@ AKYRS.LetterJoker {
     key = "feli_leg",
     rarity = 4,
     cost = 16,
-	config = { extra = { chips = 5, dollars = 1, xmult = 0.1, odds1 = 6, odds2 = 8, odds3 = 10} },
+	config = { extra = { chips = 5, dollars = 1, xmult = 0.1, odds = 6} },
     loc_vars = function(self, info_queue, card)
-		local n1, d1 = SMODS.get_probability_vars(card, 1, card.ability.extra.odds1, 'feli_1')
-
-		return { vars = { card.ability.extra.chips, n1, d1} }
+		local numerator, denumerator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'feli_leg')
+		return { vars = { card.ability.extra.chips, numerator, denumerator} }
     end,
     calculate = function(self, card, context)
         if G.GAME.akyrs_character_stickers_enabled and G.GAME.akyrs_wording_enabled and G.GAME.aiko_current_word then
             local word = G.GAME.aiko_current_word    
             if not word then return {} end
             word = string.lower(word)
-            
 			if context.joker_main then     
 				if FELIJO.garf_words[word] then	
-					if SMODS.pseudorandom_probability(card, 'feli_1', 1, card.ability.extra.odds1) then
+					if SMODS.pseudorandom_probability(card, 'feli_leg', 1, card.ability.extra.odds) then
 						return {
 							chips = card.ability.extra.chips * #word * G.GAME.hands[context.scoring_name].played,
 							level_up = true,
