@@ -14,6 +14,7 @@
 		"Steamodded (>=1.0.0~BETA-1221a)", 
 		"Lovely (>=0.8.0)", 
 		"Balatro (>=1.0.1o)",
+	],
 	"conflicts": [
 	],
 	"provides": [
