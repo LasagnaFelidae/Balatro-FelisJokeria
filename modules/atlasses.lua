@@ -4,7 +4,6 @@ SMODS.Atlas {
     px = 71,
     py = 95
 }
-<<<<<<< HEAD
 
 SMODS.Atlas {
     key = "togaJokers",
@@ -18,8 +17,7 @@ SMODS.Atlas {
     px = 34,
     py = 34
 }
-=======
->>>>>>> e46c8e336c7ab16749c496a20301830b018c8d9a
+
 --[[
 SMODS.Atlas {
     key = "blindPlacehold",
@@ -88,19 +86,4 @@ SMODS.Atlas({
     px = 71, 
 	py = 95
 })
-<<<<<<< HEAD
 
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> e46c8e336c7ab16749c496a20301830b018c8d9a
