@@ -1,0 +1,43 @@
+SMODS.Atlas({
+    key = "bliss", 
+    path = "bliss.png", 
+    px = 71,
+    py = 95,
+    atlas_table = "ASSET_ATLAS"
+})
+
+SMODS.Joker {
+    key = "smallpox_bliss",
+    atlas = "bliss",
+    pos = { x = 0, y = 0 },
+    unlocked = true,
+    pools = {["Smallpox"] = true, ["Scaling"] = true, ["Landscape"] = true},
+    blueprint_compat = false,
+    rarity = 2,
+    cost = 8,
+    config = { extra = { change = 10, suits = 3, chips = 10 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = {card.ability.extra.change, card.ability.extra.suits, card.ability.extra.chips} }
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main and #context.scoring_hand > 1 then
+            local suit_t = {}
+            local suits = 0
+            for _, _card in pairs(context.scoring_hand) do
+                suit_t[not SMODS.has_no_suit(_card) and _card.base.suit] = true
+            end
+            for _ in pairs(suit_t) do suits = suits + 1 end
+            if suits >= card.ability.extra.suits then
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "chips",
+                    scalar_value = "change", 
+                })
+            end
+            return
+                {
+                    chips = card.ability.extra.chips,
+                }
+        end    
+    end
+}

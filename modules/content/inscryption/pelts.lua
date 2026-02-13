@@ -54,7 +54,6 @@ FELIJO.Pelt {
 			card.ability.extra.sold = true
 
 			if G.GAME.felijo_pelts_sale then
-				print("[TRADER] Gold Pelt - +$", card.ability.extra.dollars)
 				card:start_dissolve({G.C.MONEY}, true)
 				return {
 					dollars = card.ability.extra.dollars or 0,
@@ -111,7 +110,6 @@ FELIJO.Pelt {
 			card.ability.extra.sold = true
 
 			if G.GAME.felijo_pelts_sale then
-				print("[TRADER] Wolf Pelt - +$", card.ability.extra.dollars)
 				card:start_dissolve({G.C.MONEY}, true)
 				return {
 					dollars = card.ability.extra.dollars or 0,
@@ -170,7 +168,6 @@ FELIJO.Pelt {
 			card.ability.extra.sold = true
 
 			if G.GAME.felijo_pelts_sale then
-				print("[TRADER] Bunny Pelt - +$", card.ability.extra.dollars)
 				card:start_dissolve({G.C.MONEY}, true)
 				return {
 					dollars = card.ability.extra.dollars or 0,
@@ -197,7 +194,7 @@ FELIJO.Pelt {
 	badge_colour = HEX 'E19B4B',
 	text_colour = HEX 'FF0000',
 	set_card_type_badges = function(self, card, badges)
-		badges = create_badge(localize('k_felijo_plt_olddata'), HEX('3E493E'), HEX('FF0000'), 1.2 )
+		badges = create_badge(localize('felijo_plt_olddata'), HEX('3E493E'), HEX('FF0000'), 1.2 )
 	end,
 	loc_vars = function(self, info_queue, card)
 		local enabled = G.GAME.felijo_pelts_sale or false
@@ -225,7 +222,62 @@ FELIJO.Pelt {
 		if context.discard and not card.ability.extra.sold then
 			card.ability.extra.sold = true
 			if G.GAME.felijo_pelts_sale then
-				print("[TRADER] OLD_DATA - +$", card.ability.extra.dollars)
+				card:start_dissolve({G.C.MONEY}, true)
+				return {
+					dollars = card.ability.extra.dollars or 0,
+					remove = true
+				}
+			else
+				card.ability.extra.sold = false
+				return { chips = 0, mult = 0 }
+			end
+		end
+	end,
+}
+
+-- Golden Pelt
+FELIJO.Pelt {
+	key = 'trn_goldn',
+	atlas = 'inscryptionJokers',
+	pos = { x = 3, y = 1 },
+	config = { 
+		extra = { 
+			dollars = 3,
+			sold = false,
+		}
+	},
+	badge_colour = HEX 'E19B4B',
+	text_colour = HEX '4D3D2C',
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_goldn'), HEX('E19B4B'), HEX('4D3D2C'), 1.2 )
+	end,
+	loc_vars = function(self, info_queue, card)
+		local enabled = G.GAME.felijo_pelts_sale or false
+		
+		local trading_st = enabled and "Enabled" or "Disabled"
+		local status_colour = enabled and HEX('5CCC5C') or HEX('FF0000')
+		
+		return {
+			vars = {
+				card.ability.extra.dollars,
+				colours = { 
+					HEX('F0C590'), 
+					HEX('351A09'), 
+					HEX('00ECE4'), 
+					HEX('002838'), 
+					status_colour 
+				},
+				trading_st,
+				card.ability.extra.sold,
+			}
+		}
+	end,
+
+	calculate = function(self, card, context)
+		if context.discard and not card.ability.extra.sold then
+			card.ability.extra.sold = true
+
+			if G.GAME.felijo_pelts_sale then
 				card:start_dissolve({G.C.MONEY}, true)
 				return {
 					dollars = card.ability.extra.dollars or 0,

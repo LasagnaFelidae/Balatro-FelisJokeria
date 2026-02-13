@@ -88,77 +88,82 @@ SMODS.Joker {
 	end,
     blueprint_compat = true,
 }
-SMODS.Joker {
-    atlas = 'inscryptionJokers',
-    pos = { x = 0, y = 0},
-    pools = {["Inscryption"] = true },
-    key = "felijo_ins_lilyfelli",
-	pronouns = "she_her",
-    rarity = 3,
-    cost = 8,
-	config = { extra = {chips = 1, mult = 1, repetitions = 1, pronoun = "neutral"} },
-    loc_vars = function(self, info_queue, card)		
-			if card.ability.extra.pronoun == "masculine" then
-				return {
-					vars = { 
-						card.ability.extra.chips, 
-						card.ability.extra.mult, 
-						card.ability.extra.repetitions,
-						card.ability.extra.pronoun,
-						colours = { HEX('F0C590'), HEX('351A09'), HEX("61B5FA"),} 
-					} 
-				}
-			elseif card.ability.extra.pronoun == "feminine" then
-				return {
-					vars = { 
-						card.ability.extra.chips, 
-						card.ability.extra.mult, 
-						card.ability.extra.repetitions,
-						card.ability.extra.pronoun,
-						colours = { HEX('F0C590'), HEX('351A09'), HEX("FF90FF"),} 
-					} 
-				}
-			else
-				return {
-					vars = { 
-						card.ability.extra.chips, 
-						card.ability.extra.mult, 
-						card.ability.extra.repetitions,
-						card.ability.extra.pronoun,
-						colours = { HEX('F0C590'), HEX('351A09'), HEX("5F5F5F"),} 
-					} 
-				}
+if CardPronouns then
+	SMODS.Joker {
+		atlas = 'inscryptionJokers',
+		pos = { x = 4, y = 0},
+		pools = {["Inscryption"] = true },
+		key = "felijo_ins_lilyfelli",
+		pronouns = "she_her",
+		rarity = 3,
+		cost = 8,
+		config = { extra = {chips = 9, mult = 19, repetitions = 1, pronoun = "neutral"} },
+		loc_vars = function(self, info_queue, card)		
+				if card.ability.extra.pronoun == "masculine" then
+					return {
+						vars = { 
+							card.ability.extra.chips, 
+							card.ability.extra.mult, 
+							card.ability.extra.repetitions,
+							card.ability.extra.pronoun,
+							colours = { HEX('F0C590'), HEX('351A09'), HEX("61B5FA"),} 
+						} 
+					}
+				elseif card.ability.extra.pronoun == "feminine" then
+					return {
+						vars = { 
+							card.ability.extra.chips, 
+							card.ability.extra.mult, 
+							card.ability.extra.repetitions,
+							card.ability.extra.pronoun,
+							colours = { HEX('F0C590'), HEX('351A09'), HEX("FF90FF"),} 
+						} 
+					}
+				else
+					return {
+						vars = { 
+							card.ability.extra.chips, 
+							card.ability.extra.mult, 
+							card.ability.extra.repetitions,
+							card.ability.extra.pronoun,
+							colours = { HEX('F0C590'), HEX('351A09'), HEX("5F5F5F"),} 
+						} 
+					}
+				end
+		end,
+		calculate = function(self, card, context)
+			if context.setting_blind then
+				local current = card.ability.extra.pronoun or "neutral"
+				local next_index = 1
+				for i, p in ipairs(PRONOUNS) do
+					if p == current then
+						next_index = i % #PRONOUNS + 1
+						break
+					end
+				end
+				card.ability.extra.pronoun = PRONOUNS[next_index]
+
 			end
-	end,
-    calculate = function(self, card, context)
-		if context.setting_blind then
-			local current = card.ability.extra.pronoun or "masculine"
-            local next_index = 1
-            for i, p in ipairs(PRONOUNS) do
-                if p == current then
-                    next_index = i % #PRONOUNS + 1
-                    break
-                end
-            end
-			card.ability.extra.pronoun = PRONOUNS[next_index]
 
-		end
-
-        if context.cardarea == G.play
-        and context.repetition
-        and context.other_card then
-			if CardPronouns and type(CardPronouns.has) == "function" and CardPronouns.has(card.ability.extra.pronoun, context.other_card) then
+			if context.cardarea == G.play
+			and context.repetition
+			and context.other_card then
+				if CardPronouns and type(CardPronouns.has) == "function" and CardPronouns.has(card.ability.extra.pronoun, context.other_card) then
+					return {
+						repetitions = card.ability.extra.repetitions,
+					}
+				end
+			end
+			if context.joker_main then
 				return {
-					repetitions = card.ability.extra.repetitions,
 					chips = card.ability.extra.chips,
 					mult = card.ability.extra.mult
 				}
 			end
-		end
-    end,
-    blueprint_compat = true,
-}
-
+		end,
+		blueprint_compat = true,
+	}
+end
 SMODS.Joker {
     atlas = 'inscryptionJokers',
     pos = { x = 2, y = 0 },

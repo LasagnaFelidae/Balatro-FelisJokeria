@@ -1,7 +1,7 @@
 SMODS.Voucher {
     key = "beartrap",
     atlas = 'inscryptionVouchers', pos = { x = 0, y = 0 } ,
-    cost = 8,
+    cost = 10,
     config = {},
     loc_vars = function (self, info_queue, card)
         return {}
@@ -16,7 +16,8 @@ SMODS.Voucher {
 SMODS.Voucher {
     key = "peltmarket",
     atlas = 'inscryptionVouchers', pos = { x = 0, y = 1 } ,
-    cost = 12,
+	requires = { 'v_felijo_beartrap' },
+    cost = 10,
     config = {},
     loc_vars = function (self, info_queue, card)
         return {}
