@@ -7,7 +7,7 @@ SMODS.Joker {
             card.children.floating_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod,0,0-0.2)
         end
     },
-    pools = {["Letter"] = true },
+    pools = {["FelisJokeria"] = true, ["Letter"] = true, },
     key = "felijo_lgd_feli",
     rarity = 4,
     cost = 20,
@@ -47,30 +47,5 @@ SMODS.Joker {
     blueprint_compat = true,
 }
 
-
---[[
-SMODS.Joker {
-    atlas = 'misprintRekoj',
-    pos = { x = 0, y = 0 },
-	soul_pos = {
-        x = 1, y = 0, draw = function (card, scale_mod, rotate_mod)
-			card.children.floating_sprite:draw_shader('dissolve',0, nil, nil, card.children.center,scale_mod, rotate_mod,0,0 - 0.1,nil, 0.2)
-			card.children.floating_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod,0,0-0.05)
-        end
-    },
-    pools = {["Letter"] = true },
-    key = "felijo_misprint",
-    rarity = 4,
-    cost = 20,
-	config = { extra = {} },
-    loc_vars = function(self, info_queue, card)
-		return { vars = {} }
-		
-	end,
-    calculate = function(self, card, context)
-	end,
-    blueprint_compat = true,
-}
-]]
 
 

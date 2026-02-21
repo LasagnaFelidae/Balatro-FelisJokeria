@@ -3,17 +3,13 @@ FELIJO.TOGAJoker = SMODS.Joker:extend{
         return FELIJO.is_mod_loaded("TOGAPack") or false
     end
 }
-FELIJO.TOGAJoker = SMODS.Joker:extend{
-    in_pool = function (self, args)
-        return FELIJO.is_mod_loaded("TOGAPack") or false
-    end
-}
+
 FELIJO.TOGAJoker {
     key = "felijo_bliss",
     atlas = 'togaJokers',
     pos = { x = 1, y = 0 },
     unlocked = true,
-    pools = {},
+    pools = {["FelisJokeria"] = true, ["TOGA"] = true},
     blueprint_compat = false,
     rarity = 2,
     cost = 8,
@@ -50,7 +46,7 @@ FELIJO.TOGAJoker {
     key = "felijo_toga_loic",
     atlas = 'togaJokers',
     pos = { x = 0, y = 0 },
-	pools = {["TOGA"] = true,},
+	pools = {["FelisJokeria"] = true, ["TOGA"] = true,},
     unlocked = true,
     blueprint_compat = true,
     rarity = 4,

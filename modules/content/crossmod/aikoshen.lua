@@ -12,9 +12,9 @@ FELIJO.LetterJoker = SMODS.Joker:extend{
 
 FELIJO.LetterJoker {
     key = "felijo_ltr_dbw",
-    atlas = 'tbyJokers',
+    atlas = 'aikoJokers',
     pos = { x = 5, y = 0 },
-	pools = {["Letter"] = true, ["Scrabble"] = true  },
+	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
     unlocked = true,
     blueprint_compat = true,
     rarity = 1,
@@ -37,9 +37,9 @@ FELIJO.LetterJoker {
 }
 FELIJO.LetterJoker {
     key = "felijo_ltr_tpw",
-    atlas = 'tbyJokers',
+    atlas = 'aikoJokers',
     pos = { x = 6, y = 0 },
-	pools = {["Letter"] = true, ["Scrabble"] = true  },
+	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
     unlocked = true,
     blueprint_compat = true,
     rarity = 2,
@@ -62,9 +62,9 @@ FELIJO.LetterJoker {
 }
 FELIJO.LetterJoker {
     key = "felijo_ltr_qdw",
-    atlas = 'tbyJokers',
+    atlas = 'aikoJokers',
     pos = { x = 7, y = 0 },
-	pools = {["Letter"] = true, ["Scrabble"] = true  },
+	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
     unlocked = true,
     blueprint_compat = true,
     rarity = 3,
@@ -90,9 +90,9 @@ FELIJO.LetterJoker {
 
 FELIJO.LetterJoker {
     key = "felijo_ltr_dbl",
-    atlas = 'tbyJokers',
+    atlas = 'aikoJokers',
     pos = { x = 2, y = 0 },
-	pools = {["Letter"] = true, ["Scrabble"] = true },
+	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true },
     unlocked = true,
     blueprint_compat = false,
     rarity = 1,
@@ -130,9 +130,9 @@ FELIJO.LetterJoker {
 
 FELIJO.LetterJoker {
     key = "felijo_ltr_tpl",
-    atlas = 'tbyJokers',
+    atlas = 'aikoJokers',
     pos = { x = 3, y = 0 },
-	pools = {["Letter"] = true, ["Scrabble"] = true  },
+	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
     unlocked = true,
     blueprint_compat = false,
     rarity = 2,
@@ -170,9 +170,9 @@ FELIJO.LetterJoker {
 
 FELIJO.LetterJoker {
     key = "felijo_ltr_qdl",
-    atlas = 'tbyJokers',
+    atlas = 'aikoJokers',
     pos = { x = 4, y = 0 },
-	pools = {["Letter"] = true, ["Scrabble"] = true  },
+	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
     unlocked = true,
     blueprint_compat = false,
     rarity = 3,
@@ -214,10 +214,10 @@ FELIJO.LetterJoker {
 
 FELIJO.LetterJoker {
     key = "felijo_ltr_cleanslate",
-    atlas = 'tbyJokers',
+    atlas = 'aikoJokers',
     pos = { x = 8, y = 0 },
     unlocked = true,
-	pools = {["Letter"] = true, ["Scrabble"] = true  },
+	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
     blueprint_compat = true,
     rarity = 1,
     cost = 6,

@@ -3,4 +3,6 @@ FELIJO.is_mod_loaded = function(var)
     return (SMODS.Mods[var] and SMODS.Mods[var].can_load) and true or false
 end
 
+
+
 -- thanks aiko

@@ -7,6 +7,7 @@ function Blind:defeat(silent)
 	blindkillref(self, silent)
 	-- check for blind
 	if not G.GAME.login and self.name == 'bl_toga_login' then G.GAME.login = true end
+	
 end
 
 local XmainMenuHook = Game.main_menu

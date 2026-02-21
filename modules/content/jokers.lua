@@ -277,14 +277,32 @@ G.FUNCS.cycle = function(e)
 end
 
 SMODS.Joker {
-    atlas = 'tbyJokers',
+    atlas = 'placeholder',
     pos = { x = 0, y = 0 },
-    pools = {["Finance"] = true },
+    pools = {["FelisJokeria"] = true, ["Money"] = true },
     key = "felijo_stock_exchange",
     rarity = 2,
     cost = 6,
 	blueprint_compat = true,
-    config = { extra = { chips = 10 }, stock = { names = {"LTHNK","JIMBO","SPCTL","JOKER"}, stock = {0,0,0,0}, price = {2,3,5,8}, mode = {1, 5, 10, "ALL"}, mode_i = 1, volatility = {0.5, 0.2, 0.6, 0.8}, trend = {0.01, 0.05, 0, 0.02}, colours = {G.C.UI.TEXT_INACTIVE,G.C.UI.TEXT_INACTIVE,G.C.UI.TEXT_INACTIVE,G.C.UI.TEXT_INACTIVE}, indicators = {"=","=","=","="}}  },
+    config = 
+		{ 
+		extra = 
+		{ 
+			chips = 10 
+		},
+		stock = 
+		{ 
+			names = {"LTHNK","JIMBO","SPCTL","JOKER"}, 
+			stock = {0,0,0,0}, 
+			price = {2,3,5,8}, 
+			mode = {1, 5, 10, "ALL"}, mode_i = 1, 
+			volatility = {0.5, 0.2, 0.6, 0.8}, 
+			trend = {0.01, 0.05, 0, 0.02}, 
+			colours = {G.C.UI.TEXT_INACTIVE,G.C.UI.TEXT_INACTIVE,G.C.UI.TEXT_INACTIVE,G.C.UI.TEXT_INACTIVE}, 
+			indicators = {"","","",""}, 
+			change_p = {0,0,0,0},
+		},  
+	},
     loc_vars = function(self, info_queue, center)
 			if center.ability.stock.mode[center.ability.stock.mode_i] == "ALL" then
 			return { vars = {
@@ -306,6 +324,10 @@ SMODS.Joker {
 				center.ability.stock.price[3] * math.floor((G.GAME.dollars - G.GAME.bankrupt_at) / center.ability.stock.price[3]),
 				center.ability.stock.price[4] * math.floor((G.GAME.dollars - G.GAME.bankrupt_at) / center.ability.stock.price[4]),
 				
+				center.ability.stock.change_p[1],
+				center.ability.stock.change_p[2],
+				center.ability.stock.change_p[3],
+				center.ability.stock.change_p[4],
 				colours = {
 					center.ability.stock.colours[1], 
 					center.ability.stock.colours[2], 
@@ -332,6 +354,11 @@ SMODS.Joker {
 				center.ability.stock.price[2] * center.ability.stock.mode[center.ability.stock.mode_i],
 				center.ability.stock.price[3] * center.ability.stock.mode[center.ability.stock.mode_i],
 				center.ability.stock.price[4] * center.ability.stock.mode[center.ability.stock.mode_i],
+				
+				center.ability.stock.change_p[1],
+				center.ability.stock.change_p[2],
+				center.ability.stock.change_p[3],
+				center.ability.stock.change_p[4],
 				colours = {
 					center.ability.stock.colours[1], 
 					center.ability.stock.colours[2], 
@@ -513,8 +540,6 @@ SMODS.Joker {
 		local cycle_btn = card.nodes[3].nodes[1]
 		if cycle_btn and cycle_btn.nodes and cycle_btn.nodes[1] and cycle_btn.nodes[1].config then
 			cycle_btn.nodes[1].config.text = "x"..s.mode[s.mode_i]
-
-			-- Force a redraw
 			if cycle_btn.nodes[1].update_nodes then
 				cycle_btn.nodes[1]:update_nodes()
 			elseif cycle_btn.nodes[1].reload then
@@ -536,7 +561,9 @@ SMODS.Joker {
 			local totalChange = totalTrend + randomChange
 			local oldPrice = s.price[i]			
 			s.price[i] = s.price[i] * (1 + totalChange)
-			s.price[i] = math.max(s.price[i], 1)
+			s.price[i] = math.max(s.price[i], 0.1)
+			s.change_p[i] = math.abs(((s.price[i] - oldPrice) / oldPrice) * 100)
+
 			if oldPrice > s.price[i] then
 				s.colours[i] = G.C.RED
 				s.indicators[i] = "-"
@@ -545,7 +572,7 @@ SMODS.Joker {
 				s.indicators[i] = "+"
 			else
 				s.colours[i] = G.C.UI.TEXT_INACTIVE
-				s.indicators[i] = "="
+				s.indicators[i] = " "
 			end
 		end
 
@@ -570,41 +597,4 @@ SMODS.Joker {
 
 
 
-SMODS.Joker {
-    atlas = 'tbyJokers',
-    pos = { x = 0, y = 1 },
-    pools = {["Steam"] = true },
-    key = "felijo_badge_collector",
-    rarity = 2,
-    cost = 6,
-	blueprint_compat = true,
-    config = { extra = { chips = 0.02 }, steam = { badges = 1 } },
-    loc_vars = function(self, info_queue, center)
-        return {vars = { center.ability.extra.chips, (1 + center.ability.extra.chips * center.ability.steam.badges) }}
-    end,
-	badgeCalc = function (self,card)
-		local level = 0
-		if G.STEAM and G.STEAM.user then
-			level = G.STEAM.user.getPlayerSteamLevel()
-		end
-		local totalxp = 5 * level * level + 50 * level				
-		card.ability.steam.badges = totalxp / 100
-	end,
-    calculate = function(self, card, context)
-        if context.joker_main then
-			self:badgeCalc(card)
-            local chips = 1 + (card.ability.extra.chips * card.ability.steam.badges)
-			
-            return {
-                xchips = chips,
-            }
-        end
-    end,
-	load = function(self, card, card_table, other_card)
-		self:badgeCalc(card)
-    end,
-	set_ability = function(self,card,initial,delay_sprites)
-		self:badgeCalc(card)
-    end,
-	
-}
+

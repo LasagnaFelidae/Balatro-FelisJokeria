@@ -57,7 +57,7 @@ local function canApplySigil(card, sigilKey)
 	if countSigils(card) >= MAX_SIGILS then --check if already 3 sigils
         return false
     end
-	print(countSigils(card))
+	-- print(countSigils(card))
     for group_name, members in pairs(sigil_groups) do -- check for conflicting sigils
 		local in_group = false
 		for _, member in ipairs(members) do
@@ -139,11 +139,15 @@ SMODS.Sticker{
 	atlas="sigils",	
 	pos = { x=0 , y=0 },
 	sets = {Default = true, Joker = true},
-	needs_enable_flag = false,
+	config = { status = {die = false}},
+	needs_enable_flag = true,
 	apply = function(self,card,val)
 		if canApplySigil(card, self.key) then
 			card.ability[self.key] = val
+<<<<<<< HEAD
 			updatePos(card, self, self.pos.x, self.pos.y)
+=======
+>>>>>>> aea738c (restructured folders, edited hooks and util, starting sigil restructure)
 			if card.ability.eternal then 
 				card:remove_sticker('eternal') 
 			end
@@ -156,14 +160,17 @@ SMODS.Sticker{
 
 	calculate = function(self, card, context)
         if context.destroy_card and context.cardarea == G.play and context.destroy_card == card then 
-			card.glass_trigger = true
-            return { remove = true }
+			self.config.status.die = true
         end
 		if context.post_trigger and context.other_card == card then
-			card.getting_sliced = true
-			SMODS.destroy_cards(card)
-            return { remove = true }
+			self.config.status.die = true
         end
+		if self.config.status.die then
+			card.getting_sliced = true
+			card.glass_trigger = true
+			SMODS.destroy_cards(card)
+			return { remove = true }
+		end
     end
 }
 --Bifurcated Strike
@@ -172,7 +179,7 @@ SMODS.Sticker{
 	badge_colour = HEX '009DFF',
 	atlas="sigils",
 	needs_enable_flag = false,
-	pos = { x=4 , y=6 },
+	pos = { x=4 , y=4 },
 	sets = {Default = true, Joker = false},
 	config = { extra = { retriggers = 1} },
 	loc_vars = function(self, info_queue, card)
@@ -181,7 +188,6 @@ SMODS.Sticker{
 	apply = function(self, card, val)
 		if canApplySigil(card, self.key) then
 			card.ability[self.key] = val
-			updatePos(card, self, self.pos.x, self.pos.y)
 		end
     end,
 	calculate = function(self, card, context)
@@ -198,7 +204,7 @@ SMODS.Sticker{
 	badge_colour = HEX '4BC292',
 	atlas="sigils",
 	needs_enable_flag = false,
-	pos = { x=5 , y=3 },
+	pos = { x=5 , y=8 },
 	sets = {Default = true, Joker = false},
 	config = { extra = { retriggers = 2} },
 	loc_vars = function(self, info_queue, card)
@@ -207,7 +213,6 @@ SMODS.Sticker{
 	apply = function(self, card, val)
         if canApplySigil(card, self.key) then
 			card.ability[self.key] = val
-			updatePos(card, self, self.pos.x, self.pos.y)
 		end
     end,
 	
@@ -217,6 +222,32 @@ SMODS.Sticker{
                 repetitions = self.config.extra.retriggers,
             }
         end
+    end
+}
+
+--Stitches for Myco
+SMODS.Sticker{
+	key = "stk_stitched",
+	badge_colour = HEX '4BC292',
+	atlas = "stitches",
+	needs_enable_flag = true,
+	pos = { x=0 , y=0 },
+	sets = {Default = true},
+	no_collection = true, 
+	config = { },
+	loc_vars = function(self, info_queue, card)
+        return { vars = { } }
+    end,
+	apply = function(self, card, val)
+		card.ability[self.key] = val
+    end,
+	
+	calculate = function(self, card, context)
+
+    end,
+	draw = function (self, card, layer)
+        G.shared_stickers[self.key].role.draw_major = card
+        G.shared_stickers[self.key]:draw_shader('dissolve', nil, nil, nil, card.children.center)
     end
 }
 --[[ Loose Tail

@@ -191,10 +191,10 @@ FELIJO.Pelt {
 			sold = false,
 		}
 	},
-	badge_colour = HEX 'E19B4B',
+	badge_colour = HEX '3E493E',
 	text_colour = HEX 'FF0000',
-	set_card_type_badges = function(self, card, badges)
-		badges = create_badge(localize('felijo_plt_olddata'), HEX('3E493E'), HEX('FF0000'), 1.2 )
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_olddata'), HEX('3E493E'), HEX('FF0000'), 1.2 )
 	end,
 	loc_vars = function(self, info_queue, card)
 		local enabled = G.GAME.felijo_pelts_sale or false
@@ -239,7 +239,7 @@ FELIJO.Pelt {
 FELIJO.Pelt {
 	key = 'trn_goldn',
 	atlas = 'inscryptionJokers',
-	pos = { x = 3, y = 1 },
+	pos = { x = 5, y = 1 },
 	config = { 
 		extra = { 
 			dollars = 3,
@@ -249,7 +249,7 @@ FELIJO.Pelt {
 	badge_colour = HEX 'E19B4B',
 	text_colour = HEX '4D3D2C',
 	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge(localize('k_felijo_goldn'), HEX('E19B4B'), HEX('4D3D2C'), 1.2 )
+		badges[#badges+1] = create_badge(localize('k_felijo_terrain'), HEX('E19B4B'), HEX('4D3D2C'), 1.2 )
 	end,
 	loc_vars = function(self, info_queue, card)
 		local enabled = G.GAME.felijo_pelts_sale or false

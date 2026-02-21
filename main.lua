@@ -5,6 +5,8 @@ assert(SMODS.load_file("./func/hooks.lua"))()
 assert(SMODS.load_file("./func/util.lua"))()
 assert(SMODS.load_file("./modules/atlasses.lua"))()
 assert(SMODS.load_file("./modules/sounds.lua"))()
+assert(SMODS.load_file("./modules/fonts.lua"))()
+assert(SMODS.load_file("./modules/content/challenges.lua"))()
 -- Inscryption Content
 
 assert(SMODS.load_file("./modules/content/inscryption/jokers.lua"))()

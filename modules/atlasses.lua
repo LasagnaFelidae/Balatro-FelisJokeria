@@ -1,6 +1,25 @@
+SMODS.Atlas({
+    key = "modicon",
+    path = "FelisJokers.png",
+    px = 32,
+    py = 32
+})
 SMODS.Atlas {
-    key = "tbyJokers",
-    path = "tbyJokers.png",
+	key = "placeholder",
+	path = "placeholderJ.png",
+	px = 71,
+	py = 95,
+}
+SMODS.Atlas {
+    key = "feliJoker",
+    path = "feli.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = "aikoJokers",
+    path = "crossmod/aikoshen.png",
     px = 71,
     py = 95
 }
@@ -18,6 +37,7 @@ SMODS.Atlas {
     py = 34
 }
 
+
 --[[
 SMODS.Atlas {
     key = "blindPlacehold",
@@ -28,40 +48,33 @@ SMODS.Atlas {
 	frames = 1,
 }
 ]]
-SMODS.Atlas {
-    key = "feliJoker",
-    path = "feli.png",
-    px = 71,
-    py = 95
-}
-SMODS.Atlas({
-    key = "modicon",
-    path = "FelisJokers.png",
-    px = 32,
-    py = 32
-})
+
 
 SMODS.Atlas({
     key = "inscryptionJokers",
-    path = "inscryptionJokers.png",
+    path = "inscryption/jokers.png",
     px = 71,
     py = 95
 })
 
 SMODS.Atlas({
     key = "inscryptionVouchers",
-    path = "inscryptionVouchers.png",
+    path = "inscryption/vouchers.png",
     px = 71,
     py = 95
 })
-
-
+SMODS.Atlas {
+	key = "stitches",
+	path = "inscryption/stitches.png",
+	px = 71,
+	py = 95,
+}
 
 
 -- SIGILS
 SMODS.Atlas({
     key = "sigils",
-    path = "sigils.png",
+    path = "inscryption/sigils.png",
     px = 71,
 	py = 95
 })
