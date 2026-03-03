@@ -3,7 +3,30 @@ local PRONOUNS = { "neutral", "masculine", "feminine", "masculine", "neutral",
   "masculine", "feminine", "neutral", "masculine", "feminine", 
   "neutral", "masculine", "feminine", "neutral", "masculine", "feminine" }
 
+local superior_enhancement = "m_felijo_enh_sup"
 
+if FELIJO.is_mod_loaded("RevosVault") and SMODS.Mods["RevosVault"].config and SMODS.Mods["RevosVault"].config.superior_enabled == true then
+	superior_enhancement = "m_crv_superiore"
+else
+	superior_enhancement = "m_felijo_enh_sup"
+end
+
+local function number_to_pip(n)
+    if n == 14 or n == 1 then return "A"
+    elseif n == 13 then return "K"
+    elseif n == 12 then return "Q"
+    elseif n == 11 then return "J"
+    else return tostring(math.floor(n))
+    end
+end
+				
+local function rank_to_chips(n)
+	if n == 14 or n == 1 then return 11
+    elseif n <= 13 and n >= 11 then return 10
+    else return tostring(math.floor(n))
+    end
+end
+				
 SMODS.Joker { -- Common, loose tail
     atlas = 'inscryptionJokers',
     pos = { x = 0, y = 1 },
@@ -94,46 +117,6 @@ SMODS.Joker { -- Uncommon Aiko
 	end
 }
 
-SMODS.Joker { -- Rare Evgast
-    atlas = 'inscryptionJokers',
-    pos = { x = 7, y = 0 },
-    pools = {
-		["FelisJokeria"]=true,
-		["Inscryption"] = true,
-		["Beast"] = true,
-		["Human"] = true, 
-		["Deathcard"] = true 
-	},
-    key = "felijo_ins_evgast",
-    rarity = 3,
-    cost = 8,
-	config = { extra = { debuff = 0.01 , chips = 1, mult = 1} },
-	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
-	end,
-    loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.debuff, card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } }
-    end,
-    calculate = function(self, card, context)
-		local aces = 0
-		if context.individual and context.cardarea == G.play then
-			if context.other_card:get_id() == 14 then
-				aces = aces + 1
-				SMODS.juice_up_blind()
-				G.GAME.blind.chips = math.floor(G.GAME.blind.chips * ( 1 - (card.ability.extra.debuff * aces) ))
-				G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)	
-				play_sound('timpani', 0.96 + math.random() * 0.08)
-			end
-		end
-		if context.joker_main then
-			return {
-				chips = card.ability.extra.chips,
-				mult = card.ability.extra.mult
-			}
-		end
-	end,
-    blueprint_compat = true,
-}
 
 if CardPronouns then  -- Uncommon LilyFelli
 	SMODS.Joker {
@@ -542,6 +525,7 @@ SMODS.Joker { -- Rare Ouro
         end
 	end,
     blueprint_compat = true,
+	eternal_compat = false,
 }
 
 
@@ -578,21 +562,6 @@ SMODS.Joker{  --rare Mycologists, The
 				local suit = pseudorandom(pseudoseed('merge_suit')) < 0.5 and c1.base.suit or c2.base.suit
 				local rank = c1:get_id()
 				
-				local function number_to_pip(n)
-                    if n == 14 or n == 1 then return "A"
-                    elseif n == 13 then return "K"
-                    elseif n == 12 then return "Q"
-                    elseif n == 11 then return "J"
-                    else return tostring(math.floor(n))
-                    end
-                end
-				
-				local function rank_to_chips(n)
-                    if n == 14 or n == 1 then return 11
-                    elseif n <= 13 and n >= 11 then return 10
-                    else return tostring(math.floor(n))
-                    end
-                end
 				
 				local new_front_key = suit:sub(1,1) .. '_' .. number_to_pip(rank)
 				local new_front = G.P_CARDS[new_front_key]
@@ -647,3 +616,108 @@ SMODS.Joker{  --rare Mycologists, The
     end
 }
 
+
+
+SMODS.Joker { -- Rare Revo
+    atlas = 'inscryptionJokers',
+    pos = { x = 4, y = 2 },
+    pools = {
+		["FelisJokeria"]=true,
+		["Inscryption"] = true, 
+		["Beast"] = true,
+		["Human"] = true, 
+		["Deathcard"] = true 
+		
+	},
+    key = "felijo_ins_revo",
+	pronouns = "he_him",
+    rarity = 3,
+    cost = 8,
+	config = { extra = { chips = 7, mult = 20, count = 0, max_c = 10, odds = 3 }, tg = {superior = false} },
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
+	end,
+	
+    loc_vars = function(self, info_queue, card)
+		local numerator, denumerator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ins_revo')
+		if card.ability.tg.superior == true then
+			return { 
+				key = self.key .. "_s", 
+				vars = { 
+					card.ability.extra.chips, 
+					card.ability.extra.mult, 
+					numerator, denumerator, 
+					colours = { 
+						HEX('C2B9C7'), 
+						HEX('260336') 
+						} 
+					} 
+				}
+		end
+		return { 
+			vars = {
+				card.ability.extra.chips, 
+				card.ability.extra.mult, 			
+				numerator, denumerator, 
+				card.ability.extra.count,
+				card.ability.extra.max_c,
+				colours = { 
+					HEX('F0C590'), 
+					HEX('351A09') 
+					} 
+				} 
+			} 
+    end,
+	
+	set_sprites = function(self, card, front)
+		if card.ability and card.ability.tg.superior == true then
+			card.children.center:set_sprite_pos({x = 5, y = 2})
+		end
+	end,
+	
+    calculate = function(self, card, context)
+		local cloned = nil
+		if context.joker_main then
+			if SMODS.pseudorandom_probability(card, 'felijo_ins_revo', 1, card.ability.extra.odds) then
+				local new_card = FELIJO.copy_card(G.playing_cards[pseudorandom(pseudoseed('felijo_ins_revo'), 1, #G.playing_cards or 1)], nil, G.deck)
+				
+				if card.ability.extra.count >= card.ability.extra.max_c then
+					new_card:set_ability(superior_enhancement)
+				else
+					new_card:set_ability("c_base")
+				end
+				if card.ability.extra.count < card.ability.extra.max_c then
+					card.ability.extra.count = card.ability.extra.count + 1
+				end
+				G.E_MANAGER:add_event(Event({
+				delay = 0.1,
+                    func = function()
+                        new_card:start_materialize()
+						new_card:add_to_deck()
+                        return true
+                    end
+                }))
+				cloned = localize('k_felijo_cloned')
+			else
+				cloned = nil
+            end
+			
+			
+			if card.ability.extra.count >= card.ability.extra.max_c and not card.ability.tg.superior == true then
+				card.ability.tg.superior = true
+				card:juice_up()
+				card.children.center:set_sprite_pos({x = 5, y = 2})
+				play_sound('felijo_revo_transform', 1)
+			end
+			return {
+				mult = card.ability.extra.mult,
+				chips = card.ability.extra.chips,
+				message = (card.ability.extra.count < card.ability.extra.max_c) and
+                    (card.ability.extra.count .. '/' .. card.ability.extra.max_c) or
+                    cloned,
+			}
+		end
+	end,
+	
+    blueprint_compat = true,
+}

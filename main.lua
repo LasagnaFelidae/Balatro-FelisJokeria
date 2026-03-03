@@ -17,6 +17,8 @@ assert(SMODS.load_file("./modules/content/inscryption/vouchers.lua"))()
 
 -- TOGAStuff Content
 assert(SMODS.load_file("./modules/content/crossmod/togastuff.lua"))()
+-- RevosVault Content
+assert(SMODS.load_file("./modules/content/crossmod/revo.lua"))()
 -- AikoShen Letter Content
 assert(SMODS.load_file("./modules/content/crossmod/aikoshen.lua"))()
 assert(SMODS.load_file("./func/garf_dict.lua"))()

@@ -128,7 +128,7 @@ function G.UIDEF.use_and_sell_buttons(card)
 
         -- Cycle button row
         local cycle_button = wrapStockButton("x"..stock.mode[stock.mode_i], card, "cycle", nil, G.C.SUITS.Diamonds)
-        local cycle_row = { n = G.UIT.C, config = { align = "cr" }, nodes = { cycle_button } }
+        local cycle_row = { n = G.UIT.C, config = { align = "cr", one_press = true, }, nodes = { cycle_button } }
 
         return {
             n = G.UIT.ROOT,
@@ -277,7 +277,7 @@ G.FUNCS.cycle = function(e)
 end
 
 SMODS.Joker {
-    atlas = 'placeholder',
+    atlas = 'otherJokers',
     pos = { x = 0, y = 0 },
     pools = {["FelisJokeria"] = true, ["Money"] = true },
     key = "felijo_stock_exchange",
@@ -307,17 +307,17 @@ SMODS.Joker {
 			if center.ability.stock.mode[center.ability.stock.mode_i] == "ALL" then
 			return { vars = {
 				center.ability.stock.names[1], center.ability.stock.stock[1], center.ability.stock.price[1],center.ability.stock.stock[1] * center.ability.stock.price[1],
-				center.ability.stock.names[2], center.ability.stock.stock[2], center.ability.stock.price[2],center.ability.stock.stock[1] * center.ability.stock.price[2],
-				center.ability.stock.names[3], center.ability.stock.stock[3], center.ability.stock.price[3],center.ability.stock.stock[1] * center.ability.stock.price[3],
-				center.ability.stock.names[4], center.ability.stock.stock[4], center.ability.stock.price[4],center.ability.stock.stock[1] * center.ability.stock.price[4],
+				center.ability.stock.names[2], center.ability.stock.stock[2], center.ability.stock.price[2],center.ability.stock.stock[2] * center.ability.stock.price[2],
+				center.ability.stock.names[3], center.ability.stock.stock[3], center.ability.stock.price[3],center.ability.stock.stock[3] * center.ability.stock.price[3],
+				center.ability.stock.names[4], center.ability.stock.stock[4], center.ability.stock.price[4],center.ability.stock.stock[4] * center.ability.stock.price[4],
 				center.ability.stock.mode[center.ability.stock.mode_i], 
 				center.ability.stock.indicators[1],
 				center.ability.stock.indicators[2],
 				center.ability.stock.indicators[3],
 				center.ability.stock.indicators[4],
-				(#SMODS.find_card("j_oops") or 0) * 0.02,
+				(#SMODS.find_card("j_oops") or 0) * 0.2,
 				(G.GAME.round or 0) * 0.12,
-				0.02,
+				0.2,
 				0.12,
 				center.ability.stock.price[1] * math.floor((G.GAME.dollars - G.GAME.bankrupt_at) / center.ability.stock.price[1]),
 				center.ability.stock.price[2] * math.floor((G.GAME.dollars - G.GAME.bankrupt_at) / center.ability.stock.price[2]),
@@ -346,9 +346,9 @@ SMODS.Joker {
 				center.ability.stock.indicators[2], 
 				center.ability.stock.indicators[3], 
 				center.ability.stock.indicators[4], 
-				(#SMODS.find_card("j_oops") or 0) * 0.02,
+				(#SMODS.find_card("j_oops") or 0) * 0.04,
 				(G.GAME.round or 0) * 0.12,
-				0.02,
+				0.04,
 				0.12,
 				center.ability.stock.price[1] * center.ability.stock.mode[center.ability.stock.mode_i],
 				center.ability.stock.price[2] * center.ability.stock.mode[center.ability.stock.mode_i],
@@ -555,7 +555,7 @@ SMODS.Joker {
 			local roundsMod = (G.GAME.round or 0) * 0.12
 			local totalVol = s.volatility[i] + roundsMod
 			local randomChange = (rdm * 2 - 1) * s.volatility[i]
-			local oopsMod = (#SMODS.find_card("j_oops") or 0) * 0.02
+			local oopsMod = (#SMODS.find_card("j_oops") or 0) * 0.04
 			
 			local totalTrend = s.trend[i] + oopsMod
 			local totalChange = totalTrend + randomChange

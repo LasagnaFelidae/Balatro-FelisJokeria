@@ -16,7 +16,12 @@ SMODS.Atlas {
     px = 71,
     py = 95
 }
-
+SMODS.Atlas {
+	key = "otherJokers",
+	path = "jokers.png",
+	px = 71,
+	py = 95,
+}
 SMODS.Atlas {
     key = "aikoJokers",
     path = "crossmod/aikoshen.png",

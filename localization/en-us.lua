@@ -84,6 +84,17 @@ return {
 				},
 			
 			},
+			m_felijo_enh_sup = {
+				name = "Superior",
+				text = {
+					{
+						"Grants {C:attention}card rank{} multiplied by ",
+						"{X:chips,C:white}#1#{} xChips when played.",
+						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}1{C:inactive,s:0.8} xChips)"
+					},
+				},
+			
+			},
 		},
 		Blind = {
 			bl_felijo_ins_trader = {
@@ -242,7 +253,7 @@ return {
                 name = "{B:1,V:2,f:felijo_Feli5x8}T.O.G.A.",
                 text = {
 					{
-					"{C:chips}+#1#{} Chips, {X:mult,C:white}+#2#{} Mult",
+					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
                     "After playing {C:attention}#4#{} hands,",
@@ -370,6 +381,39 @@ return {
 					},
                 },
             },
+			
+			j_felijo_ins_revo = {
+                name = "{B:1,V:2,f:felijo_Feli5x8}Revo{}",
+                text = {
+					{
+					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
+					},
+					{
+					"{C:green}#3# in #4#{} chance to add a {C:enhanced}unenhanced{} copy",
+					"of a playing card to the deck",
+					},
+					{
+					"Once {C:attention}#6#{} cards have been copied, become {C:tarot}Superior{}",
+					"{C:inactive,s:0.8}(Currently {C:attention,s:0.8}#5#{C:inactive,s:0.8}/#6#){}{}{}"
+					},
+                },
+            },
+			
+			j_felijo_ins_revo_s = {
+                name = {
+				"{X:tarot,V:2,s:0.3}SUPERIOR{}",
+				"{B:1,V:2,f:felijo_Feli5x8}Revo{}",
+				},
+                text = {
+					{
+					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
+					},
+					{
+					"{C:green}#3# in #4#{} chance to add a {C:tarot}Superior{} copy",
+					"of a playing card to the deck,",
+					},
+                },
+            },
 			-- LEGENDARIES
 			
 			j_felijo_lgd_feli = {
@@ -402,6 +446,7 @@ return {
 				"{C:inactive}(Currently {}{C:chips}+#3#{}{C:inactive} Chips.)"
 			  }
 			},
+			
 			j_felijo_stock_exchange = {
 			  name = {
 			  "{C:diamonds}CATS{} Stock Exchange",
@@ -486,6 +531,8 @@ return {
     misc = {
 		challenge_names = {
 			c_felijo_ins_mycologist_1 = "The Mycologists' Challenge",
+			c_felijo_stock_1 = "Portfolio",
+			c_felijo_stock_2 = "Insider Trading",
 		},
         achievement_names={
             --ach_felijo_spell_aikoyori = "Unfortunately Aikoyori is not real",
@@ -498,9 +545,11 @@ return {
 			k_felijo_lvl_succ = "Level up!",
 			k_felijo_nope_succ = "Nope!",
 			k_felijo_lowered_succ = "Lowered!",
+			k_felijo_cloned = "Cloned!",
 			k_felijo_pelt = "Pelt Card",
 			k_felijo_olddata = "OLD_DATA",
 			k_felijo_terrain = "Terrain Card",
+			k_felijo_revo = "Revo's Vault",
 			k_felijo_toga = "TOGA's Stuff",
 			k_felijo_ins = "Inscryption",
 			k_felijo_loic1 = "Charging...",
@@ -522,6 +571,7 @@ return {
 			felijo_plt_bny = "Bunny Pelt",
 			felijo_plt_olddata = "OLD_DATA",
 			felijo_trn_goldn = "Gold Nugget",
+			felijo_enh_sup = "Superior",
 		},
     },
 }
