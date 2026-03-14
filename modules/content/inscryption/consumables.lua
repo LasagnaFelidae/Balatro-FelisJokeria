@@ -13,7 +13,7 @@ SMODS.ConsumableType {
     primary_colour = HEX('B9DDAE'),
     secondary_colour = HEX('8FAA86'),
     collection_rows = { 5, 6 },
-    shop_rate = 0.4
+    shop_rate = 0.5
 }
 
 local upgradablelist = {
@@ -92,7 +92,6 @@ end
 
 
 FELIJO.Consumable {
-
     key = 'ins_campfire',
     set = 'felijo_ritual',
 	atlas= 'inscryptionCons',

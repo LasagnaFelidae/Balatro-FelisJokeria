@@ -10,7 +10,7 @@ FELIJO.T3 = SMODS.Consumable:extend{
        return true
     end,
 	soul_set = "Tarot",
-	soul_rate = 0.3,
+	soul_rate = 0.2,
 }
 FELIJO.T4 = SMODS.Consumable:extend{
     in_pool = function (self, args)
@@ -255,7 +255,7 @@ FELIJO.T3 {
 FELIJO.T3 {
     key = 't3_ascended',
     set = 'felijo_tier3_tarot',
-	atlas = 't2Tarots',
+	atlas = 't3Tarots',
 	discovered = true,
 	unlocked = true,
     pos = { x = 2, y = 2 },
