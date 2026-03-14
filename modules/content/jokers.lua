@@ -1,3 +1,4 @@
+--[[
 local G_UIDEF_use_and_sell_buttons_ref = G.UIDEF.use_and_sell_buttons
 
 function G.UIDEF.use_and_sell_buttons(card)
@@ -598,3 +599,4 @@ SMODS.Joker {
 
 
 
+]]

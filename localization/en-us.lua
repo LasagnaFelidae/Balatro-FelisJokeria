@@ -1,6 +1,242 @@
 return {
     descriptions = {
 		Enhanced = {
+			m_felijo_scoretest_t2 = {
+                name = "scoretest",
+                text = {
+                    "Score: {C:chips}#1#{} (+#2#)",
+					"Held Score: {C:chips}#3#{} (+#4#)",
+					"xScore: {C:chips}#5#{} (+#6#)",
+					"Held xScore: {C:chips}#7#{} (+#8#)",
+					"BScore: {C:chips}#9#{} (+#10#)",
+					"Held BScore: {C:chips}#11#{} (+#12#)",
+					"xBScore: {C:chips}#13#{} (+#14#)",
+					"Held xBScore: {C:chips}#15#{} (+#16#)",
+					
+                },
+            },
+			m_felijo_bonus_t2 = {
+                name = "Bonus Card [II]",
+                text = {
+                    "{C:chips}+#1#{} extra chips",
+                },
+            },
+			m_felijo_bonus_t3 = {
+                name = "Bonus Card [III]",
+                text = {
+                    "{C:chips}+#1#{} extra chips",
+                },
+            },
+			m_felijo_bonus_t4 = {
+                name = "Bonus Card [IV]",
+                text = {
+                    "{C:chips}+#1#{} extra chips",
+                },
+            },
+            m_felijo_glass_t2 = {
+                name = "Glass Card [II]",
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult",
+                    "{C:green}#2# in #3#{} chance to",
+                    "destroy card",
+                },
+            },
+			m_felijo_glass_t3 = {
+                name = "Glass Card [III]",
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult",
+                    "{C:green}#2# in #3#{} chance to",
+                    "destroy card",
+                },
+            },
+			m_felijo_glass_t4 = {
+                name = "Glass Card [IV]",
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult",
+                    "{C:green}#2# in #3#{} chance to",
+                    "destroy card",
+                },
+            },
+            m_felijo_gold_t2 = {
+                name = "Gold Card [II]",
+                text = {
+					{
+						"{C:money}$#1#{} if this",
+						"card is held in hand",
+						"at end of round",
+					},
+					{
+						"Earn {C:money}$#2#{} when this",
+						"card is played",
+						"and scores",
+					}
+				}
+            },
+			m_felijo_gold_t3 = {
+                name = "Gold Card [III]",
+                text = {
+					{
+						"{C:money}$#1#{} if this",
+						"card is held in hand",
+						"at end of round",
+					},
+					{
+						"Earn {C:money}$#2#{} when this",
+						"card is played",
+						"and scores",
+					}
+				}
+            },
+			m_felijo_gold_t4 = {
+                name = "Gold Card [IV]",
+                text = {
+					{
+						"{C:money}$#1#{} if this",
+						"card is held in hand",
+						"at end of round",
+					},
+					{
+						"Earn {C:money}$#2#{} when this",
+						"card is played",
+						"and scores",
+					}
+				}
+            },
+            m_felijo_lucky_t2 = {
+                name = "Lucky Card [II]",
+                text = {
+                    "{C:green}#1# in #4#{} chance",
+                    "for {C:mult}+#3#{} Mult",
+					"{C:green}#7# in #8#{} chance",
+                    "for {C:chips}+#9#{} Chips",
+                    "{C:green}#2# in #6#{} chance",
+                    "to win {C:money}$#5#",
+                },
+            },
+			m_felijo_lucky_t3 = {
+                name = "Lucky Card [III]",
+                text = {
+                    "{C:green}#1# in #4#{} chance",
+                    "for {C:mult}+#3#{} Mult",
+					"{C:green}#7# in #8#{} chance",
+                    "for {C:chips}+#9#{} Chips",
+                    "{C:green}#2# in #6#{} chance",
+                    "to win {C:money}$#5#",
+                },
+            },
+			m_felijo_lucky_t4 = {
+                name = "Lucky Card [IV]",
+                text = {
+                    "{C:green}#1# in #4#{} chance",
+                    "for {C:mult}+#3#{} Mult",
+					"{C:green}#7# in #8#{} chance",
+                    "for {C:chips}+#9#{} Chips",
+                    "{C:green}#2# in #6#{} chance",
+                    "to win {C:money}$#5#",
+                },
+            },
+            m_felijo_mult_t2 = {
+                name = "Mult Card [II]",
+                text = {
+                    "{C:mult}+#1#{} Mult",
+                },
+            },
+			m_felijo_mult_t3 = {
+                name = "Mult Card [III]",
+                text = {
+                    "{C:mult}+#1#{} Mult",
+                },
+            },
+			m_felijo_mult_t4 = {
+                name = "Mult Card [IV]",
+                text = {
+                    "{C:mult}+#1#{} Mult",
+                },
+            },
+            m_felijo_steel_t2 = {
+                name = "Steel Card [II]",
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult",
+                    "while this card",
+                    "stays in hand",
+                },
+            },
+			m_felijo_steel_t3 = {
+                name = "Steel Card [III]",
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult,",
+                    "while this card",
+                    "stays in hand",
+                },
+            },
+			m_felijo_steel_t4 = {
+                name = "Steel Card [IV]",
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult,",
+                    "while this card",
+                    "stays in hand",
+                },
+            },
+            m_felijo_stone_t2 = {
+                name = "Stone Card [II]",
+                text = {
+                    "{C:chips}+#1#{} Chips",
+                    "no rank or suit",
+                },
+            },
+			m_felijo_stone_t3 = {
+                name = "Stone Card [III]",
+                text = {
+                    "{C:chips}+#1#{} Chips,",
+					"{C:mult}+#2#{} Mult,",
+                    "no rank or suit",
+                },
+            },
+			m_felijo_stone_t4 = {
+                name = "Stone Card [IV]",
+                text = {
+                    "{C:chips}+#1#{} Chips,",
+					"{C:mult}+#2#{} Mult,",
+                    "no rank or suit",
+                },
+            },
+			m_felijo_enh_sup = {
+				name = "Superior Card",
+				text = {
+					{
+						"{X:chips,C:white}#1#%{} of {C:attention}card rank{} as xChips",
+						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}x1{C:inactive,s:0.8} xChips)"
+					},
+				},
+			
+			},
+			m_felijo_enh_sup_t2 = {
+                name = "Superior Card [II]",
+                text = {
+					{
+						"{X:chips,C:white}#1#%{} of {C:attention}card rank{} as xChips",
+						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}x1{C:inactive,s:0.8} Chips)"
+					},
+				},
+            },
+			m_felijo_enh_sup_t3 = {
+                name = "Superior Card [III]",
+                text = {
+					{
+						"{X:chips,C:white}#1#%{} of {C:attention}card rank{} as xChips",
+						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}x1{C:inactive,s:0.8} Chips)"
+					},
+				},
+            },
+			m_felijo_enh_sup_t4 = {
+                name = "Superior Card [IV]",
+                text = {
+					{
+						"{X:chips,C:white}#1#%{} of {C:attention}card rank{} as xChips",
+						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}x1{C:inactive,s:0.8} Chips)"
+					},
+				},
+            },
 			m_felijo_plt_gold = {
 				name = "{B:1,V:2}Gold Pelt",
 				text = {
@@ -95,6 +331,7 @@ return {
 				},
 			
 			},
+
 		},
 		Blind = {
 			bl_felijo_ins_trader = {
@@ -144,6 +381,138 @@ return {
 		
 		},
         Joker = {
+		-- ROBLOX
+		-- ROBLOX
+			j_felijo_rbx_pizza = {
+                name = "Pepperoni Pizza",
+                text = {
+                    "{C:chips}+#1#{} Chips,",
+                    "{C:chips}-#2#{} Chips for",
+                    "every hand played",
+                },
+            },
+			j_felijo_rbx_burrito = {
+                name = "RobloTim's Chavez Burrito",
+                text = {
+                    "{C:mult}+#1#{} Mult,",
+                    "{C:mult}-#2#{} Mult for",
+                    "every hand played",
+                },
+            },
+			j_felijo_rbx_turkey = {
+                name = "Turkey Leg",
+                text = {
+                    "{X:mult,C:white}X#1#{} Mult,",
+                    "reduces by {X:mult,C:white}-#2#{}",
+                    "every round",
+                },
+            },
+			j_felijo_rbx_cheezburger = {
+                name = "Cheezburger",
+                text = {
+                    "{X:chips,C:white}X#1#{} Chips,",
+                    "reduces by {X:chips,C:white}-#2#{}",
+                    "every round",
+                },
+            },
+			j_felijo_rbx_sandwich = {
+                name = "Space Sandwich",
+                text = {
+                    "{C:chips}+#1#{} Chips for each",
+					"empty {C:attention}Joker{} slot,",
+                    "reduces by {C:chips}-#2#{}",
+                    "every round",
+					"{C:inactive}(Currently {C:chips}+#3#{C:inactive})",
+					"{C:inactive,s:0.8}(Space Sandwich included)",
+                },
+            },
+			j_felijo_rbx_epic = {
+                name = "Epic Sauce",
+                text = {
+                    "Retrigger {C:attention}#1#{} time(s)",
+					"each {C:attention}scored card{},",
+                    "increases by {C:attention}+#2#{}",
+                    "every round",
+					"{s:0.8,C:inactive}(Consumed when the score is on fire)",
+                },
+            },
+			j_felijo_rbx_bloxy = {
+                name = "Bloxy Cola",
+				text = {
+                    "{C:mult}+#1#{} discards,",
+                    "reduces by {C:mult}-#2#{}",
+                    "every round",
+                },
+                
+            },
+			j_felijo_rbx_pumpkinpi = {
+                name = "Pumpkin Pi",
+				text = {
+                    "{C:chips}+#1#{} hand size,",
+                    "reduces by {C:chips}-#2#{}",
+                    "every #4# rounds",
+					"{C:inactive}(Currently {C:attention}#3#{C:inactive}/#4#)",
+                },
+                
+            },
+			j_felijo_rbx_vendingmachine = {
+                name = "Vending Machine",
+                text = {
+					{
+                    "When entering a blind,",
+                    "get a random {C:red}ROBLOX{}",
+					"{C:attention}Food Joker",
+                    "{C:inactive}(Must have room){}",
+					"{C:inactive,s:0.8}(Goes out of order in {C:attention,s:0.8}#1#{C:inactive,s:0.8} rounds)",
+					},
+                },
+                
+            },
+			j_felijo_rbx_brew = {
+                name = "Witches\' Brew",
+                text = {
+					{
+                    "{C:enhanced}+#1#{} selection limit,",
+                    "reduces by {C:planet,E:felijo_pink}-#2#{}",
+					"every round",
+					},
+					{
+					"Changing {C:enhanced}selection limit{}",
+					"also affects {C:blue}play{}",
+					"and {C:red}discard{} hand limit"
+					},
+                },
+            },
+			j_felijo_rbx_copy = {
+                name = "Copy Tool",
+                text = {
+                    "When entering a blind,",
+                    "copy a random {C:attention}Joker.",
+                    "{C:inactive}(Must have room){}",
+                },
+            },
+			j_felijo_rbx_delete = {
+                name = "Delete Tool",
+                text = {
+                    "Delete a random amount of jokers then",
+					"gain {X:red,C:white}x#2#{} Mult",
+					"per deleted Joker",
+                    "at the end of a round.",
+                    "{C:inactive}(Currently {X:red,C:white}x#1#{C:inactive})",
+					"{C:inactive,s:0.8}(Slight chance of deleting everything)",
+                },
+            },
+			j_felijo_rbx_drag = {
+                name = "Drag Tool",
+                text = {
+                    "When dragged {C:attention}around{},",
+					"gain {C:wchips}Chips",
+                    "Maximum chips increase every ante",
+                    "{C:inactive}(Currently {C:blue}+#1#{C:inactive}/#2#)",
+                },
+            },
+			
+			
 		-- LETTERJOKERS
 		-- LETTERJOKERS
 		-- LETTERJOKERS
@@ -201,8 +570,8 @@ return {
 			j_felijo_ltr_cleanslate = {
                 name = "Clean Slate",
                 text = { 
-                    "Gain {C:chips}+#1#{} Chips and {C:money}$#2#{}",
-                    "if {C:attention}all{} cards in {C:attention}hand{} are {C:attention}scored{}"
+                    "{C:chips}+#1#{} Chips and {C:money}$#2#{}",
+                    "if the {C:attention}entire hand{} is {C:attention}played{} and {C:attention}scored"
                 }
             },
 
@@ -278,12 +647,12 @@ return {
 					"{X:chips,C:white}X#1#{} Chips, {X:mult,C:white}X#2#{} Mult",
 					},
 					{
-                    "When {C:red}sacrificed{}, create a copy that",
+                    "When {C:red}destroyed{}, create a copy that",
                     "gains {X:edition, C:white}+#3#{} {C:chips}xChips{} and {C:mult}xMult{} ",
 					},
 					{
 					"After {C:attention}#5#{} rounds, selling",
-					"counts as a {C:red}sacrifice{}.",
+					"counts as {C:red}destroying{} the card",
                     "{C:inactive}(Currently {C:attention}#4#{C:inactive}/#5#)",
 					}
                 },
@@ -409,8 +778,16 @@ return {
 					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-					"{C:green}#3# in #4#{} chance to add a {C:tarot}Superior{} copy",
+					"{C:green}#3# in #4#{} chance to add a",
+					"tiered {C:tarot}Superior{} copy",
 					"of a playing card to the deck,",
+					},
+					{
+					"Superior Tier chance is fixed.",
+					"{X:tarot,C:white}Tier 4{} : {C:green}5%{}",
+					"{X:tarot,C:white}Tier 3{} : {C:green}10%{}",
+					"{X:tarot,C:white}Tier 2{} : {C:green}20%{}",
+					"{X:tarot,C:white}Tier 1{} : {C:green}65%{}",
 					},
                 },
             },
@@ -442,7 +819,7 @@ return {
 			  text = { 
 				"Gains {C:chips}+#1#{} Chips",
 				"if {C:attention}#2#{} or more suits",
-				"have scored.",
+				"have been scored.",
 				"{C:inactive}(Currently {}{C:chips}+#3#{}{C:inactive} Chips.)"
 			  }
 			},
@@ -509,9 +886,295 @@ return {
 				name = "Stitched Card",
 				text = {
 				"The card has been brutally stitched",
-				"together by {C:clubs, E:1}The Mycologists{}."
+				"together by {C:clubs,E:1}The Mycologists{}."
 				},
 			},
+			felijo_stk_subspace = {
+				name = "Subspaced Card",
+				text = {
+				"The card has been tinted",
+				"{C:clubs,E:felijo_pink}pink{} by {C:clubs,E:felijo_pink}Subspace Tripmine{}.",
+				"{C:chips}+100{} chips when held."
+				},
+			},
+			felijo_stk_copied = {
+				name = "Copied Card",
+				text = {
+				"Disappears at the end of the round."
+				},
+			},
+			
+			felijo_perma_score = {
+                text = {
+                    "{C:diamonds}#1#{} Score",
+                },
+            },
+            felijo_perma_h_score = {
+                text = {
+                    "{C:diamonds}#1#{} Score if held in hand",
+                },
+            },
+            felijo_perma_xscore = {
+                text = {
+                    "{X:diamonds,C:white}X#1#{} Score",
+                },
+            },
+            felijo_perma_h_xscore = {
+                text = {
+                    "{X:diamonds,C:white}X#1#{} Score if held in hand",
+                },
+            },
+			felijo_perma_bscore = {
+                text = {
+                    "{C:gold}#1#{} Blind Req.",
+                },
+            },
+            felijo_perma_h_bscore = {
+                text = {
+                    "{C:gold}#1#{} Blind Req. if held in hand",
+                },
+            },
+            felijo_perma_xbscore = {
+                text = {
+                    "{X:gold,C:white}X#1#{} Blind Req.",
+                },
+            },
+            felijo_perma_h_xbscore = {
+                text = {
+                    "{X:gold,C:white}X#1#{} Blind Req. if held in hand",
+                },
+            },
+			felijo_perma_xbscore_perc = {
+                text = {
+                    "{X:gold,C:white}-#1#%{} Blind Req.",
+                },
+            },
+            felijo_perma_h_xbscore_perc = {
+                text = {
+                    "{X:gold,C:white}-#1#%{} Blind Req. if held in hand",
+                },
+            },
+			
+		},
+		felijo_ritual = {
+			c_felijo_ins_campfire = {
+				name = "Campfire",
+				text = {
+					"Upgrade {C:attention}#1#{} selected card\'s",
+					"{C:enhanced}enhancement{} to the {C:attention}next tier{}",
+					"Has a {C:red}#3#%{} chance to",
+					"{C:red}destroy{} the card instead",
+					"{C:inactive,s:0.8}(Chance scales with {C:enhanced,s:0.8}Enhancement {C:inactive,s:0.8}Tier)",
+				},
+			},
+		},
+		Tarot = {
+			c_felijo_ascended = {
+                name = "The Ascended",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+		},
+		felijo_tier2_tarot = {
+			c_felijo_t2_ascended = {
+                name = "The Ascended [II]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t2_chariot = {
+                name = "The Chariot [II]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t2_devil = {
+                name = "The Devil [II]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+            c_felijo_t2_empress = {
+                name = "The Empress [II]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t2_heirophant = {
+                name = "The Hierophant [II]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t2_justice = {
+                name = "Justice [II]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t2_tower = {
+                name = "The Tower [II]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t2_magician = {
+                name = "The Magician [II]",
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+		},
+		felijo_tier3_tarot = {
+			c_felijo_t3_ascended = {
+                name = "The Ascended [III]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t3_chariot = {
+                name = "The Chariot [III]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t3_devil = {
+                name = "The Devil [III]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+            c_felijo_t3_empress = {
+                name = "The Empress [III]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t3_heirophant = {
+                name = "The Hierophant [III]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t3_justice = {
+                name = "Justice [III]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t3_tower = {
+                name = "The Tower [III]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t3_magician = {
+                name = "The Magician [III]",
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+		},
+		felijo_tier4_tarot = {
+			c_felijo_t4_ascended = {
+                name = "The Ascended [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t4_chariot = {
+                name = "The Chariot [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t4_devil = {
+                name = "The Devil [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+            c_felijo_t4_empress = {
+                name = "The Empress [IV]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t4_heirophant = {
+                name = "The Hierophant [IV]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t4_justice = {
+                name = "Justice [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t4_tower = {
+                name = "The Tower [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t4_magician = {
+                name = "The Magician [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
 		},
         --Partner = {
         --    pnr_felijo_aikoyori = {
@@ -552,26 +1215,55 @@ return {
 			k_felijo_revo = "Revo's Vault",
 			k_felijo_toga = "TOGA's Stuff",
 			k_felijo_ins = "Inscryption",
+			k_felijo_rbx = "ROBLOX",
 			k_felijo_loic1 = "Charging...",
 			k_felijo_loic2 = "Ready!",
 			k_felijo_loic3 = "Beamed!",
 			k_felijo_loic4 = "Cooling down...",
 			k_felijo_loic5 = "Cooled down!",
+			b_felijo_ritual_cards = "Ritual Cards",
+			k_felijo_ritual = "Ritual",
+			b_felijo_tier2_tarot_cards = "Tarot Cards [II]",
+			b_felijo_tier3_tarot_cards = "Tarot Cards [III]",
+			b_felijo_tier4_tarot_cards = "Tarot Cards [IV]",
+			k_felijo_tier2_tarot = "Tier 2 Tarot",
+			k_felijo_tier3_tarot = "Tier 3 Tarot",
+			k_felijo_tier4_tarot = "Tier 4 Tarot",
+			k_felijo_score_mult_pre = "x",
+            k_felijo_score_mult_append = " Score",
+			k_felijo_bscore_mult_pre = "x",
+            k_felijo_bscore_mult_append = " Blind Req.",
 			
 			
 		},
+		v_dictionary={
+            k_felijo_score_add="+#1# Score",
+            k_felijo_score_x="X#1# Score",
+            k_felijo_score_exp="^#1# Score",
+            k_felijo_score_minus="-#1# Score",
+			k_felijo_bscore_add="+#1# Blind Req.",
+            k_felijo_bscore_x="X#1# Blind Req.",
+			k_felijo_bscore_perc="-#1#% Blind Req.",
+            k_felijo_bscore_exp="^#1# Blind Req.",
+            k_felijo_bscore_minus="#1# Blind Req.",
+        },
 		labels = {
 			felijo_sgl_bifurcated = "Bifurcated Strike",
 			felijo_sgl_trifurcated = "Trifurcated Strike",
 			felijo_sgl_brittle = "Brittle",
 			felijo_sgl_tail = "Loose Tail",
 			felijo_stk_stitched = "Stitched Card",
+			felijo_stk_subspace = "Subspaced Card",
 			felijo_plt_gold = "Gold Pelt",
 			felijo_plt_wlf = "Wolf Pelt",
 			felijo_plt_bny = "Bunny Pelt",
 			felijo_plt_olddata = "OLD_DATA",
 			felijo_trn_goldn = "Gold Nugget",
 			felijo_enh_sup = "Superior",
+			felijo_ritual = "Ritual",
+			felijo_tier2_tarot = "Tier 2 Tarot",
+			felijo_tier3_tarot = "Tier 3 Tarot",
+			felijo_tier4_tarot = "Tier 4 Tarot",
 		},
     },
 }

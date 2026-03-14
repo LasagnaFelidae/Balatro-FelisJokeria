@@ -1,0 +1,229 @@
+[manifest]
+version = "1.2"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = """        perma_h_dollars = self.ability and self.ability.perma_h_dollars or 0,"""
+position = "after"
+payload = """felijo_perma_score = self.ability and self.ability.felijo_perma_score or 0,
+felijo_perma_h_score = self.ability and self.ability.felijo_perma_h_score or 0,
+felijo_perma_xscore = self.ability and self.ability.felijo_perma_xscore or 1,
+felijo_perma_h_xscore = self.ability and self.ability.felijo_perma_h_xscore or 1,
+felijo_perma_bscore = self.ability and self.ability.felijo_perma_bscore or 0,
+felijo_perma_h_bscore = self.ability and self.ability.felijo_perma_h_bscore or 0,
+felijo_perma_xbscore = self.ability and self.ability.felijo_perma_xbscore or 1,
+felijo_perma_h_xbscore = self.ability and self.ability.felijo_perma_h_xbscore or 1,
+"""
+overwrite = true
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = """                    bonus_x_chips = self.ability.perma_x_chips ~= 0 and (self.ability.perma_x_chips + 1) or nil,"""
+position = "after"
+payload = """felijo_perma_score = self.ability.felijo_perma_score ~= 0 and (self.ability.felijo_perma_score) or nil,
+felijo_perma_h_score = self.ability.felijo_perma_h_score ~= 0 and (self.ability.felijo_perma_h_score) or nil,
+felijo_perma_xscore = self.ability.felijo_perma_xscore ~= 1 and (self.ability.felijo_perma_xscore) or nil,
+felijo_perma_h_xscore = self.ability.felijo_perma_h_xscore ~= 1 and (self.ability.felijo_perma_h_xscore) or nil,
+felijo_perma_bscore = self.ability.felijo_perma_bscore ~= 0 and (self.ability.felijo_perma_bscore) or nil,
+felijo_perma_h_bscore = self.ability.felijo_perma_h_bscore ~= 0 and (self.ability.felijo_perma_h_bscore) or nil,
+felijo_perma_xbscore = self.ability.felijo_perma_xbscore ~= 1 and (self.ability.felijo_perma_xbscore) or nil,
+felijo_perma_h_xbscore = self.ability.felijo_perma_h_xbscore ~= 1 and (self.ability.felijo_perma_h_xbscore) or nil,
+"""
+overwrite = true
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = """        -- TARGET: main scoring on played cards"""
+position = "before"
+payload = """
+
+local felijo_score = card:felijo_get_perma_score()
+if felijo_score ~= 0 then
+    ret.playing_card.felijo_score = felijo_score
+end
+local felijo_xscore = card:felijo_get_perma_xscore()
+if felijo_xscore ~= 1 then
+    ret.playing_card.felijo_xscore = felijo_xscore
+end
+local felijo_bscore = card:felijo_get_perma_bscore()
+if felijo_bscore ~= 0 then
+    ret.playing_card.felijo_bscore = felijo_bscore
+end
+local felijo_xbscore = card:felijo_get_perma_xbscore()
+if felijo_xbscore ~= 1 then
+    ret.playing_card.felijo_xbscore = felijo_xbscore
+end
+"""
+overwrite = true
+match_indent = true
+
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = """        -- TARGET: main scoring on held cards"""
+position = "before"
+payload = """
+local felijo_h_score = card:felijo_get_perma_h_score()
+if felijo_h_score ~= 0 then
+    ret.playing_card.felijo_h_score = felijo_h_score
+end
+local felijo_h_xscore = card:felijo_get_perma_h_xscore()
+if felijo_h_xscore ~= 1 then
+    ret.playing_card.felijo_h_xscore = felijo_h_xscore
+end
+
+local felijo_h_bscore = card:felijo_get_perma_h_bscore()
+if felijo_h_bscore ~= 0 then
+    ret.playing_card.felijo_h_bscore = felijo_h_bscore
+end
+local felijo_h_xbscore = card:felijo_get_perma_h_xbscore()
+if felijo_h_xbscore ~= 1 then
+    ret.playing_card.felijo_h_xbscore = felijo_h_xbscore
+end
+"""
+overwrite = true
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = """    if specific_vars and specific_vars.bonus_h_dollars then
+        localize{type = 'other', key = 'card_extra_h_dollars', nodes = desc_nodes, vars = {SMODS.signed_dollars(specific_vars.bonus_h_dollars)}}
+    end"""
+position = "after"
+payload = """
+if specific_vars and specific_vars.felijo_perma_score then
+    localize{type = 'other', key = 'felijo_perma_score', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.felijo_perma_score)}}
+end
+if specific_vars and specific_vars.felijo_perma_h_score then
+    localize{type = 'other', key = 'felijo_perma_h_score', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.felijo_perma_h_score)}}
+end
+if specific_vars and specific_vars.felijo_perma_xscore then
+    localize{type = 'other', key = 'felijo_perma_xscore', nodes = desc_nodes, vars = {(specific_vars.felijo_perma_xscore)}}
+end
+if specific_vars and specific_vars.felijo_perma_h_xscore then
+    localize{type = 'other', key = 'felijo_perma_h_xscore', nodes = desc_nodes, vars = {(specific_vars.felijo_perma_h_xscore)}}
+end
+if specific_vars and specific_vars.felijo_perma_bscore then
+    localize{type = 'other', key = 'felijo_perma_bscore', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.felijo_perma_bscore)}}
+end
+if specific_vars and specific_vars.felijo_perma_h_bscore then
+    localize{type = 'other', key = 'felijo_perma_h_bscore', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.felijo_perma_h_bscore)}}
+end
+if specific_vars and specific_vars.felijo_perma_xbscore then
+    local raw = specific_vars.felijo_perma_xbscore
+    local key_to_use = 'felijo_perma_xbscore'
+    local var_value = raw
+
+    -- Decide to show percentage when raw is small
+    if raw < 1 then
+        key_to_use = 'felijo_perma_xbscore_perc'
+        var_value = (1 - raw) * 100
+
+    end
+
+    localize{
+        type = 'other',
+        key = key_to_use,
+        nodes = desc_nodes,
+        vars = {var_value}
+    }
+end
+
+if specific_vars and specific_vars.felijo_perma_h_xbscore then
+    local raw_h = specific_vars.felijo_perma_h_xbscore
+    local key_h = 'felijo_perma_h_xbscore'
+    local var_h = raw_h
+
+    if raw_h < 1 then
+        key_h = 'felijo_perma_h_xbscore_perc'
+        var_h = (1 - raw_h) * 100
+    end
+
+    localize{
+        type = 'other',
+        key = key_h,
+        nodes = desc_nodes,
+        vars = {var_h}
+    }
+end
+"""
+overwrite = true
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/game_object.lua"]'
+pattern = """            if specific_vars and specific_vars.bonus_h_dollars then
+                localize{type = 'other', key = 'card_extra_h_dollars', nodes = desc_nodes, vars = {SMODS.signed_dollars(specific_vars.bonus_h_dollars)}}
+            end"""
+position = "after"
+payload = """
+if specific_vars and specific_vars.felijo_perma_score then
+    localize{type = 'other', key = 'felijo_perma_score', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.felijo_perma_score)}}
+end
+if specific_vars and specific_vars.felijo_perma_h_score then
+    localize{type = 'other', key = 'felijo_perma_h_score', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.felijo_perma_h_score)}}
+end
+if specific_vars and specific_vars.felijo_perma_xscore then
+    localize{type = 'other', key = 'felijo_perma_xscore', nodes = desc_nodes, vars = {(specific_vars.felijo_perma_xscore)}}
+end
+if specific_vars and specific_vars.felijo_perma_h_xscore then
+    localize{type = 'other', key = 'felijo_perma_h_xscore', nodes = desc_nodes, vars = {(specific_vars.felijo_perma_h_xscore)}}
+end
+if specific_vars and specific_vars.felijo_perma_score then
+    localize{type = 'other', key = 'felijo_perma_bscore', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.felijo_perma_bscore)}}
+end
+if specific_vars and specific_vars.felijo_perma_h_score then
+    localize{type = 'other', key = 'felijo_perma_h_bscore', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.felijo_perma_h_bscore)}}
+end
+if specific_vars and specific_vars.felijo_perma_xbscore then
+    local raw = specific_vars.felijo_perma_xbscore
+    local key_to_use = 'felijo_perma_xbscore'
+    local var_value = raw
+
+    -- Decide to show percentage when raw is small
+    if raw < 1 then
+        key_to_use = 'felijo_perma_xbscore_perc'
+        var_value = (1 - raw) * 100
+
+    end
+
+    localize{
+        type = 'other',
+        key = key_to_use,
+        nodes = desc_nodes,
+        vars = {var_value}
+    }
+end
+
+if specific_vars and specific_vars.felijo_perma_h_xbscore then
+    local raw_h = specific_vars.felijo_perma_h_xbscore
+    local key_h = 'felijo_perma_h_xbscore'
+    local var_h = raw_h
+
+    if raw_h < 1 then
+        key_h = 'felijo_perma_h_xbscore_perc'
+        var_h = math.max(1, math.floor(raw_h * 10 + 0.5))
+    end
+
+    localize{
+        type = 'other',
+        key = key_h,
+        nodes = desc_nodes,
+        vars = {var_h}
+    }
+end
+"""
+overwrite = true
+match_indent = true

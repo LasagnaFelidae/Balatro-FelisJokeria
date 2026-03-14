@@ -21,7 +21,7 @@ FELIJO.TOGAJoker {
         return { vars = {card.ability.extra.change, card.ability.extra.suits, card.ability.extra.chips} }
     end,
     calculate = function(self, card, context)
-        if context.joker_main and #context.scoring_hand > 1 then
+        if context.joker_main and #context.scoring_hand >= 1 then
             local suit_t = {}
 			local suits = 0
 			for _, _card in pairs(context.scoring_hand) do

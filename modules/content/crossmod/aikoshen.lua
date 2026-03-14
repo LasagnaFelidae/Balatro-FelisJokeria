@@ -1,9 +1,20 @@
 ---@type SMODS.Joker
+local as_disabled = false
+if FELIJO.is_mod_loaded("aikoyorisshenanigans") then
+	as_disabled = false
+else
+	as_disabled = true
+end
+
+
 FELIJO.LetterJoker = SMODS.Joker:extend{
     akyrs_is_letter = true,
     in_pool = function (self, args)
         return G.GAME.akyrs_character_stickers_enabled and G.GAME.akyrs_wording_enabled or false
-    end
+    end,
+	no_collection = as_disabled,
+	unlocked = true,
+	discovered = true,
 }
 
 
@@ -15,7 +26,8 @@ FELIJO.LetterJoker {
     atlas = 'aikoJokers',
     pos = { x = 5, y = 0 },
 	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
-    unlocked = true,
+	unlocked = true,
+	discovered = true,
     blueprint_compat = true,
     rarity = 1,
     cost = 6,

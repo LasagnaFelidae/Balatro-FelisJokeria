@@ -5,6 +5,14 @@ local PRONOUNS = { "neutral", "masculine", "feminine", "masculine", "neutral",
 
 local superior_enhancement = "m_felijo_enh_sup"
 
+
+local superior_tiers = {
+    {"m_felijo_enh_sup_t4", 1},
+    {"m_felijo_enh_sup_t3", 2},
+    {"m_felijo_enh_sup_t2", 4},
+    {G.superior_enhancement, 13},
+}
+
 if FELIJO.is_mod_loaded("RevosVault") and SMODS.Mods["RevosVault"].config and SMODS.Mods["RevosVault"].config.superior_enabled == true then
 	superior_enhancement = "m_crv_superiore"
 else
@@ -56,6 +64,24 @@ SMODS.Joker { -- Common, loose tail
     blueprint_compat = true,
 }
 
+local function number_to_pip(n)
+    if n == 14 or n == 1 then return "A"
+    elseif n == 13 then return "K"
+    elseif n == 12 then return "Q"
+    elseif n == 11 then return "J"
+    else return tostring(math.floor(n))
+    end
+end
+				
+local function rank_to_chips(n)
+	if n == 14 or n == 1 then return 11
+    elseif n <= 13 and n >= 11 then return 10
+    else return tostring(math.floor(n))
+    end
+end
+				
+
+
 SMODS.Joker { -- Uncommon Aiko
     atlas = 'inscryptionJokers',
     pos = { x = 1, y = 0},
@@ -68,6 +94,8 @@ SMODS.Joker { -- Uncommon Aiko
 	},
     key = "felijo_ins_aiko",
 	pronouns = "any_all",
+	unlocked = true,
+	discovered = true,
     rarity = 2,
     cost = 8,
 	config = { extra = { xchips = 1, chips = 17, mult = 6} },
@@ -131,6 +159,8 @@ if CardPronouns then  -- Uncommon LilyFelli
 		},
 		key = "felijo_ins_lilyfelli",
 		pronouns = "she_her",
+		unlocked = true,
+		discovered = true,
 		rarity = 2,
 		cost = 7,
 		config = { extra = {chips = 9, mult = 19, repetitions = 1, pronoun = "neutral"} },
@@ -216,6 +246,8 @@ SMODS.Joker { -- Uncommon Luna
 	},
     key = "felijo_ins_luna",
 	pronouns = "she_her",
+	unlocked = true,
+	discovered = true,
     rarity = 2,
     cost = 8,
 	config = { extra = { creates = 1 , chips = 5, mult = 10} },
@@ -258,53 +290,6 @@ SMODS.Joker { -- Uncommon Luna
     blueprint_compat = true,
 }
 
-SMODS.Joker { -- Uncommon, Magpie
-    atlas = 'inscryptionJokers',
-    pos = { x = 8, y = 0 },
-    pools = {
-		["FelisJokeria"]= true, 
-		["Steam"] = true, 
-		["Inscryption"]=true,
-		["Beast"] = true,		
-		["Avian"] = true,  
-	},
-    key = "felijo_ins_magpie",
-    rarity = 2,
-    cost = 6,
-	blueprint_compat = true,
-    config = { extra = {chips = 1, mult = 1, xchips = 0.02}, steam = { badges = 1 } },
-	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
-	end,
-    loc_vars = function(self, info_queue, center)
-        return {vars = { center.ability.extra.chips, center.ability.extra.mult, center.ability.extra.xchips, (1 + center.ability.extra.xchips * center.ability.steam.badges), colours = { HEX('F0C590'), HEX('351A09')} }}
-    end,
-	badgeCalc = function (self,card)
-		local level = 0
-		if G.STEAM and G.STEAM.user then
-			level = G.STEAM.user.getPlayerSteamLevel()
-		end
-		local totalxp = 5 * level * level + 50 * level				
-		card.ability.steam.badges = totalxp / 100
-	end,
-    calculate = function(self, card, context)
-        if context.joker_main then
-			self:badgeCalc(card)
-            local chips = 1 + (card.ability.extra.xchips * card.ability.steam.badges)
-			
-            return {
-                xchips = xchips,
-            }
-        end
-    end,
-	load = function(self, card, card_table, other_card)
-		self:badgeCalc(card)
-    end,
-	set_ability = function(self,card,initial,delay_sprites)
-		self:badgeCalc(card)
-    end,
-	
-}
 
 SMODS.Joker{  -- uncommon nxkoo
     atlas = 'inscryptionJokers',
@@ -318,6 +303,8 @@ SMODS.Joker{  -- uncommon nxkoo
 	},
     key = "felijo_ins_nxkoo",
 	pronouns = "she_they",
+	unlocked = true,
+	discovered = true,
     rarity = 2,
     cost = 8,
     blueprint_compat = true,
@@ -353,6 +340,8 @@ SMODS.Joker{  -- Uncommon Toga
 	},
     key = "felijo_ins_toga",
 	pronouns = "he_him",
+	unlocked = true,
+	discovered = true,
     rarity = 2,
     cost = 6,
     blueprint_compat = true,
@@ -376,7 +365,7 @@ SMODS.Joker{  -- Uncommon Toga
 				card.ability.stage.max_i = card.ability.stage.max_i + 1
 				card.ability.stage.i = 0
 				local consumable = pseudorandom("felijo_ins_toga"..G.GAME.round..G.GAME.pseudorandom.seed, 0, 9)
-				local negative = pseudorandom("felijo_ins_toga2"..G.GAME.round..G.GAME.pseudorandom.seed,0,6)
+				local negative = pseudorandom("felijo_ins_toga2"..G.GAME.round..G.GAME.pseudorandom.seed,1,6)
 				if negative == 6 then
 					if consumable >= 0 and consumable < 5 then -- There is probably a better way to do this
 						SMODS.add_card{ set = "Tarot", edition = "e_negative" }
@@ -426,6 +415,8 @@ SMODS.Joker { -- Rare Evgast
 	},
     key = "felijo_ins_evgast",
 	pronouns = "they_them",
+	unlocked = true,
+	discovered = true,
     rarity = 3,
     cost = 8,
 	config = { extra = { debuff = 0.01 , chips = 1, mult = 1} },
@@ -456,79 +447,6 @@ SMODS.Joker { -- Rare Evgast
     blueprint_compat = true,
 }
 
-SMODS.Joker { -- Rare Ouro
-    atlas = 'inscryptionJokers',
-    pos = { x = 9, y = 0 },
-    pools = {
-		["FelisJokeria"]=true,
-		["Inscryption"] = true, 
-		["Beast"] = true,
-		["Reptile"] = true, 
-	},
-    key = "felijo_ins_ouro",
-    rarity = 3,
-    cost = 4,
-	pronouns = "he_him",
-	config = { extra = { xchips = 1, xmult = 1, gain = 0.2}, sell = {curr = 0, limit = 2} },
-	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
-	end,
-    loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.xchips, card.ability.extra.xmult, card.ability.extra.gain, card.ability.sell.curr, card.ability.sell.limit, colours = { HEX('F0C590'), HEX('351A09') } } } 
-    end,
-    calculate = function(self, card, context)
-		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
-            card.ability.sell.curr = card.ability.sell.curr + 1
-            if card.ability.sell.curr == card.ability.sell.limit then
-                local eval = function(card) return not card.REMOVED end
-                juice_card_until(card, eval, true)
-            end
-            return {
-                message = (card.ability.sell.curr < card.ability.sell.limit) and
-                    (card.ability.sell.curr .. '/' .. card.ability.sell.limit) or
-                    localize('k_active_ex'),
-                colour = G.C.FILTER
-            }
-        end
-	
-        if (context.selling_self and (card.ability.sell.curr >= card.ability.sell.limit))  -- sacrifice by sale
-		or (context.joker_type_destroyed and context.card == card) then -- sacrifice by dagger
-			local ouroboros = SMODS.add_card { 
-				key = "j_felijo_ins_ouro", 
-				key_append = "felijo_ouro", 
-				edition = card.edition,
-				no_editon = true,
-				stickers = nil,
-			}
-				
-			ouroboros.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.gain
-			ouroboros.ability.extra.xchips = card.ability.extra.xmult + card.ability.extra.gain
-			ouroboros.states.visible = false
-			
-			G.E_MANAGER:add_event(Event({
-				delay = 0.4,
-				trigger = 'after',
-				func = function()
-					ouroboros:start_materialize()
-					return true
-				end
-			}))
-
-			return ouroboros
-		end
-		
-		if context.joker_main then
-			return {
-				xmult = card.ability.extra.xmult,
-				xchips = card.ability.extra.xchips
-			}
-        end
-	end,
-    blueprint_compat = true,
-	eternal_compat = false,
-}
-
-
 SMODS.Joker{  --rare Mycologists, The
     atlas = 'inscryptionJokers',
     pos = { x = 3, y = 0 },
@@ -540,6 +458,8 @@ SMODS.Joker{  --rare Mycologists, The
 	},
     key = "felijo_ins_myco",
 	pronouns = "they_them",
+	unlocked = true,
+	discovered = true,
     rarity = 3,
     cost = 8,
     blueprint_compat = false,
@@ -631,6 +551,8 @@ SMODS.Joker { -- Rare Revo
 	},
     key = "felijo_ins_revo",
 	pronouns = "he_him",
+	unlocked = true,
+	discovered = true,
     rarity = 3,
     cost = 8,
 	config = { extra = { chips = 7, mult = 20, count = 0, max_c = 10, odds = 3 }, tg = {superior = false} },
@@ -640,7 +562,7 @@ SMODS.Joker { -- Rare Revo
 	
     loc_vars = function(self, info_queue, card)
 		local numerator, denumerator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ins_revo')
-		if card.ability.tg.superior == true then
+		if card.ability.tg and card.ability.tg.superior == true then
 			return { 
 				key = self.key .. "_s", 
 				vars = { 
@@ -670,7 +592,7 @@ SMODS.Joker { -- Rare Revo
     end,
 	
 	set_sprites = function(self, card, front)
-		if card.ability and card.ability.tg.superior == true then
+		if card.ability and card.ability.tg and card.ability.tg.superior == true then
 			card.children.center:set_sprite_pos({x = 5, y = 2})
 		end
 	end,
@@ -680,9 +602,10 @@ SMODS.Joker { -- Rare Revo
 		if context.joker_main then
 			if SMODS.pseudorandom_probability(card, 'felijo_ins_revo', 1, card.ability.extra.odds) then
 				local new_card = FELIJO.copy_card(G.playing_cards[pseudorandom(pseudoseed('felijo_ins_revo'), 1, #G.playing_cards or 1)], nil, G.deck)
-				
 				if card.ability.extra.count >= card.ability.extra.max_c then
-					new_card:set_ability(superior_enhancement)
+					local tier = pseudorandom("felijo_ins_revo"..G.GAME.round..G.GAME.pseudorandom.seed)
+					local roll = FELIJO.quick_pool_pick(superior_tiers, tier)
+					new_card:set_ability(roll)
 				else
 					new_card:set_ability("c_base")
 				end

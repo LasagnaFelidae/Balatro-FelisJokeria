@@ -16,16 +16,21 @@ SMODS.Voucher {
 SMODS.Voucher {
     key = "peltmarket",
     atlas = 'inscryptionVouchers', pos = { x = 0, y = 1 } ,
-	requires = { 'v_felijo_beartrap' },
+	requires = {'v_felijo_beartrap'},
     cost = 10,
     config = {},
+	
+	in_pool = function(self,args)
+		return G.GAME.felijo_pelts_enabled or next(SMODS.find_card("v_felijo_beartrap")) or false
+	end,
+		
     loc_vars = function (self, info_queue, card)
         return {}
     end,
     redeem = function (self, card) 
         G.GAME.felijo_pelts_sale  = true
     end,
-    unredeem = function (self, card) 
+    unredeem = function (self, args) 
         G.GAME.felijo_pelts_sale  = false
     end,
 }

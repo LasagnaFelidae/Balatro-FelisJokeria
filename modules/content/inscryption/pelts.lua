@@ -50,7 +50,7 @@ FELIJO.Pelt {
 	end,
 
 	calculate = function(self, card, context)
-		if context.discard and not card.ability.extra.sold then
+		if context.discard and context.other_card == card and not card.ability.extra.sold then
 			card.ability.extra.sold = true
 
 			if G.GAME.felijo_pelts_sale then
@@ -106,7 +106,7 @@ FELIJO.Pelt {
 	end,
 
 	calculate = function(self, card, context)
-		if context.discard and not card.ability.extra.sold then
+		if context.discard and context.other_card == card and not card.ability.extra.sold then
 			card.ability.extra.sold = true
 
 			if G.GAME.felijo_pelts_sale then
@@ -164,7 +164,7 @@ FELIJO.Pelt {
 	end,
 
 	calculate = function(self, card, context)
-		if context.discard and not card.ability.extra.sold then
+		if context.discard and context.other_card == card and not card.ability.extra.sold then
 			card.ability.extra.sold = true
 
 			if G.GAME.felijo_pelts_sale then
@@ -219,7 +219,7 @@ FELIJO.Pelt {
 	end,
 
 	calculate = function(self, card, context)
-		if context.discard and not card.ability.extra.sold then
+		if context.discard and context.other_card == card and not card.ability.extra.sold then
 			card.ability.extra.sold = true
 			if G.GAME.felijo_pelts_sale then
 				card:start_dissolve({G.C.MONEY}, true)
@@ -274,7 +274,7 @@ FELIJO.Pelt {
 	end,
 
 	calculate = function(self, card, context)
-		if context.discard and not card.ability.extra.sold then
+		if context.discard and context.other_card == card and not card.ability.extra.sold then
 			card.ability.extra.sold = true
 
 			if G.GAME.felijo_pelts_sale then
