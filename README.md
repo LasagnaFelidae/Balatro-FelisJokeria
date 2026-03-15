@@ -40,7 +40,6 @@
 - [Aikoyori's Shenanigans](https://github.com/Aikoyori/Balatro-Aikoyoris-Shenanigans)
 - [Revo's Vault](https://github.com/Cdrvo/Revos-Vault---Balatro-Mod)
 - [TOGA's Stuff](https://github.com/TheOneGoofAli/TOGAPackBalatro)
-- [CardPronouns](https://github.com/real-niacat/CardPronouns)
 
 ## License
 All assets unless stated otherwise are licensed under CC-BY-NC-SA 4.0, Code is licensed under GPL v3
