@@ -7,7 +7,7 @@ SMODS.Joker {
             card.children.floating_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod,0,0-0.2)
         end
     },
-    pools = {["FelisJokeria"] = true, ["Letter"] = true, },
+    pools = {["FelisJokeria"] = true, ["Feline"] = true,  ["Letter"] = true, },
     key = "felijo_lgd_feli",
     rarity = 4,
     cost = 20,

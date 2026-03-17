@@ -1,8 +1,6 @@
 FELIJO = SMODS.current_mod
 FELIJO.optional_features = {post_trigger = true,}
 
-
-
 -----------------------------
 --┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓--
 --┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓--
@@ -10,12 +8,16 @@ FELIJO.optional_features = {post_trigger = true,}
 -----------------------------
 
 assert(SMODS.load_file("./func/preload.lua"))()
-assert(SMODS.load_file("./func/pools.lua"))()
 assert(SMODS.load_file("./func/hooks.lua"))()
 assert(SMODS.load_file("./func/util.lua"))()
-assert(SMODS.load_file("./func/garf_dict.lua"))()
+assert(SMODS.load_file("./func/pools.lua"))()
 assert(SMODS.load_file("./func/events.lua"))()
+assert(SMODS.load_file("./func/cardareas.lua"))()
 
+assert(SMODS.load_file("./func/global_loot.lua"))()
+assert(SMODS.load_file("./func/garf_dict.lua"))()
+assert(SMODS.load_file("./func/ui.lua"))()
+assert(SMODS.load_file("./func/post.lua"))() --shit to inject when main menu loads
 ----------------------------
 -----┏━┓┏━┓┏━┓┏━╸╺┳╸┏━┓-----
 -----┣━┫┗━┓┗━┓┣╸  ┃ ┗━┓-----
@@ -101,14 +103,29 @@ assert(SMODS.load_file("./modules/content/inscryption/jokers/2_canine.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/3_feline.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/4_hooved.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/5_insect.lua"))()
-assert(SMODS.load_file("./modules/content/inscryption/jokers/6_reptiles.lua"))()
+assert(SMODS.load_file("./modules/content/inscryption/jokers/6_reptile.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/7_vermin.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/8_objects.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/9_others.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/10_deathcards.lua"))()
+----------------------
+--╺┳╸┏━┓╺┳╸┏━╸┏┳┓┏━┓--
+-- ┃ ┃ ┃ ┃ ┣╸ ┃┃┃┗━┓--
+-- ╹ ┗━┛ ╹ ┗━╸╹ ╹┗━┛--
+----------------------
+assert(SMODS.load_file("./func/totems/funcs.lua"))()
+assert(SMODS.load_file("./modules/content/inscryption/totems/sigils.lua"))()
+assert(SMODS.load_file("./modules/content/inscryption/totems/totems.lua"))()
+
+
+
+
+
+
 -----------------------
 -----------------------
 assert(SMODS.load_file("./modules/content/inscryption/sigils.lua"))()
+
 assert(SMODS.load_file("./modules/content/inscryption/pelts.lua"))()
 --assert(SMODS.load_file("./modules/content/inscryption/blinds.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/vouchers.lua"))()

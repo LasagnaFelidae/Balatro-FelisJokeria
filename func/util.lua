@@ -86,3 +86,93 @@ FELIJO.quick_pool_pick = function(pool, roll)
 	end
 end
 
+FELIJO.pool_merge = function(pools, op, inject, inject_pool)
+    local result = {}
+    if #pools <= 1 then return result end
+	op = op or "AND"
+	inject = inject or false
+	inject_pool = inject_pool or nil
+
+    local lookups = {} -- make a lookup table of every pool 
+    for _, name in ipairs(pools) do
+		local lookup = {}
+		local pool = get_current_pool(name) or {}
+
+		for _, key in ipairs(pool) do
+			if G.P_CENTERS[key] then
+				lookup[key] = true
+			end
+		end
+
+		table.insert(lookups, lookup)
+	end
+
+	local injected_set = {}
+    if inject and inject_pool then
+        for _, k in ipairs(inject_pool.cards or {}) do
+            injected_set[k] = true
+        end
+    end
+	
+	if op == "AND" then -- merge if its in all pools
+        local pool = get_current_pool(pools[1])
+        for _, key in ipairs(pool) do -- go through pools from largest to smallest
+			if G.P_CENTERS[key] then
+				local in_all = true
+				for i = 2, #lookups do
+					if not lookups[i][key] then
+						in_all = false -- make lookup false if not in pool
+						break
+					end
+				end
+				if in_all then
+					result[#result + 1] = key
+					if inject and inject_pool and not injected_set[key] then
+						inject_pool:inject_card(G.P_CENTERS[key])
+						injected_set[key] = true
+					end
+				end
+			end
+        end
+
+    elseif op == "OR" then -- merge all pools regardless
+		for _, lookup in ipairs(lookups) do
+			for key,_ in pairs(lookup) do
+				if G.P_CENTERS[key] then
+					if not injected_set[key] then
+						result[#result + 1] = key
+						if inject and inject_pool then
+							inject_pool:inject_card(G.P_CENTERS[key])
+						end
+						injected_set[key] = true
+					end
+				end
+			end
+		end
+
+    elseif op == "NOT" then -- removes all cards from pools after the first one
+        local pool = get_current_pool(pools[1])
+        for _, key in ipairs(pool) do
+			if G.P_CENTERS[key] then
+				local in_others = false
+				for i = 2, #lookups do
+					if lookups[i][key] then
+						in_others = true
+						break
+					end
+				end
+				if not in_others then
+					result[#result + 1] = key
+					if inject and inject_pool and not injected_set[key] then
+						inject_pool:inject_card(G.P_CENTERS[key])
+						injected_set[key] = true
+					end
+				end
+			end
+        end
+    else
+        error("Unknown op: "..tostring(op))
+    end
+
+    return result
+end

@@ -7,6 +7,67 @@ function Blind:defeat(silent)
 	
 end
 
+local CardAreaold = CardArea.emplace
+function CardArea:emplace(card, location, stay_flipped)
+    if self == G.consumeables and (card.ability.set == "felijo_totem_parts") then
+        G.felijo_totems:emplace(card, location, stay_flipped)
+        return
+    end
+
+    CardAreaold(self, card, location, stay_flipped)
+end
+
+local check_for_buy_space_old = G.FUNCS.check_for_buy_space
+G.FUNCS.check_for_buy_space = function(card)
+	if card.ability.is_totem_body then
+		if (#G.felijo_totems.cards < G.felijo_totems.config.card_limit) then
+			return true
+		else
+			alert_no_space(card, G.felijo_totems)
+			return false
+		end
+    elseif card.ability.is_totem_head then
+		if (#G.felijo_totems.cards < G.felijo_totems.config.card_limit + 2) then
+			return true
+		else
+			alert_no_space(card, G.felijo_totems)
+			return false
+		end
+	end
+
+    return check_for_buy_space_old(card)
+end
+
+local end_round_old = end_round
+function end_round()
+	G.E_MANAGER:add_event(Event({
+		trigger = 'after',
+		delay = 0.2,
+		func = function()
+            if FELIJO.active_totem == nil then
+				FELIJO.removeTotemSigils()
+			end
+			return true
+		end
+	}))
+	return end_round_old()
+end
+
+
+
+local old_set_debuff = Card.set_debuff
+function Card:set_debuff(should_debuff)
+    old_set_debuff(self, should_debuff)
+
+    if self.ability.felijo_sgl_repulsive then
+        self.debuff = false
+        self.perma_debuff = false
+    end
+	if self.ability.felijo_ttm_sgl_repulsive then
+        self.debuff = false
+        self.perma_debuff = false
+    end
+end
 
 local orig_card_drag = Card.drag
 function Card:drag()

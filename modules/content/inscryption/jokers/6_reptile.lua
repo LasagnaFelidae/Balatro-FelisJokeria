@@ -21,7 +21,7 @@ SMODS.Joker { -- Rare Ouro
 		return { vars = { card.ability.extra.xchips, card.ability.extra.xmult, card.ability.extra.gain, card.ability.sell.curr, card.ability.sell.limit, colours = { HEX('F0C590'), HEX('351A09') } } } 
     end,
     calculate = function(self, card, context)
-		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.sell.curr = card.ability.sell.curr + 1
             if card.ability.sell.curr == card.ability.sell.limit then
                 local eval = function(card) return not card.REMOVED end
@@ -31,19 +31,20 @@ SMODS.Joker { -- Rare Ouro
                 message = (card.ability.sell.curr < card.ability.sell.limit) and
                     (card.ability.sell.curr .. '/' .. card.ability.sell.limit) or
                     localize('k_active_ex'),
-                colour = G.C.FILTER
+                colour = G.C.FILTER, 
+				no_retrigger = true
             }
         end
-        if (not card.ability.felijo_copied == true and not card.ability.akyrs_self_destructs == true )
+        if ((not card.ability.felijo_copied == true and not card.ability.akyrs_self_destructs == true )
 		and	((context.selling_self and (card.ability.sell.curr >= card.ability.sell.limit)) -- sacrifice by sale
-		or (context.joker_type_destroyed and context.card == card and #G.jokers.cards <= G.jokers.config.card_limit)) then -- sacrifice by dagger
+		or (context.joker_type_destroyed and context.card == card and #G.jokers.cards <= G.jokers.config.card_limit))) and not context.retrigger_joker then -- sacrifice by dagger
 			card.ability.extra_slots_used = -1
 			
 			local ouroboros = SMODS.add_card { 
 				key = "j_felijo_ins_ouro", 
 				key_append = "felijo_ouro", 
 				edition = card.edition,
-				no_editon = true,
+				no_edition = true,
 				stickers = nil,
 			}
 				
@@ -63,7 +64,7 @@ SMODS.Joker { -- Rare Ouro
 				}))
 			end
 			
-			return ouroboros
+			return {ouroboros, no_retrigger = true}
 		end
 		
 		if context.joker_main then

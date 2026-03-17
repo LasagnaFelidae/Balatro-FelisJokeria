@@ -3,6 +3,12 @@ SMODS.Sound({key = "loic_ready", path = "loic_ready.ogg"})
 SMODS.Sound({key = "loic_shot", path = "loic_shot.ogg"})
 SMODS.Sound({key = "revo_transform", path = "revo_transform.ogg"})
 
+SMODS.Sound({key = "totem_combine", path = "totem_attach.ogg"})
+SMODS.Sound({key = "totem_separate", path = "totem_disassemble.ogg"})
+SMODS.Sound({key = "totem_activate", path = "totem_activate.ogg"})
+SMODS.Sound({key = "totem_switch", path = "totem_switch.ogg"})
+SMODS.Sound({key = "totem_add", path = "totem_add.ogg"})
+
 SMODS.Sound({key = "rbx_pizza_add", path = "rbx_pizza_add.ogg"})
 SMODS.Sound({key = "rbx_pizza_eat", path = "rbx_pizza_eat.ogg"})
 

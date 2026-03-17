@@ -16,75 +16,12 @@ SMODS.ConsumableType {
     shop_rate = 0.5
 }
 
-local upgradablelist = {
-	"m_bonus",
-	"m_felijo_bonus_t2",
-	"m_felijo_bonus_t3",
-	"m_mult",
-	"m_felijo_mult_t2",
-	"m_felijo_mult_t3",
-	"m_lucky",
-	"m_felijo_lucky_t2",
-	"m_felijo_lucky_t3",
-	"m_glass",
-	"m_felijo_glass_t2",
-	"m_felijo_glass_t3",
-	"m_steel",
-	"m_felijo_steel_t2",
-	"m_felijo_steel_t3",
-	"m_stone",
-	"m_felijo_stone_t2",
-	"m_felijo_stone_t3",
-	"m_gold",
-	"m_felijo_gold_t2",
-	"m_felijo_gold_t3",
-	"m_crv_superiore",
-	"m_felijo_enh_sup",
-	"m_felijo_enh_sup_t2",
-	"m_felijo_enh_sup_t3",
-}
-
-FELIJO.campfire_table = {
-    ["m_bonus"]               = { next = "m_felijo_bonus_t2",   break_chance = 0.10 },
-    ["m_felijo_bonus_t2"]     = { next = "m_felijo_bonus_t3",   break_chance = 0.30 },
-    ["m_felijo_bonus_t3"]     = { next = "m_felijo_bonus_t4",   break_chance = 0.60 }, 
-
-    ["m_mult"]                = { next = "m_felijo_mult_t2",    break_chance = 0.10 },
-    ["m_felijo_mult_t2"]      = { next = "m_felijo_mult_t3",    break_chance = 0.30 },
-    ["m_felijo_mult_t3"]      = { next = "m_felijo_mult_t4",    break_chance = 0.60 },
-
-    ["m_lucky"]               = { next = "m_felijo_lucky_t2",   break_chance = 0.10 },
-    ["m_felijo_lucky_t2"]     = { next = "m_felijo_lucky_t3",   break_chance = 0.30 },
-    ["m_felijo_lucky_t3"]     = { next = "m_felijo_lucky_t4",   break_chance = 0.60 },
-
-    ["m_glass"]               = { next = "m_felijo_glass_t2",   break_chance = 0.10 },
-    ["m_felijo_glass_t2"]     = { next = "m_felijo_glass_t3",   break_chance = 0.30 },
-    ["m_felijo_glass_t3"]     = { next = "m_felijo_glass_t4",   break_chance = 0.60 },
-
-    ["m_steel"]               = { next = "m_felijo_steel_t2",   break_chance = 0.10 },
-    ["m_felijo_steel_t2"]     = { next = "m_felijo_steel_t3",   break_chance = 0.30 },
-    ["m_felijo_steel_t3"]     = { next = "m_felijo_steel_t4",   break_chance = 0.60 },
-
-    ["m_stone"]               = { next = "m_felijo_stone_t2",   break_chance = 0.10 },
-    ["m_felijo_stone_t2"]     = { next = "m_felijo_stone_t3",   break_chance = 0.30 },
-    ["m_felijo_stone_t3"]     = { next = "m_felijo_stone_t4",   break_chance = 0.60 },
-
-    ["m_gold"]                = { next = "m_felijo_gold_t2",    break_chance = 0.10 },
-    ["m_felijo_gold_t2"]      = { next = "m_felijo_gold_t3",    break_chance = 0.30 },
-    ["m_felijo_gold_t3"]      = { next = "m_felijo_gold_t4",    break_chance = 0.60 },
-	
-	["m_crv_superiore"]       = { next = "m_felijo_enh_sup_t2",    break_chance = 0.10 },
-	["m_felijo_enh_sup"]      = { next = "m_felijo_enh_sup_t2",    break_chance = 0.10 },
-    ["m_felijo_enh_sup_t2"]   = { next = "m_felijo_enh_sup_t3",    break_chance = 0.30 },
-    ["m_felijo_enh_sup_t3"]   = { next = "m_felijo_enh_sup_t4",    break_chance = 0.60 },
-}
-
 FELIJO.is_upgradable = function(card)
 	if not card or not card.ability or not card.ability.name then
         return false
     end
-	for i = 1, #upgradablelist do
-		if SMODS.has_enhancement(card, upgradablelist[i]) then return true
+	for i = 1, #FELIJO.upgradablelist do
+		if SMODS.has_enhancement(card, FELIJO.upgradablelist[i]) then return true
 	end
 	return false
 	end

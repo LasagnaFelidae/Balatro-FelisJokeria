@@ -120,9 +120,6 @@ end
 
 
 
-
-
-
 function playEffect(effect,posx,posy)
     if effect == "explosion" then
         neweffect = 
