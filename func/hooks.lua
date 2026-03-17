@@ -7,6 +7,29 @@ function Blind:defeat(silent)
 	
 end
 
+local CardAreaold = CardArea.emplace
+function CardArea:emplace(card, location, stay_flipped)
+    if self == G.consumeables and (card.ability.set == "felijo_totem_parts") then
+        G.felijo_totems:emplace(card, location, stay_flipped)
+        return
+    end
+
+    CardAreaold(self, card, location, stay_flipped)
+end
+
+local old_set_debuff = Card.set_debuff
+function Card:set_debuff(should_debuff)
+    old_set_debuff(self, should_debuff)
+
+    if self.ability.felijo_sgl_repulsive then
+        self.debuff = false
+        self.perma_debuff = false
+    end
+	if self.ability.felijo_ttm_sgl_repulsive then
+        self.debuff = false
+        self.perma_debuff = false
+    end
+end
 
 local orig_card_drag = Card.drag
 function Card:drag()

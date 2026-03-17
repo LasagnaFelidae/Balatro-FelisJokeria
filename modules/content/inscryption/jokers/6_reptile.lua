@@ -43,7 +43,7 @@ SMODS.Joker { -- Rare Ouro
 				key = "j_felijo_ins_ouro", 
 				key_append = "felijo_ouro", 
 				edition = card.edition,
-				no_editon = true,
+				no_edition = true,
 				stickers = nil,
 			}
 				

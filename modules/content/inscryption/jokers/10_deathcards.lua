@@ -3,21 +3,7 @@ local PRONOUNS = { "neutral", "masculine", "feminine", "masculine", "neutral",
   "masculine", "feminine", "neutral", "masculine", "feminine", 
   "neutral", "masculine", "feminine", "neutral", "masculine", "feminine" }
 
-local superior_enhancement = "m_felijo_enh_sup"
 
-
-local superior_tiers = {
-    {"m_felijo_enh_sup_t4", 1},
-    {"m_felijo_enh_sup_t3", 2},
-    {"m_felijo_enh_sup_t2", 4},
-    {G.superior_enhancement, 13},
-}
-
-if FELIJO.is_mod_loaded("RevosVault") and SMODS.Mods["RevosVault"].config and SMODS.Mods["RevosVault"].config.superior_enabled == true then
-	superior_enhancement = "m_crv_superiore"
-else
-	superior_enhancement = "m_felijo_enh_sup"
-end
 
 local function number_to_pip(n)
     if n == 14 or n == 1 then return "A"
@@ -364,34 +350,23 @@ SMODS.Joker{  -- Uncommon Toga
 			if card.ability.stage.i >= card.ability.stage.max_i then
 				card.ability.stage.max_i = card.ability.stage.max_i + 1
 				card.ability.stage.i = 0
-				local consumable = pseudorandom("felijo_ins_toga"..G.GAME.round..G.GAME.pseudorandom.seed, 0, 9)
+				local croll = pseudorandom("felijo_ins_toga"..G.GAME.round..G.GAME.pseudorandom.seed)
 				local negative = pseudorandom("felijo_ins_toga2"..G.GAME.round..G.GAME.pseudorandom.seed,1,6)
+				local cons = FELIJO.quick_pool_pick(FELIJO.consumeables_table, roll)
 				if negative == 6 then
-					if consumable >= 0 and consumable < 5 then -- There is probably a better way to do this
-						SMODS.add_card{ set = "Tarot", edition = "e_negative" }
-					elseif consumable >= 5 and consumable < 8 then
-						SMODS.add_card{ set = "Planet", edition = "e_negative" }
-					elseif consumable >= 8 and consumable <= 9 then
-						SMODS.add_card{ set = "Spectral", edition = "e_negative" }
-					end
+					SMODS.add_card{ set = cons, edition = "e_negative" }
 				elseif #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
 					G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-					if consumable >= 0 and consumable < 5 then 
-						SMODS.add_card{ set = "Tarot", no_edition = true }
-					elseif consumable >= 5 and consumable < 8 then
-						SMODS.add_card{ set = "Planet", no_edition = true }
-					elseif consumable >= 8 and consumable <= 9 then
-						SMODS.add_card{ set = "Spectral", no_edition = true }
-					end
+					SMODS.add_card{ set = cons, no_edition = true }
 					G.GAME.consumeable_buffer = 0
 				else
-				card.ability.stage.max_i = card.ability.stage.max_i - 1
-				return {
-					message = localize('k_felijo_nope_succ'),
-					colour = G.C.FILTER,
-					chips = card.ability.extra.chips,
-					mult = card.ability.extra.mult
-				}
+					card.ability.stage.max_i = card.ability.stage.max_i - 1
+					return {
+						message = localize('k_felijo_nope_succ'),
+						colour = G.C.FILTER,
+						chips = card.ability.extra.chips,
+						mult = card.ability.extra.mult
+					}
 				end
 			end
 			return {
@@ -604,7 +579,7 @@ SMODS.Joker { -- Rare Revo
 				local new_card = FELIJO.copy_card(G.playing_cards[pseudorandom(pseudoseed('felijo_ins_revo'), 1, #G.playing_cards or 1)], nil, G.deck)
 				if card.ability.extra.count >= card.ability.extra.max_c then
 					local tier = pseudorandom("felijo_ins_revo"..G.GAME.round..G.GAME.pseudorandom.seed)
-					local roll = FELIJO.quick_pool_pick(superior_tiers, tier)
+					local roll = FELIJO.quick_pool_pick(FELIJO.superior_tiers, tier)
 					new_card:set_ability(roll)
 				else
 					new_card:set_ability("c_base")

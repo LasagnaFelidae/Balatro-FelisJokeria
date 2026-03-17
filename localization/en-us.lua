@@ -626,17 +626,11 @@ return {
 					},
 					{
                     "After playing {C:attention}#4#{} hands,",
-					"get a random {C:attention}consumable{}:",
-					"{C:green}5 in 10{} chance to get a {C:tarot}Tarot{} card",
-					"{C:green}3 in 10{} chance to get a {C:planet}Planet{} card",
-					"{C:green}2 in 10{} chance to get a {C:tarot}Spectral{} card",
-					"{C:green}1 in 6{} chance to be {C:dark_edition}Negative{}",
-					"{C:inactive,s:0.6}All chances are fixed",
+					"get a random {C:attention}consumable{}",
+					"Fixed {C:green}1 in 6{} chance to it be {C:dark_edition}Negative",
 					"{C:inactive,s:0.6}(Must have room)",
-					},
-					{
                     "{C:inactive,s:0.8}(Currently #3#/#4# hands played)",
-					"{C:inactive,s:0.7}(Requirement increases by 1 for each consumable given.)"
+					"{C:inactive,s:0.7}(Req. increases for each consumable given.)"
 					},
                 },
             },
@@ -862,10 +856,79 @@ return {
 			},
         },
 		Other = {
+			---- TOTEM SIGILS
+			felijo_ttm_sgl_bifurcated = {
+				name = "Bifurcated Strike",
+				text = {
+					"Retriggers joker once"
+				},
+			},
+			felijo_ttm_sgl_undying = {
+				name = "Undying",
+				text = {
+					"When destroyed,",
+					"create a copy of itself"
+				},
+			},
+			felijo_ttm_sgl_swap = {
+				name = "Swapper",
+				text = {
+					"Swap around {C:chips}Chips{} and {C:mult}Mult{}"
+				},
+			},
+			felijo_ttm_sgl_midas = {
+				name = "Midas Touch",
+				text = {
+					"Earn {C:money}$#1#{}"
+				},
+			},
+			felijo_ttm_sgl_cardbearer = {
+				name = "Card Bearer",
+				text = {
+					"Add a random {C:attention}playing card",
+					"to your deck",
+				},
+			},
+			felijo_ttm_sgl_giftbearer = {
+				name = "Gift Bearer",
+				text = {
+					"When destroyed or sold,",
+					"add a random {C:spectral}Consumable",
+					"to your deck",
+				},
+			},
+			felijo_ttm_sgl_leader = {
+				name = "Leader",
+				text = {
+					"{C:mult}+#1#{} Mult for each",
+					"neighboring joker",
+					"(Currently {C:mult}+#2#{})"
+				},
+			},
+			felijo_ttm_sgl_omnistrike = {
+				name = "Omni Strike",
+				text = {
+					"Retrigger every played card"
+				},
+			},
+			felijo_ttm_sgl_repulsive = {
+				name = "Repulsive",
+				text = {
+					"When anything tries to disable",
+					"this card, it does not"
+				},
+			},
+			felijo_ttm_sgl_stinky = {
+				name = "Stinky",
+				text = {
+					"{X:gold,C:white}-#1#%{} Blind Req.",
+				},
+			},
+		
+			---- SIGILS
 			felijo_sgl_bifurcated = {
 				name = "Bifurcated Strike",
 				text = {"Retrigger card once"},
-			
 			},
 
 			felijo_sgl_trifurcated = {
@@ -955,18 +1018,6 @@ return {
                 },
             },
 			
-		},
-		felijo_ritual = {
-			c_felijo_ins_campfire = {
-				name = "Campfire",
-				text = {
-					"Upgrade {C:attention}#1#{} selected card\'s",
-					"{C:enhanced}enhancement{} to the {C:attention}next tier{}",
-					"Has a {C:red}#3#%{} chance to",
-					"{C:red}destroy{} the card instead",
-					"{C:inactive,s:0.8}(Chance scales with {C:enhanced,s:0.8}Enhancement {C:inactive,s:0.8}Tier)",
-				},
-			},
 		},
 		Tarot = {
 			c_felijo_ascended = {
@@ -1176,6 +1227,191 @@ return {
                 },
             },
 		},
+		felijo_ritual = {
+			c_felijo_ins_campfire = {
+				name = "Campfire",
+				text = {
+					"Upgrade {C:attention}#1#{} selected card\'s",
+					"{C:enhanced}enhancement{} to the {C:attention}next tier{}",
+					"Has a {C:red}#3#%{} chance to",
+					"{C:red}destroy{} the card instead",
+					"{C:inactive,s:0.8}(Chance scales with {C:enhanced,s:0.8}Enhancement {C:inactive,s:0.8}Tier)",
+				},
+			},
+		},
+		felijo_totem_parts = {
+			c_felijo_ttm_hd_avian = {
+				name = "Totem Head of the Avian",
+				text = {
+					"Combine with a {C:attention}Totem{}",
+					"to apply its effects on",
+					"{C:attention}Avian{} Jokers",
+				},
+			},
+			c_felijo_ttm_hd_canine = {
+				name = "Totem Head of the Canine",
+				text = {
+					"Combine with a {C:attention}Totem{}",
+					"to apply its effects",
+					"{C:attention}Canine{} Jokers",
+				},
+			},
+			c_felijo_ttm_hd_feline = {
+				name = "Totem Head of the Feline",
+				text = {
+					"Combine with a {C:attention}Totem{}",
+					"to apply its effects on",
+					"{C:attention}Feline{} Jokers",
+				},
+			},
+			c_felijo_ttm_hd_hooved = {
+				name = "Totem Head of the Hooved",
+				text = {
+					"Combine with a {C:attention}Totem{}",
+					"to apply its effects on",
+					"{C:attention}Hooved{} Jokers",
+				},
+			},
+			c_felijo_ttm_hd_insect = {
+				name = "Totem Head of the Insect",
+				text = {
+					"Combine with a {C:attention}Totem{}",
+					"to apply its effects on",
+					"{C:attention}Insect{} Jokers",
+				},
+			},
+			c_felijo_ttm_hd_reptile = {
+				name = "Totem Head of the Reptile",
+				text = {
+					"Combine with a {C:attention}Totem{}",
+					"to apply its effects on",
+					"{C:attention}Reptile{} Jokers",
+				},
+			},
+			c_felijo_ttm_hd_vermin = {
+				name = "Totem Head of the Vermin",
+				text = {
+					"Combine with a {C:attention}Totem{}",
+					"to apply its effects on",
+					"{C:attention}Vermin{} Jokers",
+				},
+			},
+			c_felijo_ttm_hd_object = {
+				name = "Totem Head of the Object",
+				text = {
+					"Combine with a {C:attention}Totem{}",
+					"to apply its effects on",
+					"{C:attention}Object{} Jokers",
+				},
+			},
+			c_felijo_ttm_hd_other = {
+				name = "Totem Head of the Other",
+				text = {
+					"Combine with a {C:attention}Totem{}",
+					"to apply its effects on",
+					"{C:attention}Other{} Jokers",
+				},
+			},
+			c_felijo_ttm_hd_human = {
+				name = "Totem Head of the Human",
+				text = {
+					"Combine with a {C:attention}Totem{}",
+					"to apply its effects on",
+					"{C:attention}Human{} Jokers",
+				},
+			},
+			c_felijo_ttm_bifurcated = {
+				name = "Totem of the Bifurcated Strike",
+				text = {
+					"When active, apply",
+					"{C:dark_edition,s:1.1}Bifurcated Strike{}",
+					"to Jokers of the same",
+					"{C:attention}Tribe{} as the Totem Head",
+				},
+			},
+			c_felijo_ttm_undying = {
+				name = "Totem of the Undying",
+				text = {
+					"When active, apply",
+					"{C:dark_edition,s:1.1}Undying{}",
+					"to Jokers of the same",
+					"{C:attention}Tribe{} as the Totem Head",
+				},
+			},
+			c_felijo_ttm_swap = {
+				name = "Totem of the Swapper",
+				text = {
+					"When active, apply",
+					"{C:dark_edition,s:1.1}Swapper{}",
+					"to Jokers of the same",
+					"{C:attention}Tribe{} as the Totem Head",
+				},
+			},
+			c_felijo_ttm_midas = {
+				name = "Totem of the Midas Touch",
+				text = {
+					"When active, apply",
+					"{C:dark_edition,s:1.1}Midas Touch{}",
+					"to Jokers of the same",
+					"{C:attention}Tribe{} as the Totem Head",
+				},
+			},
+			c_felijo_ttm_cardbearer = {
+				name = "Totem of the Card Bearer",
+				text = {
+					"When active, apply",
+					"{C:dark_edition,s:1.1}Card Bearer{}",
+					"to Jokers of the same",
+					"{C:attention}Tribe{} as the Totem Head",
+				},
+			},
+			c_felijo_ttm_giftbearer = {
+				name = "Totem of the Gift Bearer",
+				text = {
+					"When active, apply",
+					"{C:dark_edition,s:1.1}Gift Bearer{}",
+					"to Jokers of the same",
+					"{C:attention}Tribe{} as the Totem Head",
+				},
+			},
+			c_felijo_ttm_leader = {
+				name = "Totem of the Leader",
+				text = {
+					"When active, apply",
+					"{C:dark_edition,s:1.1}Leader{}",
+					"to Jokers of the same",
+					"{C:attention}Tribe{} as the Totem Head",
+				},
+			},
+			c_felijo_ttm_omnistrike = {
+				name = "Totem of the Omni Strike",
+				text = {
+					"When active, apply",
+					"{C:dark_edition,s:1.1}Omni Strike{}",
+					"to Jokers of the same",
+					"{C:attention}Tribe{} as the Totem Head",
+				},
+			},
+			c_felijo_ttm_repulsive = {
+				name = "Totem of the Repulsive",
+				text = {
+					"When active, apply",
+					"{C:dark_edition,s:1.1}Repulsive{}",
+					"to Jokers of the same",
+					"{C:attention}Tribe{} as the Totem Head",
+				},
+			},
+			c_felijo_ttm_stinky = {
+				name = "Totem of the Stinky",
+				text = {
+					"When active, apply",
+					"{C:dark_edition,s:1.1}Stinky{}",
+					"to Jokers of the same",
+					"{C:attention}Tribe{} as the Totem Head",
+				},
+			},
+
+		}
         --Partner = {
         --    pnr_felijo_aikoyori = {
         --        
@@ -1222,6 +1458,8 @@ return {
 			k_felijo_loic4 = "Cooling down...",
 			k_felijo_loic5 = "Cooled down!",
 			b_felijo_ritual_cards = "Ritual Cards",
+			b_felijo_totem_parts_cards = "Totem Parts",
+			k_felijo_totem_parts = "Totem Part",
 			k_felijo_ritual = "Ritual",
 			b_felijo_tier2_tarot_cards = "Tarot Cards [II]",
 			b_felijo_tier3_tarot_cards = "Tarot Cards [III]",
@@ -1233,6 +1471,9 @@ return {
             k_felijo_score_mult_append = " Score",
 			k_felijo_bscore_mult_pre = "x",
             k_felijo_bscore_mult_append = " Blind Req.",
+			felijo_combine_button = "COMBINE",
+			felijo_separate_button = "SEPARATE",
+			felijo_separate_button = "SWITCH",
 			
 			
 		},
@@ -1261,6 +1502,7 @@ return {
 			felijo_trn_goldn = "Gold Nugget",
 			felijo_enh_sup = "Superior",
 			felijo_ritual = "Ritual",
+			felijo_totem_parts = "Totem Part",
 			felijo_tier2_tarot = "Tier 2 Tarot",
 			felijo_tier3_tarot = "Tier 3 Tarot",
 			felijo_tier4_tarot = "Tier 4 Tarot",

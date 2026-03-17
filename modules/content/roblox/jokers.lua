@@ -10,7 +10,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-		["Roblox_Food"] = true, 
+
 	},
     key = "felijo_rbx_pizza",
     rarity = 1,
@@ -63,7 +63,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-		["Roblox_Food"] = true, 
+
 	},
     key = "felijo_rbx_burrito",
 	blueprint_compat = false,
@@ -116,7 +116,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-		["Roblox_Food"] = true, 
+
 	},
     key = "felijo_rbx_turkey",
 	blueprint_compat = false,
@@ -169,7 +169,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-		["Roblox_Food"] = true, 
+
 	},
     key = "felijo_rbx_cheezburger",
 	blueprint_compat = false,
@@ -222,7 +222,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-		["Roblox_Food"] = true, 
+
 	},
     key = "felijo_rbx_sandwich",
 	blueprint_compat = false,
@@ -282,7 +282,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-		["Roblox_Food"] = true, 
+
 	},
     key = "felijo_rbx_pumpkinpi",
 	blueprint_compat = false,
@@ -347,7 +347,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-		["Roblox_Food"] = true, 
+
 	},
     key = "felijo_rbx_epic",
 	blueprint_compat = false,
@@ -409,7 +409,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-		["Roblox_Food"] = true, 
+
 	},
     key = "felijo_rbx_bloxy",
 	blueprint_compat = false,
@@ -470,7 +470,6 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-		["Roblox_Food"] = true, 
 	},
     key = "felijo_rbx_brew",
 	blueprint_compat = false,
@@ -537,7 +536,6 @@ SMODS.Joker {
     pools = {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true,
-		["Food"] = true,  
 	},
     key = "felijo_rbx_vendingmachine",
 	blueprint_compat = false,
@@ -563,7 +561,7 @@ SMODS.Joker {
 	
     calculate = function(self, card, context)
 		if context.setting_blind and not context.blueprint and #G.jokers.cards < G.jokers.config.card_limit then
-			if card.ability.extra.h_size - card.ability.extra.h_mod < 0 then
+			if card.ability.extra.h_size - card.ability.extra.h_mod <= 0 then
 				SMODS.destroy_cards(card, nil, nil, true)
 				return {
                     message = "Empty!",
@@ -593,7 +591,7 @@ SMODS.Joker {
     pools = {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
-		["Building Tools"] = true, 
+		["Building Tool"] = true, 
 	},
     key = "felijo_rbx_copy",
     rarity = 1,
@@ -664,7 +662,7 @@ SMODS.Joker {
     pools = {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
-		["Building Tools"] = true, 
+		["Building Tool"] = true, 
 	},
     key = "felijo_rbx_delete",
     rarity = 1,
@@ -730,7 +728,7 @@ SMODS.Joker {
     pools = {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
-		["Building Tools"] = true, 
+		["Building Tool"] = true, 
 	},
     key = "felijo_rbx_drag",
     rarity = 1,

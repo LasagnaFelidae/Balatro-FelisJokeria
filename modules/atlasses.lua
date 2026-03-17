@@ -122,6 +122,19 @@ SMODS.Atlas {
 	py = 95,
 }
 
+-- Totems
+SMODS.Atlas({
+    key = "inscryptionTotems",
+    path = "inscryption/totems/totems.png",
+    px = 71,
+	py = 95
+})
+SMODS.Atlas({
+    key = "inscryptionTotemSigils",
+    path = "inscryption/totems/sigils.png",
+    px = 71,
+	py = 95
+})
 
 -- SIGILS
 SMODS.Atlas({
