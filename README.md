@@ -23,27 +23,27 @@
   - The Totems Card Area has a 3 card limit, but even if its full you can redeem two more Totem Heads without worrying about space! 
   - Current Sigils (Stickers) are:
     - Leader: Gain +5 Mult for each neighboring Joker
-	- Bifurcated Strike: Retriggers Joker once 
-	- Stinky : -20% Blind Requirement
-	- Midas Touch : Earn 1$ when scored
-	- Omni Strike : Retrigger every scored playing card
-	- Undying : When destroyed, create a copy of itself.
-	- Swapper: Swaps around Chips and Mult.
-	- Gift Bearer: When destroyed or sold, create a random consumable
-	- Card Bearer: Add a random playing card to deck.
-	- Repulsive: Whenever something debuffs this card, it does not.
+	  - Bifurcated Strike: Retriggers Joker once 
+	  - Stinky : -20% Blind Requirement
+	  - Midas Touch : Earn 1$ when scored
+	  - Omni Strike : Retrigger every scored playing card
+	  - Undying : When destroyed, create a copy of itself.
+	  - Swapper: Swaps around Chips and Mult.
+	  - Gift Bearer: When destroyed or sold, create a random consumable
+	  - Card Bearer: Add a random playing card to deck.
+	  - Repulsive: Whenever something debuffs this card, it does not.
   - Current Tribes are:
-	- Feline (ex: Feli, Lilly, Lucky Cat - includes "Cat" Jokers (ex: Yahimod, TOGAPack) and "Kitty" Jokers (ex: Valkarri/Valk:Redux)
-	- Human (ex: Joker, Showman, Perkeo, ...) - 2nd most populated tribe at this time
-	- Object (ex: Credit Card, Business Card, ... ) - includes "Food Jokers
-	- Other (ex: Fibonacci, Scary Face, ...) - includes "Meme" Jokers
-	- Reptile (ex: Ouroboros)
-	- Avian (ex: Magpie) - includes "Birb" and "Bird" Jokers
-	- Some of those tribes are empty and will be populated once more Inscryption cards arrive, these tribes are
-	  - Canine (ex: Wolf)  - includes "Dog" and "Puppy" Jokers
-	  - Hooved (ex: Elk)
-	  - Vermin (ex: Squirrel, Pack Rat)
-	  - Insect (ex: Bee, Ant)
+	  - Feline (ex: Feli, Lilly, Lucky Cat - includes "Cat" Jokers (ex: Yahimod, TOGAPack) and "Kitty" Jokers (ex: Valkarri/Valk:Redux)
+	  - Human (ex: Joker, Showman, Perkeo, ...) - 2nd most populated tribe at this time
+	  - Object (ex: Credit Card, Business Card, ... ) - includes "Food Jokers
+	  - Other (ex: Fibonacci, Scary Face, ...) - includes "Meme" Jokers
+	  - Reptile (ex: Ouroboros)
+	  - Avian (ex: Magpie) - includes "Birb" and "Bird" Jokers
+	  - Some of those tribes are empty and will be populated once more Inscryption cards arrive, these tribes are
+	    - Canine (ex: Wolf)  - includes "Dog" and "Puppy" Jokers
+	    - Hooved (ex: Elk)
+	    - Vermin (ex: Squirrel, Pack Rat)
+	    - Insect (ex: Bee, Ant)
 - Pelt System
   - Bear Trap (Voucher, enables pelts in pool)
   - Pelt Market (Voucher, enables pelt trading by discard)
