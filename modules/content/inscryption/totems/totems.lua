@@ -1,12 +1,29 @@
 FELIJO.highlighted_head = FELIJO.highlighted_head or nil
 FELIJO.active_totem = FELIJO.active_totem or nil
 
-G.FUNCS.felijo_separate_totem = function(body_card)
+G.FUNCS.felijo_can_pull = function(e)
+    local card = e.config.ref_table
+    if #G.felijo_totems < G.felijo_totems.config.card_limit and card.set == "felijo_totem_parts" then
+        e.config.colour = G.C.PURPLE
+        e.config.button = "pull_card"
+    else
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE
+        e.config.button = nil
+    end
+end
+G.FUNCS.felijo_pull = function(e)
+    local card = e.config.ref_table
+    card.area:remove_card(card)
+    card:add_to_deck()
+    G.consumeables:emplace(card)
+end
+G.FUNCS.felijo_separate_totem = function(e)
+    local body_card = e.config.ref_table
     if not body_card then return end
-    if not body_card.config.totem_active then return end
+    if not body_card.ability.totem_active then return end
     if FELIJO.active_totem ~= body_card then return end
 
-    local tribe = body_card.config.totem_tribe
+    local tribe = body_card.ability.totem_tribe
     if tribe then
         local tribe_data = FELIJO.indexTribe(tribe)
         if tribe_data then
@@ -20,27 +37,28 @@ G.FUNCS.felijo_separate_totem = function(body_card)
 	body_card.children.center:set_sprite_pos({x = body_card.children.center.pos.x, y = 3})
 	body_card.children.center:set_soul_pos({x = body_card.children.center.soul_pos.x, y = 5})
 
-    body_card.config.totem_active = false
-    body_card.config.totem_tribe = nil
+    body_card.ability.totem_active = false
+    body_card.ability.totem_tribe = nil
 
     FELIJO.active_totem = nil
 end
 
-G.FUNCS.felijo_combine_totem = function(body_card)
+G.FUNCS.felijo_combine_totem = function(e)
+    local body_card = e.config.ref_table
     if not body_card then return end
     if not FELIJO.highlighted_head then return end
     local head = FELIJO.highlighted_head
 
 
-    if not body_card.config.is_totem_body then return end
+    if not body_card.ability.is_totem_body then return end
 
     local active_totem = FELIJO.active_totem
 
     -- SWITCH
     if active_totem == body_card then
-        if head.config.tribe ~= body_card.config.totem_tribe then
+        if head.ability.tribe ~= body_card.ability.totem_tribe then
 			
-            local old_tribe = body_card.config.totem_tribe
+            local old_tribe = body_card.ability.totem_tribe
 			local old_tribe_data = FELIJO.indexTribe(old_tribe)
 			local old_tribe_key = "c_felijo_" .. old_tribe_data.totem_key
 			
@@ -51,13 +69,13 @@ G.FUNCS.felijo_combine_totem = function(body_card)
 
             FELIJO.removeTotemSigils()
 
-            body_card.config.totem_tribe = head.config.tribe
-            local tribe_data = felijo.indexTribe(head.config.tribe)
+            body_card.ability.totem_tribe = head.ability.tribe
+            local tribe_data = felijo.indexTribe(head.ability.tribe)
             if tribe_data then
 				body_card.children.center:set_soul_pos({x = tribe_data.totem_x, y = 1})
             end
 
-            FELIJO.applyTotemSigils(body_card, body_card.config.totem_tribe)
+            FELIJO.applyTotemSigils(body_card, body_card.ability.totem_tribe)
 
         end
         return
@@ -198,7 +216,7 @@ end
 
 G.FUNCS.felijo_totem_button = function(e)
 	if G.felijo_totems then
-		e.config.button = "felijo_combine_button"
+		e.config.button = "felijo_totem_button"
 		
 		local card = e.config.ref_table
 		local highlighted_head = FELIJO.highlighted_head or nil
