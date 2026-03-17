@@ -38,11 +38,14 @@ G.FUNCS.felijo_totem_button = function(e)
 end
 
 G.FUNCS.felijo_can_pull = function(e)
-    local card = e.config.ref_table
-    if #G.felijo_totems < G.felijo_totems.config.card_limit then
+	local card = e.config.ref_table
+    if #G.felijo_totems.cards < G.felijo_totems.config.card_limit then
         e.config.colour = G.C.PURPLE
-        e.config.button = "pull_card"
-    else
+        e.config.button = "felijo_pull"
+    elseif (#G.felijo_totems.cards < G.felijo_totems.config.card_limit + 3) and card.ability.is_totem_head then
+		e.config.colour = G.C.PURPLE
+        e.config.button = "felijo_pull"
+	end
         e.config.colour = G.C.UI.BACKGROUND_INACTIVE
         e.config.button = nil
     end
@@ -76,16 +79,7 @@ G.FUNCS.felijo_separate_totem = function(e)
         x = body_card.children.center.sprite_pos.x,
         y = 3
     }
-	
-            
-	--[[
-	body_card.config.center.soul_pos = {x = body_card.config.center.soul_pos.x, y = 5}
-	body_card.ability.soul_pos ={
-        x = body_card.config.center.soul_pos.x,
-        y = 5
-    }
-	body_card:set_sprites(body_card.config.center)
-	]]
+
     body_card.ability.totem_active = false
     body_card.ability.totem_tribe = nil
 
@@ -121,17 +115,7 @@ G.FUNCS.felijo_combine_totem = function(e)
             body_card.ability.totem_tribe = head.ability.tribe
 
             local tribe_data = FELIJO.indexTribe(head.ability.tribe)
-            --[[if tribe_data then
-                body_card.config.center.soul_pos = {
-                    x = tribe_data.totem_x,
-                    y = 1
-                }
-                body_card.ability.soul_pos = {
-                    x = tribe_data.totem_x,
-                    y = 1
-                }
-                body_card:set_sprites(body_card.config.center)
-            end]]
+
 
             FELIJO.applyTotemSigils(body_card, body_card.ability.totem_tribe)
 			play_sound("felijo_totem_switch",1)
@@ -153,19 +137,7 @@ G.FUNCS.felijo_combine_totem = function(e)
     }
 
     local tribe_data = FELIJO.indexTribe(head.ability.tribe)
-	--[[
-    if tribe_data then
-        body_card.config.center.soul_pos = {
-            x = tribe_data.totem_x,
-            y = 1
-        }
-        body_card.ability.soul_pos = {
-            x = tribe_data.totem_x,
-            y = 1
-        }
-        body_card:set_sprites(body_card.config.center)
-    end
-	]]
+
     SMODS.destroy_cards(head, nil, nil, true)
     FELIJO.highlighted_head = nil
 
@@ -256,16 +228,14 @@ for _, data in ipairs(FELIJO.totem_sigil_table) do
 		load = function (self,card)
 			G.E_MANAGER:add_event(Event({
 				func = function() 
+						if card.ability.totem_active then
+							FELIJO.active_totem = card
+							FELIJO.applyTotemSigils(card, card.ability.totem_tribe)
+						end
 						card.children.center:set_sprite_pos({
 							x = card.ability.sprite_pos.x,
 							y = card.ability.sprite_pos.y,
 						})
-						--[[card.config.center.soul_pos = {
-							x = card.ability.soul_pos.x,
-							y = card.ability.soul_pos.y
-						}
-						card:set_sprites(card.config.center)
-						]]
 					return true 
 				end
 			}))
@@ -303,6 +273,9 @@ for _, data in ipairs(FELIJO.totem_sigil_table) do
 				SMODS.add_card{ key = old_tribe_key, area = G.felijo_totems }
 				FELIJO.removeTotemSigils()
 			end
+			if context.drawing_cards and card.ability.totem_active then 
+				FELIJO.applyTotemSigils(card, card.ability.totem_tribe)
+			end
 		end,
     }
 end
@@ -332,7 +305,7 @@ end
 
 FELIJO.get_totem_head = function(totem)
     local a = nil -- var to store the found totem
-    for k, v in pairs(FELIJO.tribe_table) do -- <- go through the trible_table and find the matching one
+    for k, v in pairs(FELIJO.tribe_table) do -- <- go through the tribe_table and find the matching one
         if v.key == totem.ability.totem_tribe then
             a = v.key
         end
@@ -353,10 +326,9 @@ SMODS.DrawStep { -- mostly taken from the seal drawing thing
             local totem = FELIJO.get_totem_head(self) -- for easy access
             if not G.totem_heads_shared[totem.key] then -- if not found in table, create the sprite inside to be able to draw it
                 G.totem_heads_shared[totem.key] = SMODS.create_sprite(0, 0, G.CARD_W, G.CARD_H, totem.atlas, {x = totem.pos.x, y = totem.pos.y+1}) -- sprite // y+1 to get activated sprite pos instead
-                print(totem.pos)
             end
             G.totem_heads_shared[totem.key].role.draw_major = self -- taken from seal code so idk much either
-            G.totem_heads_shared[totem.key]:draw_shader('dissolve', nil, nil, nil, self.children.center, nil, nil, nil,-1.5) -- -1.5 controls the height offset here // -1.5 can be changed dynamically if you asign a value for it in each head center and changing the -1.5 here to totem["whatever_value_you_set"]
+            G.totem_heads_shared[totem.key]:draw_shader('dissolve', nil, nil, nil, self.children.center, nil, nil, nil,-1.80) -- -1.5 controls the height offset here // -1.5 can be changed dynamically if you asign a value for it in each head center and changing the -1.5 here to totem["whatever_value_you_set"]
             if self.edition then G.totem_heads_shared[totem.key]:draw_shader(SMODS.Edition.obj_table[self.edition.key].shader, nil, self.ARGS.send_to_shader, nil, self.children.center, nil, nil, nil,-1.5) end -- check if an edition exists and apply it on the drawn head
             
         end

@@ -267,7 +267,7 @@ function Card:highlight(is_highlighted)
 					y = 1.5,
 				},
 				parent = self,
-				ref_table = s,
+				ref_table = self,
 			},
 		})
 	elseif self.highlighted and self.ability and self.ability.is_totem_head and self.area and self.area == G.felijo_totems then

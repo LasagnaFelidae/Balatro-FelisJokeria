@@ -44,7 +44,12 @@ SMODS.Joker { -- Uncommon, Magpie
         end
     end,
 	load = function(self, card, card_table, other_card)
-		self:badgeCalc(card)
+		G.E_MANAGER:add_event(Event({
+				func = function() 
+					self:badgeCalc(card)
+					return true 
+			end
+		}))
     end,
 	
 }
