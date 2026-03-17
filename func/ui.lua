@@ -164,7 +164,7 @@ FELIJO.button_func = function(card, args)
 										maxw = args.maxw_after_text,
 									},
 									nodes = {
-										{
+										args.text and not args.ref_table_text and {
 											n = G.UIT.T,
 											config = {
 												text = args.text,
@@ -173,6 +173,17 @@ FELIJO.button_func = function(card, args)
 												shadow = args.shadow_text,
 											},
 										},
+										args.ref_table_text and not args.text and {
+											n = G.UIT.T,
+											config = {
+												ref_table = args.ref_table_text,
+												ref_value = args.ref_value_text,
+												colour = args.text_colour,
+												scale = args.text_scale,
+												shadow = args.shadow_text,
+											},
+										},
+
 									},
 								},
 								args.second_text
@@ -269,7 +280,8 @@ function Card:highlight(is_highlighted)
 			definition = FELIJO.button_func(self, {
 				sell = true,
 				use = nil,
-				text = localize("k_felijo_combine_button"),                           
+				ref_table_text = FELIJO,
+				ref_value_text = "totem_text",                      
 				button = nil,  
 				func = "felijo_totem_button",
 				one_press = true,
@@ -299,7 +311,8 @@ function Card:highlight(is_highlighted)
 			definition = FELIJO.button_func(self, {
 				sell = true,
 				use = true,
-				text = localize("k_felijo_combine_button"),                           
+				ref_table_text = FELIJO,
+				ref_value_text = "totem_text",                          
 				button = "felijo_combine_totem",  
 				func = "felijo_totem_button",
 				one_press = false,

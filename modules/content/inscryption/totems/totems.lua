@@ -1,5 +1,6 @@
 FELIJO.highlighted_head = FELIJO.highlighted_head or nil
 FELIJO.active_totem = FELIJO.active_totem or nil
+FELIJO.totem_text = "NULL"
 
 G.FUNCS.felijo_totem_button = function(e)
 	if G.felijo_totems then
@@ -9,26 +10,26 @@ G.FUNCS.felijo_totem_button = function(e)
 			if highlighted_head then
 				if highlighted_head.ability.tribe ~= card.ability.totem_tribe then
 					-- SWITCH
-					e.config.text = localize("k_felijo_switch_button")
+					FELIJO.totem_text = localize("k_felijo_switch_button")
 					e.config.button = "felijo_combine_totem"
 					e.config.colour = G.C.BLUE
 				else
-					e.config.text = localize("felijo_switch_button")
+					FELIJO.totem_text = localize("felijo_switch_button")
 					e.config.button = nil
 					e.config.colour = G.C.UI.BACKGROUND_INACTIVE
 				end
 			else
-				e.config.text = localize("k_felijo_separate_button")
+				FELIJO.totem_text = localize("k_felijo_separate_button")
 				e.config.button = "felijo_separate_totem"
 				e.config.colour = G.C.RED
 			end
 		else
 			if highlighted_head and FELIJO.active_totem == nil then
-				e.config.text = localize("k_felijo_combine_button")
+				FELIJO.totem_text = localize("k_felijo_combine_button")
 				e.config.button = "felijo_combine_totem"
 				e.config.colour = G.C.BLUE
 			else
-				e.config.text = localize("k_felijo_combine_button")
+				FELIJO.totem_text = localize("k_felijo_combine_button")
 				e.config.button = nil
 				e.config.colour = G.C.UI.BACKGROUND_INACTIVE
 			end
