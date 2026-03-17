@@ -227,11 +227,11 @@ function Card:highlight(is_highlighted)
 	
 	if not self.highlighted and FELIJO.highlighted_head == self then
 		FELIJO.highlighted_head = nil
-	end
-	if self.highlighted and self.ability and self.ability.is_totem_head then
+	elseif self.highlighted and self.ability and self.ability.is_totem_head then
 		FELIJO.highlighted_head = self
 	end
-	if self.highlighted and ((self.area == G.pack_cards and G.pack_cards) or self.area == G.pack_cards and self.ability.set == "felijo_totem_parts") then
+
+	if self.highlighted and (G.pack_cards and self.area == G.pack_cards and self.ability.set == "felijo_totem_parts") then
 		if self.children.use_button then
 			self.children.use_button:remove()
 			self.children.use_button = nil
@@ -243,13 +243,21 @@ function Card:highlight(is_highlighted)
 				align = "cr",
 				align_other = "bm",
 				text = "PULL",                           
-				button = "use_card",  
-				func = can_pull_card,
+				button = "felijo_pull",  
+				func = "felijo_can_pull",
 				one_press = true,
 				text_colour = G.C.WHITE,
 				colour = G.C.PURPLE,  
 				under = true,
-			})
+			}),
+			config = {
+				align = "cm",
+				offset = {
+					x = 0,
+					y = 1.5,
+				},
+				parent = self,
+			},
 		})
 	elseif self.highlighted and self.ability and self.ability.is_totem_body and self.area and self.area == G.felijo_totems then
 		if self.children.use_button then
@@ -262,14 +270,22 @@ function Card:highlight(is_highlighted)
 				sell = true,
 				use = true,
 				text = localize("felijo_combine_button"),                           
-				button = "felijo_totem_action",  
-				func = felijo_combine_button,
+				button = "felijo_totem_button",  
+				func = "felijo_combine_totem",
 				one_press = true,
 				text_colour = G.C.WHITE,
 				colour = G.C.BLUE,  
 				text_scale = 0.45,
 				align_text = "cm",
-			})
+			}),
+			config = {
+				align = "cr",
+				offset = {
+					x = -0.4,
+					y = 0,
+				},
+				parent = self,
+			},
 		})
 	else
 		cardhighold(self, is_highlighted)	
