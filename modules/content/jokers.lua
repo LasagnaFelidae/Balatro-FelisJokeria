@@ -1,4 +1,4 @@
---[[
+
 local G_UIDEF_use_and_sell_buttons_ref = G.UIDEF.use_and_sell_buttons
 
 function G.UIDEF.use_and_sell_buttons(card)
@@ -284,6 +284,9 @@ SMODS.Joker {
     key = "felijo_stock_exchange",
     rarity = 2,
     cost = 6,
+	in_pool = function (self, args)
+		return false
+	end,
 	blueprint_compat = true,
     config = 
 		{ 
@@ -595,8 +598,3 @@ SMODS.Joker {
 	
 }
 
-
-
-
-
-]]
