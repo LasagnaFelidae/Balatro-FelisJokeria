@@ -148,10 +148,9 @@ SMODS.Challenge {
             { id = 'j_satellite' },
 			{ id = 'j_egg' },
 			{ id = 'j_credit_card' },
-			{ id = 'j_golden' },
 			{ id = 'j_gift' },
 			{ id = 'j_ticket' },
-			
+			{ id = 'c_felijo_ttm_midas'},
 			
 		},
 		banned_tags = {
@@ -164,6 +163,7 @@ SMODS.Challenge {
 			{ id = 'felijo_sgl_trifurcated', type = 'sticker' },
 			{ id = 'felijo_sgl_bifurcated', type = 'sticker' },
 			{ id = 'bl_tooth', type = 'blind' },
+			{ id = 'bl_final_leaf',  type = 'blind' },
 		},
     },
 
@@ -270,10 +270,9 @@ SMODS.Challenge {
             { id = 'j_satellite' },
 			{ id = 'j_egg' },
 			{ id = 'j_credit_card' },
-			{ id = 'j_golden' },
 			{ id = 'j_gift' },
 			{ id = 'j_ticket' },
-			
+			{ id = 'c_felijo_ttm_midas'},
 			
 		},
 		banned_tags = {
@@ -286,6 +285,7 @@ SMODS.Challenge {
 			{ id = 'felijo_sgl_trifurcated', type = 'sticker' },
 			{ id = 'felijo_sgl_bifurcated', type = 'sticker' },
 			{ id = 'bl_tooth', type = 'blind' },
+			{ id = 'bl_final_leaf',  type = 'blind' },
 		},
     },
 
