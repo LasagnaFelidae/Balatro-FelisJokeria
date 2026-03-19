@@ -10,7 +10,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-
+		["Gear"] = true,
 	},
     key = "felijo_rbx_pizza",
     rarity = 1,
@@ -34,7 +34,7 @@ SMODS.Joker {
 	end,
 	
     calculate = function(self, card, context)
-		if context.after and not context.blueprint then
+		if context.after and not context.blueprint and not context.retrigger_joker then
             if card.ability.extra.chips - card.ability.extra.chips_mod <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
             else
@@ -63,7 +63,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-
+		["Gear"] = true,
 	},
     key = "felijo_rbx_burrito",
 	blueprint_compat = false,
@@ -86,7 +86,7 @@ SMODS.Joker {
 	end,
 	
     calculate = function(self, card, context)
-		if context.after and not context.blueprint then
+		if context.after and not context.blueprint and not context.blueprint and not context.retrigger_joker then
             if card.ability.extra.mult - card.ability.extra.mult_mod <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
             else
@@ -116,7 +116,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-
+		["Gear"] = true,
 	},
     key = "felijo_rbx_turkey",
 	blueprint_compat = false,
@@ -139,7 +139,7 @@ SMODS.Joker {
 	end,
 	
     calculate = function(self, card, context)
-		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             if card.ability.extra.xmult - card.ability.extra.xmult_mod <= 1 then
                 SMODS.destroy_cards(card, nil, nil, true)
             else
@@ -169,7 +169,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-
+		["Gear"] = true,
 	},
     key = "felijo_rbx_cheezburger",
 	blueprint_compat = false,
@@ -192,7 +192,7 @@ SMODS.Joker {
 	end,
 	
     calculate = function(self, card, context)
-		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             if card.ability.extra.xchips - card.ability.extra.xchips_mod <= 1 then
                 SMODS.destroy_cards(card, nil, nil, true)
             else
@@ -222,7 +222,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-
+		["Gear"] = true,
 	},
     key = "felijo_rbx_sandwich",
 	blueprint_compat = false,
@@ -251,7 +251,7 @@ SMODS.Joker {
 	end,
 	
     calculate = function(self, card, context)
-		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             if card.ability.extra.chips - card.ability.extra.chips_mod <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
             else
@@ -282,7 +282,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-
+		["Gear"] = true,
 	},
     key = "felijo_rbx_pumpkinpi",
 	blueprint_compat = false,
@@ -310,7 +310,7 @@ SMODS.Joker {
 	end,
 	
     calculate = function(self, card, context)
-		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
 			if card.ability.extra.c_rounds >= card.ability.extra.m_rounds then 
 				if card.ability.extra.h_size - card.ability.extra.h_mod <= 0 then
 					SMODS.destroy_cards(card, nil, nil, true)
@@ -347,7 +347,7 @@ SMODS.Joker {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
 		["Food"] = true, 
-
+		["Gear"] = true,
 	},
     key = "felijo_rbx_epic",
 	blueprint_compat = false,
@@ -370,7 +370,7 @@ SMODS.Joker {
 	end,]]
 	
     calculate = function(self, card, context)
-		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
 			card.ability.extra.repetitions = card.ability.extra.repetitions + card.ability.extra.rep_mod
                 return {
                     message = "+"..card.ability.extra.rep_mod.." retrigger",
@@ -408,7 +408,8 @@ SMODS.Joker {
     pools = {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
-		["Food"] = true, 
+		["Food"] = true,
+		["Gear"] = true,		
 
 	},
     key = "felijo_rbx_bloxy",
@@ -469,7 +470,8 @@ SMODS.Joker {
     pools = {
 		["FelisJokeria"] = true, 
 		["Roblox"] = true, 
-		["Food"] = true, 
+		["Food"] = true,
+		["Gear"] = true,
 	},
     key = "felijo_rbx_brew",
 	blueprint_compat = false,
@@ -503,7 +505,7 @@ SMODS.Joker {
 	end,
 	
     calculate = function(self, card, context)
-		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.blueprint and not context.retrigger_joker then
 			if card.ability.extra.h_size - card.ability.extra.h_mod <= 0 then
 				SMODS.destroy_cards(card, nil, nil, true)
 				return {
@@ -560,7 +562,7 @@ SMODS.Joker {
 
 	
     calculate = function(self, card, context)
-		if context.setting_blind and not context.blueprint and #G.jokers.cards < G.jokers.config.card_limit then
+		if context.setting_blind and not context.blueprint and #G.jokers.cards < G.jokers.config.card_limit and not context.blueprint and not context.retrigger_joker then
 			if card.ability.extra.h_size - card.ability.extra.h_mod <= 0 then
 				SMODS.destroy_cards(card, nil, nil, true)
 				return {
@@ -615,7 +617,7 @@ SMODS.Joker {
 	end,
 	
     calculate = function(self, card, context)
-		if context.setting_blind and not context.blueprint then
+		if context.setting_blind and not context.blueprint and not context.blueprint and not context.retrigger_joker then
 			local jokers = {}
 			for i = 1, #G.jokers.cards do
 				if G.jokers.cards[i] ~= card and G.jokers.cards[i].config.center.key ~= "j_felijo_rbx_copy" then
@@ -686,7 +688,7 @@ SMODS.Joker {
 	end,
 	
     calculate = function(self, card, context)
-		if context.end_of_round and context.main_eval and not context.blueprint then
+		if context.end_of_round and context.main_eval and not context.blueprint and not context.blueprint and not context.retrigger_joker then
 			local jokers = {}
 			for i = 1, #G.jokers.cards do
 				if G.jokers.cards[i] ~= card and not G.jokers.cards[i].ability.eternal then
@@ -752,9 +754,9 @@ SMODS.Joker {
 	end,
 	
     calculate = function(self, card, context)
-		if context.dragging and context.drag_target == card and not context.blueprint and card.ability.extra.c_drag < card.ability.extra.m_drag then
+		if context.dragging and context.drag_target == card and not context.blueprint and card.ability.extra.c_drag < card.ability.extra.m_drag and not context.blueprint and not context.retrigger_joker then
 			card.ability.extra.c_drag = card.ability.extra.c_drag + (math.abs(to_number(G.GAME.round_resets.ante)) or 1)
-		elseif context.dragging and context.drag_target == card and card.ability.extra.c_drag >= card.ability.extra.m_drag then
+		elseif context.dragging and context.drag_target == card and card.ability.extra.c_drag >= card.ability.extra.m_drag and not context.blueprint and not context.retrigger_joker then
 			if card.ability.extra.toggle == 0 then
 				play_sound('felijo_rbx_spawn_add', 1)	
 				card.ability.extra.toggle = 1
@@ -767,7 +769,7 @@ SMODS.Joker {
 			end
 		end
 		
-		if context.modify_ante and context.ante_end then
+		if context.modify_ante and context.ante_end and not context.blueprint and not context.retrigger_joker then
 			card.ability.extra.m_drag = card.ability.extra.m_drag + card.ability.extra.drag_mod
 			card.ability.extra.drag_mod = card.ability.extra.drag_mod * 2
 			card.ability.extra.toggle = 0
@@ -780,6 +782,59 @@ SMODS.Joker {
 			}
 		end
 	end
+}
+
+-- Subspace Tripmine (Common)
+SMODS.Joker {
+    atlas = 'rbxJokers',
+    pos = { x = 5, y = 0 },
+    pools = {
+		["FelisJokeria"] = true, 
+		["Roblox"] = true, 
+		["Food"] = true, 
+		["Gear"] = true,
+	},
+    key = "felijo_rbx_subspace",
+    rarity = 1,
+    cost = 5,
+	unlocked = true,
+	discovered = true,
+	blueprint_compat = false,
+	
+	config = { extra = { chips = 150, chips_mod = 10} },
+	
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_rbx'), HEX('00008b'), HEX('ffffff'), 1 )
+	end,
+	
+    loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.chips, card.ability.extra.chips_mod} }
+	end,
+	
+	add_to_deck = function(self, card, from_debuff)
+		play_sound('felijo_rbx_pizza_add', 1)	
+	end,
+	
+    calculate = function(self, card, context)
+		if context.after and not context.blueprint and not context.blueprint and not context.retrigger_joker then
+            if card.ability.extra.chips - card.ability.extra.chips_mod <= 0 then
+                SMODS.destroy_cards(card, nil, nil, true)
+            else
+                card.ability.extra.chips = card.ability.extra.chips - card.ability.extra.chips_mod
+                return {
+                    message = localize { type = 'variable', key = 'a_chips_minus', vars = { card.ability.extra.chips_mod } },
+					sound = "felijo_rbx_pizza_eat",
+					pitch = 1,
+                    colour = G.C.CHIPS
+                }
+            end
+        end
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+	end,
 }
 
 

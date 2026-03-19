@@ -31,7 +31,7 @@ SMODS.Sticker{
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				chips = card.ability.perma_h_chips
+				felijo_h_xbscore = card.ability.felijo_perma_h_xbscore
 			}
 		end
     end,

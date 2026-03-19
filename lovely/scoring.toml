@@ -121,14 +121,12 @@ if specific_vars and specific_vars.felijo_perma_h_bscore then
     localize{type = 'other', key = 'felijo_perma_h_bscore', nodes = desc_nodes, vars = {SMODS.signed(specific_vars.felijo_perma_h_bscore)}}
 end
 if specific_vars and specific_vars.felijo_perma_xbscore then
-    local raw = specific_vars.felijo_perma_xbscore
     local key_to_use = 'felijo_perma_xbscore'
-    local var_value = raw
+    local var = specific_vars.felijo_perma_xbscore
 
-    -- Decide to show percentage when raw is small
-    if raw < 1 then
+    if specific_vars.felijo_perma_xbscore < 1 then
         key_to_use = 'felijo_perma_xbscore_perc'
-        var_value = (1 - raw) * 100
+        var = (1 - specific_vars.felijo_perma_xbscore) * 100
 
     end
 
@@ -136,18 +134,17 @@ if specific_vars and specific_vars.felijo_perma_xbscore then
         type = 'other',
         key = key_to_use,
         nodes = desc_nodes,
-        vars = {var_value}
+        vars = {var}
     }
 end
 
 if specific_vars and specific_vars.felijo_perma_h_xbscore then
-    local raw_h = specific_vars.felijo_perma_h_xbscore
     local key_h = 'felijo_perma_h_xbscore'
-    local var_h = raw_h
+    local var_h = specific_vars.felijo_perma_h_xbscore
 
-    if raw_h < 1 then
+    if specific_vars.felijo_perma_h_xbscore < 1 then
         key_h = 'felijo_perma_h_xbscore_perc'
-        var_h = (1 - raw_h) * 100
+        var_h = (1 - specific_vars.felijo_perma_h_xbscore) * 100
     end
 
     localize{
@@ -192,7 +189,6 @@ if specific_vars and specific_vars.felijo_perma_xbscore then
     local key_to_use = 'felijo_perma_xbscore'
     local var_value = raw
 
-    -- Decide to show percentage when raw is small
     if raw < 1 then
         key_to_use = 'felijo_perma_xbscore_perc'
         var_value = (1 - raw) * 100

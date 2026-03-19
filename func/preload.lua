@@ -6,6 +6,7 @@ Aikoyori's code.
 
 I will avoid using score modifiers and just do perma blind since i modified a bit for it to work
 Thank you so much Aiko for inspiring me to mod.
+
 ]]
 
 table.insert(SMODS.other_calculation_keys, "felijo_score")
@@ -40,7 +41,7 @@ FELIJO.mod_score_instant = function(score_mod)
         table.insert(score_fx, {"k_felijo_score_exp", score_mod.pow, "gong"})
     end
     if score_mod.mult and score_mod.mult ~= 1 then
-        score_cal = score_cal * score_mod.mult
+        score_cal = math.score_cal * score_mod.mult
         table.insert(G.FELIJO_DISPLAY_QUEUE, old)
         table.insert(score_fx, {"k_felijo_score_x", score_mod.mult, "gong"})
     end
@@ -49,13 +50,11 @@ FELIJO.mod_score_instant = function(score_mod)
         table.insert(G.FELIJO_DISPLAY_QUEUE, old)
         table.insert(score_fx, {FELIJO.compare(score_mod.add, "<", 0) and "k_felijo_score_minus" or "k_felijo_score_add", score_mod.add, "gong"})
     end
-    if Talisman then
-        score_cal = to_big(score_cal)
-    end
-    -- TODO: jank, will fix later
-    G.GAME.chips = score_cal
+	
+
+	G.GAME.chips = math.floor(score_cal) + 1
+
     
-    --print(G.GAME.chips)
     if score_mod.card then
         for _, values in ipairs(score_fx) do
             card_eval_status_text(score_mod.card, 'jokers', nil, percent, nil, {message = localize{type='variable',key= values[1],vars={values[2]}}, volume = 0.5, sound = values[3], colour =  G.C.SUITS.Diamonds})
@@ -107,11 +106,11 @@ FELIJO.mod_blind_instant = function(blind_mod)
         table.insert(G.FELIJO_DISPLAY_QUEUE, old)
         table.insert(blind_fx, {FELIJO.compare(blind_mod.add, "<", 0) and "k_felijo_bscore_minus" or "k_felijo_bscore_add", blind_mod.add, "gong"})
     end
-    if Talisman then
-        blind_cal = to_big(blind_cal)
-    end
-    G.GAME.blind.chips = blind_cal
+
+    
+	G.GAME.blind.chips = math.floor(blind_cal)
 	G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+
     
     if blind_mod.card then
         for _, values in ipairs(blind_fx) do

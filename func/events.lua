@@ -160,22 +160,19 @@ function FELIJO.subspaceExplode()
 	ease_background_colour{new_colour = HEX('F400F0')}
 	for _, _c in ipairs(G.hand.cards) do
 		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
-			_c.ability.perma_h_chips = _c.ability.perma_h_chips or 0
-			_c.ability.perma_h_chips = _c.ability.perma_h_chips + 100
+			_c.ability.felijo_perma_h_xbscore = (_c.ability.felijo_perma_h_xbscore or 1) - 0.10
 		end
 		_c.ability.felijo_stk_subspace = true
 	end
 	for _, _c in ipairs(G.jokers.cards) do
 		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
-			_c.ability.perma_h_chips = _c.ability.perma_h_chips or 0
-			_c.ability.perma_h_chips = _c.ability.perma_h_chips + 100
+			_c.ability.felijo_perma_h_xbscore = (_c.ability.felijo_perma_h_xbscore or 1) - 0.10
 		end
 		_c.ability.felijo_stk_subspace = true
 	end
 	for _, _c in ipairs(G.consumeables.cards) do
 		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
-			_c.ability.perma_h_chips = _c.ability.perma_h_chips or 0
-			_c.ability.perma_h_chips = _c.ability.perma_h_chips + 100
+			_c.ability.h_xchips = (_c.ability.h_xchips or 1) + 0.1
 		end
 		_c.ability.felijo_stk_subspace = true
 	end

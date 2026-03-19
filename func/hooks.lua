@@ -90,7 +90,6 @@ function Card:set_cost()
 end
 
 function Card:felijo_get_perma_score()
-    
     if self.debuff then return 0 end
     local ret = (self.ability.felijo_perma_score or 0)
     -- TARGET: felijo_get_perma_score
