@@ -4,4 +4,6 @@ assets/2x/inscryptionConsumables.png
 assets/1x/blind.png
 assets/2x/blind.png
 modules/content/inscryption/blinds.lua
+templates/localization_text_modifiers.md
+.vscode/
 .gitignore

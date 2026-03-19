@@ -113,7 +113,7 @@ assert(SMODS.load_file("./modules/content/inscryption/jokers/10_deathcards.lua")
 -- ┃ ┃ ┃ ┃ ┣╸ ┃┃┃┗━┓--
 -- ╹ ┗━┛ ╹ ┗━╸╹ ╹┗━┛--
 ----------------------
-assert(SMODS.load_file("./func/totems/funcs.lua"))()
+assert(SMODS.load_file("./func/totems/utils.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/totems/sigils.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/totems/totems.lua"))()
 

@@ -320,17 +320,6 @@ return {
 				},
 			
 			},
-			m_felijo_enh_sup = {
-				name = "Superior",
-				text = {
-					{
-						"Grants {C:attention}card rank{} multiplied by ",
-						"{X:chips,C:white}#1#{} xChips when played.",
-						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}1{C:inactive,s:0.8} xChips)"
-					},
-				},
-			
-			},
 
 		},
 		Blind = {

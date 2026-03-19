@@ -20,7 +20,6 @@ FELIJO.garf_words = {
     ["food"] = true,
     ["foods"] = true,
     ["nap"] = true,
-    ["naps"] = true,
     ["napping"] = true,
     ["nappy"] = true,
     ["jim"] = true,

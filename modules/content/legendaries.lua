@@ -11,8 +11,9 @@ SMODS.Joker {
     key = "felijo_lgd_feli",
     rarity = 4,
     cost = 20,
-	config = { extra = { chips = 5, dollars = 1, odds = 6} },
-	
+	config = {
+		extra = { chips = 5, odds = 6},
+	},	
     loc_vars = function(self, info_queue, card)
 		local numerator, denumerator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_lgd_feli')
 		return { vars = { card.ability.extra.chips, numerator, denumerator} }

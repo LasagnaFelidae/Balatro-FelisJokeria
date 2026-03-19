@@ -4,40 +4,7 @@ local PRONOUNS = { "neutral", "masculine", "feminine", "masculine", "neutral",
   "neutral", "masculine", "feminine", "neutral", "masculine", "feminine" }
 
 
-
-local function number_to_pip(n)
-    if n == 14 or n == 1 then return "A"
-    elseif n == 13 then return "K"
-    elseif n == 12 then return "Q"
-    elseif n == 11 then return "J"
-    else return tostring(math.floor(n))
-    end
-end
-				
-local function rank_to_chips(n)
-	if n == 14 or n == 1 then return 11
-    elseif n <= 13 and n >= 11 then return 10
-    else return tostring(math.floor(n))
-    end
-end
-				
-
-local function number_to_pip(n)
-    if n == 14 or n == 1 then return "A"
-    elseif n == 13 then return "K"
-    elseif n == 12 then return "Q"
-    elseif n == 11 then return "J"
-    else return tostring(math.floor(n))
-    end
-end
-				
-local function rank_to_chips(n)
-	if n == 14 or n == 1 then return 11
-    elseif n <= 13 and n >= 11 then return 10
-    else return tostring(math.floor(n))
-    end
-end
-				
+	
 
 
 SMODS.Joker { -- Uncommon Aiko
@@ -196,11 +163,11 @@ SMODS.Joker { -- Uncommon Luna
     atlas = 'inscryptionJokers',
     pos = { x = 2, y = 0 },
     pools = {
-		["FelisJokeria"]=true, 
-		["Inscryption"] = true, 
+		["FelisJokeria"]=true,
+		["Inscryption"] = true,
 		["Beast"] = true,
-		["Object"] = true, 
-		["Deathcard"] = true, 
+		["Object"] = true,
+		["Deathcard"] = true,
 	},
     key = "felijo_ins_luna",
 	pronouns = "she_her",
@@ -261,8 +228,6 @@ SMODS.Joker{  -- uncommon nxkoo
 	},
     key = "felijo_ins_nxkoo",
 	pronouns = "she_they",
-	unlocked = true,
-	discovered = true,
     rarity = 2,
     cost = 8,
     blueprint_compat = true,
@@ -298,8 +263,6 @@ SMODS.Joker{  -- Uncommon Toga
 	},
     key = "felijo_ins_toga",
 	pronouns = "he_him",
-	unlocked = true,
-	discovered = true,
     rarity = 2,
     cost = 6,
     blueprint_compat = true,
@@ -324,7 +287,7 @@ SMODS.Joker{  -- Uncommon Toga
 				card.ability.stage.i = 0
 				local croll = pseudorandom("felijo_ins_toga"..G.GAME.round..G.GAME.pseudorandom.seed)
 				local negative = pseudorandom("felijo_ins_toga2"..G.GAME.round..G.GAME.pseudorandom.seed,1,6)
-				local cons = FELIJO.quick_pool_pick(FELIJO.consumeables_table, roll)
+				local cons = FELIJO.quick_pool_pick(FELIJO.consumeables_table, croll)
 				if negative == 6 then
 					SMODS.add_card{ set = cons, edition = "e_negative" }
 				elseif #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -371,17 +334,19 @@ SMODS.Joker { -- Rare Evgast
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,
     loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.debuff, card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } }
+		return { vars = { (1-card.ability.extra.debuff)*100, card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } }
     end,
     calculate = function(self, card, context)
-		local aces = 0
 		if context.individual and context.cardarea == G.play then
 			if context.other_card:get_id() == 14 then
-				aces = aces + 1
-				SMODS.juice_up_blind()
-				G.GAME.blind.chips = math.floor(G.GAME.blind.chips * ( 1 - (card.ability.extra.debuff * aces) ))
-				G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)	
-				play_sound('timpani', 0.96 + math.random() * 0.08)
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						G.GAME.blind.chips = math.floor(G.GAME.blind.chips * (1 - self.config.extra.xbscore))
+                        G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+						return true
+					end
+				}))
+				play_sound('gong', 0.96 + math.random() * 0.08)
 			end
 		end
 		if context.joker_main then
@@ -405,8 +370,6 @@ SMODS.Joker{  --rare Mycologists, The
 	},
     key = "felijo_ins_myco",
 	pronouns = "they_them",
-	unlocked = true,
-	discovered = true,
     rarity = 3,
     cost = 8,
     blueprint_compat = false,
@@ -430,7 +393,7 @@ SMODS.Joker{  --rare Mycologists, The
 				local rank = c1:get_id()
 				
 				
-				local new_front_key = suit:sub(1,1) .. '_' .. number_to_pip(rank)
+				local new_front_key = suit:sub(1,1) .. '_' .. FELIJO.number_to_pip(rank)
 				local new_front = G.P_CARDS[new_front_key]
 
 				local enhancements = {}
@@ -454,7 +417,7 @@ SMODS.Joker{  --rare Mycologists, The
                     center = new_center,
                 }, G.play, true, false, nil, true)
                 
-                merged_card.ability.perma_bonus = rank_to_chips(rank)
+                merged_card.ability.perma_bonus = FELIJO.rank_to_chips(rank)
                 merged_card.ability.felijo_stk_stitched = true
                 if new_seal then
                     merged_card:set_seal(new_seal, true)
@@ -545,6 +508,7 @@ SMODS.Joker { -- Rare Revo
 	end,
 	
     calculate = function(self, card, context)
+		---@diagnostic disable: need-check-nil
 		local cloned = nil
 		if context.joker_main then
 			if SMODS.pseudorandom_probability(card, 'felijo_ins_revo', 1, card.ability.extra.odds) then

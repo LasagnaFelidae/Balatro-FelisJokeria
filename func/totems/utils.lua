@@ -1,3 +1,12 @@
+--[[
+Lookup tribe object by tribe key.
+
+Parameters:
+  tribe_key (string): required key of the tribe.
+
+Returns:
+  table|nil: tribe data if found, otherwise nil.
+]]--
 FELIJO.indexTribe = function(tribe_key)
     if not tribe_key then return nil end
 
@@ -10,6 +19,15 @@ FELIJO.indexTribe = function(tribe_key)
     return nil
 end
 
+--[[
+Lookup totem sigil object by sigil key.
+
+Parameters:
+  sigil_key (string): required key of the totem sigil.
+
+Returns:
+  table|nil: sigil data if found, otherwise nil.
+]]--
 FELIJO.indexTotemSigil = function(sigil_key)
     if not sigil_key then return nil end
 
@@ -22,6 +40,15 @@ FELIJO.indexTotemSigil = function(sigil_key)
     return nil
 end
 
+--[[
+Get tribe key from a totem key.
+
+Parameters:
+  totem_key (string): required totem key to look up.
+
+Returns:
+  string|nil: the matching tribe key or nil if not found.
+]]--
 FELIJO.getTribefromTotem = function(totem_key)
     if not totem_key then return nil end
 
@@ -34,6 +61,15 @@ FELIJO.getTribefromTotem = function(totem_key)
     return nil
 end
 
+--[[
+Get sigil key from a totem key.
+
+Parameters:
+  totem_key (string): required totem key to look up.
+
+Returns:
+  string|nil: the matching sigil key or nil if not found.
+]]--
 FELIJO.getSigilfromTotem = function(totem_key)
     if not totem_key then return nil end
 
@@ -46,6 +82,11 @@ FELIJO.getSigilfromTotem = function(totem_key)
     return nil
 end
 
+--[[
+Remove all totem sigils from all jokers.
+
+No parameters.
+]]--
 FELIJO.removeTotemSigils = function()
     if not G.jokers or not G.jokers.cards then return end
     for _, card in ipairs(G.jokers.cards) do
@@ -60,6 +101,17 @@ FELIJO.removeTotemSigils = function()
     end
 end
 
+--[[
+Apply totem sigils to jokers based on tribe and card pools.
+
+Valid tribes:
+  "Avian", "Canine", "Feline", "Hooved", "Insect", "Reptile", "Vermin",
+  "Object", "Other", "Human"
+
+Parameters:
+  totem_body (table): required totem card body containing ability.totem_sigil.
+  tribe (string): required tribe to apply.
+]]--
 FELIJO.applyTotemSigils = function(totem_body, tribe)
     if not totem_body then return end
     if not totem_body.ability.totem_sigil then return end

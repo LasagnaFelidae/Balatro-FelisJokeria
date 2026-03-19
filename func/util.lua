@@ -3,6 +3,17 @@ FELIJO.is_mod_loaded = function(var) -- credit aiko
     return (SMODS.Mods[var] and SMODS.Mods[var].can_load) and true or false
 end
 
+--[[
+Copy a card table into a new card object.
+
+Parameters:
+  card (table): required original card to copy.
+  new_card (table|nil): optional existing card object to fill; if provided, preserves deck membership if required.
+  area (table|nil): optional area to place card into if not already in deck/area; defaults to new_card.area or card.area or G.jokers.
+
+Returns:
+  copy (table): the newly copied card. Returns nil if card is nil.
+]]--
 FELIJO.copy_card = function(card, new_card, area) -- credit somethingcom515
     if not card then return nil end
     local area = area or (new_card and new_card.area) or card.area or G.jokers
@@ -20,6 +31,69 @@ FELIJO.copy_card = function(card, new_card, area) -- credit somethingcom515
     return copy
 end
 
+FELIJO.number_to_pip = function(n)
+    if n == 14 or n == 1 then return "A"
+    elseif n == 13 then return "K"
+    elseif n == 12 then return "Q"
+    elseif n == 11 then return "J"
+    else return tostring(math.floor(n))
+    end
+end
+				
+FELIJO.rank_to_chips = function(n)
+	if n == 14 or n == 1 then return 11
+    elseif n <= 13 and n >= 11 then return 10
+    else return tostring(math.floor(n))
+    end
+end
+			
+
+--[[
+Explode a card with sound and destroy it.
+
+Parameters:
+  card (table): required card to explode.
+  sound (any): currently ignored; function uses global explosion/delete checks.
+]]--
+function FELIJO.explodeCard(card, sound)
+	sound = sound or "explosion"
+	if sound == "delete" then
+		play_sound("felijo_rbx_delete")
+	elseif sound == "explosion" then
+		play_sound("felijo_rbx_explosion")
+	end
+    playEffect("explosion",card.tilt_var.mx,card.tilt_var.my)
+    SMODS.destroy_cards(card)
+end
+
+--[[
+Apply subspace explosion effects to hand, jokers, and consumables.
+
+No parameters.
+]]--
+function FELIJO.subspaceExplode()
+	play_sound("felijo_rbx_subspace")
+	Blind:change_colour(HEX('F400F0')) -- Blind box
+	ease_background_colour{new_colour = HEX('F400F0')}
+	for _, _c in ipairs(G.hand.cards) do
+		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
+			_c.ability.felijo_perma_h_xbscore = (_c.ability.felijo_perma_h_xbscore or 1) - 0.10
+		end
+		_c.ability.felijo_stk_subspace = true
+	end
+	for _, _c in ipairs(G.jokers.cards) do
+		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
+			_c.ability.felijo_perma_h_xbscore = (_c.ability.felijo_perma_h_xbscore or 1) - 0.10
+		end
+		_c.ability.felijo_stk_subspace = true
+	end
+	for _, _c in ipairs(G.consumeables.cards) do
+		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
+			_c.ability.h_xchips = (_c.ability.h_xchips or 1) + 0.1
+		end
+		_c.ability.felijo_stk_subspace = true
+	end
+end
 
 -- https://stackoverflow.com/questions/2353211/hsl-to-rgb-color-conversion + Aikoyori (Aikoshen), rainbow function.
 function FELIJO.hsl2rgb(h,s,l,al) 
@@ -50,14 +124,25 @@ end
 
 
 --[[
-This takes a table for it to pick from:
-key can be a variable, as long as it is defined during game initialization.
-pool = {
-	{returned key, weight}, 
-	{returned key, weight},
-	{returned key, weight},
-	{returned key, weight},
-}
+Quick weighted pool pick.
+
+Parameters:
+  pool (table): required. A list of entries where each entry is either
+    {key = value, weight = number} or {value, weight}.
+    Example:
+      {
+        {key = 'j_foo', weight = 2},
+        {'j_bar', 1},
+      }
+
+  roll (number|nil): optional. If provided, should be a [0,1) random float.
+    You can pass either:
+      pseudorandom(pseudoseed('myseed'))
+    or a local variable storing that value.
+    If omitted, it defaults to pseudorandom(pseudoseed('poolroll')).
+
+Returns:
+  selected key/value from pool based on weights.
 ]]--
 FELIJO.quick_pool_pick = function(pool, roll)
 	if type(pool) == "table" then
@@ -86,6 +171,18 @@ FELIJO.quick_pool_pick = function(pool, roll)
 	end
 end
 
+--[[
+Merge multiple pools by set logic.
+
+Params:
+  pools (table): required list of pool names (strings). Example: {'FelisJokeria', 'Inscryption'}.
+  op (string|nil): optional operation: "AND", "OR", or "NOT". Defaults to "AND".
+  inject (boolean|nil): optional. If true and inject_pool provided, new cards are injected for results.
+  inject_pool (table|nil): optional UI pool object with .cards used for injection.
+
+Returns:
+  table of merged card center keys.
+]]--
 FELIJO.pool_merge = function(pools, op, inject, inject_pool)
     local result = {}
     if #pools <= 1 then return result end

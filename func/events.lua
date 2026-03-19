@@ -142,39 +142,5 @@ function playEffect(effect,posx,posy)
     table.insert(G.effectmanager,{neweffect})
 end
 
-function FELIJO.deleteCard(card)
-    play_sound("felijo_rbx_delete")
-    playEffect("explosion",card.tilt_var.mx,card.tilt_var.my)
-    SMODS.destroy_cards(card)
-end
 
-function FELIJO.explodeCard(card)
-    play_sound("felijo_rbx_explosion")
-    playEffect("explosion",card.tilt_var.mx,card.tilt_var.my)
-    SMODS.destroy_cards(card)
-end
-
-function FELIJO.subspaceExplode()
-	play_sound("felijo_rbx_subspace")
-	Blind:change_colour(HEX('F400F0')) -- Blind box
-	ease_background_colour{new_colour = HEX('F400F0')}
-	for _, _c in ipairs(G.hand.cards) do
-		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
-			_c.ability.felijo_perma_h_xbscore = (_c.ability.felijo_perma_h_xbscore or 1) - 0.10
-		end
-		_c.ability.felijo_stk_subspace = true
-	end
-	for _, _c in ipairs(G.jokers.cards) do
-		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
-			_c.ability.felijo_perma_h_xbscore = (_c.ability.felijo_perma_h_xbscore or 1) - 0.10
-		end
-		_c.ability.felijo_stk_subspace = true
-	end
-	for _, _c in ipairs(G.consumeables.cards) do
-		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
-			_c.ability.h_xchips = (_c.ability.h_xchips or 1) + 0.1
-		end
-		_c.ability.felijo_stk_subspace = true
-	end
-end
 

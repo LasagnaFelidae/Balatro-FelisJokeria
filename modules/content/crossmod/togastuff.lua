@@ -157,7 +157,7 @@ SMODS.Blind{
 	pos = { x = 0, y = 0 },
 	dollars = 6,
 	mult = 8.888,
-	in_pool = function (self, args)
+	in_pool = function (self)
         return G.GAME.login or G.GAME.won or false
     end,
 	collection_loc_vars = function(self)

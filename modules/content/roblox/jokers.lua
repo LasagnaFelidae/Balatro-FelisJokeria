@@ -704,7 +704,7 @@ SMODS.Joker {
 					local _card = pseudorandom_element(jokers, pseudoseed("j_felijo_rbx_delete"))
 					if _card then
 						card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
-						FELIJO.deleteCard(_card)
+						FELIJO.explodeCard(_card, "delete")
 						count = count + 1
 					end
 				end
@@ -755,7 +755,7 @@ SMODS.Joker {
 	
     calculate = function(self, card, context)
 		if context.dragging and context.drag_target == card and not context.blueprint and card.ability.extra.c_drag < card.ability.extra.m_drag and not context.blueprint and not context.retrigger_joker then
-			card.ability.extra.c_drag = card.ability.extra.c_drag + (math.abs(to_number(G.GAME.round_resets.ante)) or 1)
+			card.ability.extra.c_drag = card.ability.extra.c_drag + (math.abs(G.GAME.round_resets.ante) or 1)
 		elseif context.dragging and context.drag_target == card and card.ability.extra.c_drag >= card.ability.extra.m_drag and not context.blueprint and not context.retrigger_joker then
 			if card.ability.extra.toggle == 0 then
 				play_sound('felijo_rbx_spawn_add', 1)	
@@ -819,6 +819,9 @@ SMODS.Joker {
 		if context.after and not context.blueprint and not context.blueprint and not context.retrigger_joker then
             if card.ability.extra.chips - card.ability.extra.chips_mod <= 0 then
                 SMODS.destroy_cards(card, nil, nil, true)
+				FELIJO.subspaceExplode()
+				
+				
             else
                 card.ability.extra.chips = card.ability.extra.chips - card.ability.extra.chips_mod
                 return {
