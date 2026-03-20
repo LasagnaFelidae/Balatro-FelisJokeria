@@ -146,6 +146,15 @@ G.FUNCS.felijo_combine_totem = function(e)
 	play_sound("felijo_totem_combine",1)
 end
 
+local retvars_lookup = {
+    felijo_ttm_sgl_midas     = { SMODS.Stickers["felijo_ttm_sgl_midas"]     and SMODS.Stickers["felijo_ttm_sgl_midas"].config.extra.dollars },
+    felijo_ttm_sgl_leader    = SMODS.Stickers["felijo_ttm_sgl_leader"] and {
+        SMODS.Stickers["felijo_ttm_sgl_leader"].config.extra.mult_mod,
+        0
+    },
+    felijo_ttm_sgl_stinky    = SMODS.Stickers["felijo_ttm_sgl_stinky"] and { SMODS.Stickers["felijo_ttm_sgl_stinky"].config.extra.xbscore*100 },
+}
+
 FELIJO.Consumable = SMODS.Consumable:extend{
     in_pool = function (self, args)
        return true
@@ -166,14 +175,7 @@ SMODS.ConsumableType {
 	select_card = G.felijo_totems,
 }
 
-local retvars_lookup = {
-    felijo_ttm_sgl_midas     = { SMODS.Stickers["felijo_ttm_sgl_midas"]     and SMODS.Stickers["felijo_ttm_sgl_midas"].config.extra.dollars },
-    felijo_ttm_sgl_leader    = SMODS.Stickers["felijo_ttm_sgl_leader"] and {
-        SMODS.Stickers["felijo_ttm_sgl_leader"].config.extra.mult_mod,
-        0
-    },
-    felijo_ttm_sgl_stinky    = SMODS.Stickers["felijo_ttm_sgl_stinky"] and { SMODS.Stickers["felijo_ttm_sgl_stinky"].config.extra.xbscore*100 },
-}
+
 
 for _, data in ipairs(FELIJO.totem_sigil_table) do
     FELIJO.Consumable {

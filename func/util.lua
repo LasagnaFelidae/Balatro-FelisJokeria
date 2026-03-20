@@ -14,6 +14,7 @@ Parameters:
 Returns:
   copy (table): the newly copied card. Returns nil if card is nil.
 ]]--
+
 FELIJO.copy_card = function(card, new_card, area) -- credit somethingcom515
     if not card then return nil end
     local area = area or (new_card and new_card.area) or card.area or G.jokers
@@ -210,9 +211,8 @@ FELIJO.pool_merge = function(pools, op, inject, inject_pool)
             injected_set[k] = true
         end
     end
-	
+	local pool = get_current_pool(pools[1])
 	if op == "AND" then -- merge if its in all pools
-        local pool = get_current_pool(pools[1])
         for _, key in ipairs(pool) do -- go through pools from largest to smallest
 			if G.P_CENTERS[key] then
 				local in_all = true
@@ -248,7 +248,6 @@ FELIJO.pool_merge = function(pools, op, inject, inject_pool)
 		end
 
     elseif op == "NOT" then -- removes all cards from pools after the first one
-        local pool = get_current_pool(pools[1])
         for _, key in ipairs(pool) do
 			if G.P_CENTERS[key] then
 				local in_others = false
@@ -273,3 +272,60 @@ FELIJO.pool_merge = function(pools, op, inject, inject_pool)
 
     return result
 end
+
+--[[
+Get the most played hand type.
+
+Returns:
+  string: the key of the most played hand type.
+]]--
+FELIJO.get_most_played_hand = function()
+	local _handname, _played = 'High Card', -1
+	for hand_key, hand in pairs(G.GAME.hands) do
+		if hand.played > _played then
+			_played = hand.played
+			_handname = hand_key
+		end
+	end
+	local most_played = _handname
+	return most_played
+end
+
+--[[
+Get the least played hand type.
+
+Returns:
+  string: the key of the least played hand type.
+]]--
+FELIJO.get_least_played_hand = function()
+	local _handname, _played = 'Flush Five', 9999999999
+	for hand_key, hand in pairs(G.GAME.hands) do
+		if hand.played < _played then
+			_played = hand.played
+			_handname = hand_key
+		end
+	end
+	local least_played = _handname
+	return least_played
+end
+
+--[[
+Get the planet card for the given hand
+
+Params:
+  hand (string): the key of the hand type.
+
+Returns:
+  string: the key of the planet card.
+]]--
+FELIJO.get_planet_for_hand = function(hand)
+	local planet
+	for _, center in pairs(G.P_CENTER_POOLS.Planet) do
+		if center.config.hand_type == hand then
+			planet = center.key
+		end
+	end
+	return planet
+end
+
+

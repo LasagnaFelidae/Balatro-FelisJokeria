@@ -2,7 +2,7 @@
 --
 --
 
--- Pizza (Common)
+-- Pepperoni Pizza (Common)
 SMODS.Joker {
     atlas = 'rbxJokers',
     pos = { x = 5, y = 0 },
@@ -560,10 +560,12 @@ SMODS.Joker {
 		play_sound('felijo_rbx_vending_use', 1)		
 	end,
 
-	
+
     calculate = function(self, card, context)
 		if context.setting_blind and not context.blueprint and #G.jokers.cards < G.jokers.config.card_limit and not context.blueprint and not context.retrigger_joker then
 			if card.ability.extra.h_size - card.ability.extra.h_mod <= 0 then
+				rf = pseudorandom_element(FELIJO.pool_merge({"Roblox","Food"}), pseudoseed('vending'))
+				SMODS.add_card{set = 'Joker', key = rf}
 				SMODS.destroy_cards(card, nil, nil, true)
 				return {
                     message = "Empty!",
@@ -573,7 +575,9 @@ SMODS.Joker {
                 }     
 			else
 				card.ability.extra.h_size = card.ability.extra.h_size - card.ability.extra.h_mod
-				SMODS.add_card{set = "Roblox_Food",}
+				rf = pseudorandom_element(FELIJO.pool_merge({"Roblox","Food"}), pseudoseed('vending'))
+				SMODS.add_card{ set = 'Joker', key = rf}
+					
                 return {
                     message = "Dispensed",
                     colour = G.C.MONEY,
