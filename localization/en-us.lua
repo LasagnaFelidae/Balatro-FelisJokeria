@@ -774,6 +774,88 @@ return {
 					},
                 },
             },
+			
+			j_felijo_ins_tentacle_bell = {
+                name = {
+					"{B:1,V:2,f:felijo_Feli5x8,E:1}@{}",
+					"{V:1,s:0.5,f:felijo_Feli5x8}(Bell Tentacle)"
+					},
+                text = {
+					{
+					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
+					},
+					{
+                    "Gives {X:chips,C:white}x#1#{} Chips per",
+					"{C:attention}Joker{} owned divided by",
+					"its position in the {C:attention}Joker{} area",
+					}
+                }
+		    },
+			
+			j_felijo_ins_tentacle_cons = {
+                name = {
+					"{B:1,V:2,f:felijo_Feli5x8,E:1}@{}",
+					"{V:1,s:0.5,f:felijo_Feli5x8}(Consumeable Tentacle)"
+					},
+                text = {
+					{
+					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
+					},
+					{
+                    "Gives {X:chips,C:white}x#1#{} Chips per",
+					"{C:tarot}Consumeable{} owned",
+					}
+                }
+		    },
+			
+			j_felijo_ins_tentacle_hand = {
+                name = {
+					"{B:1,V:2,f:felijo_Feli5x8,E:1}@{}",
+					"{V:1,s:0.5,f:felijo_Feli5x8}(Hand Tentacle)"
+					},
+                text = {
+					{
+					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
+					},
+					{
+                    "Gives {X:chips,C:white}x#1#{} Chips for",
+					"each card in {C:attention}hand{}",
+					}
+                }
+		    },
+			
+			j_felijo_ins_tentacle_enh = {
+                name = {
+					"{B:1,V:2,f:felijo_Feli5x8,E:1}@{}",
+					"{V:1,s:0.5,f:felijo_Feli5x8}(Enhancement Tentacle)"
+					},
+                text = {
+					{
+					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
+					},
+					{
+                    "Gives {X:chips,C:white}x#1#{} Chips for",
+					"each {C:enhanced}Enhanced{} card",
+					"in deck",
+					}
+                }
+		    },
+			j_felijo_ins_tentacle_edi = {
+                name = {
+					"{B:1,V:2,f:felijo_Feli5x8,E:1}@{}",
+					"{V:1,s:0.5,f:felijo_Feli5x8}(Edition Tentacle)"
+					},
+                text = {
+					{
+					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
+					},
+					{
+                    "Gives {X:chips,C:white}x#1#{} Chips for",
+					"each card with an {C:dark_edition}Edition{}",
+					"in deck",
+					}
+                }
+		    },
 			-- LEGENDARIES
 			
 			j_felijo_lgd_feli = {
@@ -1328,7 +1410,7 @@ return {
 					"Combine with a {C:attention}Totem{}",
 					"to apply its effects on",
 					"{C:attention}Human{} Jokers",
-					"{C:inactive,s:0.6}(Includes \"Humanoid\" Jokers)"
+					"{C:inactive,s:0.6}(Includes \"Anime\" Jokers)"
 				},
 			},
 			c_felijo_ttm_bifurcated = {

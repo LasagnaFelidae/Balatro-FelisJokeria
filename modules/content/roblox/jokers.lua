@@ -789,6 +789,7 @@ SMODS.Joker {
 }
 
 -- Subspace Tripmine (Common)
+--[[
 SMODS.Joker {
     atlas = 'rbxJokers',
     pos = { x = 5, y = 0 },
@@ -846,5 +847,5 @@ SMODS.Joker {
 
 
 
-
+]]--
 

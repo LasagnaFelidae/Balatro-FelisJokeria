@@ -135,16 +135,19 @@ FELIJO.applyTotemSigils = function(totem_body, tribe)
 			elseif tribe == "Avian" and (card.config.center.pools["Birb"] or card.config.center.pools["Bird"]) then
 				card:add_sticker(sigil_key, true)
                 applied = true
-			elseif tribe == "Human" and (card.config.center.pools["Humanoid"]) then
+			elseif tribe == "Human" and (card.config.center.pools["Anime"] or card.config.center.pools["Vocaloid"] or card.config.center.pools["VTuber"] ) then
 				card:add_sticker(sigil_key, true)
                 applied = true
-			elseif tribe == "Other" and (card.config.center.pools["Food"]) then
+			elseif tribe == "Other" and (card.config.center.pools["Food"] or card.config.center.pools["Video Game"] or card.config.center.pools["Minecraft"]) then
 				card:add_sticker(sigil_key, true)
                 applied = true
 			elseif tribe == "Object" and (card.config.center.pools["Meme"]) then
 				card:add_sticker(sigil_key, true)
                 applied = true
             elseif tribe == "Insect" and (card.config.center.pools["Bug"]) then
+				card:add_sticker(sigil_key, true)
+                applied = true
+			elseif tribe == "Hooved" and (card.config.center.pools["Pony"] or card.config.center.pools["Horse"]) then
 				card:add_sticker(sigil_key, true)
                 applied = true
 			end
