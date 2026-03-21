@@ -64,6 +64,7 @@ end
 assert(SMODS.load_file("./modules/content/enhancements.lua"))()
 assert(SMODS.load_file("./modules/content/legendaries.lua"))()
 assert(SMODS.load_file("./modules/content/jokers.lua"))()
+assert(SMODS.load_file("./modules/content/stickers.lua"))()
 assert(SMODS.load_file("./modules/content/tarots.lua"))()
 
 --[[

@@ -11,11 +11,28 @@ return {
 
 
 ]]
-
+FELIJO.T2Enhancement = SMODS.Enhancement:extend{
+    in_pool = function (self, args)
+       return true
+    end,
+	weight = 3
+}
+FELIJO.T3Enhancement = SMODS.Enhancement:extend{
+    in_pool = function (self, args)
+       return true
+    end,
+	weight = 1
+}
+FELIJO.T3Enhancement = SMODS.Enhancement:extend{
+    in_pool = function (self, args)
+       return true
+    end,
+	weight = 0.2
+}
 
 
 -- Bonus
-SMODS.Enhancement {
+FELIJO.T2Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'bonus_t2',
     pos = { x = 1, y = 0 },
@@ -25,7 +42,7 @@ SMODS.Enhancement {
     end,
 }
 
-SMODS.Enhancement {
+FELIJO.T3Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'bonus_t3',
     pos = { x = 2, y = 0 },
@@ -35,7 +52,7 @@ SMODS.Enhancement {
     end,
 }
 
-SMODS.Enhancement {
+FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'bonus_t4',
 	discovered = true,
@@ -49,7 +66,7 @@ SMODS.Enhancement {
 }
 
 -- Mult
-SMODS.Enhancement {
+FELIJO.T2Enhancement {
     atlas = 'tieredEnhancements',
     key = 'mult_t2',
     pos = { x = 1, y = 1 },
@@ -59,7 +76,7 @@ SMODS.Enhancement {
     end,
 }
 
-SMODS.Enhancement {
+FELIJO.T3Enhancement {
     atlas = 'tieredEnhancements',
     key = 'mult_t3',
     pos = { x = 2, y = 1 },
@@ -69,7 +86,7 @@ SMODS.Enhancement {
     end,
 }
 
-SMODS.Enhancement {
+FELIJO.T4Enhancement {
     atlas = 'tieredEnhancements',
     key = 'mult_t4',
 	discovered = true,
@@ -84,7 +101,7 @@ SMODS.Enhancement {
 
 
 -- Glass
-SMODS.Enhancement {
+FELIJO.T2Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'glass_t2',
     pos = { x = 1, y = 3 },
@@ -103,7 +120,7 @@ SMODS.Enhancement {
     end,
 }
 
-SMODS.Enhancement {
+FELIJO.T3Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'glass_t3',
     pos = { x = 2, y = 3 },
@@ -122,7 +139,7 @@ SMODS.Enhancement {
     end,
 }
 
-SMODS.Enhancement {
+FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'glass_t4',
 	discovered = true,
@@ -145,7 +162,7 @@ SMODS.Enhancement {
 }
 
 -- Steel
-SMODS.Enhancement {
+FELIJO.T2Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'steel_t2',
     pos = { x = 1, y = 4 },
@@ -155,7 +172,7 @@ SMODS.Enhancement {
     end,
 }
 
-SMODS.Enhancement {
+FELIJO.T3Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'steel_t3',
     pos = { x = 2, y = 4 },
@@ -165,7 +182,7 @@ SMODS.Enhancement {
     end,
 }
 
-SMODS.Enhancement {
+FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'steel_t4',
 	discovered = true,
@@ -179,7 +196,7 @@ SMODS.Enhancement {
 }
 
 -- Stone
-SMODS.Enhancement {
+FELIJO.T2Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'stone_t2',
     pos = { x = 1, y = 5 },
@@ -192,7 +209,7 @@ SMODS.Enhancement {
         return { vars = { card.ability.bonus } }
     end,
 }
-SMODS.Enhancement {
+FELIJO.T3Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'stone_t3',
     pos = { x = 2, y = 5 },
@@ -205,7 +222,7 @@ SMODS.Enhancement {
         return { vars = { card.ability.bonus, card.ability.mult } }
     end,
 }
-SMODS.Enhancement {
+FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'stone_t4',
 	discovered = true,
@@ -223,7 +240,7 @@ SMODS.Enhancement {
 }
 
 -- Gold
-SMODS.Enhancement {
+FELIJO.T2Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'gold_t2',
     pos = { x = 1, y = 6 },
@@ -232,7 +249,7 @@ SMODS.Enhancement {
         return { vars = { card.ability.h_dollars, card.ability.p_dollars  } }
     end,
 }
-SMODS.Enhancement {
+FELIJO.T3Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'gold_t3',
     pos = { x = 2, y = 6 },
@@ -241,7 +258,7 @@ SMODS.Enhancement {
         return { vars = { card.ability.h_dollars, card.ability.p_dollars  } }
     end,
 }
-SMODS.Enhancement {
+FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'gold_t4',
 	discovered = true,
@@ -255,7 +272,7 @@ SMODS.Enhancement {
 }
 
 -- Lucky
-SMODS.Enhancement {
+FELIJO.T2Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'lucky_t2',
     pos = { x = 1, y = 2 },
@@ -288,7 +305,7 @@ SMODS.Enhancement {
         end
     end,
 }
-SMODS.Enhancement {
+FELIJO.T3Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'lucky_t3',
     pos = { x = 2, y = 2 },
@@ -321,7 +338,7 @@ SMODS.Enhancement {
         end
     end,
 }
-SMODS.Enhancement {
+FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'lucky_t4',
 	discovered = true,

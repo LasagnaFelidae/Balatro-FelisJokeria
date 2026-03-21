@@ -144,6 +144,9 @@ FELIJO.applyTotemSigils = function(totem_body, tribe)
 			elseif tribe == "Object" and (card.config.center.pools["Meme"]) then
 				card:add_sticker(sigil_key, true)
                 applied = true
+            elseif tribe == "Insect" and (card.config.center.pools["Bug"]) then
+				card:add_sticker(sigil_key, true)
+                applied = true
 			end
         end
     end

@@ -510,7 +510,6 @@ return {
                 text = { 
                     "{C:green}#3# in #4#{} chance to retrigger",
                      "a scored card {C:attention}+#1#{} times",
-                    "when scored",
                     "{s:0.7,C:inactive}(Caps at #2# sets of retriggers){}"
                 }
             },
@@ -519,7 +518,6 @@ return {
                 text = { 
                     "{C:green}#3# in #4#{} chance to retrigger",
                     "a scored card {C:attention}+#1#{} times",
-                    "when scored",
                     "{s:0.7,C:inactive}(Caps at #2# sets of retriggers){}"
                 }
             },
@@ -528,7 +526,6 @@ return {
                 text = { 
                     "{C:green}#3# in #4#{} chance to retrigger",
                      "a scored card {C:attention}+#1#{} times",
-                    "when scored",
                     "{s:0.7,C:inactive}(Caps at #2# sets of retriggers){}"
                 }
             },
@@ -560,7 +557,8 @@ return {
                 name = "Clean Slate",
                 text = { 
                     "{C:chips}+#1#{} Chips and {C:money}$#2#{}",
-                    "if the {C:attention}entire hand{} is {C:attention}played{} and {C:attention}scored"
+                    "if the {C:attention}entire hand{} is",
+					"{C:attention}played{} and {C:attention}scored"
                 }
             },
 
@@ -574,7 +572,7 @@ return {
 					},
 					{
 						"Once {C:legendary}ready{}, blast {C:mult}#1#{} Mult, ",
-						"gain {C:attention}+#8#{} CT, {X:attention,C:white}+#9#{} charge multiplier",
+						"gain {C:attention}+#8#{} CT, {X:legendary,C:white}+#9#{} charge multiplier",
 						"and go into {C:legendary}cooldown{} for {C:attention}#6#{} hands.",
 					},
 					{
@@ -741,11 +739,13 @@ return {
 					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-					"{C:green}#3# in #4#{} chance to add a {C:enhanced}unenhanced{} copy",
+					"{C:green}#3# in #4#{} chance to add a",
+					"{C:enhanced}unenhanced{} copy",
 					"of a playing card to the deck",
 					},
 					{
-					"Once {C:attention}#6#{} cards have been copied, become {C:tarot}Superior{}",
+					"Once {C:attention}#6#{} cards have been copied,",
+					"become {C:tarot}Superior{}",
 					"{C:inactive,s:0.8}(Currently {C:attention,s:0.8}#5#{C:inactive,s:0.8}/#6#){}{}{}"
 					},
                 },
@@ -934,6 +934,8 @@ return {
 				name = "Loose Tail",
 				text = {"Prevents the joker from being destroyed"},
 			},
+
+			-- Visual
 			felijo_stk_stitched = {
 				name = "Stitched Card",
 				text = {
@@ -941,6 +943,8 @@ return {
 				"together by {C:clubs,E:1}The Mycologists{}."
 				},
 			},
+
+			-- Roblox
 			felijo_stk_subspace = {
 				name = "Subspaced Card",
 				text = {
@@ -955,7 +959,18 @@ return {
 				"Disappears at the end of the round."
 				},
 			},
-			
+			-- Other Stickers
+			felijo_stk_blunder = {
+				name = "Blunder",
+				text = {
+				"{X:gold,C:white}X#1#{} Blind Req.",
+				"{C:mult}#2#{} Mult",
+				},
+			},
+
+
+
+			-- Score Modifiers
 			felijo_perma_score = {
                 text = {
                     "{C:diamonds}#1#{} Score",
@@ -1270,6 +1285,7 @@ return {
 					"Combine with a {C:attention}Totem{}",
 					"to apply its effects on",
 					"{C:attention}Insect{} Jokers",
+					"{C:inactive,s:0.6}(Includes \"Bug\" Jokers)"
 				},
 			},
 			c_felijo_ttm_hd_reptile = {
@@ -1488,6 +1504,7 @@ return {
 			felijo_sgl_tail = "Loose Tail",
 			felijo_stk_stitched = "Stitched Card",
 			felijo_stk_subspace = "Subspaced Card",
+			felijo_stk_blunder = "Blunder",
 			felijo_plt_gold = "Gold Pelt",
 			felijo_plt_wlf = "Wolf Pelt",
 			felijo_plt_bny = "Bunny Pelt",

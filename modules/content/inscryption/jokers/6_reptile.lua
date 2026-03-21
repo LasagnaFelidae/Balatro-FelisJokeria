@@ -11,7 +11,7 @@ SMODS.Joker { -- Rare Ouro
 	unlocked = true,
 	discovered = true,
     rarity = 3,
-    cost = 4,
+    cost = 8,
 	pronouns = "he_him",
 	config = { extra = { xchips = 1, xmult = 1, gain = 0.2}, sell = {curr = 0, limit = 2} },
 	set_badges = function(self, card, badges)

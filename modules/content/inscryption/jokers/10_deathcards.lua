@@ -312,7 +312,6 @@ SMODS.Joker{  -- Uncommon Toga
 	end
 }
 
-
 SMODS.Joker { -- Rare Evgast
     atlas = 'inscryptionJokers',
     pos = { x = 7, y = 0 },
@@ -445,8 +444,6 @@ SMODS.Joker{  --rare Mycologists, The
         end
     end
 }
-
-
 
 SMODS.Joker { -- Rare Revo
     atlas = 'inscryptionJokers',

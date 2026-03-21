@@ -16,8 +16,10 @@ FELIJO.T4 = SMODS.Consumable:extend{
     in_pool = function (self, args)
        return true
     end,
+    hidden = true,
 	soul_set = "Tarot",
 	soul_rate = 0.1,
+    can_repeat_soul = true,
 }
 
 ----------------------------------------

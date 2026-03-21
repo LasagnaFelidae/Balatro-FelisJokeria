@@ -30,7 +30,7 @@ FELIJO.LetterJoker {
 	discovered = true,
     blueprint_compat = true,
     rarity = 1,
-    cost = 6,
+    cost = 4,
 	config = { extra = { xchips = 2, xmult = 2, odds = 4 } },
     loc_vars = function(self, info_queue, card)
 		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_dbw')
@@ -55,7 +55,7 @@ FELIJO.LetterJoker {
     unlocked = true,
     blueprint_compat = true,
     rarity = 2,
-    cost = 12,
+    cost = 6,
 	config = { extra = { xchips = 3, xmult = 3, odds = 6 } },
     loc_vars = function(self, info_queue, card)
 		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_tpw')
@@ -80,7 +80,7 @@ FELIJO.LetterJoker {
     unlocked = true,
     blueprint_compat = true,
     rarity = 3,
-    cost = 18,
+    cost = 8,
 	config = { extra = { xchips = 4, xmult = 4, odds = 8 } },
     loc_vars = function(self, info_queue, card)
 		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_qdw')
@@ -108,7 +108,7 @@ FELIJO.LetterJoker {
     unlocked = true,
     blueprint_compat = false,
     rarity = 1,
-    cost = 6,
+    cost = 4,
 	config = { extra = { cap = 5, repetitions = 1, odds = 8} },
     loc_vars = function(self, info_queue, card)
 		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_dbl')
@@ -148,7 +148,7 @@ FELIJO.LetterJoker {
     unlocked = true,
     blueprint_compat = false,
     rarity = 2,
-    cost = 8,
+    cost = 6,
 	config = { extra = { cap = 4, odds = 10, repetitions = 2 } },
     loc_vars = function(self, info_queue, card)
 		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_tpl')
@@ -188,7 +188,7 @@ FELIJO.LetterJoker {
     unlocked = true,
     blueprint_compat = false,
     rarity = 3,
-    cost = 10,
+    cost = 8,
 	config = { extra = { cap = 3, odds = 12, repetitions = 3 } },
     loc_vars = function(self, info_queue, card)
 		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_qdl')
