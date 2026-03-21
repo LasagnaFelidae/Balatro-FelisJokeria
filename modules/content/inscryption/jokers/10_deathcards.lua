@@ -333,7 +333,7 @@ SMODS.Joker { -- Rare Evgast
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,
     loc_vars = function(self, info_queue, card)
-		return { vars = { (1-card.ability.extra.debuff)*100, card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } }
+		return { vars = { (card.ability.extra.debuff)*100, card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } }
     end,
     calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play then

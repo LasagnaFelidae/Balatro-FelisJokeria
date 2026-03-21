@@ -23,7 +23,7 @@ FELIJO.T3Enhancement = SMODS.Enhancement:extend{
     end,
 	weight = 1
 }
-FELIJO.T3Enhancement = SMODS.Enhancement:extend{
+FELIJO.T4Enhancement = SMODS.Enhancement:extend{
     in_pool = function (self, args)
        return true
     end,

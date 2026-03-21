@@ -651,8 +651,8 @@ return {
                 text = {
 					"{C:chips}+#2#{} Chips, {C:mult}+#3#{} Mult",
                     "Each played {C:attention}Ace{} reduces",
-                    "current {C:attention}Blind{} score",
-					"requirement by {B:1,V:2}#1#%{}",
+                    "current {C:gold}Blind Req.{} ",
+					"requirement by {X:gold,C:white}#1#%{}",
                     "{s:0.7,C:inactive}(When the Aces are flying... I think...)"
                 },
             },

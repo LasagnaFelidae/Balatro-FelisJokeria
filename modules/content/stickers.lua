@@ -9,7 +9,7 @@ SMODS.Sticker{
 	atlas = "otherStickers",
 	needs_enable_flag = false,
 	pos = { x=0 , y=0 },
-	sets = {Default, Joker},
+	sets = {"Default", "Joker"},
 	no_collection = true,
 	config = {
         xbscore = 1.1,
