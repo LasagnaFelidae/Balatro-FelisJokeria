@@ -20,29 +20,45 @@ SMODS.Joker {  --Bell Tentacle
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,
     loc_vars = function(self, info_queue, center)
-		local jokercount = 0
-		if G.jokers then
-			for _, i in G.jokers.cards do
-				if G.jokers.cards[i] == card then
-					jokercount = 1
+		local pos = 1
+		jokers = 0
+		if G.jokers and G.jokers.cards then
+			jokers = #G.jokers.cards
+			for i, joker_card in ipairs(G.jokers.cards) do
+				if joker_card == center then 
+					pos = i
+					break
 				end
 			end
-			jokercount = #G.jokers/jokercount
 		end
-		
-        return {vars = { center.ability.extra.xchips, center.ability.extra.mult,  1 + (center.ability.extra.xchips * jokercount), colours = { HEX('F0C590'), HEX('351A09')} }}
+
+		return {
+			vars = {
+				center.ability.extra.xchips or 0, 
+				center.ability.extra.mult or 0,   
+				math.max(1, center.ability.extra.xchips*(jokers - (pos-1))),                           
+			
+			colours = { HEX('F0C590'), HEX('351A09') }
+			},
+		}
     end,
 	
     calculate = function(self, card, context)
         if context.joker_main then		
-            for _, i in G.jokers do
-				if G.jokers.cards[i] == card then
-					return {
-						xchips = 1 + (card.ability.extra.xchips * ((#G.jokers.cards/i) or 0)),
-						mult = card.ability.extra.mult
-					}
+            local pos = 1
+			if G.jokers and G.jokers.cards then
+				for i, joker in ipairs(G.jokers.cards) do
+					if joker == card then
+						pos = i
+						break
+					end
 				end
 			end
+			return{
+				xchips = math.max(1, card.ability.extra.xchips * (#G.jokers.cards - (pos-1))),
+				mult = card.ability.extra.mult,
+
+			}
         end
     end,
 }
@@ -63,19 +79,19 @@ SMODS.Joker {  --Hand Tentacle
     rarity = 3,
     cost = 8,
 	blueprint_compat = true,
-    config = { extra = {xchips = 0.5, mult = 1, }},
+    config = { extra = {xchips = 0.25, mult = 1, }},
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,
     loc_vars = function(self, info_queue, center)
-		local hand = G.hand and #G.hand or 0
+		local hand = G.hand and #G.hand.cards or 0
         return {vars = { center.ability.extra.xchips, center.ability.extra.mult,  1 + (center.ability.extra.xchips * hand), colours = { HEX('F0C590'), HEX('351A09')} }}
     end,
 	
     calculate = function(self, card, context)
         if context.joker_main then		
             return {
-                xchips = 1 + (card.ability.extra.xchips * (#G.hand or 0)),
+                xchips = 1 + (card.ability.extra.xchips * (#G.hand.cards or 0)),
 				mult = card.ability.extra.mult
             }
         end
@@ -102,14 +118,14 @@ SMODS.Joker {  --Consumable Tentacle
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,
     loc_vars = function(self, info_queue, center)
-		local consumeables = G.consumeables and #G.consumeables or 0
+		local consumeables = G.consumeables and #G.consumeables.cards or 0
         return {vars = { center.ability.extra.xchips, center.ability.extra.mult, 1 + (center.ability.extra.xchips * consumeables), colours = { HEX('F0C590'), HEX('351A09')} }}
     end,
 	
     calculate = function(self, card, context)
         if context.joker_main then		
             return {
-                xchips = 1 + (card.ability.extra.xchips * (#G.consumeables or 0)),
+                xchips = 1 + (card.ability.extra.xchips * (#G.consumeables.cards or 0)),
 				mult = card.ability.extra.mult
             }
         end
@@ -139,8 +155,8 @@ SMODS.Joker { --Edition Tentacle
     loc_vars = function(self, info_queue, center)
 		local edcount = 0
 		if G.playing_cards then
-			for _, i in G.playing_cards do
-				if G.playing_cards[i].edition then
+			for i, _card in ipairs(G.playing_cards) do
+				if _card.edition then
 					edcount = edcount + 1
 				end
 			end
@@ -151,8 +167,8 @@ SMODS.Joker { --Edition Tentacle
     calculate = function(self, card, context)
         if context.joker_main then		
            local edcount = 0
-			for _, i in G.playing_cards do
-				if G.playing_cards[i].edition then
+			for i, _card in ipairs(G.playing_cards) do
+				if _card.edition then
 					edcount = edcount + 1
 				end
 			end
@@ -187,8 +203,8 @@ SMODS.Joker {  --Enhancement Tentacle
     loc_vars = function(self, info_queue, center)
 		local enhcount = 0
 		if G.playing_cards then
-			for _, i in G.playing_cards do
-				if next(SMODS.get_enhancements(G.playing_cards[i])) then
+			for i, _card in ipairs(G.playing_cards) do
+				if next(SMODS.get_enhancements(_card)) then
 					enhcount = enhcount + 1
 				end
 			end
@@ -200,8 +216,8 @@ SMODS.Joker {  --Enhancement Tentacle
     calculate = function(self, card, context)
         if context.joker_main then		
            local enhcount = 0
-			for _, i in G.playing_cards do
-				if next(SMODS.get_enhancements(G.playing_cards[i])) then
+			for i, _card in ipairs(G.playing_cards) do
+				if next(SMODS.get_enhancements(_card)) then
 					enhcount = enhcount + 1
 				end
 			end

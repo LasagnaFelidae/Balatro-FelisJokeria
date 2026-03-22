@@ -785,9 +785,9 @@ return {
 					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-                    "Gives {X:chips,C:white}x#1#{} Chips per",
-					"{C:attention}Joker{} owned divided by",
-					"its position in the {C:attention}Joker{} area",
+                    "Gets stronger the leftmost it",
+					"is in the {C:attention}Joker{} area and",
+					"the more jokers there are"
 					}
                 }
 		    },

@@ -8,16 +8,25 @@ FELIJO.optional_features = {post_trigger = true,}
 -----------------------------
 
 assert(SMODS.load_file("./func/preload.lua"))()
-assert(SMODS.load_file("./func/hooks.lua"))()
-assert(SMODS.load_file("./func/util.lua"))()
-assert(SMODS.load_file("./func/pools.lua"))()
-assert(SMODS.load_file("./func/events.lua"))()
-assert(SMODS.load_file("./func/cardareas.lua"))()
 
-assert(SMODS.load_file("./func/global_loot.lua"))()
-assert(SMODS.load_file("./func/garf_dict.lua"))()
-assert(SMODS.load_file("./func/ui.lua"))()
-assert(SMODS.load_file("./func/post.lua"))() --shit to inject when main menu loads
+local hooks = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "func/hooks")
+for _, file in ipairs(hooks) do
+    assert(SMODS.load_file("func/hooks/" .. file))()
+end
+
+local ui = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "func/ui")
+for _, file in ipairs(ui) do
+    assert(SMODS.load_file("func/ui/" .. file))()
+end
+
+local utils = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "func/utils")
+for _, file in ipairs(utils) do
+    assert(SMODS.load_file("func/utils/" .. file))()
+end
+
+assert(SMODS.load_file("./func/pools.lua"))()
+
+
 ----------------------------
 -----┏━┓┏━┓┏━┓┏━╸╺┳╸┏━┓-----
 -----┣━┫┗━┓┗━┓┣╸  ┃ ┗━┓-----
@@ -26,7 +35,7 @@ assert(SMODS.load_file("./func/post.lua"))() --shit to inject when main menu loa
 assert(SMODS.load_file("./modules/atlasses.lua"))()
 assert(SMODS.load_file("./modules/sounds.lua"))()
 assert(SMODS.load_file("./modules/fonts.lua"))()
-assert(SMODS.load_file("./modules/content/challenges.lua"))()
+
 ----------------------------
 --┏━╸┏━┓┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳┓--
 --┃  ┣┳┛┃ ┃┗━┓┗━┓┃┃┃┃ ┃ ┃┃--
@@ -60,7 +69,7 @@ SMODS.current_mod.reset_game_globals = function(run_start)
 	end
 end
 
-
+assert(SMODS.load_file("./modules/content/challenges.lua"))()
 assert(SMODS.load_file("./modules/content/enhancements.lua"))()
 assert(SMODS.load_file("./modules/content/legendaries.lua"))()
 assert(SMODS.load_file("./modules/content/jokers.lua"))()
@@ -114,7 +123,6 @@ assert(SMODS.load_file("./modules/content/inscryption/jokers/10_deathcards.lua")
 -- ┃ ┃ ┃ ┃ ┣╸ ┃┃┃┗━┓--
 -- ╹ ┗━┛ ╹ ┗━╸╹ ╹┗━┛--
 ----------------------
-assert(SMODS.load_file("./func/totems/utils.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/totems/sigils.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/totems/totems.lua"))()
 
