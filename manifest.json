@@ -2,7 +2,7 @@
 	"id": "felijo",
 	"name": "Feli's Jokeria",
 	"author": ["LasagnaFelidae"],
-	"description": "Waiter! Waiter! More LetterJokers please!",
+	"description": "The true Pistachio+ Experience",
 	"prefix": "felijo",
 	"main_file": "main.lua",
 	"priority": -999,
