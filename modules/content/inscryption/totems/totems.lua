@@ -37,6 +37,7 @@ G.FUNCS.felijo_totem_button = function(e)
 	end
 end
 
+--[[
 G.FUNCS.felijo_can_pull = function(e)
 	local card = e.config.ref_table
     if #G.felijo_totems.cards < G.felijo_totems.config.card_limit then
@@ -57,7 +58,7 @@ G.FUNCS.felijo_pull = function(e)
     card:add_to_deck()
     G.felijo_totems:emplace(card)
 end
-
+]]--
 G.FUNCS.felijo_separate_totem = function(e)
     local body_card = e.config.ref_table
     if not body_card then return end
@@ -147,18 +148,15 @@ G.FUNCS.felijo_combine_totem = function(e)
 end
 
 local retvars_lookup = {
-    felijo_ttm_sgl_midas     = { SMODS.Stickers["felijo_ttm_sgl_midas"]     and SMODS.Stickers["felijo_ttm_sgl_midas"].config.extra.dollars },
-    felijo_ttm_sgl_leader    = SMODS.Stickers["felijo_ttm_sgl_leader"] and {
-        SMODS.Stickers["felijo_ttm_sgl_leader"].config.extra.mult_mod,
-        0
-    },
-    felijo_ttm_sgl_stinky    = SMODS.Stickers["felijo_ttm_sgl_stinky"] and { SMODS.Stickers["felijo_ttm_sgl_stinky"].config.extra.xbscore*100 },
+    felijo_ttm_sgl_midas     = { 	SMODS.Stickers["felijo_ttm_sgl_midas"] 		and SMODS.Stickers["felijo_ttm_sgl_midas"].config.extra.dollars },
+    felijo_ttm_sgl_leader    = 		SMODS.Stickers["felijo_ttm_sgl_leader"] 	and {SMODS.Stickers["felijo_ttm_sgl_leader"].config.extra.mult_mod,0},
+    felijo_ttm_sgl_stinky    = 		SMODS.Stickers["felijo_ttm_sgl_stinky"] 	and { SMODS.Stickers["felijo_ttm_sgl_stinky"].config.extra.xbscore*100 },
 }
 
 FELIJO.Consumable = SMODS.Consumable:extend{
-    in_pool = function (self, args)
-       return true
-    end,
+    in_pool = function(self, args)
+		return (args and (args.source == "felijo_totem" or args.source == "felijo_ttm_box") ) or false
+	end,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,
@@ -189,12 +187,13 @@ for _, data in ipairs(FELIJO.totem_sigil_table) do
 			sprite_pos = {x = data.totem_x, y = 3},
 			soul_pos = {x = data.totem_x, y = 5},
         },
-        atlas = "inscryptionTotems",
+        atlas = "insTotems",
         pos = {x = data.totem_x, y = 3},
 		soul_pos = {x = data.totem_x, y = 5, draw = function (card, scale_mod, rotate_mod)
             card.children.floating_sprite:draw_shader('dissolve',0, nil, nil, card.children.center,scale_mod, rotate_mod,0,-100,nil, 0.2)
             card.children.floating_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center, scale_mod, rotate_mod,0,0-0.2)
         end},
+		
         cost = data.cost,
 		unlocked = true,
 		discovered = true,
@@ -290,7 +289,7 @@ for _, data in ipairs(FELIJO.tribe_table) do
 			is_totem_head 	= true,           
             tribe     		= data.key,                 
         },
-        atlas = "inscryptionTotems",
+        atlas = "insTotems",
         pos = {x = data.totem_x, y = 0},
         cost = data.cost,
         can_use = function(self, card)

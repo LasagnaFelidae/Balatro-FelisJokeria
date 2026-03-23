@@ -13,3 +13,13 @@ if SMODS.DynaTextEffect then
 			end
 		}
 end
+
+
+loc_colour()
+G.ARGS.LOC_COLOURS.felijo_pink = HEX('F400F0')
+G.ARGS.LOC_COLOURS.felijo_rit = HEX('4B5A47')
+G.ARGS.LOC_COLOURS.felijo_ins = HEX('7f1232')
+G.ARGS.LOC_COLOURS.felijo_trb = HEX('D58F27')
+G.ARGS.LOC_COLOURS.felijo_sgl = HEX('00DB8A')
+G.ARGS.LOC_COLOURS.felijo_ttm = HEX('7E5C2F')
+G.ARGS.LOC_COLOURS.felijo_ins_gld = HEX('F8A84F')

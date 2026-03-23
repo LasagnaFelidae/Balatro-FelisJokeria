@@ -1,7 +1,7 @@
 
 SMODS.Joker {  --Bell Tentacle
-    atlas = 'inscryptionJokers',
-    pos = { x = 8, y = 1 },
+    atlas = 'insOther',
+    pos = { x = 2, y = 0 },
     pools = {
 		["FelisJokeria"]= true,  
 		["Inscryption"]=true,
@@ -64,8 +64,8 @@ SMODS.Joker {  --Bell Tentacle
 }
 
 SMODS.Joker {  --Hand Tentacle
-    atlas = 'inscryptionJokers',
-    pos = { x = 9, y = 1 },
+    atlas = 'insOther',
+    pos = { x = 3, y = 0 },
     pools = {
 		["FelisJokeria"]= true,  
 		["Inscryption"]=true,
@@ -98,8 +98,8 @@ SMODS.Joker {  --Hand Tentacle
     end,
 }
 SMODS.Joker {  --Consumable Tentacle
-    atlas = 'inscryptionJokers',
-    pos = { x = 7, y = 1 },
+    atlas = 'insOther',
+    pos = { x = 1, y = 0 },
     pools = {
 		["FelisJokeria"]= true,  
 		["Inscryption"]=true,
@@ -133,8 +133,8 @@ SMODS.Joker {  --Consumable Tentacle
 }
 
 SMODS.Joker { --Edition Tentacle
-    atlas = 'inscryptionJokers',
-    pos = { x = 10, y = 1 },
+    atlas = 'insOther',
+    pos = { x = 4, y = 0 },
     pools = {
 		["FelisJokeria"]= true,  
 		["Inscryption"]=true,
@@ -181,8 +181,8 @@ SMODS.Joker { --Edition Tentacle
 }
 
 SMODS.Joker {  --Enhancement Tentacle
-    atlas = 'inscryptionJokers',
-    pos = { x = 6, y = 1 },
+    atlas = 'insOther',
+    pos = { x = 0, y = 0 },
     pools = {
 		["FelisJokeria"]= true,  
 		["Inscryption"]=true,

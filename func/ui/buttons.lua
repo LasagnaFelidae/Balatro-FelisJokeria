@@ -241,6 +241,7 @@ function Card:highlight(is_highlighted)
 	elseif self.highlighted and self.ability and self.ability.is_totem_head then
 		FELIJO.highlighted_head = self
 	end
+	--[[
 	if self.highlighted and (G.pack_cards and self.area == G.pack_cards and self.ability.set == "felijo_totem_parts") then
 		if self.children.use_button then
 			self.children.use_button:remove()
@@ -270,7 +271,9 @@ function Card:highlight(is_highlighted)
 				ref_table = self,
 			},
 		})
-	elseif self.highlighted and self.ability and self.ability.is_totem_head and self.area and self.area == G.felijo_totems then
+	else
+	]]--
+	if self.highlighted and self.ability and self.ability.is_totem_head and self.area and self.area == G.felijo_totems then
 		if self.children.use_button then
 			self.children.use_button:remove()
 			self.children.use_button = nil

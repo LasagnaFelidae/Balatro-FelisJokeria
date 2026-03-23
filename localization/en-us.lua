@@ -1,5 +1,36 @@
 return {
     descriptions = {
+		Tag = {
+            tag_felijo_tag_tribal = {
+                name = "Tribal Tag",
+                text = {
+                    "Gives a free",
+                    "{C:felijo_trb}Tribe Pack",
+                },
+            },
+            tag_felijo_tag_ritual = {
+                name = "Ritual Tag",
+                text = {
+                    "Gives a free",
+                    "{C:felijo_rit}Mega Ritual Pack",
+                },
+            },
+            tag_felijo_tag_totem = {
+                name = "Totem Tag",
+                text = {
+                    "Gives a free",
+                    "{C:felijo_ttm}Totem Part",
+					"{C:inactive}(Must have room)",
+                },
+            },
+			tag_felijo_tag_totem_box = {
+                name = "Totem Box Tag",
+                text = {
+                    "Gives a free",
+                    "{C:felijo_ttm}Totem Box",
+                },
+            },
+		},
 		Enhanced = {
 			m_felijo_scoretest_t2 = {
                 name = "scoretest",
@@ -243,12 +274,9 @@ return {
 					{
 						"Grants {C:money}$#1#{} on discard",
 						"only if {C:legendary}traded.",
-					},
-					{
 						"Always scores"
 					},
 					{
-						"{s:0.8}Trading: {}{B:5,C:white,s:0.8}#2#",
 						"{C:inactive,s:0.8}A very high-quality sought after pelt."
 					}
 				},
@@ -260,12 +288,9 @@ return {
 					{
 						"Grants {C:money}$#1#{} on discard",
 						"only if {C:legendary}traded.",
-					},
-					{
 						"Always scores"
 					},
 					{
-						"{s:0.8}Trading: {}{B:5,C:white,s:0.8}#2#",
 						"{C:inactive,s:0.8}A sufficient and reliable piece of pelt."
 					}
 				},
@@ -277,12 +302,9 @@ return {
 					{
 						"Grants {C:money}$#1#{} on discard",
 						"only if {C:legendary}traded.",
-					},
-					{
 						"Always scores"
 					},
 					{
-						"{s:0.8}Trading: {}{B:5,C:white,s:0.8}#2#",
 						"{C:inactive,s:0.8}A very basic piece of pelt."
 					}
 				},
@@ -294,12 +316,9 @@ return {
 					{
 						"Grants {C:money}$#1#{} on discard",
 						"only if {C:legendary}traded.",
-					},
-					{
 						"Always scores"
 					},
 					{
-						"{s:0.8}Trading: {}{B:5,C:white,s:0.8}#2#",
 						"{C:inactive,s:0.8}A very ¬¦¤¿ ????."
 					}
 				},
@@ -311,10 +330,9 @@ return {
 					{
 						"Grants {C:money}$#1#{} on discard",
 						"only if {C:legendary}traded.",
-						"Always scores, grants {C:inactive}nil."
+						"Always scores",
 					},
 					{
-						"{s:0.8}Trading: {}{B:5,C:white,s:0.8}#2#",
 						"{C:inactive,s:0.8}There's GOLD in these cards!"
 					}
 				},
@@ -354,7 +372,8 @@ return {
 			v_felijo_beartrap = {
 				name = "Bear Trap",
 				text = {
-				"Adds {C:money}Pelts{} to booster packs and shops."
+				"{C:felijo_ins_gld}Pelt Cards{} can now appear",
+				"as enhancements in shops and booster packs"
 				},
 			
 			
@@ -362,7 +381,14 @@ return {
 			v_felijo_peltmarket = {
 				name = "Pelt Market",
 				text = {
-				"Enables the {C:money}trading{} of {C:money}Pelts{}."
+					{
+					"Discarding {C:felijo_ins_gld}Pelt Cards{} now",
+					"counts as {C:legendary}trading{} them",
+					},
+					{
+					"{C:felijo_ins_gld}Pelt Cards{} now appear",
+					"{X:attention,C:white}x#1#{} as often",
+					}
 				},		
 			},
 		
@@ -638,6 +664,18 @@ return {
 					}
                 },
             },
+			j_felijo_ins_adder = {
+                name = "{B:1,V:2,f:felijo_Feli5x8}Adder",
+                text = {
+					{
+					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
+					},
+					{
+                    "Debuffing this joker",
+					"wins the {C:attention}Blind"
+					},
+                },
+            },
 			j_felijo_ins_tail = {
                 name = "{B:1,V:2,f:felijo_Feli5x8}Loose Tail",
                 text = {
@@ -651,8 +689,7 @@ return {
                 text = {
 					"{C:chips}+#2#{} Chips, {C:mult}+#3#{} Mult",
                     "Each played {C:attention}Ace{} reduces",
-                    "current {C:gold}Blind Req.{} ",
-					"requirement by {X:gold,C:white}#1#%{}",
+                    "current {C:gold}Blind Req.{} by {X:gold,C:white}#1#%{}",
                     "{s:0.7,C:inactive}(When the Aces are flying... I think...)"
                 },
             },
@@ -709,13 +746,25 @@ return {
 					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-					"Retriggers {C:attention}#3#{} times each played card that",
-					"matches the current {C:attention}pronoun{},",
+					"Retriggers {C:attention}#3#{} times each played card",
+					"that matches the current {C:attention}pronoun{},",
 					"pronouns change every round.",
 					},
 					{
-					"{C:inactive}[Currently{} {B:3,C:white} #4# {}{C:inactive}]{}"
+					"{C:inactive}[Currently{} {B:3,C:white}#4#{}{C:inactive}]{}"
 					}
+                },
+            },
+			j_felijo_ins_lilyfelli_nop = {
+                name = "{B:1,V:2,f:felijo_Feli5x8}Lily{}",
+                text = {
+					{
+					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
+					},
+					{
+					"Fixed individual {C:green}1 in 3{} chance to ",
+					"retrigger {C:attention}#3#{} times each played card.",
+					},
                 },
             },
 			j_felijo_ins_nxkoo = {
@@ -927,6 +976,55 @@ return {
 			},
         },
 		Other = {
+			---- Boosters
+			p_felijo_ritual_jumbo = {
+                name = "Jumbo Ritual Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{C:feljio_rit} Ritual{} cards to",
+                    "be used immediately",
+                },
+            },
+            p_felijo_ritual_mega = {
+                name = "Mega Ritual Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{C:feljio_rit} Ritual{} cards to",
+                    "be used immediately",
+                },
+            },
+            p_felijo_ritual_normal = {
+                name = "Ritual Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{C:feljio_trb} Ritual{} cards to",
+                    "be used immediately",
+                },
+            },
+			p_felijo_tribe = {
+                name = "Tribe Pack",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{C:feljio_trb} Tribe{} cards to",
+                    "be used immediately",
+                },
+            },
+			p_felijo_ttm_box_normal = {
+                name = "Totem Box",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{C:feljio_ttm} Totem Parts{} to",
+                    "be used immediately",
+                },
+            },
+			p_felijo_ttm_box_jumbo = {
+                name = "Jumbo Totem Box",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{C:feljio_ttm} Totem Parts{} to",
+                    "be used immediately",
+                },
+            },
 			---- TOTEM SIGILS
 			felijo_ttm_sgl_bifurcated = {
 				name = "Bifurcated Strike",
@@ -1314,7 +1412,7 @@ return {
             },
 		},
 		felijo_ritual = {
-			c_felijo_ins_campfire = {
+			c_felijo_rit_campfire = {
 				name = "Campfire",
 				text = {
 					"Upgrade {C:attention}#1#{} selected card\'s",
@@ -1324,92 +1422,204 @@ return {
 					"{C:inactive,s:0.8}(Chance scales with {C:enhanced,s:0.8}Enhancement {C:inactive,s:0.8}Tier)",
 				},
 			},
+			c_felijo_rit_trader = {
+				name = "The Trader",
+				text = {
+					"Trade up to {C:attention}#1#{} ",
+					"{C:felijo_ins_gld}Pelt Cards{} for {C:money}cash",
+					"{C:green}#2# in #3#{} chance to give",
+					"double the {C:felijo_ins_gld}Pelt{} value"
+				},
+			},
+			c_felijo_rit_prospector = {
+				name = "The Prospector",
+				text = {
+					"Enhance up to {C:attention}#1#{} selected cards",
+					"to a random tiered {C:gold}Gold Card",
+					"Fixed {C:green}1 in 3{} chance to",
+					"turn it into a {C:felijo_ins_gld}Gold Nugget",
+				},
+			},
+			c_felijo_rit_tribes = {
+				name = "The Tribes",
+				text = {
+					"Grants a free",
+					"{C:felijo_trb}Tribal Tag",
+					"{C:inactive}(Must have Joker room)"
+				},
+			},
+			c_felijo_rit_trapper = {
+				name = "The Trapper",
+				text = {
+					"Enhance up to {C:attention}#1#{} selected cards",
+					"to a random {C:felijo_ins_gld}Pelt Card",
+				},
+			},
+			c_felijo_rit_lostandfound = {
+				name = "Lost and Found",
+				text = {
+					"Grants a free",
+					"{C:felijo_trb}Totem Box Tag",
+				},
+			},
+		},
+		felijo_tribe = {
+			c_felijo_trb_feline = {
+				name = "Feline",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Feline{} card"
+				},
+			},
+			c_felijo_trb_canine = {
+				name = "Canine",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Canine{} card"
+				},
+			},
+			c_felijo_trb_hooved = {
+				name = "Hooved",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Hooved{} card"
+				},
+			},
+			c_felijo_trb_human = {
+				name = "Human",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Human{} card"
+				},
+			},
+			c_felijo_trb_reptile = {
+				name = "Reptile",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Reptile{} card"
+				},
+			},
+			c_felijo_trb_avian = {
+				name = "Avian",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Avian{} card"
+				},
+			},
+			c_felijo_trb_insect = {
+				name = "Insect",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Insect{} card"
+				},
+			},
+			c_felijo_trb_vermin = {
+				name = "Vermin",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Vermin{} card"
+				},
+			},
+			c_felijo_trb_object = {
+				name = "Object",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Object{} card"
+				},
+			},
+			c_felijo_trb_other = {
+				name = "Other",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Other{} card"
+				},
+			},
 		},
 		felijo_totem_parts = {
 			c_felijo_ttm_hd_avian = {
 				name = "Totem Head of the Avian",
 				text = {
-					"Combine with a {C:attention}Totem{}",
+					"Combine with a {C:felijo_ttm}Totem{}",
 					"to apply its effects on",
-					"{C:attention}Avian{} Jokers",
+					"{C:felijo_trb}Avian{} Jokers",
 					"{C:inactive,s:0.6}(Includes \"Birb\" and \"Birb\" Jokers)"
 				},
 			},
 			c_felijo_ttm_hd_canine = {
 				name = "Totem Head of the Canine",
 				text = {
-					"Combine with a {C:attention}Totem{}",
+					"Combine with a {C:felijo_ttm}Totem{}",
 					"to apply its effects",
-					"{C:attention}Canine{} Jokers",
+					"{C:felijo_trb}Canine{} Jokers",
 					"{C:inactive,s:0.6}(Includes \"Dog\" and \"Puppy\" Jokers)"
 				},
 			},
 			c_felijo_ttm_hd_feline = {
 				name = "Totem Head of the Feline",
 				text = {
-					"Combine with a {C:attention}Totem{}",
+					"Combine with a {C:felijo_ttm}Totem{}",
 					"to apply its effects on",
-					"{C:attention}Feline{} Jokers",
+					"{C:felijo_trb}Feline{} Jokers",
 					"{C:inactive,s:0.6}(Includes \"Cat\" and \"Kitty\" Jokers)"
 				},
 			},
 			c_felijo_ttm_hd_hooved = {
 				name = "Totem Head of the Hooved",
 				text = {
-					"Combine with a {C:attention}Totem{}",
+					"Combine with a {C:felijo_ttm}Totem{}",
 					"to apply its effects on",
-					"{C:attention}Hooved{} Jokers",
+					"{C:felijo_trb}Hooved{} Jokers",
 				},
 			},
 			c_felijo_ttm_hd_insect = {
 				name = "Totem Head of the Insect",
 				text = {
-					"Combine with a {C:attention}Totem{}",
+					"Combine with a {C:felijo_ttm}Totem{}",
 					"to apply its effects on",
-					"{C:attention}Insect{} Jokers",
+					"{C:felijo_trb}Insect{} Jokers",
 					"{C:inactive,s:0.6}(Includes \"Bug\" Jokers)"
 				},
 			},
 			c_felijo_ttm_hd_reptile = {
 				name = "Totem Head of the Reptile",
 				text = {
-					"Combine with a {C:attention}Totem{}",
+					"Combine with a {C:felijo_ttm}Totem{}",
 					"to apply its effects on",
-					"{C:attention}Reptile{} Jokers",
+					"{C:felijo_trb}Reptile{} Jokers",
 				},
 			},
 			c_felijo_ttm_hd_vermin = {
 				name = "Totem Head of the Vermin",
 				text = {
-					"Combine with a {C:attention}Totem{}",
+					"Combine with a {C:felijo_ttm}Totem{}",
 					"to apply its effects on",
-					"{C:attention}Vermin{} Jokers",
+					"{C:felijo_trb}Vermin{} Jokers",
 				},
 			},
 			c_felijo_ttm_hd_object = {
 				name = "Totem Head of the Object",
 				text = {
-					"Combine with a {C:attention}Totem{}",
+					"Combine with a {C:felijo_ttm}Totem{}",
 					"to apply its effects on",
-					"{C:attention}Object{} Jokers",
+					"{C:felijo_trb}Object{} Jokers",
 					"{C:inactive,s:0.6}(Includes \"Food\" Jokers)"
 				},
 			},
 			c_felijo_ttm_hd_other = {
 				name = "Totem Head of the Other",
 				text = {
-					"Combine with a {C:attention}Totem{}",
+					"Combine with a {C:felijo_ttm}Totem{}",
 					"to apply its effects on",
-					"{C:attention}Other{} Jokers",
+					"{C:felijo_trb}Other{} Jokers",
 					"{C:inactive,s:0.6}(Includes \"Meme\" Jokers)"
 				},
 			},
 			c_felijo_ttm_hd_human = {
 				name = "Totem Head of the Human",
 				text = {
-					"Combine with a {C:attention}Totem{}",
+					"Combine with a {C:felijo_ttm}Totem{}",
 					"to apply its effects on",
-					"{C:attention}Human{} Jokers",
+					"{C:felijo_trb}Human{} Jokers",
 					"{C:inactive,s:0.6}(Includes \"Anime\" Jokers)"
 				},
 			},
@@ -1417,90 +1627,90 @@ return {
 				name = "Totem of the Bifurcated Strike",
 				text = {
 					"When active, apply",
-					"{C:dark_edition,s:1.1}Bifurcated Strike{}",
+					"{C:felijo_sgl,s:1.1}Bifurcated Strike{}",
 					"to Jokers of the same",
-					"{C:attention}Tribe{} as the Totem Head",
+					"{C:felijo_trb}Tribe{} as the {C:felijo_ttm}Totem Head",
 				},
 			},
 			c_felijo_ttm_undying = {
 				name = "Totem of the Undying",
 				text = {
 					"When active, apply",
-					"{C:dark_edition,s:1.1}Undying{}",
+					"{C:felijo_sgl,s:1.1}Undying{}",
 					"to Jokers of the same",
-					"{C:attention}Tribe{} as the Totem Head",
+					"{C:felijo_trb}Tribe{} as the {C:felijo_ttm}Totem Head",
 				},
 			},
 			c_felijo_ttm_swap = {
 				name = "Totem of the Swapper",
 				text = {
 					"When active, apply",
-					"{C:dark_edition,s:1.1}Swapper{}",
+					"{C:felijo_sgl,s:1.1}Swapper{}",
 					"to Jokers of the same",
-					"{C:attention}Tribe{} as the Totem Head",
+					"{C:felijo_trb}Tribe{} as the {C:felijo_ttm}Totem Head",
 				},
 			},
 			c_felijo_ttm_midas = {
 				name = "Totem of the Midas Touch",
 				text = {
 					"When active, apply",
-					"{C:dark_edition,s:1.1}Midas Touch{}",
+					"{C:felijo_sgl,s:1.1}Midas Touch{}",
 					"to Jokers of the same",
-					"{C:attention}Tribe{} as the Totem Head",
+					"{C:felijo_trb}Tribe{} as the {C:felijo_ttm}Totem Head",
 				},
 			},
 			c_felijo_ttm_cardbearer = {
 				name = "Totem of the Card Bearer",
 				text = {
 					"When active, apply",
-					"{C:dark_edition,s:1.1}Card Bearer{}",
+					"{C:felijo_sgl,s:1.1}Card Bearer{}",
 					"to Jokers of the same",
-					"{C:attention}Tribe{} as the Totem Head",
+					"{C:felijo_trb}Tribe{} as the {C:felijo_ttm}Totem Head",
 				},
 			},
 			c_felijo_ttm_giftbearer = {
 				name = "Totem of the Gift Bearer",
 				text = {
 					"When active, apply",
-					"{C:dark_edition,s:1.1}Gift Bearer{}",
+					"{C:felijo_sgl,s:1.1}Gift Bearer{}",
 					"to Jokers of the same",
-					"{C:attention}Tribe{} as the Totem Head",
+					"{C:felijo_trb}Tribe{} as the {C:felijo_ttm}Totem Head",
 				},
 			},
 			c_felijo_ttm_leader = {
 				name = "Totem of the Leader",
 				text = {
 					"When active, apply",
-					"{C:dark_edition,s:1.1}Leader{}",
+					"{C:felijo_sgl,s:1.1}Leader{}",
 					"to Jokers of the same",
-					"{C:attention}Tribe{} as the Totem Head",
+					"{C:felijo_trb}Tribe{} as the {C:felijo_ttm}Totem Head",
 				},
 			},
 			c_felijo_ttm_omnistrike = {
 				name = "Totem of the Omni Strike",
 				text = {
 					"When active, apply",
-					"{C:dark_edition,s:1.1}Omni Strike{}",
+					"{C:felijo_sgl,s:1.1}Omni Strike{}",
 					"to Jokers of the same",
-					"{C:attention}Tribe{} as the Totem Head",
+					"{C:felijo_trb}Tribe{} as the {C:felijo_ttm}Totem Head",
 				},
 			},
 			c_felijo_ttm_repulsive = {
 				name = "Totem of the Repulsive",
 				text = {
 					"When active, apply",
-					"{C:dark_edition,s:1.1}Repulsive{}",
+					"{C:felijo_sgl,s:1.1}Repulsive{}",
 					"to Jokers of the same",
-					"{C:attention}Tribe{} as the Totem Head",
+					"{C:felijo_trb}Tribe{} as the {C:felijo_ttm}Totem Head",
 				},
 			},
 			c_felijo_ttm_stinky = {
 				name = "Totem of the Stinky",
 				text = {
 					"When active, apply",
-					"{C:dark_edition,s:1.1}Stinky{}",
+					"{C:felijo_sgl,s:1.1}Stinky{}",
 					"to Jokers of the same",
-					"{C:attention}Tribe{} as the Totem Head",
+					"{C:felijo_trb}Tribe{} as the {C:felijo_ttm}Totem Head",
 				},
 			},
 
@@ -1525,6 +1735,7 @@ return {
 			c_felijo_ins_mycologist_1 = "The Mycologists' Challenge",
 			c_felijo_stock_1 = "Portfolio",
 			c_felijo_stock_2 = "Insider Trading",
+			c_felijo_medusa_1 = "Medusa II",
 		},
         achievement_names={
             --ach_felijo_spell_aikoyori = "Unfortunately Aikoyori is not real",
@@ -1552,6 +1763,8 @@ return {
 			k_felijo_loic5 = "Cooled down!",
 			b_felijo_ritual_cards = "Ritual Cards",
 			b_felijo_totem_parts_cards = "Totem Parts",
+			b_felijo_tribe_cards = "Tribe Cards",
+			k_felijo_tribe = "Tribe Card",
 			k_felijo_totem_parts = "Totem Part",
 			k_felijo_ritual = "Ritual",
 			b_felijo_tier2_tarot_cards = "Tarot Cards [II]",
@@ -1567,6 +1780,9 @@ return {
 			k_felijo_combine_button = "COMBINE",
 			k_felijo_separate_button = "SEPARATE",
 			k_felijo_switch_button = "SWITCH",
+			k_felijo_tribe_pack = "Tribe Pack",
+			k_felijo_ritual_pack = "Ritual Pack",
+			k_felijo_ttm_box = "Totem Box",
 		},
 		v_dictionary={
             k_felijo_score_add="+#1# Score",

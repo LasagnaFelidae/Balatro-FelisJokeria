@@ -33,6 +33,21 @@ FELIJO.campfire_table = {
     ["m_felijo_enh_sup_t3"]   = { next = "m_felijo_enh_sup_t4",    break_chance = 0.60 },
 }
 
+FELIJO.prospectorTable = {
+	{key = "m_gold",   				weight = 5},
+	{key = "m_felijo_gold_t2",   	weight = 2},
+	{key = "m_felijo_gold_t3",   	weight = 0.02},
+	{key = "m_felijo_gold_t4",   	weight = 0.001}
+}
+
+FELIJO.trapperTable = {
+	{key = "m_felijo_plt_bny",   		weight = 1,		price = 1},
+	{key = "m_felijo_plt_wlf",   		weight = 0.2,	price = 2},
+	{key = "m_felijo_plt_gold",   		weight = 0.01,	price = 3},
+	{key = "m_felijo_plt_olddata",   	weight = 0.001, price = 5},
+	{key = "m_felijo_trn_goldn",   		weight = 0, 	price = 3}
+}
+
 FELIJO.upgradablelist = {
 	"m_bonus",
 	"m_felijo_bonus_t2",
@@ -71,16 +86,16 @@ FELIJO.consumeables_table = {
     {"felijo_ritual", 0.8},
 }
 FELIJO.tribe_table = {
-	{key = "Avian", 	weight = 1.0,	totem_key = "ttm_hd_avian",			totem_x=6,		cost = 4,	},
-	{key = "Canine", 	weight = 1.0,	totem_key = "ttm_hd_canine",		totem_x=9,		cost = 4,	},
-	{key = "Feline", 	weight = 1.0,	totem_key = "ttm_hd_feline",		totem_x=3,		cost = 4,	},
-	{key = "Hooved", 	weight = 1.0,	totem_key = "ttm_hd_hooved",		totem_x=5,		cost = 4,	},
-	{key = "Insect", 	weight = 1.0,	totem_key = "ttm_hd_insect",		totem_x=1,		cost = 4,	},
-	{key = "Reptile", 	weight = 1.0,	totem_key = "ttm_hd_reptile",		totem_x=0,		cost = 4,	},
-	{key = "Vermin", 	weight = 1.0,	totem_key = "ttm_hd_vermin",		totem_x=8,		cost = 4,	},
-	{key = "Object", 	weight = 0.8,	totem_key = "ttm_hd_object",		totem_x=4,		cost = 6,	},
-	{key = "Other", 	weight = 0.8,	totem_key = "ttm_hd_other",			totem_x=7,		cost = 6,	},
-	{key = "Human", 	weight = 0.6,	totem_key = "ttm_hd_human",			totem_x=2,		cost = 8,	},
+	{key = "Avian", 	weight = 1.0,	totem_key = "ttm_hd_avian",		tribe_card_key = "trb_avian",		totem_x=6,		cost = 4,	},
+	{key = "Canine", 	weight = 1.0,	totem_key = "ttm_hd_canine",	tribe_card_key = "trb_canine",		totem_x=9,		cost = 4,	},
+	{key = "Feline", 	weight = 1.0,	totem_key = "ttm_hd_feline",	tribe_card_key = "trb_feline",		totem_x=3,		cost = 4,	},
+	{key = "Hooved", 	weight = 1.0,	totem_key = "ttm_hd_hooved",	tribe_card_key = "trb_hooved",		totem_x=5,		cost = 4,	},
+	{key = "Insect", 	weight = 1.0,	totem_key = "ttm_hd_insect",	tribe_card_key = "trb_insect",		totem_x=1,		cost = 4,	},
+	{key = "Reptile", 	weight = 1.0,	totem_key = "ttm_hd_reptile",	tribe_card_key = "trb_reptile",		totem_x=0,		cost = 4,	},
+	{key = "Vermin", 	weight = 1.0,	totem_key = "ttm_hd_vermin",	tribe_card_key = "trb_vermin",		totem_x=8,		cost = 4,	},
+	{key = "Object", 	weight = 0.8,	totem_key = "ttm_hd_object",	tribe_card_key = "trb_object",		totem_x=4,		cost = 6,	},
+	{key = "Other", 	weight = 0.8,	totem_key = "ttm_hd_other",		tribe_card_key = "trb_other",		totem_x=7,		cost = 6,	},
+	{key = "Human", 	weight = 0.6,	totem_key = "ttm_hd_human",		tribe_card_key = "trb_human",		totem_x=2,		cost = 8,	},
 }
 FELIJO.totem_sigil_table = {
     {key = "felijo_ttm_sgl_bifurcated",   weight = 1.0,		totem_key="ttm_bifurcated",		totem_x=0,		cost = 6,	},

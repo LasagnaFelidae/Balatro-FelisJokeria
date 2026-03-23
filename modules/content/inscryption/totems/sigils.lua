@@ -9,7 +9,7 @@ FELIJO.TotemSigil = SMODS.Sticker:extend{
 
 FELIJO.TotemSigil {
     key = "felijo_ttm_sgl_undying",
-	atlas = "inscryptionTotemSigils",
+	atlas = "insTotemSigils",
     pos = {x = 0, y = 0},
     badge_colour = HEX('BD894B'),
 	no_collection = true,
@@ -54,7 +54,7 @@ FELIJO.TotemSigil {
 
 FELIJO.TotemSigil {
     key = "felijo_ttm_sgl_swap",
-    atlas = "inscryptionTotemSigils",
+    atlas = "insTotemSigils",
     pos = {x = 1, y = 0},
     badge_colour = HEX('BD894B'),
 	no_collection = true,
@@ -70,7 +70,7 @@ FELIJO.TotemSigil {
 
 FELIJO.TotemSigil {
     key = "felijo_ttm_sgl_bifurcated",
-    atlas = "inscryptionTotemSigils",
+    atlas = "insTotemSigils",
     pos = {x = 2, y = 0},
     badge_colour = HEX('BD894B'),
 	no_collection = true,
@@ -85,7 +85,7 @@ FELIJO.TotemSigil {
 
 FELIJO.TotemSigil {
     key = "felijo_ttm_sgl_midas",
-	atlas = "inscryptionTotemSigils",
+	atlas = "insTotemSigils",
 	config = { extra = { dollars = 1 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {self.config.extra.dollars} }
@@ -103,7 +103,7 @@ FELIJO.TotemSigil {
 
 FELIJO.TotemSigil {
     key = "felijo_ttm_sgl_cardbearer",
-    atlas = "inscryptionTotemSigils",
+    atlas = "insTotemSigils",
     pos = {x = 8, y = 0},
     badge_colour = HEX('BD894B'),
 	no_collection = true,
@@ -119,7 +119,7 @@ FELIJO.TotemSigil {
 
 FELIJO.TotemSigil {
     key = "felijo_ttm_sgl_omnistrike",
-    atlas = "inscryptionTotemSigils",
+    atlas = "insTotemSigils",
     pos = {x = 5, y = 0},
     badge_colour = HEX('BD894B'),
 	no_collection = true,
@@ -137,7 +137,7 @@ FELIJO.TotemSigil {
 
 FELIJO.TotemSigil {
     key = "felijo_ttm_sgl_repulsive",
-    atlas = "inscryptionTotemSigils",
+    atlas = "insTotemSigils",
     pos = {x = 6, y = 0},
     badge_colour = HEX('BD894B'),
 	no_collection = true,
@@ -147,7 +147,7 @@ FELIJO.TotemSigil {
 
 FELIJO.TotemSigil {
     key = "felijo_ttm_sgl_stinky",
-	atlas = "inscryptionTotemSigils",
+	atlas = "insTotemSigils",
 	config = { extra = { xbscore = 0.20 } },
 	loc_vars = function(self, info_queue, card)
 		return { vars = {self.config.extra.xbscore*100} }
@@ -178,7 +178,7 @@ FELIJO.TotemSigil {
 
 FELIJO.TotemSigil {
     key = "felijo_ttm_sgl_giftbearer",
-    atlas = "inscryptionTotemSigils",
+    atlas = "insTotemSigils",
     pos = {x = 4, y = 0},
     badge_colour = HEX('BD894B'),
 	no_collection = true,
@@ -196,7 +196,7 @@ FELIJO.TotemSigil {
 
 FELIJO.TotemSigil {
     key = "felijo_ttm_sgl_leader",
-	atlas = "inscryptionTotemSigils",
+	atlas = "insTotemSigils",
 	config = {extra = { mult = 0, mult_mod = 5}},
 	loc_vars = function(self, info_queue, card)
 		local my_pos = nil

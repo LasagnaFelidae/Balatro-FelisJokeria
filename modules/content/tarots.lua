@@ -159,6 +159,20 @@ FELIJO.T2 {
 }
 
 FELIJO.T2 {
+    key = 't2_tower',
+    set = 'felijo_tier2_tarot',
+	atlas = 't2Tarots',
+	discovered = true,
+	unlocked = true,
+    pos = { x = 6, y = 1 },
+    config = { max_highlighted = 1, mod_conv = 'm_felijo_stone_t2' },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
+}
+
+FELIJO.T2 {
     key = 't2_ascended',
     set = 'felijo_tier2_tarot',
 	atlas = 't2Tarots',
@@ -252,6 +266,19 @@ FELIJO.T3 {
 	unlocked = true,
     pos = { x = 5, y = 1 },
     config = { max_highlighted = 1, mod_conv = 'm_felijo_gold_t3' },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
+}
+FELIJO.T3 {
+    key = 't3_tower',
+    set = 'felijo_tier3_tarot',
+	atlas = 't3Tarots',
+	discovered = true,
+	unlocked = true,
+    pos = { x = 6, y = 1 },
+    config = { max_highlighted = 1, mod_conv = 'm_felijo_stone_t3' },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
         return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
@@ -353,6 +380,20 @@ FELIJO.T4 {
 	unlocked = true,
     pos = { x = 5, y = 1 },
     config = { max_highlighted = 1, mod_conv = 'm_felijo_gold_t4' },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
+}
+
+FELIJO.T4 {
+    key = 't4_tower',
+    set = 'felijo_tier4_tarot',
+	atlas = 't4Tarots',
+	discovered = true,
+	unlocked = true,
+    pos = { x = 6, y = 1 },
+    config = { max_highlighted = 1, mod_conv = 'm_felijo_stone_t4' },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
         return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }

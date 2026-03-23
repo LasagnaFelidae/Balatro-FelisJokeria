@@ -15,19 +15,19 @@ FELIJO.T2Enhancement = SMODS.Enhancement:extend{
     in_pool = function (self, args)
        return true
     end,
-	weight = 3
+	weight = 2
 }
 FELIJO.T3Enhancement = SMODS.Enhancement:extend{
     in_pool = function (self, args)
        return true
     end,
-	weight = 1
+	weight = 0.01
 }
 FELIJO.T4Enhancement = SMODS.Enhancement:extend{
     in_pool = function (self, args)
        return true
     end,
-	weight = 0.2
+	weight = 0.002
 }
 
 

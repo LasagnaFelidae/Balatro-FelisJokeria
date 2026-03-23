@@ -1,12 +1,18 @@
-SMODS.Joker { -- Rare Ouro
-    atlas = 'inscryptionJokers',
-    pos = { x = 9, y = 0 },
-    pools = {
+FELIJO.Reptile = SMODS.Joker:extend{
+    atlas = 'felijo_insReptile',
+	pools = {
 		["FelisJokeria"]=true,
 		["Inscryption"] = true, 
 		["Beast"] = true,
 		["Reptile"] = true, 
 	},
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
+	end,
+}
+
+FELIJO.Reptile { -- Rare Ouro
+    pos = { x = 0, y = 0 },
     key = "felijo_ins_ouro",
 	unlocked = true,
 	discovered = true,
@@ -14,9 +20,6 @@ SMODS.Joker { -- Rare Ouro
     cost = 8,
 	pronouns = "he_him",
 	config = { extra = { xchips = 1, xmult = 1, gain = 0.2}, sell = {curr = 0, limit = 2} },
-	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
-	end,
     loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.xchips, card.ability.extra.xmult, card.ability.extra.gain, card.ability.sell.curr, card.ability.sell.limit, colours = { HEX('F0C590'), HEX('351A09') } } } 
     end,
@@ -76,4 +79,46 @@ SMODS.Joker { -- Rare Ouro
 	end,
     blueprint_compat = true,
 	eternal_compat = false,
+}
+
+FELIJO.Reptile { -- Uncommon Adder
+    pos = { x = 1, y = 0 },
+    key = "felijo_ins_adder",
+	unlocked = true,
+	discovered = true,
+    rarity = 2,
+    cost = 6,
+	blueprint_compat = true,
+	eternal_compat = true,
+	pronouns = "he_him",
+	config = { extra = { chips = 1, mult = 1,}},
+    loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
+    end,
+	remove_from_deck = function(self,card,from_debuff)
+		if from_debuff == true then
+			G.E_MANAGER:add_event(Event({
+				blocking = false,
+				func = function()
+					if G.STATE == G.STATES.SELECTING_HAND then
+						SMODS.calculate_effect({ message = localize('k_nope_ex') }, card)
+						G.GAME.chips = G.GAME.blind.chips
+						G.STATE = G.STATES.HAND_PLAYED
+						G.STATE_COMPLETE = true
+						end_round()
+						return true
+					end
+				end
+			}))
+		end
+
+	end,
+    calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.mult,
+				chips = card.ability.extra.chips
+			}
+        end
+	end,
 }

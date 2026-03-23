@@ -1,6 +1,6 @@
 FELIJO = SMODS.current_mod
 FELIJO.optional_features = {post_trigger = true,}
-
+G.GAME = {}
 -----------------------------
 --┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓--
 --┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓--
@@ -33,6 +33,7 @@ assert(SMODS.load_file("./func/pools.lua"))()
 -----╹ ╹┗━┛┗━┛┗━╸ ╹ ┗━┛-----
 ----------------------------
 assert(SMODS.load_file("./modules/atlasses.lua"))()
+assert(SMODS.load_file("./modules/content/inscryption/atlasses.lua"))()
 assert(SMODS.load_file("./modules/sounds.lua"))()
 assert(SMODS.load_file("./modules/fonts.lua"))()
 
@@ -125,8 +126,13 @@ assert(SMODS.load_file("./modules/content/inscryption/jokers/10_deathcards.lua")
 ----------------------
 assert(SMODS.load_file("./modules/content/inscryption/totems/sigils.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/totems/totems.lua"))()
-
-
+-----------------------
+-----CONSUMEABLES------
+-----------------------
+assert(SMODS.load_file("./modules/content/inscryption/consumeables/ritual.lua"))()
+assert(SMODS.load_file("./modules/content/inscryption/consumeables/tribe.lua"))()
+assert(SMODS.load_file("./modules/content/inscryption/boosters/ritual.lua"))()
+assert(SMODS.load_file("./modules/content/inscryption/boosters/tribe.lua"))()
 
 
 
@@ -134,11 +140,11 @@ assert(SMODS.load_file("./modules/content/inscryption/totems/totems.lua"))()
 -----------------------
 -----------------------
 assert(SMODS.load_file("./modules/content/inscryption/sigils.lua"))()
-
+assert(SMODS.load_file("./modules/content/inscryption/tags.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/pelts.lua"))()
 --assert(SMODS.load_file("./modules/content/inscryption/blinds.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/vouchers.lua"))()
-assert(SMODS.load_file("./modules/content/inscryption/consumables.lua"))()
+
 
 
 
