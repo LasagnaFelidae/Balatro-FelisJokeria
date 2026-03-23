@@ -21,7 +21,7 @@ SMODS.Voucher {
     config = {extra = { peltchance = 2 }},
 	
 	in_pool = function(self,args)
-		return (G.GAME.felijo_pelts_enabled or next(SMODS.find_card("v_felijo_beartrap"))) and  or false
+		return (G.GAME.felijo_pelts_enabled or next(SMODS.find_card("v_felijo_beartrap"))) or false
 	end,
 		
     loc_vars = function (self, info_queue, card)
