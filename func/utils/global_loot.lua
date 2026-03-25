@@ -85,6 +85,24 @@ FELIJO.consumeables_table = {
     {"Spectral", 0.2},
     {"felijo_ritual", 0.8},
 }
+FELIJO.JoyousTribes = {
+    Insect  = { Insect = true },
+    Reptile = { Dragon = true, Wyrm = true, Dinosaur = true, SeaSerpent = true, Reptile = true },
+    Human   = { Warrior = true, Spellcaster = true, Zombie = true, BeastWarrior = true, Cyberse = true },
+    Object  = { Machine = true, Cyberse = true },
+    Other   = { CreatorGod = true, Fairy = true, Zombie = true, Beast = true, BeastWarrior = true, DivineBeast = true },
+    Avian   = { WingedBeast = true, Fairy = true, Dragon = true },
+}
+FELIJO.PoolTribes = {
+	Feline = { "Kitty", "Cat" , "kity", },
+    Canine = { "Dog", "Puppy" , },
+    Avian  = { "Birb", "Bird" , },
+    Human  = { "Anime", "Vocaloid" , "VTuber" , },
+    Other  = { "Food", "Video Game" , "Minecraft" , },
+    Object = { "Meme" , },
+    Insect = { "Bug" , },
+    Hooved = { "Pony", "Horse" ,},
+}
 FELIJO.tribe_table = {
 	{key = "Avian", 	weight = 1.0,	totem_key = "ttm_hd_avian",		tribe_card_key = "trb_avian",		totem_x=6,		cost = 4,	},
 	{key = "Canine", 	weight = 1.0,	totem_key = "ttm_hd_canine",	tribe_card_key = "trb_canine",		totem_x=9,		cost = 4,	},

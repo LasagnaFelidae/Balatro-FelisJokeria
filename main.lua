@@ -118,7 +118,9 @@ assert(SMODS.load_file("./modules/content/inscryption/jokers/6_reptile.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/7_vermin.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/8_objects.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/9_others.lua"))()
-assert(SMODS.load_file("./modules/content/inscryption/jokers/10_deathcards.lua"))()
+assert(SMODS.load_file("./modules/content/inscryption/jokers/10_human.lua"))()
+assert(SMODS.load_file("./modules/content/inscryption/jokers/11_deathcards.lua"))()
+--assert(SMODS.load_file("./modules/content/inscryption/jokers/12_tail.lua"))()
 ----------------------
 --╺┳╸┏━┓╺┳╸┏━╸┏┳┓┏━┓--
 -- ┃ ┃ ┃ ┃ ┣╸ ┃┃┃┗━┓--
@@ -133,10 +135,13 @@ assert(SMODS.load_file("./modules/content/inscryption/consumeables/ritual.lua"))
 assert(SMODS.load_file("./modules/content/inscryption/consumeables/tribe.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/boosters/ritual.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/boosters/tribe.lua"))()
-
-
-
-
+-----------------------
+-----Decks------
+-----------------------
+assert(SMODS.load_file("./modules/content/inscryption/decks/backs.lua"))()
+if FELIJO.is_mod_loaded("CardSleeves") then
+    assert(SMODS.load_file("./modules/content/inscryption/decks/sleeves.lua"))()
+end
 -----------------------
 -----------------------
 assert(SMODS.load_file("./modules/content/inscryption/sigils.lua"))()

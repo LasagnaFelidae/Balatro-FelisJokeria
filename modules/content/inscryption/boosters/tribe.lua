@@ -108,9 +108,9 @@ SMODS.Booster {
     config = { extra = 4, choose = 1 },
     group_key = "k_felijo_ttm_box", -- Delete this if you're using `group_name` in `loc_txt`
     draw_hand = false,
-	select_card = 'consumeables',
+    select_card = "consumeables",
 	in_pool = function(self,args)
-		return false
+		return G.GAME.felijo_totems_enabled or false
 	end,
     loc_vars = function(self, info_queue, card)
         local cfg = (card and card.ability) or self.config
@@ -142,8 +142,8 @@ SMODS.Booster {
             area = G.pack_cards,
             skip_materialize = true,
             soulable = true,
-            key_append =
-            "felijo_ttm_box"
+            no_edition=true,
+            key_append ="felijo_ttm_box"
         }
     end,
 }
@@ -158,9 +158,9 @@ SMODS.Booster {
     config = { extra = 6, choose = 2 },
     group_key = "k_felijo_ttm_box", -- Delete this if you're using `group_name` in `loc_txt`
     draw_hand = false,
-	select_card = 'consumeables',
+    select_card = "consumeables",
 	in_pool = function(self,args)
-		return false
+		return G.GAME.felijo_totems_enabled or false
 	end,
     loc_vars = function(self, info_queue, card)
         local cfg = (card and card.ability) or self.config
@@ -192,8 +192,8 @@ SMODS.Booster {
             area = G.pack_cards,
             skip_materialize = true,
             soulable = true,
-            key_append =
-            "felijo_ttm_box"
+            no_edition=true,
+            key_append ="felijo_ttm_box"
         }
     end,
 }

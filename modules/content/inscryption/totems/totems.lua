@@ -36,16 +36,17 @@ G.FUNCS.felijo_totem_button = function(e)
 		end
 	end
 end
-
 --[[
 G.FUNCS.felijo_can_pull = function(e)
 	local card = e.config.ref_table
-    if #G.felijo_totems.cards < G.felijo_totems.config.card_limit then
-        e.config.colour = G.C.PURPLE
-        e.config.button = "felijo_pull"
-    elseif (#G.felijo_totems.cards < G.felijo_totems.config.card_limit + 2) and card.ability.is_totem_head then
-		e.config.colour = G.C.PURPLE
-        e.config.button = "felijo_pull"
+    if (G.GAME.pack_choices and G.GAME.pack_choices >= 1) then
+        if #G.felijo_totems.cards < G.felijo_totems.config.card_limit then
+            e.config.colour = G.ARGS.LOC_COLOURS.felijo_ttm
+            e.config.button = "felijo_pull"
+        elseif (#G.felijo_totems.cards < G.felijo_totems.config.card_limit + 2) and card.ability.is_totem_head then
+            e.config.colour = G.ARGS.LOC_COLOURS.felijo_ttm
+            e.config.button = "felijo_pull"
+        end
 	else
         e.config.colour = G.C.UI.BACKGROUND_INACTIVE
         e.config.button = nil
@@ -54,11 +55,15 @@ end
 
 G.FUNCS.felijo_pull = function(e)
     local card = e.config.ref_table
+    G.GAME.pack_choices = G.GAME.pack_choices - 1
+    if G.GAME.pack_choices < 1 then
+        G.FUNCS.end_consumeable(e)
+    end
     card.area:remove_card(card)
     card:add_to_deck()
     G.felijo_totems:emplace(card)
 end
-]]--
+]]
 G.FUNCS.felijo_separate_totem = function(e)
     local body_card = e.config.ref_table
     if not body_card then return end
@@ -186,6 +191,7 @@ for _, data in ipairs(FELIJO.totem_sigil_table) do
             totem_tribe     = nil,
 			sprite_pos = {x = data.totem_x, y = 3},
 			soul_pos = {x = data.totem_x, y = 5},
+            extra_slots_used = 0,
         },
         atlas = "insTotems",
         pos = {x = data.totem_x, y = 3},
@@ -247,6 +253,9 @@ for _, data in ipairs(FELIJO.totem_sigil_table) do
         use = function(self, card, area, copier)
 
         end,
+        in_pool = function(self,args)
+            return G.GAME.felijo_totems_enabled or false
+        end,
         remove_from_deck = function(self,card,from_debuff)
 			if card.ability.totem_active and not from_debuff then
 				local old_tribe = card.ability.totem_tribe
@@ -287,7 +296,8 @@ for _, data in ipairs(FELIJO.tribe_table) do
         set = "felijo_totem_parts",
         config = {
 			is_totem_head 	= true,           
-            tribe     		= data.key,                 
+            tribe     		= data.key,      
+            extra_slots_used = 0,
         },
         atlas = "insTotems",
         pos = {x = data.totem_x, y = 0},
@@ -297,6 +307,9 @@ for _, data in ipairs(FELIJO.tribe_table) do
         end,
         use = function(self, card, area, copier)
 
+        end,
+        in_pool = function(self,args)
+            return G.GAME.felijo_totems_enabled or false
         end,
         
     }

@@ -11,7 +11,9 @@ SMODS.Joker { -- Common, loose tail
     rarity = 1,
     cost = 2,
 	config = {extra = {mult = 2}},
-	in_pool = false,
+	in_pool = function(self, args)
+		return false
+	end,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,

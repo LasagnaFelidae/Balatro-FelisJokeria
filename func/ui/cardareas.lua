@@ -1,10 +1,8 @@
 
-
-
 SMODS.current_mod.custom_card_areas = function(game) -- game is the same as G
     game.felijo_totems = CardArea( -- Should be saved in G for it to be preserved between reloads
-        G.consumeables.T.x, -- x coordinate
-        G.consumeables.T.y + 3, -- y coordinate
+        G.consumeables.T.x + 1.5, -- x coordinate
+        (G.consumeables.T.y) + 5.5, -- y coordinate SET TO G.JOKERS.T.Y - 4 WHEN DONE
         G.consumeables.T.w, -- width (this is the default for G.jokers)
         game.CARD_H * 0.95, -- height (this is the default for G.jokers)
         {
@@ -18,47 +16,36 @@ SMODS.current_mod.custom_card_areas = function(game) -- game is the same as G
             align_buttons = true, -- aligns the buttons for cards like in the Joker/Consumable areas
         }
     )
-    
-    --FELIJO.states.slot_visible = 1
+
     --FELIJO.animate_areas()
 end
-
 --[[
+
 G.FUNCS.toggle_totems = function(e)
-    if not G.PROFILES[G.SETTINGS.profile].stocking_stuffer_completed then
-        G.PROFILES[G.SETTINGS.profile].stocking_stuffer_completed = true
-        local sprite = SMODS.create_sprite(0, 0, 3 * (231 / 117), 3, 'stocking_logo', { x = 0, y = 0 })
-        PotatoPatchUtils.INFO_MENU.create_menu { menu_type = 'stocking_stuffer', outline_colour = G.C.RED, colour = HEX("22A617"), page_colour = HEX("22A617"), no_first_time = true, image = sprite, vars = { FELIJO.Developers.internal_count } }
-    end
     FELIJO.states.slot_visible = FELIJO.states.slot_visible * -1
     play_sound('paper1')
     FELIJO.animate_areas()
 end
 
-G.FUNCS.can_toggle_presents = function(e)
+G.FUNCS.felijo_can_toggle_totem = function(e)
     if G.STATE ~= G.STATES.HAND_PLAYED and G.STATE ~= G.STATES.DRAW_TO_HAND and G.STATE ~= G.STATES.PLAY_TAROT and not FELIJO.states.areas_moving then
-        e.config.colour = G.C.RED
-        e.config.button = 'toggle_jokers_presents'
+        e.config.colour = G.ARGS.LOC_COLOURS.felijo_ttm
+        e.config.button = 'toggle_totems'
     else
         e.config.colour = G.C.UI.BACKGROUND_INACTIVE
         e.config.button = nil
     end
 end
 
-local should_handle = SMODS.should_handle_limit
-function SMODS.should_handle_limit(area)
-    return area.config.type == "stocking_stuffer_hide" or should_handle(area)
-end
-
 -- Area toggle helpers
-function FELIJO.animate_areas()
+function FELIJO.animate_areas(animate)
     FELIJO.states.areas_moving = true
     if FELIJO.states.slot_visible == -1 then
-        ease_alignment('consumeables', -4, true, FELIJO.config.animate_areas == 2)
-        ease_alignment('felijo_totems', 0, nil, FELIJO.config.animate_areas == 2)
+        ease_alignment('jokers', 0, -4, true, animate)
+        ease_alignment('felijo_totems', -4, 0, nil, animate)
     else
-        ease_alignment('felijo_totems', -4, true, FELIJO.config.animate_areas == 2)
-        ease_alignment('jokers', 0, nil, FELIJO.config.animate_areas == 2)
+        ease_alignment('felijo_totems', 0, -4, true, animate)
+        ease_alignment('jokers', -4, 0, nil, animate)
     end
     G.E_MANAGER:add_event(Event({
         func = function()
@@ -69,7 +56,8 @@ function FELIJO.animate_areas()
 end
 
 -- Consumeables/Totem Area Easing
-function ease_alignment(area, value, hide, instant)
+function ease_alignment(area, value_o, value_t, hide, instant, type)
+    type = type or 'y'
     if not G[area] then return end
     if instant then
         G.E_MANAGER:add_event(Event({
@@ -77,16 +65,16 @@ function ease_alignment(area, value, hide, instant)
             blocking = true,
             blockable = false,
             func = function()
-                G[area].T.y = value
-                G[area].VT.y = value
+                G[area].T[type] = value_t
+                G[area].VT[type] = value_t
                 G[area].config.type = hide and 'totems_hide' or 'joker'
                 return true;
             end
         }))
     else
         if not hide then
-            G[area].VT.y = -4
-            G[area].T.y = -4
+            G[area].VT[type] = value_o
+            G[area].T[type] = value_o
             G.E_MANAGER:add_event(Event({
                 trigger = 'immediate',
                 blocking = true,
@@ -103,8 +91,8 @@ function ease_alignment(area, value, hide, instant)
             blocking = false,
             blockable = false,
             ref_table = G[area].T,
-            ref_value = 'y',
-            ease_to = value,
+            ref_value = type,
+            ease_to = value_t,
             func = (function(t) return t end)
         }))
         if hide then
@@ -115,13 +103,11 @@ function ease_alignment(area, value, hide, instant)
                 blockable = false,
                 func = function()
                     G[area].config.type = 'totems_hide'
-                    G[area].T.y = 0
+                    G[area].T[type] = value_t
                     return true
                 end
             }))
         end
     end
 end
-
-
 ]]

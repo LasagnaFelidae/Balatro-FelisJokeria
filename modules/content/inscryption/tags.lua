@@ -6,6 +6,9 @@ SMODS.Tag {
     loc_vars = function(self, info_queue, tag)
         info_queue[#info_queue + 1] = G.P_CENTERS.p_felijo_tribe_1
     end,
+    in_pool = function(self,args)
+        return G.GAME.felijo_totems_enabled or false
+    end,
     apply = function(self, tag, context)
         if context.type == 'new_blind_choice' then
             local lock = tag.ID

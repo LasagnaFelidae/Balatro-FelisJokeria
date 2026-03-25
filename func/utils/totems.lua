@@ -120,37 +120,30 @@ FELIJO.applyTotemSigils = function(totem_body, tribe)
     local sigil_key = totem_body.ability.totem_sigil
 	local applied = false
     for _, card in ipairs(G.jokers.cards) do
-        
-
-        if card.ability and card.config and card.config.center and card.config.center.pools then
-            if card.config.center.pools[tribe] and not card.ability.sigil_key then
+        if card.ability and card.config and card.config.center and card.config.center.pools and not card.ability.sigil_key then
+            if JoyousSpring and JoyousSpring.is_monster_card(card) then
+                if card.ability.extra.joyous_spring.is_all_types then
+                    card:add_sticker(sigil_key, true)
+                    applied = true
+                elseif FELIJO.JoyousTribes and FELIJO.JoyousTribes[tribe] then
+                    if FELIJO.JoyousTribes[tribe][card.ability.extra.joyous_spring.monster_type] then
+                        card:add_sticker(sigil_key, true)
+                        applied = true
+                    end
+                end
+            end
+            if card.config.center.pools[tribe] then
                 card:add_sticker(sigil_key, true)
                 applied = true
-            elseif tribe == "Feline" and (card.config.center.pools["Kitty"] or card.config.center.pools["Cat"]) then
-				card:add_sticker(sigil_key, true)
-                applied = true
-			elseif tribe == "Canine" and (card.config.center.pools["Dog"] or card.config.center.pools["Puppy"]) then
-				card:add_sticker(sigil_key, true)
-                applied = true
-			elseif tribe == "Avian" and (card.config.center.pools["Birb"] or card.config.center.pools["Bird"]) then
-				card:add_sticker(sigil_key, true)
-                applied = true
-			elseif tribe == "Human" and (card.config.center.pools["Anime"] or card.config.center.pools["Vocaloid"] or card.config.center.pools["VTuber"] ) then
-				card:add_sticker(sigil_key, true)
-                applied = true
-			elseif tribe == "Other" and (card.config.center.pools["Food"] or card.config.center.pools["Video Game"] or card.config.center.pools["Minecraft"]) then
-				card:add_sticker(sigil_key, true)
-                applied = true
-			elseif tribe == "Object" and (card.config.center.pools["Meme"]) then
-				card:add_sticker(sigil_key, true)
-                applied = true
-            elseif tribe == "Insect" and (card.config.center.pools["Bug"]) then
-				card:add_sticker(sigil_key, true)
-                applied = true
-			elseif tribe == "Hooved" and (card.config.center.pools["Pony"] or card.config.center.pools["Horse"]) then
-				card:add_sticker(sigil_key, true)
-                applied = true
-			end
+            elseif FELIJO.PoolTribes[tribe] then
+                for _, _p in ipairs(FELIJO.PoolTribes[tribe]) do
+                    if card.config.center.pools[_p] then
+                        card:add_sticker(sigil_key, true)
+                        applied = true
+                        break
+                    end
+                end
+            end
         end
     end
 	if applied then

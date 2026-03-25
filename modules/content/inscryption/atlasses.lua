@@ -79,6 +79,20 @@ SMODS.Atlas({
     px = 71,
     py = 95
 })
+--Decks and Sleeves
+SMODS.Atlas({
+    key = "insBacks",
+    path = "inscryption/decks.png",
+    px = 71,
+    py = 95
+})
+SMODS.Atlas({
+    key = "insSleeves",
+    path = "inscryption/sleeves.png",
+    px = 71,
+    py = 95
+})
+
 
 --Consumeables
 SMODS.Atlas({

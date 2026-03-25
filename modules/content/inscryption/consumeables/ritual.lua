@@ -480,4 +480,7 @@ FELIJO.Consumable { -- 8 Lost & Found
     use = function(self, card, area, copier)
 		add_tag(Tag("tag_felijo_tag_totem_box", false, 'Small')) 
     end,
+    in_pool = function(self,args)
+        return G.GAME.felijo_totems_enabled or false
+    end,
 }

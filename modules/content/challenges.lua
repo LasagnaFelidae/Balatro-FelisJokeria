@@ -354,8 +354,8 @@ SMODS.Challenge {
         { id = 'j_marble', eternal = true },
     },
 	consumeables = {
-		{ id = 'c_felijo_ins_campfire'},
-		{ id = 'c_felijo_ins_campfire'},
+		{ id = 'c_felijo_rit_campfire'},
+		{ id = 'c_felijo_rit_campfire'},
 	},
     deck = {
         type = 'Challenge Deck',

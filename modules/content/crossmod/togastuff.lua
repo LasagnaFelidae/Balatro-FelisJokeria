@@ -12,7 +12,7 @@ FELIJO.TOGAJoker {
     pools = {["FelisJokeria"] = true, ["TOGA"] = true},
     blueprint_compat = false,
     rarity = 2,
-    cost = 8,
+    cost = 5,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_toga'), HEX('fd9712'), HEX('ffffff'), 1 )
 	end,

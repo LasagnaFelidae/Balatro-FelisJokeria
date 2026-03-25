@@ -1,11 +1,12 @@
 local CardAreaold = CardArea.emplace
 function CardArea:emplace(card, location, stay_flipped)
     if self == G.consumeables and (card.ability.set == "felijo_totem_parts") then
+		card:remove_from_area()
         G.felijo_totems:emplace(card, location, stay_flipped)
         return
     end
 
-    CardAreaold(self, card, location, stay_flipped)
+	CardAreaold(self, card, location, stay_flipped)
 end
 
 local check_for_buy_space_old = G.FUNCS.check_for_buy_space

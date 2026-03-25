@@ -1,5 +1,31 @@
 return {
     descriptions = {
+		Back={
+            b_felijo_ttm_deck = {
+                name = 'Totem Deck',
+                text = 
+                { 
+                    'Start with {C:felijo_ttm}Totems{} Enabled',
+					"{C:inactive}(Only one totem can be active at a time)"
+                },
+            },
+		},
+		Sleeve = {
+            sleeve_felijo_ttm_deck = {
+                name = "Totem Sleeve",
+                text = { 
+                    "Start with {C:felijo_ttm}Totems{} Enabled",
+             }
+            },
+            sleeve_felijo_ttm_deck_alt = {
+                name = "Totem Sleeve",
+                text = { 
+                    "Start with",
+                    "{C:white,X:felijo_ttm}+#1#{} Totem Area Size",
+					"{C:inactive}(Only one totem can be active at a time)"
+             }
+            },
+		},
 		Tag = {
             tag_felijo_tag_tribal = {
                 name = "Tribal Tag",
@@ -373,7 +399,8 @@ return {
 				name = "Bear Trap",
 				text = {
 				"{C:felijo_ins_gld}Pelt Cards{} can now appear",
-				"as enhancements in shops and booster packs"
+				"as enhancements in shops",
+				"and booster packs"
 				},
 			
 			
@@ -681,7 +708,6 @@ return {
                 text = {
 					"{C:mult} +#1# Mult",
 					"A dripping, useless bit of tail.",
-					"{C:inactive}(Only obtainable through a sigil)"
                 },
             },
 			j_felijo_ins_evgast = {
@@ -698,7 +724,7 @@ return {
                 text = {
 					"{C:chips}+#2#{} Chips, {C:mult}+#3#{} Mult",
                     "On {C:attention}Blind{} selected",
-                    "spawn a random {C:attention}Joker{}.",
+                    "spawn a random {C:common|common} {C:attention}Joker{}.",
 					"{C:inactive}(Must have room.)",
                     "{s:0.7,C:inactive}(See you in the blindside.)"
                 },
@@ -748,7 +774,7 @@ return {
 					{
 					"Retriggers {C:attention}#3#{} times each played card",
 					"that matches the current {C:attention}pronoun{},",
-					"pronouns change every round.",
+					"pronouns change every round",
 					},
 					{
 					"{C:inactive}[Currently{} {B:3,C:white}#4#{}{C:inactive}]{}"
@@ -763,7 +789,7 @@ return {
 					},
 					{
 					"Fixed individual {C:green}1 in 3{} chance to ",
-					"retrigger {C:attention}#3#{} times each played card.",
+					"retrigger {C:attention}#3#{} times each played card",
 					},
                 },
             },
@@ -1783,6 +1809,8 @@ return {
 			k_felijo_tribe_pack = "Tribe Pack",
 			k_felijo_ritual_pack = "Ritual Pack",
 			k_felijo_ttm_box = "Totem Box",
+			felijo_toggle_to_totems = "Show Totems",
+			felijo_toggle_to_jokers = "Show Jokers",
 		},
 		v_dictionary={
             k_felijo_score_add="+#1# Score",
@@ -1800,6 +1828,16 @@ return {
 			felijo_sgl_trifurcated = "Trifurcated Strike",
 			felijo_sgl_brittle = "Brittle",
 			felijo_sgl_tail = "Loose Tail",
+			felijo_ttm_sgl_undying = "Undying",
+			felijo_ttm_sgl_bifurcated = "Bifurcated Strike",
+			felijo_ttm_sgl_swap = "Swapper",
+			felijo_ttm_sgl_midas = "Midas Touch",
+			felijo_ttm_sgl_cardbearer = "Card Bearer",
+			felijo_ttm_sgl_giftbearer = "Gift Bearer",
+			felijo_ttm_sgl_stinky = "Stinky",
+			felijo_ttm_sgl_repulsive = "Repulsive",
+			felijo_ttm_sgl_omnistrike = "Omni Strike",
+			felijo_ttm_sgl_leader = "Leader",
 			felijo_stk_stitched = "Stitched Card",
 			felijo_stk_subspace = "Subspaced Card",
 			felijo_stk_blunder = "Blunder",

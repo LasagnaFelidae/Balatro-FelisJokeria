@@ -24,10 +24,23 @@ SMODS.Joker { -- Uncommon, Magpie
 	badgeCalc = function (self,card)
 		local level = 5
 		level = math.max((G.STEAM.user.getPlayerSteamLevel() or 5), 5)
-		local totalxp = 5 * level * level + 50 * level				
+
+		local totalxp = 0
+		local lvl_groups = math.floor((level - 1) / 10)
+		local r = (level - 1) % 10 + 1
+
+		for g = 1, lvl_groups do
+			local tier_xp = 100 * g
+			totalxp = totalxp + (10 * tier_xp)
+		end
+
+		local current_mult = lvl_groups + 1
+		totalxp = totalxp + (r * 100 * current_mult)
+
+		totalxp = (5 * level * level) + (50 * level)			
 		card.ability.steam.badges = totalxp / 100
 	end,
-	
+
 	set_ability = function(self, card, initial, delay_sprites)
 		if card.ability and card.ability.extra and card.ability.steam then
 			self:badgeCalc(card)

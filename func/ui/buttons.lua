@@ -253,12 +253,12 @@ function Card:highlight(is_highlighted)
 				use = true,
 				align = "cr",
 				align_other = "bm",
-				text = "PULL",                           
+				text = "SELECT",                           
 				button = "felijo_pull",  
 				func = "felijo_can_pull",
 				one_press = true,
 				text_colour = G.C.WHITE,
-				colour = G.C.PURPLE,  
+				colour = G.ARGS.LOC_COLOURS.felijo_ttm,  
 				under = true,
 			}),
 			config = {
@@ -272,7 +272,7 @@ function Card:highlight(is_highlighted)
 			},
 		})
 	else
-	]]--
+	]]
 	if self.highlighted and self.ability and self.ability.is_totem_head and self.area and self.area == G.felijo_totems then
 		if self.children.use_button then
 			self.children.use_button:remove()
