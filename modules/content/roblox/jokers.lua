@@ -680,10 +680,12 @@ SMODS.Joker {
 	config = { extra = { xmult = 1, xmult_mod = 0.25} },
 	
 	set_badges = function(self, card, badges)
+		
 		badges[#badges+1] = create_badge(localize('k_felijo_rbx'), HEX('00008b'), HEX('ffffff'), 1 )
 	end,
 	
     loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue+1] = {key = 'felijo_delete', set = 'Other'}
 		return { vars = { card.ability.extra.xmult, card.ability.extra.xmult_mod} }
 	end,
 	

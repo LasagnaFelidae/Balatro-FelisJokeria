@@ -41,7 +41,7 @@ FELIJO.mod_score_instant = function(score_mod)
         table.insert(score_fx, {"k_felijo_score_exp", score_mod.pow, "gong"})
     end
     if score_mod.mult and score_mod.mult ~= 1 then
-        score_cal = math.score_cal * score_mod.mult
+        score_cal = math.floor(score_cal * score_mod.mult)
         table.insert(G.FELIJO_DISPLAY_QUEUE, old)
         table.insert(score_fx, {"k_felijo_score_x", score_mod.mult, "gong"})
     end

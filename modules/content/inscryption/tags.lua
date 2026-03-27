@@ -91,6 +91,33 @@ SMODS.Tag {
         end
     end
 }
+SMODS.Tag {
+    key = "tag_totem_space",
+    min_ante = 3,
+	atlas = "insTags",
+    pos = { x = 3, y = 0 },
+    no_collection = true,
+    in_pool = function(self,args)
+        return false
+    end,
+    config = { space = 1 },
+    loc_vars = function(self, info_queue, tag)
+        return { vars = { tag.config.space } }
+    end,
+    apply = function(self, tag, context)
+        if context.type == 'immediate' then
+            local lock = tag.ID
+            G.CONTROLLER.locks[lock] = true
+            tag:yep('+', G.C.PURPLE, function()
+                G.feljio_totems.config.card_limit = G.feljio_totems.config.card_limit + tag.config.space
+                G.CONTROLLER.locks[lock] = nil
+                return true
+            end)
+            tag.triggered = true
+            return true
+        end
+    end
+}
 
 SMODS.Tag {
     key = "tag_totem_box",

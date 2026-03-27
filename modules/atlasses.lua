@@ -69,7 +69,7 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
-    key = "blindsideCards",
+    key = "blindsideBlinds",
     path = "crossmod/blindside/cards.png",
     px = 71,
     py = 95

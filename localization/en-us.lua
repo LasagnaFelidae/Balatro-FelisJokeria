@@ -21,8 +21,8 @@ return {
                 name = "Totem Sleeve",
                 text = { 
                     "Start with",
-                    "{C:white,X:felijo_ttm}+#1#{} Totem Area Size",
-					"{C:inactive}(Only one totem can be active at a time)"
+                    "{C:white,X:felijo_ttm}+1{} Totem Area Size",
+					"{C:inactive,s:0.8}(Only one totem can be active at a time)"
              }
             },
 		},
@@ -58,6 +58,24 @@ return {
             },
 		},
 		Enhanced = {
+			----------
+			m_felijo_bld_pin = {
+                name = "The Pin",
+                text = {
+                    {
+						"{X:purple,C:white}Purple{}",
+						"If {C:attention}scored hand{} is 4",
+						"or more, {X:attention,C:white}X#1#{} Score"
+					},
+					{
+						"Otherwise, {C:attention}+#2#{} Score",
+						"and {C:red}Explodes"
+					},
+                },
+            },
+			-------------------
+			---BLINDSIDE END---
+			-------------------
 			m_felijo_scoretest_t2 = {
                 name = "scoretest",
                 text = {
@@ -1002,6 +1020,27 @@ return {
 			},
         },
 		Other = {
+			felijo_explode	= {
+				name = "Explode",
+				text= {
+					"Card is removed",
+					"permanently from deck",
+				}
+			},
+			felijo_delete	= {
+				name = "Delete",
+				text= {
+					"Card is removed",
+					"permanently from deck",
+				}
+			},
+			felijo_bld_explode	= {
+				name = "Explode",
+				text= {
+					"Blind is removed",
+					"permanently from deck",
+				}
+			},
 			---- Boosters
 			p_felijo_ritual_jumbo = {
                 name = "Jumbo Ritual Pack",
@@ -1778,15 +1817,27 @@ return {
 			k_felijo_pelt = "Pelt Card",
 			k_felijo_olddata = "OLD_DATA",
 			k_felijo_terrain = "Terrain Card",
+			----------------
+			---MOD BADGES---
+			----------------
 			k_felijo_revo = "Revo's Vault",
 			k_felijo_toga = "TOGA's Stuff",
+			k_felijo_bs = "Blindside",
+			----------------
+			--J.CATEGORIES--
+			----------------
 			k_felijo_ins = "Inscryption",
 			k_felijo_rbx = "ROBLOX",
+			----------------
+			----------------
 			k_felijo_loic1 = "Charging...",
 			k_felijo_loic2 = "Ready!",
 			k_felijo_loic3 = "Beamed!",
 			k_felijo_loic4 = "Cooling down...",
 			k_felijo_loic5 = "Cooled down!",
+			----------------
+			--CONSUMEABLES--
+			----------------
 			b_felijo_ritual_cards = "Ritual Cards",
 			b_felijo_totem_parts_cards = "Totem Parts",
 			b_felijo_tribe_cards = "Tribe Cards",
@@ -1799,10 +1850,7 @@ return {
 			k_felijo_tier2_tarot = "Tier 2 Tarot",
 			k_felijo_tier3_tarot = "Tier 3 Tarot",
 			k_felijo_tier4_tarot = "Tier 4 Tarot",
-			k_felijo_score_mult_pre = "x",
-            k_felijo_score_mult_append = " Score",
-			k_felijo_bscore_mult_pre = "x",
-            k_felijo_bscore_mult_append = " Blind Req.",
+			---
 			k_felijo_combine_button = "COMBINE",
 			k_felijo_separate_button = "SEPARATE",
 			k_felijo_switch_button = "SWITCH",
@@ -1811,6 +1859,15 @@ return {
 			k_felijo_ttm_box = "Totem Box",
 			felijo_toggle_to_totems = "Show Totems",
 			felijo_toggle_to_jokers = "Show Jokers",
+			----------------
+			----SCORING.----
+			----------------
+			k_felijo_score_mult_pre = "x",
+            k_felijo_score_mult_append = " Score",
+			k_felijo_bscore_mult_pre = "x",
+            k_felijo_bscore_mult_append = " Blind Req.",
+			----------------
+			
 		},
 		v_dictionary={
             k_felijo_score_add="+#1# Score",
@@ -1824,10 +1881,16 @@ return {
             k_felijo_bscore_minus="#1# Blind Req.",
         },
 		labels = {
+			------------
+			---SIGILS---
+			------------
 			felijo_sgl_bifurcated = "Bifurcated Strike",
 			felijo_sgl_trifurcated = "Trifurcated Strike",
 			felijo_sgl_brittle = "Brittle",
 			felijo_sgl_tail = "Loose Tail",
+			------------
+			---TTMSIG---
+			------------
 			felijo_ttm_sgl_undying = "Undying",
 			felijo_ttm_sgl_bifurcated = "Bifurcated Strike",
 			felijo_ttm_sgl_swap = "Swapper",
@@ -1838,9 +1901,14 @@ return {
 			felijo_ttm_sgl_repulsive = "Repulsive",
 			felijo_ttm_sgl_omnistrike = "Omni Strike",
 			felijo_ttm_sgl_leader = "Leader",
+			-------------
+			---STICKER---
+			-------------
 			felijo_stk_stitched = "Stitched Card",
 			felijo_stk_subspace = "Subspaced Card",
 			felijo_stk_blunder = "Blunder",
+			-------------
+			-------------
 			felijo_plt_gold = "Gold Pelt",
 			felijo_plt_wlf = "Wolf Pelt",
 			felijo_plt_bny = "Bunny Pelt",

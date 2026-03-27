@@ -41,7 +41,6 @@ FELIJO.Pelt {
 					HEX('351A09'), 
 					HEX('00ECE4'), 
 					HEX('002838'), 
-					status_colour 
 				},
 			}
 		}

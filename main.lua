@@ -6,8 +6,10 @@ G.GAME = {}
 --┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓--
 --╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛--
 -----------------------------
-
-assert(SMODS.load_file("./func/preload.lua"))()
+local utils = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "func/utils")
+for _, file in ipairs(utils) do
+    assert(SMODS.load_file("func/utils/" .. file))()
+end
 
 local hooks = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "func/hooks")
 for _, file in ipairs(hooks) do
@@ -19,10 +21,7 @@ for _, file in ipairs(ui) do
     assert(SMODS.load_file("func/ui/" .. file))()
 end
 
-local utils = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "func/utils")
-for _, file in ipairs(utils) do
-    assert(SMODS.load_file("func/utils/" .. file))()
-end
+
 
 assert(SMODS.load_file("./func/pools.lua"))()
 
@@ -45,6 +44,9 @@ assert(SMODS.load_file("./modules/fonts.lua"))()
 assert(SMODS.load_file("./modules/content/crossmod/togastuff.lua"))()
 assert(SMODS.load_file("./modules/content/crossmod/revo.lua"))()
 assert(SMODS.load_file("./modules/content/crossmod/aikoshen.lua"))()
+if FELIJO.is_mod_loaded("Blindside") then
+    assert(SMODS.load_file("./modules/content/crossmod/blindside.lua"))()
+end
 --[[
  ▛▀▘▛▀▘▌  ▜▝▌ ▞▀▖
  ▙▄ ▙▄ ▌  ▐   ▝▚▖
@@ -139,9 +141,8 @@ assert(SMODS.load_file("./modules/content/inscryption/boosters/tribe.lua"))()
 -----Decks------
 -----------------------
 assert(SMODS.load_file("./modules/content/inscryption/decks/backs.lua"))()
-if FELIJO.is_mod_loaded("CardSleeves") then
-    assert(SMODS.load_file("./modules/content/inscryption/decks/sleeves.lua"))()
-end
+assert(SMODS.load_file("./modules/content/inscryption/decks/sleeves.lua"))()
+
 -----------------------
 -----------------------
 assert(SMODS.load_file("./modules/content/inscryption/sigils.lua"))()
