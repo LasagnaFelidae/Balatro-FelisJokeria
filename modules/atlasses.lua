@@ -63,7 +63,14 @@ SMODS.Atlas {
 
 SMODS.Atlas {
     key = "aikoJokers",
-    path = "crossmod/aikoshen.png",
+    path = "crossmod/aikoshen/jokers.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
+    key = "blindsideCards",
+    path = "crossmod/blindside/cards.png",
     px = 71,
     py = 95
 }
@@ -72,13 +79,13 @@ SMODS.Atlas {
 
 SMODS.Atlas {
     key = "togaJokers",
-    path = "crossmod/toga.png",
+    path = "crossmod/togapack/jokers.png",
     px = 71,
     py = 95
 }
 SMODS.Atlas {
     key = "togaBlinds",
-    path = "crossmod/togaBlinds.png",
+    path = "crossmod/togapack/blinds.png",
     px = 34,
     py = 34
 }

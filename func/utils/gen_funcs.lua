@@ -147,7 +147,7 @@ Returns:
 ]]--
 FELIJO.quick_pool_pick = function(pool, roll)
 	if type(pool) == "table" then
-		roll = roll or pseudorandom(pseudoseed('poolroll'))
+		roll = roll or pseudorandom(pseudoseed('cottoncandysweetiegoldletmeseethetootseeroll'))
 		local total = 0
 		
 		for _, v in ipairs(pool) do
@@ -155,13 +155,13 @@ FELIJO.quick_pool_pick = function(pool, roll)
 			total = total + w
 		end
 		
-		local target = roll * total
-		local sum = 0
+		local _roll = roll * total
+		local w_sum = 0
 		
 		for _, v in ipairs(pool) do
 			local w = v.weight or v[2] or 1
-			sum = sum + w
-			if target <= sum then
+			w_sum = w_sum + w
+			if _roll <= w_sum then
 				return v.key or v[1]
 			end
 		end
