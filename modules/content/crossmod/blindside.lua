@@ -25,15 +25,11 @@ FELIJO.BlindsideBlind({
     hues = {"Purple"},
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.main_scoring and #context.scoring_hand >= 4 then
-            return {
-                felijo_xscore = card.ability.extra.x_score
-            }
+            SMODS.mod_score({ mult = card.ability.extra.x_score})
         end
         if context.cardarea == G.play and context.main_scoring and #context.scoring_hand < 4 then
             card.ability.extra.blow = true
-            return {
-                felijo_score = card.ability.extra.score
-            }
+            SMODS.mod_score({ add = card.ability.extra.score})
         end
         if context.cardarea == G.play and context.after and card.ability.extra.blow == true and #context.scoring_hand < 4 then
             G.E_MANAGER:add_event(Event({

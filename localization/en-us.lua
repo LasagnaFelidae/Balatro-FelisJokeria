@@ -64,11 +64,11 @@ return {
                 text = {
                     {
 						"{X:purple,C:white}Purple{}",
-						"If {C:attention}scored hand{} is 4",
-						"or more, {X:attention,C:white}X#1#{} Score"
+						"If {C:attention}scored hand{} is 4 blinds",
+						"or more, {X:purple,C:white}X#1#{} Score"
 					},
 					{
-						"Otherwise, {C:attention}+#2#{} Score",
+						"Otherwise, {C:purple}+#2#{} Score",
 						"and {C:red}Explodes"
 					},
                 },
@@ -508,8 +508,8 @@ return {
 			j_felijo_rbx_pumpkinpi = {
                 name = "Pumpkin Pi",
 				text = {
-                    "{C:chips}+#1#{} hand size,",
-                    "reduces by {C:chips}-#2#{}",
+                    "{C:attention}+#1#{} hand size,",
+                    "reduces by {C:attention}-#2#{}",
                     "every #4# rounds",
 					"{C:inactive}(Currently {C:attention}#3#{C:inactive}/#4#)",
                 },

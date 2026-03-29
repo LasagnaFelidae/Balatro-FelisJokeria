@@ -155,7 +155,7 @@ end
 local retvars_lookup = {
     felijo_ttm_sgl_midas     = { 	SMODS.Stickers["felijo_ttm_sgl_midas"] 		and SMODS.Stickers["felijo_ttm_sgl_midas"].config.extra.dollars },
     felijo_ttm_sgl_leader    = 		SMODS.Stickers["felijo_ttm_sgl_leader"] 	and {SMODS.Stickers["felijo_ttm_sgl_leader"].config.extra.mult_mod,0},
-    felijo_ttm_sgl_stinky    = 		SMODS.Stickers["felijo_ttm_sgl_stinky"] 	and { SMODS.Stickers["felijo_ttm_sgl_stinky"].config.extra.xbscore*100 },
+    felijo_ttm_sgl_stinky    = 		SMODS.Stickers["felijo_ttm_sgl_stinky"] 	and { (1-SMODS.Stickers["felijo_ttm_sgl_stinky"].config.extra.xbscore)*100 },
 }
 
 FELIJO.Consumable = SMODS.Consumable:extend{

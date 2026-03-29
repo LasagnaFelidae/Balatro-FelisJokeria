@@ -709,12 +709,13 @@ SMODS.Joker {
 				for i = 1, j_delete do
 					local _card = pseudorandom_element(jokers, pseudoseed("j_felijo_rbx_delete"))
 					if _card then
-						card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_mod
+						
 						FELIJO.explodeCard(_card, "delete")
 						count = count + 1
 					end
 				end
 			end
+			card.ability.extra.xmult = card.ability.extra.xmult + (card.ability.extra.xmult_mod*count)
 			return {
 				message = "+"..card.ability.extra.xmult_mod*count.." xMult",
 				colour = G.C.MULT,
