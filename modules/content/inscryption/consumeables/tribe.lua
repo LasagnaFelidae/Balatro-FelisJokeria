@@ -1,7 +1,5 @@
 FELIJO.Tribe = SMODS.Consumable:extend{
-	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
-	end,
+	
 }
 
 SMODS.ConsumableType {
@@ -27,13 +25,29 @@ for _, data in ipairs(FELIJO.tribe_table) do
         can_use = function(self, card)
 			return G.jokers and #G.jokers.cards < G.jokers.config.card_limit
 		end,
+		set_badges = function(self, card, badges)
+			badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
+			if data.key == "Banana" or data.key == "Printer" then
+				badges[#badges+1] = create_badge(localize('k_felijo_revo'), HEX('7E7AFF'), HEX('40093A'), 1 )
+			end
+		end,
         use = function(self, card, area, copier)
+			local pool = {}
+			if (data.key == "Banana" or data.key == "Printer") then
+				if data.key == "Banana" then
+					pool = get_current_pool("BananaPool")
+				else
+					pool = get_current_pool("Joker","crv_p")
+				end
+			else
+				pool = FELIJO.pool_merge({"Inscryption",data.key})
+			end
 			 G.E_MANAGER:add_event(Event({
 				trigger = 'after',
 				delay = 0.4,
 				func = function()
 					play_sound('timpani')
-					rf = pseudorandom_element(FELIJO.pool_merge({"Inscryption",data.key}), pseudoseed(data.key))
+					rf = pseudorandom_element(pool, pseudoseed(data.key))
 					SMODS.add_card{set = 'Joker', key = rf}
 					card:juice_up(0.3, 0.5)
 					return true

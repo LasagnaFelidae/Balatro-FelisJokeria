@@ -109,10 +109,12 @@ Valid tribes:
   "Object", "Other", "Human"
 
 Parameters:
-  totem_body (table): required totem card body containing ability.totem_sigil.
+  totem_body (table): required totem body card containing ability.totem_sigil.
   tribe (string): required tribe to apply.
 ]]--
 FELIJO.applyTotemSigils = function(totem_body, tribe)
+    totem_body = totem_body or FELIJO.active_totem
+    tribe = tribe or FELIJO.active_totem.ability.totem_tribe
     if not totem_body then return end
     if not totem_body.ability.totem_sigil then return end
     if not G.jokers or not G.jokers.cards then return end
@@ -121,6 +123,17 @@ FELIJO.applyTotemSigils = function(totem_body, tribe)
 	local applied = false
     for _, card in ipairs(G.jokers.cards) do
         if card.ability and card.config and card.config.center and card.config.center.pools and not card.ability.sigil_key then
+            if FELIJO.is_mod_loaded("RevosVault") then
+                if card.config.center.pools["BananaPool"] and tribe == "Banana" then
+                    card:add_sticker(sigil_key, true)
+                    applied = true
+                    --[[
+                elseif tribe == "Printer" and card:is_rarity("crv_p") then
+                    card:add_sticker(sigil_key, true)
+                    applied = true
+                ]]
+                end
+            end
             if JoyousSpring and JoyousSpring.is_monster_card(card) then
                 if card.ability.extra.joyous_spring.is_all_types then
                     card:add_sticker(sigil_key, true)

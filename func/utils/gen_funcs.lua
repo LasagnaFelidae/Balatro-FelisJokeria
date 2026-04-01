@@ -328,4 +328,23 @@ FELIJO.get_planet_for_hand = function(hand)
 	return planet
 end
 
+--[[
+Check if card is in card area
+
+Params:
+  card (table): card
+  area (table): cardarea (G.jokers)
+
+Returns:
+  boolean: true if card is in cardarea
+]]--
+
+FELIJO.is_in_cardarea = function(card, area)
+	local check = (area == G.playing_cards) and G.playing_cards or area.cards
+	for _, _c in ipairs(check) do
+		if _c == card then print("true") return true end
+	end
+	return false
+end
+
 

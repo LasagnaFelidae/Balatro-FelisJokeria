@@ -36,17 +36,6 @@ assert(SMODS.load_file("./modules/content/inscryption/atlasses.lua"))()
 assert(SMODS.load_file("./modules/sounds.lua"))()
 assert(SMODS.load_file("./modules/fonts.lua"))()
 
-----------------------------
---┏━╸┏━┓┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳┓--
---┃  ┣┳┛┃ ┃┗━┓┗━┓┃┃┃┃ ┃ ┃┃--
---┗━╸╹┗╸┗━┛┗━┛┗━┛╹ ╹┗━┛╺┻┛--
-----------------------------
-assert(SMODS.load_file("./modules/content/crossmod/togastuff.lua"))()
-assert(SMODS.load_file("./modules/content/crossmod/revo.lua"))()
-assert(SMODS.load_file("./modules/content/crossmod/aikoshen.lua"))()
-if FELIJO.is_mod_loaded("Blindside") then
-    assert(SMODS.load_file("./modules/content/crossmod/blindside.lua"))()
-end
 --[[
  ▛▀▘▛▀▘▌  ▜▝▌ ▞▀▖
  ▙▄ ▙▄ ▌  ▐   ▝▚▖
@@ -59,7 +48,7 @@ end
 ]]
 G.superior_enhancement = "m_felijo_enh_sup"
 
-if FELIJO.is_mod_loaded("RevosVault") and SMODS.Mods["RevosVault"].config and SMODS.Mods["RevosVault"].config.superior_enabled == true then
+if FELIJO.is_mod_loaded("RevosVault") then
 	G.superior_enhancement = "m_crv_superiore"
 else
 	G.superior_enhancement = "m_felijo_enh_sup"
@@ -78,7 +67,19 @@ assert(SMODS.load_file("./modules/content/legendaries.lua"))()
 assert(SMODS.load_file("./modules/content/jokers.lua"))()
 assert(SMODS.load_file("./modules/content/stickers.lua"))()
 assert(SMODS.load_file("./modules/content/tarots.lua"))()
+----------------------------
+--┏━╸┏━┓┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳┓--
+--┃  ┣┳┛┃ ┃┗━┓┗━┓┃┃┃┃ ┃ ┃┃--
+--┗━╸╹┗╸┗━┛┗━┛┗━┛╹ ╹┗━┛╺┻┛--
+----------------------------
+assert(SMODS.load_file("./modules/content/crossmod/togastuff.lua"))()
 
+assert(SMODS.load_file("./modules/content/crossmod/revo.lua"))()
+
+assert(SMODS.load_file("./modules/content/crossmod/aikoshen.lua"))()
+if FELIJO.is_mod_loaded("Blindside") then
+    assert(SMODS.load_file("./modules/content/crossmod/blindside.lua"))()
+end
 --[[
 ▄▄▄▄  ▄▄▄▄▄ ▄▄▄▄  ▄▄    ▄▄▄▄▄ ▄▄ ▄▄ 
 ██▄█▄ ██▀██ ██▄██ ██    ██▀██ ▀█▄█▀ 

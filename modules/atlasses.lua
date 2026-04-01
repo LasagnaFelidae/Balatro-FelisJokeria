@@ -75,7 +75,14 @@ SMODS.Atlas {
     py = 95
 }
 
-
+SMODS.Atlas {
+    key = "JokerPP",
+    path = "jokerpp.png",
+    px = 71,
+    py = 95,
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 12,
+}
 
 SMODS.Atlas {
     key = "togaJokers",

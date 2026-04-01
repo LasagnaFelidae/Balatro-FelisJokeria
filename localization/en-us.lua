@@ -451,6 +451,28 @@ return {
                     "every hand played",
                 },
             },
+			j_felijo_lgd_jokerpp = {
+                name = "Joker++",
+                text = {
+                    "{C:red}+#1#{} Mult?",
+                },
+            },
+			j_felijo_lgd_jokerpp_a = {
+                name = {
+					"{C:gold,s:0.5}Ascended",
+					"{C:gold}Joker++",
+				},
+                text = {
+					{
+                    "{C:red}+#1#{} Mult",
+					},
+					{
+					"Increase Mult by {C:red}#2#{}",
+					"if the {C:attention}scored hand{} isn't",
+					"the most played {C:attention}poker hand"
+					},
+                },
+            },
 			j_felijo_rbx_burrito = {
                 name = "RobloTim's Chavez Burrito",
                 text = {
@@ -742,7 +764,7 @@ return {
                 text = {
 					"{C:chips}+#2#{} Chips, {C:mult}+#3#{} Mult",
                     "On {C:attention}Blind{} selected",
-                    "spawn a random {C:common|common} {C:attention}Joker{}.",
+                    "spawn a random {C:common}common {C:attention}Joker{}.",
 					"{C:inactive}(Must have room.)",
                     "{s:0.7,C:inactive}(See you in the blindside.)"
                 },
@@ -857,14 +879,7 @@ return {
 					"{C:green}#3# in #4#{} chance to add a",
 					"tiered {C:tarot}Superior{} copy",
 					"of a playing card to the deck,",
-					},
-					{
-					"Superior Tier chance is fixed.",
-					"{X:tarot,C:white}Tier 4{} : {C:green}5%{}",
-					"{X:tarot,C:white}Tier 3{} : {C:green}10%{}",
-					"{X:tarot,C:white}Tier 2{} : {C:green}20%{}",
-					"{X:tarot,C:white}Tier 1{} : {C:green}65%{}",
-					},
+					}
                 },
             },
 			
@@ -1599,6 +1614,20 @@ return {
 					"{C:felijo_trb}Other{} card"
 				},
 			},
+			c_felijo_trb_crv_banana = {
+				name = "Banana",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Banana{} card"
+				},
+			},
+			c_felijo_trb_crv_printer = {
+				name = "Printer",
+				text = {
+					"Get {C:attention}1{} random",
+					"{C:felijo_trb}Printer{} card"
+				},
+			},
 		},
 		felijo_totem_parts = {
 			c_felijo_ttm_hd_avian = {
@@ -1686,6 +1715,22 @@ return {
 					"to apply its effects on",
 					"{C:felijo_trb}Human{} Jokers",
 					"{C:inactive,s:0.6}(Includes \"Anime\" Jokers)"
+				},
+			},
+			c_felijo_ttm_hd_crv_printer = {
+				name = "Totem Head of the Printer",
+				text = {
+					"Combine with a {C:felijo_ttm}Totem{}",
+					"to apply its effects on",
+					"{C:felijo_trb}Printer{} Jokers",
+				},
+			},
+			c_felijo_ttm_hd_crv_banana = {
+				name = "Totem Head of the Banana",
+				text = {
+					"Combine with a {C:felijo_ttm}Totem{}",
+					"to apply its effects on",
+					"{C:felijo_trb}Banana{} Jokers",
 				},
 			},
 			c_felijo_ttm_bifurcated = {

@@ -6,9 +6,6 @@ SMODS.Tag {
     loc_vars = function(self, info_queue, tag)
         info_queue[#info_queue + 1] = G.P_CENTERS.p_felijo_tribe_1
     end,
-    in_pool = function(self,args)
-        return G.GAME.felijo_totems_enabled or false
-    end,
     apply = function(self, tag, context)
         if context.type == 'new_blind_choice' then
             local lock = tag.ID
@@ -67,6 +64,9 @@ SMODS.Tag {
 	atlas = "insTags",
     pos = { x = 3, y = 0 },
     config = { spawn_totem = 1 },
+    in_pool = function(self,args)
+        return G.GAME.felijo_totems_enabled or false
+    end,
     loc_vars = function(self, info_queue, tag)
         return { vars = { tag.config.spawn_totem } }
     end,
@@ -125,6 +125,9 @@ SMODS.Tag {
 	atlas = "insTags",
     pos = { x = 4, y = 0 },
     config = { spawn_totem = 1 },
+    in_pool = function(self,args)
+        return G.GAME.felijo_totems_enabled or false
+    end,
     loc_vars = function(self, info_queue, tag)
 		info_queue[#info_queue + 1] = G.P_CENTERS.p_felijo_ttm_box
         return { vars = { tag.config.spawn_totem } }

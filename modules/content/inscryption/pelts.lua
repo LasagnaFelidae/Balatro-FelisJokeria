@@ -6,6 +6,9 @@ FELIJO.Pelt = SMODS.Enhancement:extend{
     end,
 	replace_base_card = true,
 	no_rank = true,
+	foobar_ignore = true,
+	unlocked = true,
+	discovered = false,
 	no_suit = true,
 	always_scores = true,
 	get_weight = function(self)

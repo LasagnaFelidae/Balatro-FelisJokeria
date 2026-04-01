@@ -377,7 +377,6 @@ FELIJO.Consumable { -- 4 The Tribes
 	end,
 }
 
-
 FELIJO.Consumable { -- 7 The Trapper
     key = 'rit_trapper',
     set = 'felijo_ritual',

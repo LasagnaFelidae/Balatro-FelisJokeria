@@ -1,3 +1,31 @@
+--[[
+Adds a new crossmod tribe.
+
+Params:
+  data (table): {key = "Tribe", weight = 1, totem_key = "ttm_hd_human",	tribe_card_key = "trb_human", totem_x=2,cost = 8,}
+
+Returns:
+  string: tribe table length
+]]--
+FELIJO.add_tribe = function(tribe)
+	local data = {
+		key = tribe.key,
+		weight = tribe.weight or 1,
+		totem_key = tribe.totem_key,
+		tribe_card_key = tribe.tribe_card_key,
+		totem_x = tribe.totem_x or 2,
+		cost = tribe.cost or 6,
+	}
+	
+	if not tribe.key or not tribe.totem_key or not tribe.tribe_card_key then
+		error("add_tribe: Missing required fields (key, totem_key, tribe_card_key)")
+	end
+
+	table.insert(FELIJO.tribe_table, data)
+	print("[FELI'S JOKERIA] Tribe "..tribe.key.." added successfully")
+	return #FELIJO.tribe_table
+end
+
 FELIJO.campfire_table = {
     ["m_bonus"]               = { next = "m_felijo_bonus_t2",   break_chance = 0.10 },
     ["m_felijo_bonus_t2"]     = { next = "m_felijo_bonus_t3",   break_chance = 0.30 },
@@ -41,11 +69,11 @@ FELIJO.prospectorTable = {
 }
 
 FELIJO.trapperTable = {
-	{key = "m_felijo_plt_bny",   		weight = 1,		price = 1},
-	{key = "m_felijo_plt_wlf",   		weight = 0.2,	price = 2},
-	{key = "m_felijo_plt_gold",   		weight = 0.01,	price = 3},
-	{key = "m_felijo_plt_olddata",   	weight = 0.001, price = 5},
-	{key = "m_felijo_trn_goldn",   		weight = 0, 	price = 3}
+	{key = "m_felijo_plt_bny",   		weight = 1.000,		modifier=0.000  ,price = 1},
+	{key = "m_felijo_plt_wlf",   		weight = 0.200,	    modifier=0.050  ,price = 2},
+	{key = "m_felijo_plt_gold",   		weight = 0.010,	    modifier=0.100  ,price = 3},
+	{key = "m_felijo_plt_olddata",   	weight = 0.001,     modifier=0.050  ,price = 5},
+	{key = "m_felijo_trn_goldn",   		weight = 0.000, 	modifier=0.000  ,price = 3}
 }
 
 FELIJO.upgradablelist = {
@@ -77,13 +105,13 @@ FELIJO.upgradablelist = {
 }
 
 FELIJO.consumeables_table = {
-    {"Tarot", 1},
-	{"felijo_tier2_tarot", 0.3},
-	{"felijo_tier3_tarot", 0.1},
-	{"felijo_tier4_tarot", 0.03},
-    {"Planet", 1},
-    {"Spectral", 0.2},
-    {"felijo_ritual", 0.8},
+    {key = "Tarot",                 weight = 1.00},
+	{key = "felijo_tier2_tarot",    weight = 0.30},
+	{key = "felijo_tier3_tarot",    weight = 0.10},
+	{key = "felijo_tier4_tarot",    weight = 0.03},
+    {key = "Planet",                weight = 1.00},
+    {key = "Spectral",              weight = 0.20},
+    {key = "felijo_ritual",         weight = 0.80},
 }
 FELIJO.JoyousTribes = {
     Insect  = { Insect = true },
@@ -115,6 +143,28 @@ FELIJO.tribe_table = {
 	{key = "Other", 	weight = 0.8,	totem_key = "ttm_hd_other",		tribe_card_key = "trb_other",		totem_x=7,		cost = 6,	},
 	{key = "Human", 	weight = 0.6,	totem_key = "ttm_hd_human",		tribe_card_key = "trb_human",		totem_x=2,		cost = 8,	},
 }
+
+if FELIJO.is_mod_loaded("RevosVault") then
+    --[[
+    FELIJO.add_tribe({
+        key = "Printer", 
+        weight = 1.0, 
+        totem_key = "ttm_hd_crv_printer", 
+        tribe_card_key = "trb_crv_printer", 
+        totem_x=10, 
+        cost=8
+    })
+    ]]
+    FELIJO.add_tribe({
+        key = "Banana", 
+        weight = 1.0, 
+        totem_key = "ttm_hd_crv_banana", 
+        tribe_card_key = "trb_crv_banana", 
+        totem_x=11, 
+        cost=7
+    })
+end
+
 FELIJO.totem_sigil_table = {
     {key = "felijo_ttm_sgl_bifurcated",   weight = 1.0,		totem_key="ttm_bifurcated",		totem_x=0,		cost = 6,	},
     {key = "felijo_ttm_sgl_undying",      weight = 0.6,		totem_key="ttm_undying",		totem_x=3,		cost = 8,	},

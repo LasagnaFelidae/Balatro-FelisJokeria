@@ -164,6 +164,9 @@ FELIJO.Consumable = SMODS.Consumable:extend{
 	end,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
+        if card.ability.is_totem_head and (card.ability.tribe == "Banana" or card.ability.tribe == "Printer") then
+            badges[#badges+1] = create_badge(localize('k_felijo_revo'), HEX('7E7AFF'), HEX('40093A'), 1 )
+        end
 	end,
 	select_card = G.felijo_totems,
 }

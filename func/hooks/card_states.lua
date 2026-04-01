@@ -19,6 +19,25 @@ function Card:drag()
     return ret
 end
 
+local old_addtodeck = Card.add_to_deck
+function Card:add_to_deck(from_debuff)
+    if FELIJO.active_totem and self.ability.set == "Joker" then
+        for _, _c in ipairs(G.felijo_totems.cards) do
+		    if _c.ability.totem_active then
+                G.E_MANAGER:add_event(Event({
+                    func = function() 
+                        FELIJO.applyTotemSigils(_c, _c.ability.totem_tribe)
+                        return true
+                    end
+			    }))
+            end
+	    end
+        
+    end
+    local ret = old_addtodeck(self, from_debuff)
+    return ret
+end
+
 
 local cardSetCostHook = Card.set_cost
 function Card:set_cost()

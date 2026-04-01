@@ -12,25 +12,68 @@ return {
 
 ]]
 FELIJO.T2Enhancement = SMODS.Enhancement:extend{
+    discovered = false,
+	unlocked = true,
     in_pool = function (self, args)
        return true
     end,
 	weight = 2
 }
 FELIJO.T3Enhancement = SMODS.Enhancement:extend{
+    discovered = false,
+	unlocked = true,
+    foobar_ignore = true,
     in_pool = function (self, args)
        return true
     end,
 	weight = 0.01
 }
 FELIJO.T4Enhancement = SMODS.Enhancement:extend{
+    discovered = false,
+	unlocked = true,
+    foobar_ignore = true,
     in_pool = function (self, args)
        return true
     end,
 	weight = 0.002
 }
 
+if not FELIJO.is_mod_loaded("RevosVault") then
+    SMODS.Enhancement {
+        key = 'enh_sup',
+        atlas = 'tieredEnhancements',
+        pos = { x = 0, y = 7 },
+        config = { extra = {xchips = 0.33}},
+        discovered = true,
+        unlocked = true,
+        replace_base_card = false,
+        no_rank = false,
+        no_suit = false,
+        always_scores = false,
+        weight = 0,
+        set_badges = function(self, card, badges)
+            badges[#badges+1] = create_badge(localize('k_felijo_revo'), HEX('7E7AFF'), HEX('40093A'), 1 )
+        end,
+        
+        no_collection = superior_enabled,
+        
+        in_pool = function(self)
+            return false
+        end,
+        
+        loc_vars = function(self, info_queue, card)
+            return { vars = { card.ability.extra.xchips*100 } }
+        end,
 
+        calculate = function(self, card, context)
+            if context.main_scoring and context.cardarea == G.play then
+                return {
+                    xchips = math.max(1,(card.base.id * card.ability.extra.xchips))
+                }
+            end
+        end,
+    }
+end
 -- Bonus
 FELIJO.T2Enhancement {
 	atlas = 'tieredEnhancements',
@@ -55,8 +98,6 @@ FELIJO.T3Enhancement {
 FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'bonus_t4',
-	discovered = true,
-	unlocked = true,
 	weight = 0,
     pos = { x = 3, y = 0 },
     config = { bonus = 240 },
