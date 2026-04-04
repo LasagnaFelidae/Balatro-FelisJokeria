@@ -44,8 +44,6 @@ if not FELIJO.is_mod_loaded("RevosVault") then
         atlas = 'tieredEnhancements',
         pos = { x = 0, y = 7 },
         config = { extra = {xchips = 0.33}},
-        discovered = true,
-        unlocked = true,
         replace_base_card = false,
         no_rank = false,
         no_suit = false,
@@ -130,9 +128,6 @@ FELIJO.T3Enhancement {
 FELIJO.T4Enhancement {
     atlas = 'tieredEnhancements',
     key = 'mult_t4',
-	discovered = true,
-	unlocked = true,
-	weight = 0,
     pos = { x = 3, y = 1 },
     config = { mult = 32 },
     loc_vars = function(self, info_queue, card)
@@ -183,9 +178,6 @@ FELIJO.T3Enhancement {
 FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'glass_t4',
-	discovered = true,
-	unlocked = true,
-	weight = 0,
     pos = { x = 3, y = 3 },
     config = { Xmult = 5, extra = { odds = 8 } },
     shatters = true,
@@ -226,9 +218,6 @@ FELIJO.T3Enhancement {
 FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'steel_t4',
-	discovered = true,
-	unlocked = true,
-	weight = 0,
     pos = { x = 3, y = 4 },
     config = { h_x_mult = 4},
     loc_vars = function(self, info_queue, card)
@@ -266,9 +255,6 @@ FELIJO.T3Enhancement {
 FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'stone_t4',
-	discovered = true,
-	unlocked = true,
-	weight = 0,
     pos = { x = 3, y = 5 },
     config = { bonus = 250, mult = 4},
     replace_base_card = true,
@@ -302,9 +288,6 @@ FELIJO.T3Enhancement {
 FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'gold_t4',
-	discovered = true,
-	unlocked = true,
-	weight = 0,
     pos = { x = 3, y = 6 },
     config = { h_dollars = 8, p_dollars = 4 },
     loc_vars = function(self, info_queue, card)
@@ -382,9 +365,6 @@ FELIJO.T3Enhancement {
 FELIJO.T4Enhancement {
 	atlas = 'tieredEnhancements',
     key = 'lucky_t4',
-	discovered = true,
-	unlocked = true,
-	weight = 0,
     pos = { x = 3, y = 2 },
     config = { extra = { mult = 40, chips = 250, dollars = 40, mult_odds = 4, chips_odds = 4, dollars_odds = 12 } },
     loc_vars = function(self, info_queue, card)

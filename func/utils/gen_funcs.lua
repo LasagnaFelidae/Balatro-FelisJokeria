@@ -77,22 +77,13 @@ function FELIJO.subspaceExplode()
 	Blind:change_colour(HEX('F400F0')) -- Blind box
 	ease_background_colour{new_colour = HEX('F400F0')}
 	for _, _c in ipairs(G.hand.cards) do
-		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
-			_c.ability.felijo_perma_h_xbscore = (_c.ability.felijo_perma_h_xbscore or 1) - 0.10
-		end
-		_c.ability.felijo_stk_subspace = true
+		_c.edition = e_felijo_subspace
 	end
 	for _, _c in ipairs(G.jokers.cards) do
-		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
-			_c.ability.felijo_perma_h_xbscore = (_c.ability.felijo_perma_h_xbscore or 1) - 0.10
-		end
-		_c.ability.felijo_stk_subspace = true
+		_c.edition = e_felijo_subspace
 	end
 	for _, _c in ipairs(G.consumeables.cards) do
-		if _c.ability.felijo_stk_subspace == nil or _c.ability.felijo_stk_subspace == false then
-			_c.ability.h_xchips = (_c.ability.h_xchips or 1) + 0.1
-		end
-		_c.ability.felijo_stk_subspace = true
+		_c.edition = e_felijo_subspace
 	end
 end
 
@@ -101,15 +92,6 @@ function FELIJO.hsl2rgb(h,s,l,al)
     local a=s*math.min(l,1-l);
     local f = function(n, k) k = math.fmod((n+h/30),12); return l - a*math.max(math.min(k-3,9-k,1),-1) end
     return {f(0),f(8),f(4),al};
-end
-
-if SMODS.DynaTextEffect then
-	SMODS.DynaTextEffect {
-			key = "pink",
-			func = function (dynatext, index, letter)
-				letter.colour = HEX 'F400F0'
-			end
-		}
 end
 
 FELIJO.add_event = function (func, delay, queue, config)

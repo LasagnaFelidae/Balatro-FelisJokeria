@@ -32,6 +32,8 @@ assert(SMODS.load_file("./func/pools.lua"))()
 -----╹ ╹┗━┛┗━┛┗━╸ ╹ ┗━┛-----
 ----------------------------
 assert(SMODS.load_file("./modules/atlasses.lua"))()
+assert(SMODS.load_file("./modules/editions.lua"))()
+assert(SMODS.load_file("./modules/attributes.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/atlasses.lua"))()
 assert(SMODS.load_file("./modules/sounds.lua"))()
 assert(SMODS.load_file("./modules/fonts.lua"))()

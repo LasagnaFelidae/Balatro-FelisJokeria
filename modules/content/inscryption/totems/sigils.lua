@@ -159,15 +159,7 @@ FELIJO.TotemSigil {
 		if context.joker_main then
 			card_eval_status_text(card, 'extra', nil, nil, nil, {message = "-"..(self.config.extra.xbscore*100).."% Blind Req.",volume = 0.5,sound = "gong", colour = G.C.GOLD})
 			return {
-					func = function()
-						G.E_MANAGER:add_event(Event({
-						func = function()
-							G.GAME.blind.chips = math.floor(G.GAME.blind.chips * (1 - self.config.extra.xbscore))
-							G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
-							return true
-						end
-					}))
-				end
+				x_blindsize = (1 - card.ability.extra.xbscore)
 			}
 		end
 	end

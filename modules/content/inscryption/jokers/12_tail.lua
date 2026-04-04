@@ -11,6 +11,7 @@ SMODS.Joker { -- Common, loose tail
     rarity = 1,
     cost = 2,
 	config = {extra = {mult = 2}},
+	attributes = {"mult",},
 	in_pool = function(self, args)
 		return false
 	end,

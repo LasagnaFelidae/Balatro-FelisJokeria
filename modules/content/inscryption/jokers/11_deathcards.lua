@@ -16,6 +16,7 @@ SMODS.Joker { -- Uncommon Aiko
 	},
 	key = "felijo_ins_aiko",
 	pronouns = "any_all",
+	attributes = {"chips", "mult", "xchips", "scaling", "destroy_card", "sell_value"},
 	unlocked = true,
 	discovered = true,
 	rarity = 2,
@@ -85,6 +86,7 @@ SMODS.Joker {
 	discovered = true,
 	rarity = 2,
 	cost = 7,
+	attributes = {"chips", "mult", "retrigger"},
 	config = { extra = {chips = 9, mult = 19, repetitions = 1, pronoun = "neutral"} },
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
@@ -177,6 +179,7 @@ SMODS.Joker { -- Uncommon Luna
 		["Deathcard"] = true,
 	},
 	key = "felijo_ins_luna",
+	attributes = {"chips", "mult", "joker"},
 	pronouns = "she_her",
 	unlocked = true,
 	discovered = true,
@@ -235,6 +238,7 @@ SMODS.Joker{  -- uncommon nxkoo
 	},
 	key = "felijo_ins_nxkoo",
 	pronouns = "she_they",
+	attributes = {"chips", "mult", "joker_slot"},
 	rarity = 2,
 	cost = 8,
 	blueprint_compat = true,
@@ -270,6 +274,7 @@ SMODS.Joker{  -- Uncommon Toga
 	},
 	key = "felijo_ins_toga",
 	pronouns = "he_him",
+	attributes = {"chips", "mult", "tarot", "planet", "spectral", "generation"},
 	rarity = 2,
 	cost = 6,
 	blueprint_compat = true,
@@ -333,9 +338,10 @@ SMODS.Joker { -- Rare Evgast
 	pronouns = "they_them",
 	unlocked = true,
 	discovered = true,
+	attributes = {"chips", "mult", "xblindsize"},
 	rarity = 3,
 	cost = 8,
-	config = { extra = { debuff = 0.01 , chips = 1, mult = 1} },
+	config = { extra = { debuff = 0.10 , chips = 1, mult = 1} },
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,
@@ -345,17 +351,11 @@ SMODS.Joker { -- Rare Evgast
 	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play then
 			if context.other_card:get_id() == 14 then
-				G.E_MANAGER:add_event(Event({
-					func = function()
-						G.GAME.blind.chips = math.floor(G.GAME.blind.chips * (1 - self.config.extra.debuff))
-						G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
-						return true
-					end
-				}))
-				play_sound('gong', 0.96 + math.random() * 0.08)
+				return{x_blindsize = (1 - card.ability.extra.debuff)}
 			end
 		end
 		if context.joker_main then
+
 			return {
 				chips = card.ability.extra.chips,
 				mult = card.ability.extra.mult
@@ -380,6 +380,7 @@ SMODS.Joker { -- Rare Revo
 	pronouns = "he_him",
 	unlocked = true,
 	discovered = true,
+	attributes = {"chips", "mult", "enhancements", "generation"},
 	rarity = 3,
 	cost = 8,
 	config = { extra = { chips = 7, mult = 20, count = 0, max_c = 10, odds = 3 }, tg = {superior = false} },

@@ -384,6 +384,14 @@ return {
 			},
 
 		},
+		Edition = {
+            e_vremade_foil = {
+                name = "Subspaced",
+                text = {
+                    "{X:blind}-#1#%{} Blind Size when Held",
+                },
+            },
+		},
 		Blind = {
 			bl_felijo_ins_trader = {
 				name = "The Trader",
@@ -755,7 +763,7 @@ return {
                 text = {
 					"{C:chips}+#2#{} Chips, {C:mult}+#3#{} Mult",
                     "Each played {C:attention}Ace{} reduces",
-                    "current {C:gold}Blind Req.{} by {X:gold,C:white}#1#%{}",
+                    "current {C:blind}Blind Req.{} by {X:blind,C:white}#1#%{}",
                     "{s:0.7,C:inactive}(When the Aces are flying... I think...)"
                 },
             },

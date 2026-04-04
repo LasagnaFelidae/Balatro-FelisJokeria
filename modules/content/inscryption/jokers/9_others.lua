@@ -16,6 +16,7 @@ SMODS.Joker {  --Bell Tentacle
     cost = 8,
 	blueprint_compat = true,
     config = { extra = {xchips = 1, mult = 1, }},
+	attributes = {"xchips", "mult","joker_slot"},
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,
@@ -74,6 +75,7 @@ SMODS.Joker {  --Hand Tentacle
 		["Tentacle"] = true,  
 	},
     key = "felijo_ins_tentacle_hand",
+	attributes = {"xchips", "mult","hand_size"},
 	unlocked = true,
 	discovered = true,
     rarity = 3,
@@ -108,6 +110,7 @@ SMODS.Joker {  --Consumable Tentacle
 		["Tentacle"] = true,  
 	},
     key = "felijo_ins_tentacle_cons",
+	attributes = {"xchips", "mult","consumeable_slot"},
 	unlocked = true,
 	discovered = true,
     rarity = 3,
@@ -148,6 +151,7 @@ SMODS.Joker { --Edition Tentacle
     rarity = 3,
     cost = 9,
 	blueprint_compat = true,
+	attributes = {"xchips", "mult","editions"},
     config = { extra = {xchips = 0.5, mult = 1, }},
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
@@ -196,6 +200,7 @@ SMODS.Joker {  --Enhancement Tentacle
     rarity = 3,
     cost = 8,
 	blueprint_compat = true,
+	attributes = {"xchips", "mult", "enhancements"},
     config = { extra = {xchips = 0.2, mult = 1, }},
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )

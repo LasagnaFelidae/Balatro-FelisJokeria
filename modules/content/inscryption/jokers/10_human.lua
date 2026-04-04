@@ -17,6 +17,7 @@ SMODS.Joker{  --rare Mycologists, The
 	unlocked = true,
 	discovered = true,
 	config = { extra = {} },
+	attributes = {"chips", "mult", "modify_card", "destroy_card"},
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,
