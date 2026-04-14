@@ -16,6 +16,16 @@ SMODS.Atlas {
     px = 71,
     py = 95
 }
+
+SMODS.Atlas {
+    key = "a_spaceshuttle",
+    path = "blastoff.png",
+    px = 71,
+    py = 95,
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 12,
+}
+
 SMODS.Atlas {
 	key = "otherJokers",
 	path = "jokers.png",

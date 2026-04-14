@@ -19,6 +19,7 @@ FELIJO.Reptile { -- Rare Ouro
     rarity = 3,
     cost = 8,
 	pronouns = "he_him",
+	attributes = {"xchips", "xmult", "on_sell"},
 	config = { extra = { xchips = 1, xmult = 1, gain = 0.2}, sell = {curr = 0, limit = 2} },
     loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.xchips, card.ability.extra.xmult, card.ability.extra.gain, card.ability.sell.curr, card.ability.sell.limit, colours = { HEX('F0C590'), HEX('351A09') } } } 

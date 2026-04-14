@@ -66,6 +66,7 @@ end
 assert(SMODS.load_file("./modules/content/challenges.lua"))()
 assert(SMODS.load_file("./modules/content/enhancements.lua"))()
 assert(SMODS.load_file("./modules/content/legendaries.lua"))()
+assert(SMODS.load_file("./modules/content/stockmarket.lua"))()
 assert(SMODS.load_file("./modules/content/jokers.lua"))()
 assert(SMODS.load_file("./modules/content/stickers.lua"))()
 assert(SMODS.load_file("./modules/content/tarots.lua"))()
@@ -92,9 +93,10 @@ end
 --  ┃┃ ┃┣┻┓┣╸ ┣┳┛┗━┓--
 --┗━┛┗━┛╹ ╹┗━╸╹┗╸┗━┛--
 ----------------------
-assert(SMODS.load_file("./modules/content/roblox/jokers.lua"))()
-assert(SMODS.load_file("./modules/content/roblox/stickers.lua"))()
-
+local rbx = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "modules/content/roblox")
+for _, file in ipairs(rbx) do
+    assert(SMODS.load_file("modules/content/roblox/" .. file))()
+end
 
 
 
