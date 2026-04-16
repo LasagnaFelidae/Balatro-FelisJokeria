@@ -610,7 +610,7 @@ SMODS.Joker { -- Rare Soul
 	pronouns = "he_him",
 	unlocked = true,
 	
-	attributes = {"chips", "mult", "xblindsize"},
+	attributes = {"xblindsize"},
 	rarity = 3,
 	cost = 8,
 	config = { extra = { debuff = 0.10 , chips = 4, mult = 2, mod = 0.10, mod_add = 100} },

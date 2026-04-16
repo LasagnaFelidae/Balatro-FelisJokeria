@@ -25,6 +25,7 @@ FELIJO.Reptile { -- Common Geck
 	eternal_compat = true,
 	pronouns = "he_him",
 	config = { extra = { chips = 1, mult = 1,}},
+	attributes = {"chips", "mult",},
     loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
     end,
@@ -47,6 +48,7 @@ FELIJO.Reptile { -- common Rattler
 	eternal_compat = true,
 	pronouns = "he_him",
 	config = { extra = { chips = 3, mult = 1,}},
+	attributes = {"chips", "mult",},
     loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
     end,
@@ -69,6 +71,7 @@ FELIJO.Reptile { -- Uncommon Adder
 	eternal_compat = true,
 	pronouns = "he_him",
 	config = { extra = { chips = 1, mult = 1,}},
+	attributes = {"chips", "mult", "boss_blind",},
     loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
     end,
@@ -108,6 +111,7 @@ FELIJO.Reptile { -- uncommon River Snapper
 	blueprint_compat = true,
 	eternal_compat = true,
 	pronouns = "he_him",
+	attributes = {"chips", "mult",},
 	config = { extra = { chips = 1, mult = 6,}},
     loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
