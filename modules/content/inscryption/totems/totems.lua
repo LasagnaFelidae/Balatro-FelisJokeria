@@ -89,7 +89,6 @@ G.FUNCS.felijo_separate_totem = function(e)
     body_card.ability.totem_active = false
     body_card.ability.totem_tribe = nil
     body_card.ability.extra_slots_used = 0
-    body_card.T.h = body_card.T.h+2
     FELIJO.active_totem = nil
 	play_sound("felijo_totem_separate",1)
 end
@@ -153,7 +152,6 @@ G.FUNCS.felijo_combine_totem = function(e)
         play_sound("felijo_totem_combine",1)
         body_card.ability.extra_slots_used = 1
         
-        body_card.T.h = body_card.T.h-2
     end
 end
 
