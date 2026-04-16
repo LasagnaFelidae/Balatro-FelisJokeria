@@ -14,9 +14,12 @@ return {
 				name = "{B:1,V:2}Gold Pelt",
 				text = {
 					{
+						"{C:chips}+#1#{} Chips",
+                    	"no rank or suit",
+					},
+					{
 						"Grants {C:money}$#1#{} on discard",
 						"only if {C:legendary}traded.",
-						"Always scores"
 					},
 					{
 						"{C:inactive,s:0.8}A very high-quality sought after pelt."
@@ -28,9 +31,12 @@ return {
 				name = "{B:1,V:2}Wolf Pelt",
 				text = {
 					{
+						"{C:chips}+#1#{} Chips",
+                    	"no rank or suit",
+					},
+					{
 						"Grants {C:money}$#1#{} on discard",
 						"only if {C:legendary}traded.",
-						"Always scores"
 					},
 					{
 						"{C:inactive,s:0.8}A sufficient and reliable piece of pelt."
@@ -42,9 +48,12 @@ return {
 				name = "{B:1,V:2}Bunny Pelt",
 				text = {
 					{
+						"{C:chips}+#1#{} Chips",
+                    	"no rank or suit",
+					},
+					{
 						"Grants {C:money}$#1#{} on discard",
 						"only if {C:legendary}traded.",
-						"Always scores"
 					},
 					{
 						"{C:inactive,s:0.8}A very basic piece of pelt."
@@ -56,9 +65,12 @@ return {
 				name = "{B:1,V:2}OLD_DATA",
 				text = {
 					{
+						"{C:chips}+#1#{} Chips",
+                    	"no rank or suit",
+					},
+					{
 						"Grants {C:money}$#1#{} on discard",
 						"only if {C:legendary}traded.",
-						"Always scores"
 					},
 					{
 						"{C:inactive,s:0.8}A very ¬¦¤¿ ????."
@@ -70,9 +82,12 @@ return {
 				name = "{B:1,V:2}Gold Nugget",
 				text = {
 					{
+						"{C:chips}+#1#{} Chips",
+                    	"no rank or suit",
+					},
+					{
 						"Grants {C:money}$#1#{} on discard",
 						"only if {C:legendary}traded.",
-						"Always scores",
 					},
 					{
 						"{C:inactive,s:0.8}There's GOLD in these cards!"

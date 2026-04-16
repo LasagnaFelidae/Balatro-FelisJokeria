@@ -66,7 +66,10 @@ FELIJO.Pelt {
 				return { chips = 0, mult = 0 }
 			end
 		end
-	end,
+		if context.main_scoring and context.cardarea == G.play then
+            return { chips = card.ability.extra.bonus,}
+        end
+    end,
 }
 
 -- Wolf Pelt
@@ -116,6 +119,9 @@ FELIJO.Pelt {
 				return { chips = 0, mult = 0 }
 			end
 		end
+		if context.main_scoring and context.cardarea == G.play then
+            return { chips = card.ability.extra.bonus,}
+        end
 	end,
 
 }
@@ -169,6 +175,9 @@ FELIJO.Pelt {
 				return { chips = 0, mult = 0 }
 			end
 		end
+		if context.main_scoring and context.cardarea == G.play then
+            return { chips = card.ability.extra.bonus,}
+        end
 	end,
 }
 
@@ -218,6 +227,9 @@ FELIJO.Pelt {
 				return { chips = 0, mult = 0 }
 			end
 		end
+		if context.main_scoring and context.cardarea == G.play then
+            return { chips = card.ability.extra.bonus,}
+        end
 	end,
 }
 
@@ -267,5 +279,8 @@ FELIJO.Pelt {
 				return { chips = 0, mult = 0 }
 			end
 		end
+		if context.main_scoring and context.cardarea == G.play then
+            return { chips = card.ability.extra.bonus,}
+        end
 	end,
 }
