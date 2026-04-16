@@ -1,13 +1,14 @@
 
+FELIJO.states = {}
 SMODS.current_mod.custom_card_areas = function(game) -- game is the same as G
     game.felijo_totems = CardArea( -- Should be saved in G for it to be preserved between reloads
-        G.consumeables.T.x + 1.5, -- x coordinate
-        (G.consumeables.T.y) + 5.5, -- y coordinate SET TO G.JOKERS.T.Y - 4 WHEN DONE
-        G.consumeables.T.w, -- width (this is the default for G.jokers)
+        G.jokers.T.x , -- x coordinate
+        (G.jokers.T.y) - 4, -- y coordinate SET TO G.JOKERS.T.Y - 4 WHEN DONE
+        G.jokers.T.w, -- width (this is the default for G.jokers)
         game.CARD_H * 0.95, -- height (this is the default for G.jokers)
         {
             -- optional, but recommended configs:
-            card_limit = 3, -- card limit, doesn't actually affect the area unless checked manually
+            card_limit = 6, -- card limit, doesn't actually affect the area unless checked manually
             type = 'joker', -- area type, doesn't affect what type of cards can be in it, only how they're displayed and act
             -- values can be `title`, `title_2`, `joker`, `shop`, `deck`, `hand`, `consumeable`, `voucher`, `play`, `discard`
             highlight_limit = 2,
@@ -16,10 +17,9 @@ SMODS.current_mod.custom_card_areas = function(game) -- game is the same as G
             align_buttons = true, -- aligns the buttons for cards like in the Joker/Consumable areas
         }
     )
-
-    --FELIJO.animate_areas()
+    FELIJO.states.slot_visible = 1
+    FELIJO.animate_areas()
 end
---[[
 
 G.FUNCS.toggle_totems = function(e)
     FELIJO.states.slot_visible = FELIJO.states.slot_visible * -1
@@ -110,4 +110,3 @@ function ease_alignment(area, value_o, value_t, hide, instant, type)
         end
     end
 end
-]]

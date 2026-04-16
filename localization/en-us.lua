@@ -400,35 +400,7 @@ return {
 			
 			-- INSCRYPTION
 			
-			j_felijo_ins_ouro = {
-                name = "{B:1,V:2,f:felijo_Feli5x8}Ouroboros",
-                text = {
-					{
-					"{X:chips,C:white}X#1#{} Chips, {X:mult,C:white}X#2#{} Mult",
-					},
-					{
-                    "When {C:red}destroyed{}, create a copy that",
-                    "gains {X:edition, C:white}+#3#{} {C:chips}xChips{} and {C:mult}xMult{} ",
-					},
-					{
-					"After {C:attention}#5#{} rounds, selling",
-					"counts as {C:red}destroying{} the card",
-                    "{C:inactive}(Currently {C:attention}#4#{C:inactive}/#5#)",
-					}
-                },
-            },
-			j_felijo_ins_adder = {
-                name = "{B:1,V:2,f:felijo_Feli5x8}Adder",
-                text = {
-					{
-					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
-					},
-					{
-                    "Debuffing this joker",
-					"wins the {C:attention}Blind"
-					},
-                },
-            },
+			
 			j_felijo_ins_tail = {
                 name = "{B:1,V:2,f:felijo_Feli5x8}Loose Tail",
                 text = {
@@ -438,21 +410,7 @@ return {
             },
 			
 
-			j_felijo_ins_magpie = {
-                name = "{B:1,V:2,f:felijo_Feli5x8}Magpie{}",
-                text = {
-					{
-					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
-					},
-					{
-                    "Gain {X:chips,C:white} X#3# {} Chips",
-                    "for each {C:spades}Steam{} badge",
-					"earned to get your",
-					"current {C:spades}Steam{} level",
-                    "{C:inactive,s:0.8}(Currently {X:chips,C:white,s:0.8}X#4#{}{C:inactive,s:0.8}){}"
-					}
-                }
-		    },
+			
 			j_felijo_bliss = {
 			  name = "Bliss",
 			  text = { 

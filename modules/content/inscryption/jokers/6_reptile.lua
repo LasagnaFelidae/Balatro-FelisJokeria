@@ -6,16 +6,137 @@ FELIJO.Reptile = SMODS.Joker:extend{
 		["Beast"] = true,
 		["Reptile"] = true, 
 	},
+	unlocked = true,
+	discovered = false,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 	end,
 }
 
+
+
+
+FELIJO.Reptile { -- Common Geck
+    pos = { x = 3, y = 0 },
+    key = "felijo_ins_geck",
+    rarity = 1,
+    cost = 0,
+	blueprint_compat = true,
+	eternal_compat = true,
+	pronouns = "he_him",
+	config = { extra = { chips = 1, mult = 1,}},
+    loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
+    end,
+    calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.mult,
+				chips = card.ability.extra.chips
+			}
+        end
+	end,
+}
+
+FELIJO.Reptile { -- common Rattler
+    pos = { x = 4, y = 0 },
+    key = "felijo_ins_rattler",
+    rarity = 1,
+    cost = 4,
+	blueprint_compat = true,
+	eternal_compat = true,
+	pronouns = "he_him",
+	config = { extra = { chips = 3, mult = 1,}},
+    loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
+    end,
+    calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.mult,
+				chips = card.ability.extra.chips
+			}
+        end
+	end,
+}
+
+FELIJO.Reptile { -- Uncommon Adder
+    pos = { x = 1, y = 0 },
+    key = "felijo_ins_adder",
+    rarity = 2,
+    cost = 6,
+	blueprint_compat = true,
+	eternal_compat = true,
+	pronouns = "he_him",
+	config = { extra = { chips = 1, mult = 1,}},
+    loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
+    end,
+	remove_from_deck = function(self,card,from_debuff)
+		if from_debuff == true then
+			G.E_MANAGER:add_event(Event({
+				blocking = false,
+				func = function()
+					if G.STATE == G.STATES.SELECTING_HAND then
+						SMODS.calculate_effect({ message = localize('k_nope_ex') }, card)
+						G.GAME.chips = G.GAME.blind.chips
+						G.STATE = G.STATES.HAND_PLAYED
+						G.STATE_COMPLETE = true
+						end_round()
+						return true
+					end
+				end
+			}))
+		end
+
+	end,
+    calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.mult,
+				chips = card.ability.extra.chips
+			}
+        end
+	end,
+}
+
+FELIJO.Reptile { -- uncommon River Snapper
+    pos = { x = 6, y = 0 },
+    key = "felijo_ins_riversnapper",
+    rarity = 1,
+    cost = 4,
+	blueprint_compat = true,
+	eternal_compat = true,
+	pronouns = "he_him",
+	config = { extra = { chips = 1, mult = 6,}},
+    loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
+    end,
+    calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.mult,
+				chips = card.ability.extra.chips
+			}
+        end
+	end,
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 FELIJO.Reptile { -- Rare Ouro
     pos = { x = 0, y = 0 },
     key = "felijo_ins_ouro",
-	unlocked = true,
-	discovered = true,
     rarity = 3,
     cost = 8,
 	pronouns = "he_him",
@@ -80,46 +201,4 @@ FELIJO.Reptile { -- Rare Ouro
 	end,
     blueprint_compat = true,
 	eternal_compat = false,
-}
-
-FELIJO.Reptile { -- Uncommon Adder
-    pos = { x = 1, y = 0 },
-    key = "felijo_ins_adder",
-	unlocked = true,
-	discovered = true,
-    rarity = 2,
-    cost = 6,
-	blueprint_compat = true,
-	eternal_compat = true,
-	pronouns = "he_him",
-	config = { extra = { chips = 1, mult = 1,}},
-    loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
-    end,
-	remove_from_deck = function(self,card,from_debuff)
-		if from_debuff == true then
-			G.E_MANAGER:add_event(Event({
-				blocking = false,
-				func = function()
-					if G.STATE == G.STATES.SELECTING_HAND then
-						SMODS.calculate_effect({ message = localize('k_nope_ex') }, card)
-						G.GAME.chips = G.GAME.blind.chips
-						G.STATE = G.STATES.HAND_PLAYED
-						G.STATE_COMPLETE = true
-						end_round()
-						return true
-					end
-				end
-			}))
-		end
-
-	end,
-    calculate = function(self, card, context)
-		if context.joker_main then
-			return {
-				mult = card.ability.extra.mult,
-				chips = card.ability.extra.chips
-			}
-        end
-	end,
 }

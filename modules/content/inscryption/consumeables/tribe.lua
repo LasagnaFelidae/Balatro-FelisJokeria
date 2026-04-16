@@ -9,9 +9,27 @@ SMODS.ConsumableType {
     secondary_colour = HEX('545454'),
     collection_rows = { 5, 5 },
     shop_rate = 0,
+	discovered = false,
+	unlocked = true,
 	in_pool = function(self, args)
 		return (args and (args.source == "felijo_tribe" or args.source == "felijo_tribe_p") ) or false
 	end,
+	loc_txt = {
+        undiscovered = {
+			name = "Not Discovered",
+			text = {
+				"Purchase or use",
+                "this card in an",
+                "unseeded run to",
+                "learn what it does"
+			},
+		},
+    },
+}
+SMODS.UndiscoveredSprite{
+    key = 'felijo_tribe',
+    atlas = "consUndis",
+    pos = {x=4, y=0}
 }
 
 

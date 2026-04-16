@@ -88,7 +88,8 @@ G.FUNCS.felijo_separate_totem = function(e)
 
     body_card.ability.totem_active = false
     body_card.ability.totem_tribe = nil
-
+    body_card.ability.extra_slots_used = 0
+    body_card.T.h = body_card.T.h+2
     FELIJO.active_totem = nil
 	play_sound("felijo_totem_separate",1)
 end
@@ -126,30 +127,34 @@ G.FUNCS.felijo_combine_totem = function(e)
             FELIJO.applyTotemSigils(body_card, body_card.ability.totem_tribe)
 			play_sound("felijo_totem_switch",1)
         end
+    else
+
+
+        -- COMBINE
+        body_card.ability.totem_tribe = head.ability.tribe
+        body_card.ability.totem_active = true
+
+        body_card.children.center:set_sprite_pos({
+            x = body_card.children.center.sprite_pos.x,
+            y = 2
+        })
+        body_card.ability.sprite_pos = {
+            x = body_card.children.center.sprite_pos.x,
+            y = 2
+        }
+
+        local tribe_data = FELIJO.indexTribe(head.ability.tribe)
+
+        SMODS.destroy_cards(head, nil, nil, true)
+        FELIJO.highlighted_head = nil
+
+        FELIJO.active_totem = body_card
+        FELIJO.applyTotemSigils(body_card, body_card.ability.totem_tribe)
+        play_sound("felijo_totem_combine",1)
+        body_card.ability.extra_slots_used = 1
+        
+        body_card.T.h = body_card.T.h-2
     end
-
-
-    -- COMBINE
-    body_card.ability.totem_tribe = head.ability.tribe
-    body_card.ability.totem_active = true
-
-    body_card.children.center:set_sprite_pos({
-        x = body_card.children.center.sprite_pos.x,
-        y = 2
-    })
-    body_card.ability.sprite_pos = {
-        x = body_card.children.center.sprite_pos.x,
-        y = 2
-    }
-
-    local tribe_data = FELIJO.indexTribe(head.ability.tribe)
-
-    SMODS.destroy_cards(head, nil, nil, true)
-    FELIJO.highlighted_head = nil
-
-    FELIJO.active_totem = body_card
-    FELIJO.applyTotemSigils(body_card, body_card.ability.totem_tribe)
-	play_sound("felijo_totem_combine",1)
 end
 
 local retvars_lookup = {
@@ -160,7 +165,7 @@ local retvars_lookup = {
 
 FELIJO.Consumable = SMODS.Consumable:extend{
     in_pool = function(self, args)
-		return (args and (args.source == "felijo_totem" or args.source == "felijo_ttm_box") ) or false
+		return (G.GAME.felijo_totems_enabled and (args and (args.source == "felijo_totem" or args.source == "felijo_ttm_box") )) or false
 	end,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
@@ -177,10 +182,28 @@ SMODS.ConsumableType {
     primary_colour = HEX('FFFFFF'),
     secondary_colour = HEX('C49761'),
     collection_rows = { 5, 5},
-	shop_rate=0.8,
+    get_weight = function(self)
+		return self.weight * G.GAME.felijo_peltchance
+	end,
 	select_card = G.felijo_totems,
+    loc_txt = {
+        undiscovered = {
+			name = "Not Discovered",
+			text = {
+				"Purchase or use",
+                "this card in an",
+                "unseeded run to",
+                "learn what it does"
+			},
+		},
+    },
+    
 }
-
+SMODS.UndiscoveredSprite{
+    key = 'felijo_totem_parts',
+    atlas = "insTotemsUndis",
+    pos = {x=0, y=1}
+}
 
 
 for _, data in ipairs(FELIJO.totem_sigil_table) do
@@ -204,8 +227,6 @@ for _, data in ipairs(FELIJO.totem_sigil_table) do
         end},
 		
         cost = data.cost,
-		unlocked = true,
-		discovered = true,
 		loc_vars = function(self, info_queue, card)
 			local tribe_name = card.ability.totem_tribe
 			local sigil = card.ability.totem_sigil
@@ -255,9 +276,6 @@ for _, data in ipairs(FELIJO.totem_sigil_table) do
         end,
         use = function(self, card, area, copier)
 
-        end,
-        in_pool = function(self,args)
-            return G.GAME.felijo_totems_enabled or false
         end,
         remove_from_deck = function(self,card,from_debuff)
 			if card.ability.totem_active and not from_debuff then
@@ -310,9 +328,6 @@ for _, data in ipairs(FELIJO.tribe_table) do
         end,
         use = function(self, card, area, copier)
 
-        end,
-        in_pool = function(self,args)
-            return G.GAME.felijo_totems_enabled or false
         end,
         
     }

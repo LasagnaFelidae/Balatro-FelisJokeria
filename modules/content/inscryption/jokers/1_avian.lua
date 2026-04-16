@@ -10,7 +10,7 @@ SMODS.Joker { -- Uncommon, Magpie
 	},
     key = "felijo_ins_magpie",
 	unlocked = true,
-	discovered = true,
+	discovered = false,	
     rarity = 2,
     cost = 6,
 	blueprint_compat = true,

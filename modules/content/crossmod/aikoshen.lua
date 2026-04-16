@@ -1,4 +1,4 @@
----@type SMODS.Joker
+
 local as_disabled = false
 if FELIJO.is_mod_loaded("aikoyorisshenanigans") then
 	as_disabled = false
@@ -14,7 +14,7 @@ FELIJO.LetterJoker = SMODS.Joker:extend{
     end,
 	no_collection = as_disabled,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 }
 
 
@@ -26,8 +26,7 @@ FELIJO.LetterJoker {
     atlas = 'aikoJokers',
     pos = { x = 5, y = 0 },
 	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
-	unlocked = true,
-	discovered = true,
+
     blueprint_compat = true,
     rarity = 1,
     cost = 4,
@@ -105,8 +104,7 @@ FELIJO.LetterJoker {
     atlas = 'aikoJokers',
     pos = { x = 2, y = 0 },
 	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true },
-    unlocked = true,
-    blueprint_compat = false,
+    blueprint_compat = true,
     rarity = 1,
     cost = 4,
 	config = { extra = { cap = 5, repetitions = 1, odds = 8} },
@@ -145,8 +143,7 @@ FELIJO.LetterJoker {
     atlas = 'aikoJokers',
     pos = { x = 3, y = 0 },
 	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
-    unlocked = true,
-    blueprint_compat = false,
+    blueprint_compat = true,
     rarity = 2,
     cost = 6,
 	config = { extra = { cap = 4, odds = 10, repetitions = 2 } },
@@ -185,8 +182,7 @@ FELIJO.LetterJoker {
     atlas = 'aikoJokers',
     pos = { x = 4, y = 0 },
 	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
-    unlocked = true,
-    blueprint_compat = false,
+    blueprint_compat = true,
     rarity = 3,
     cost = 8,
 	config = { extra = { cap = 3, odds = 12, repetitions = 3 } },
@@ -228,7 +224,6 @@ FELIJO.LetterJoker {
     key = "felijo_ltr_cleanslate",
     atlas = 'aikoJokers',
     pos = { x = 8, y = 0 },
-    unlocked = true,
 	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
     blueprint_compat = true,
     rarity = 1,

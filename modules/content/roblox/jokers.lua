@@ -17,8 +17,10 @@ SMODS.Joker {
 	attribute = {"food", "chips", "scaling"},
     cost = 5,
 	unlocked = true,
-	discovered = true,
-	blueprint_compat = false,
+	discovered = false,
+	blueprint_compat = true,
+	eternal_compat = false,
+	perishable_compat = false,
 	
 	config = { extra = { chips = 150, chips_mod = 10} },
 	
@@ -67,12 +69,14 @@ SMODS.Joker {
 		["Gear"] = true,
 	},
     key = "felijo_rbx_burrito",
-	blueprint_compat = false,
+	blueprint_compat = true,
+	eternal_compat = false,
+	perishable_compat = false,
 	attribute = {"food", "mult", "scaling"},
     rarity = 1,
     cost = 6,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	config = { extra = { mult = 18, mult_mod = 3} },
 	
 	set_badges = function(self, card, badges)
@@ -121,12 +125,14 @@ SMODS.Joker {
 		["Gear"] = true,
 	},
     key = "felijo_rbx_turkey",
-	blueprint_compat = false,
+	blueprint_compat = true,
+	eternal_compat = false,
+	perishable_compat = false,
 	attribute = {"food", "xmult", "scaling"},
     rarity = 2,
     cost = 7,
 	unlocked = true,
-	discovered = true,	
+	discovered = false,	
 	config = { extra = { xmult = 2.5, xmult_mod = 0.25} },
 	
 	set_badges = function(self, card, badges)
@@ -175,12 +181,14 @@ SMODS.Joker {
 		["Gear"] = true,
 	},
     key = "felijo_rbx_cheezburger",
-	blueprint_compat = false,
+	blueprint_compat = true,
+	eternal_compat = false,
+	perishable_compat = false,
 	attribute = {"food", "xchips", "scaling"},
     rarity = 2,
     cost = 8,
 	unlocked = true,
-	discovered = true,	
+	discovered = false,	
 	config = { extra = { xchips = 3, xchips_mod = 0.5} },
 	
 	set_badges = function(self, card, badges)
@@ -229,12 +237,14 @@ SMODS.Joker {
 		["Gear"] = true,
 	},
     key = "felijo_rbx_sandwich",
-	blueprint_compat = false,
+	blueprint_compat = true,
+	eternal_compat = false,
+	perishable_compat = false,
 	attribute = {"food", "chips", "joker_slot", "scaling"},
     rarity = 2,
     cost = 7,
 	unlocked = true,
-	discovered = true,	
+	discovered = false,	
 	config = { extra = { chips = 70, chips_mod = 5} },
 	
 	set_badges = function(self, card, badges)
@@ -291,11 +301,13 @@ SMODS.Joker {
 	},
     key = "felijo_rbx_pumpkinpi",
 	blueprint_compat = false,
+	eternal_compat = false,
+	perishable_compat = false,
 	attribute = {"food", "hand_size", "scaling"},
     rarity = 2,
     cost = 7,
 	unlocked = true,
-	discovered = true,	
+	discovered = false,	
 	config = { extra = { h_size = 3, h_mod = 1, c_rounds = 0, m_rounds = 4} },
 	
 	set_badges = function(self, card, badges)
@@ -361,7 +373,9 @@ SMODS.Joker {
     rarity = 3,
     cost = 8,
 	unlocked = true,
-	discovered = true,	
+	discovered = false,
+	eternal_compat = false,
+	perishable_compat = false,
 	config = { extra = { repetitions = 1, rep_mod = 1} },
 	
 	set_badges = function(self, card, badges)
@@ -422,10 +436,12 @@ SMODS.Joker {
     key = "felijo_rbx_bloxy",
 	attribute = {"food", "scaling", "discard"},
 	blueprint_compat = false,
+	eternal_compat = false,
+	perishable_compat = false,
     rarity = 3,
     cost = 8,
 	unlocked = true,
-	discovered = true,	
+	discovered = false,	
 	config = { extra = { d_size = 4, d_mod = 1} },
 	
 	set_badges = function(self, card, badges)
@@ -483,11 +499,13 @@ SMODS.Joker {
 	},
     key = "felijo_rbx_brew",
 	blueprint_compat = false,
+	eternal_compat = false,
+	perishable_compat = false,
 	attribute = {"food", "scaling", "play_limit", "discard_limit", "selection_limit"},
     rarity = 3,
     cost = 8,
 	unlocked = true,
-	discovered = true,	
+	discovered = false,	
 	config = { extra = { h_size = 4, h_mod = 1} },
 	
 	set_badges = function(self, card, badges)
@@ -550,11 +568,13 @@ SMODS.Joker {
 	},
     key = "felijo_rbx_vendingmachine",
 	blueprint_compat = false,
+	eternal_compat = false,
+	perishable_compat = false,
 	attribute = {"joker", "scaling", "generation"},
     rarity = 2,
     cost = 8,
 	unlocked = true,
-	discovered = true,	
+	discovered = false,	
 	config = { extra = { h_size = 4, h_mod = 1} },
 	
 	set_badges = function(self, card, badges)
@@ -614,7 +634,7 @@ SMODS.Joker {
     cost = 5,
 	attribute = {"joker",},
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	blueprint_compat = false,
 	
 	config = { extra = { chips = 150, chips_mod = 10} },
@@ -685,7 +705,7 @@ SMODS.Joker {
     rarity = 2,
     cost = 6,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	attribute = {"joker", "scaling", "xmult",},
 	blueprint_compat = false,
 	
@@ -756,7 +776,7 @@ SMODS.Joker {
     rarity = 2,
     cost = 5,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	blueprint_compat = false,
 	
 	config = { extra = { c_drag = 0, m_drag = 100, drag_mod = 100, toggle = 0} },
@@ -819,7 +839,7 @@ SMODS.Joker {
     rarity = 1,
     cost = 5,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	blueprint_compat = false,
 	
 	config = { extra = { chips = 150, chips_mod = 10} },

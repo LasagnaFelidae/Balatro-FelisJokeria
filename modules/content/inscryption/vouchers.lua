@@ -35,3 +35,60 @@ SMODS.Voucher {
         G.GAME.felijo_pelts_sale  = false
     end,
 }
+SMODS.Voucher {
+    key = "totemmerchant",
+    atlas = 'insVouchers', pos = { x = 1, y = 0 } ,
+    cost = 10,
+    config = { },
+    loc_vars = function (self, info_queue, card)
+        return {}
+    end,
+    redeem = function(self)
+		G.E_MANAGER:add_event(Event({
+			func = function()
+				G.GAME.felijo_totem_parts_rate = (G.GAME.felijo_totem_parts_rate or 0) + 4
+				return true
+			end,
+		}))
+	end,
+	unredeem = function(self)
+		G.E_MANAGER:add_event(Event({
+			func = function()
+				G.GAME.felijo_totem_parts_rate = math.max(0, G.GAME.felijo_totem_parts_rate - 4)
+				return true
+			end,
+		}))
+	end,
+}
+SMODS.Voucher {
+    key = "totemtycoon",
+    atlas = 'insVouchers', pos = { x = 1, y = 1 } ,
+    cost = 10,
+    unlocked = false,
+    config = { },
+    loc_vars = function (self, info_queue, card)
+        return {}
+    end,
+    requires = { 'v_felijo_totemmerchant' },
+    check_for_unlock = function(self, args)
+        return args.type == 'win_deck' and get_deck_win_stake('b_felijo_ttm_deck') and true
+    end,
+    redeem = function(self)
+		G.E_MANAGER:add_event(Event({
+			func = function()
+				G.GAME.felijo_totem_parts_rate = (G.GAME.felijo_totem_parts_rate or 0) + 4
+                G.GAME.felijo_totems_enabled = true
+				return true
+			end,
+		}))
+	end,
+	unredeem = function(self)
+		G.E_MANAGER:add_event(Event({
+			func = function()
+				G.GAME.felijo_totem_parts_rate = math.max(0, G.GAME.felijo_totem_parts_rate - 4)
+				G.GAME.felijo_totems_enabled = true
+                return true
+			end,
+		}))
+	end,
+}

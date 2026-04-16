@@ -7,8 +7,8 @@ FELIJO.Pelt = SMODS.Enhancement:extend{
 	replace_base_card = true,
 	no_rank = true,
 	foobar_ignore = true,
+	discovered = true,
 	unlocked = true,
-	discovered = false,
 	no_suit = true,
 	always_scores = true,
 	get_weight = function(self)
@@ -25,6 +25,7 @@ FELIJO.Pelt {
 	pos = { x = 0, y = 0 },
 	config = { 
 		extra = { 
+			bonus = 10,
 			dollars = 1,
 			sold = false
 		}
@@ -75,6 +76,7 @@ FELIJO.Pelt {
 	pos = { x = 1, y = 0 },
 	config = { 
 		extra = { 
+			bonus = 20,
 			dollars = 2,
 			sold = false
 		}
@@ -127,6 +129,7 @@ FELIJO.Pelt {
 	pos = { x = 2, y = 0 },
 	config = { 
 		extra = { 
+			bonus = 30,
 			dollars = 3,
 			sold = false,
 		}
@@ -175,6 +178,7 @@ FELIJO.Pelt {
 	pos = { x = 3, y = 0 },
 	config = { 
 		extra = { 
+			bonus = 50,
 			dollars = 5,
 			sold = false,
 		}
@@ -224,6 +228,7 @@ FELIJO.Pelt {
 	pos = { x = 4, y = 0 },
 	config = { 
 		extra = { 
+			bonus = 30,
 			dollars = 3,
 			sold = false,
 		}

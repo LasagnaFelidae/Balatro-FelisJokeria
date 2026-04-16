@@ -15,7 +15,7 @@ SMODS.Joker{  --rare Mycologists, The
 	eternal_compat = true,
 	perishable_compat = true,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	config = { extra = {} },
 	attributes = {"chips", "mult", "modify_card", "destroy_card"},
 	set_badges = function(self, card, badges)

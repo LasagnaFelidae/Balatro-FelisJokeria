@@ -10,6 +10,8 @@ SMODS.Joker { -- Common, loose tail
 	pronouns = "any_all",
     rarity = 1,
     cost = 2,
+	unlocked = true,
+	discovered = false,
 	config = {extra = {mult = 2}},
 	attributes = {"mult",},
 	in_pool = function(self, args)

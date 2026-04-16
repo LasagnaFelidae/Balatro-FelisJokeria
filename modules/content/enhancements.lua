@@ -12,7 +12,7 @@ return {
 
 ]]
 FELIJO.T2Enhancement = SMODS.Enhancement:extend{
-    discovered = false,
+    discovered = true,
 	unlocked = true,
     in_pool = function (self, args)
        return true
@@ -20,7 +20,7 @@ FELIJO.T2Enhancement = SMODS.Enhancement:extend{
 	weight = 2
 }
 FELIJO.T3Enhancement = SMODS.Enhancement:extend{
-    discovered = false,
+    discovered = true,
 	unlocked = true,
     foobar_ignore = true,
     in_pool = function (self, args)
@@ -29,7 +29,7 @@ FELIJO.T3Enhancement = SMODS.Enhancement:extend{
 	weight = 0.01
 }
 FELIJO.T4Enhancement = SMODS.Enhancement:extend{
-    discovered = false,
+    discovered = true,
 	unlocked = true,
     foobar_ignore = true,
     in_pool = function (self, args)

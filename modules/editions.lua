@@ -5,6 +5,8 @@ SMODS.Edition{
 	order = 2,
 	badge_colour = HEX 'F400F0',
 	weight = 0,
+	discovered = true,
+	unlocked = true,
 	shader = "subspace",
 	in_shop = true,
 	extra_cost = 3,

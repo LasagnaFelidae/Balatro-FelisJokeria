@@ -102,6 +102,12 @@ SMODS.Atlas({
     py = 95
 })
 SMODS.Atlas({
+    key = "consUndis",
+    path = "inscryption/consumeables/undiscovered.png",
+    px = 71,
+	py = 95
+})
+SMODS.Atlas({
     key = "insTribeC",
     path = "inscryption/consumeables/tribe.png",
     px = 71,
@@ -125,6 +131,12 @@ SMODS.Atlas({
 SMODS.Atlas({
     key = "insTotems",
     path = "inscryption/totems/totems.png",
+    px = 71,
+	py = 95
+})
+SMODS.Atlas({
+    key = "insTotemsUndis",
+    path = "inscryption/totems/undiscovered.png",
     px = 71,
 	py = 95
 })

@@ -139,7 +139,7 @@ SMODS.Joker { -- Uncommon Aiko
 	pronouns = "any_all",
 	attributes = {"chips", "mult", "xchips", "scaling", "destroy_card", "sell_value"},
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	rarity = 2,
 	cost = 8,
 	config = { extra = { xchips = 1, chips = 17, mult = 6} },
@@ -191,7 +191,7 @@ SMODS.Joker { -- Uncommon Aiko
 
 
 
-SMODS.Joker {
+SMODS.Joker { -- Uncommon Lily
 	atlas = 'insDeathcard',
 	pos = { x = 4, y = 0},
 	pools = {
@@ -204,7 +204,7 @@ SMODS.Joker {
 	key = "felijo_ins_lilyfelli",
 	pronouns = "she_her",
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	rarity = 2,
 	cost = 7,
 	attributes = {"chips", "mult", "retrigger"},
@@ -303,7 +303,7 @@ SMODS.Joker { -- Uncommon Luna
 	attributes = {"chips", "mult", "joker"},
 	pronouns = "she_her",
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	rarity = 2,
 	cost = 8,
 	config = { extra = { creates = 1 , chips = 5, mult = 10} },
@@ -366,7 +366,7 @@ SMODS.Joker{  -- uncommon nxkoo
 	eternal_compat = true,
 	perishable_compat = true,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	config = { extra = {chips = 6, mult = 7,} },
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
@@ -398,11 +398,11 @@ SMODS.Joker{  -- Uncommon Toga
 	attributes = {"chips", "mult", "tarot", "planet", "spectral", "generation"},
 	rarity = 2,
 	cost = 6,
-	blueprint_compat = true,
+	blueprint_compat = false,
 	eternal_compat = true,
 	perishable_compat = true,
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	config = { extra = {chips = 20, mult = 2.6}, stage = { i = 0, max_i = 2} },
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
@@ -458,7 +458,7 @@ SMODS.Joker { -- Rare Evgast
 	key = "felijo_ins_evgast",
 	pronouns = "they_them",
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	attributes = {"chips", "mult", "xblindsize"},
 	rarity = 3,
 	cost = 8,
@@ -500,7 +500,7 @@ SMODS.Joker { -- Rare Revo
 	key = "felijo_ins_revo",
 	pronouns = "he_him",
 	unlocked = true,
-	discovered = true,
+	discovered = false,
 	attributes = {"chips", "mult", "enhancements", "generation"},
 	rarity = 3,
 	cost = 8,
@@ -609,7 +609,7 @@ SMODS.Joker { -- Rare Soul
 	key = "felijo_ins_soulware",
 	pronouns = "he_him",
 	unlocked = true,
-	discovered = false,
+	
 	attributes = {"chips", "mult", "xblindsize"},
 	rarity = 3,
 	cost = 8,

@@ -141,6 +141,8 @@ SMODS.Sticker{
 	sets = {Default = true, Joker = true},
 	config = { status = {die = false}},
 	needs_enable_flag = true,
+	discovered = true,
+	unlocked = true,
 	apply = function(self,card,val)
 		if canApplySigil(card, self.key) then
 			card.ability[self.key] = val
@@ -181,6 +183,8 @@ SMODS.Sticker{
 	pos = { x=4 , y=4 },
 	sets = {Default = true, Joker = false},
 	config = { extra = { retriggers = 1} },
+	discovered = true,
+	unlocked = true,
 	loc_vars = function(self, info_queue, card)
         return { vars = { self.config.extra.retriggers } }
     end,
@@ -206,6 +210,8 @@ SMODS.Sticker{
 	pos = { x=5 , y=8 },
 	sets = {Default = true, Joker = false},
 	config = { extra = { retriggers = 2} },
+	discovered = true,
+	unlocked = true,
 	loc_vars = function(self, info_queue, card)
         return { vars = { self.config.extra.retriggers } }
     end,

@@ -13,7 +13,26 @@ SMODS.ConsumableType {
     primary_colour = HEX('ffffff'),
     secondary_colour = HEX('8FAA86'),
     collection_rows = { 5, 6 },
-    shop_rate = 0.5
+    shop_rate = 0.5,
+    discovered = false,
+	unlocked = true,
+    loc_txt = {
+        undiscovered = {
+			name = "Not Discovered",
+			text = {
+				"Purchase or use",
+                "this card in an",
+                "unseeded run to",
+                "learn what it does"
+			},
+		},
+    },
+}
+
+SMODS.UndiscoveredSprite{
+    key = 'felijo_ritual',
+    atlas = "consUndis",
+    pos = {x=3, y=0}
 }
 
 FELIJO.is_upgradable = function(card)
