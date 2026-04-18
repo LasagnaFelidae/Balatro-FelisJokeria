@@ -401,13 +401,6 @@ return {
 			-- INSCRYPTION
 			
 			
-			j_felijo_ins_tail = {
-                name = "{B:1,V:2,f:felijo_Feli5x8}Loose Tail",
-                text = {
-					"{C:mult} +#1# Mult",
-					"A dripping, useless bit of tail.",
-                },
-            },
 			
 
 			
@@ -445,16 +438,11 @@ return {
 				},
 				{
 				"Bonus Trend Modifier: {C:green}+#22#",
-				"{C:inactive,s:0.8}+#24# per \'Oops! All 6s\'{}",
+				"{C:inactive,s:0.5}+#24# per \'Oops! All 6s\'{}",
 				"Bonus Volatility Mod: {C:blue}+#23#",
-				"{C:inactive,s:0.8}+#25# per Round{}"
+				"{C:inactive,s:0.5}+#25# per Round{}"
 				},
-				{
-				"Legend",
-				"{X:dark_edition,C:white}STOCK_(CHANGE%){}",
-				"{C:gold}$UNIT{}, {X:diamonds,C:white}$MODE{} {s:0.7}(x1, x5, x10 or all){}",
-				"{X:inactive,C:white}OWNED_STOCK{} {X:gold,C:white}$TOTAL_VALUE{}"
-				}
+
 			  }
 			},
         },
@@ -471,6 +459,27 @@ return {
 				text= {
 					"Card is removed",
 					"permanently from deck",
+				}
+			},
+			felijo_stock_legend	= {
+				name = "Legend",
+				text={
+					"{X:dark_edition,C:white}STOCK_(CHANGE%){}",
+					"{C:gold}$UNIT{}, {X:diamonds,C:white}$MODE{} {s:0.7}(x1, x5, x10 or all){}",
+					"{X:inactive,C:white}OWNED_STOCK{} {X:gold,C:white}$TOTAL_VALUE{}"
+				}
+			},
+			felijo_leshy_crossmod	= {
+				name = "Revo's Vault Ability",
+				text= {
+						"{C:felijo_trb}Deathcards{} made using",
+						"{C:felijo_ins}Jimbo's Photograph{}",
+						"are included",
+						"-",
+						"Redeeming",
+						"{C:felijo_ins}Jimbo's Photograph{}",
+						"in this run grants",
+						"an additional {X:mult,C:white}X2{} Mult",
 				}
 			},
 			felijo_bld_explode	= {
@@ -510,7 +519,11 @@ return {
 			
 			felijo_sgl_tail = {
 				name = "Loose Tail",
-				text = {"Prevents the joker from being destroyed"},
+				text = {
+					"When destroyed, clones itself",
+					"and create a tail",
+					"{C:inactive}(Effect triggers once){}",
+				},
 			},
 
 			-- Visual

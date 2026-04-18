@@ -127,7 +127,7 @@ assert(SMODS.load_file("./modules/content/inscryption/jokers/8_objects.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/9_others.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/10_human.lua"))()
 assert(SMODS.load_file("./modules/content/inscryption/jokers/11_deathcards.lua"))()
---assert(SMODS.load_file("./modules/content/inscryption/jokers/12_tail.lua"))()
+assert(SMODS.load_file("./modules/content/inscryption/jokers/12_tail.lua"))()
 ----------------------
 --╺┳╸┏━┓╺┳╸┏━╸┏┳┓┏━┓--
 -- ┃ ┃ ┃ ┃ ┣╸ ┃┃┃┗━┓--

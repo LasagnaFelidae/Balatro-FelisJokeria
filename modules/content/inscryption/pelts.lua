@@ -39,6 +39,7 @@ FELIJO.Pelt {
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
+				card.ability.extra.bonus,
 				card.ability.extra.dollars,
 				colours = { 
 					HEX('F0C590'), 
@@ -93,6 +94,7 @@ FELIJO.Pelt {
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
+				card.ability.extra.bonus,
 				card.ability.extra.dollars,
 				colours = { 
 					HEX('F0C590'), 
@@ -149,6 +151,7 @@ FELIJO.Pelt {
 	loc_vars = function(self, info_queue, card)	
 		return {
 			vars = {
+				card.ability.extra.bonus,
 				card.ability.extra.dollars,
 				colours = { 
 					HEX('F0C590'), 
@@ -202,6 +205,7 @@ FELIJO.Pelt {
 	loc_vars = function(self, info_queue, card)		
 		return {
 			vars = {
+				card.ability.extra.bonus,
 				card.ability.extra.dollars,
 				colours = { 
 					HEX('E29F55'), 
@@ -253,6 +257,7 @@ FELIJO.Pelt {
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
+				card.ability.extra.bonus,
 				card.ability.extra.dollars,
 				colours = { 
 					HEX('F0C590'), 

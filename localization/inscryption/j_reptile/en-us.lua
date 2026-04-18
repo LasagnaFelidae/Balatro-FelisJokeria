@@ -54,6 +54,19 @@ return {
 					},
                 },
             },
+            j_felijo_ins_skink = {
+                name = "{B:1,V:2,f:felijo_Feli5x8}Skink",
+                text = {
+					{
+					    "{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
+					},
+                    {
+                        "Bears the {C:felijo_sgl}Loose Tail{}",
+                        "ability"
+
+                    }
+                },
+            },
 
         }
 

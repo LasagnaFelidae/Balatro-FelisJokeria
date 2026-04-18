@@ -163,3 +163,46 @@ FELIJO.applyTotemSigils = function(totem_body, tribe)
         play_sound("felijo_totem_activate",1)
     end
 end
+
+FELIJO.getCardTribe = function(card)
+    if not card or not card.config or not card.config.center or not card.config.center.pools then
+        return
+    end
+
+    local pools = card.config.center.pools
+
+
+    if JoyousSpring and JoyousSpring.is_monster_card(card) then
+        local js = card.ability.extra.joyous_spring
+
+        if js.is_all_types then
+            return "Other"
+        end
+
+        if FELIJO.JoyousTribes then
+            for tribe_name, type_table in pairs(FELIJO.JoyousTribes) do
+                if type_table[js.monster_type] then
+                    return tribe_name
+                end
+            end
+        end
+    end
+
+    if FELIJO.PoolTribes then
+        for tribe_name, pool_list in pairs(FELIJO.PoolTribes) do
+            for _, pool_name in ipairs(pool_list) do
+                if pools[pool_name] then
+                    return tribe_name
+                end
+            end
+        end
+    end
+
+    for tribe_name, _ in pairs(FELIJO.PoolTribes or {}) do
+        if pools[tribe_name] then
+            return tribe_name
+        end
+    end
+
+    return "Other"
+end

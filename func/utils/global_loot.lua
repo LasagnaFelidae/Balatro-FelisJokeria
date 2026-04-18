@@ -131,6 +131,7 @@ FELIJO.PoolTribes = {
     Insect = { "Bug" , },
     Hooved = { "Pony", "Horse" ,},
 }
+
 FELIJO.tribe_table = {
 	{key = "Avian", 	weight = 1.0,	totem_key = "ttm_hd_avian",		tribe_card_key = "trb_avian",		totem_x=6,		cost = 4,	},
 	{key = "Canine", 	weight = 1.0,	totem_key = "ttm_hd_canine",	tribe_card_key = "trb_canine",		totem_x=9,		cost = 4,	},

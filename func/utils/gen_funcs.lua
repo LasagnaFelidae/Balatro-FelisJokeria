@@ -77,14 +77,75 @@ function FELIJO.subspaceExplode()
 	Blind:change_colour(HEX('F400F0')) -- Blind box
 	ease_background_colour{new_colour = HEX('F400F0')}
 	for _, _c in ipairs(G.hand.cards) do
-		_c.edition = e_felijo_subspace
+		_c.edition = "e_felijo_subspace"
 	end
 	for _, _c in ipairs(G.jokers.cards) do
-		_c.edition = e_felijo_subspace
+		_c.edition = "e_felijo_subspace"
 	end
 	for _, _c in ipairs(G.consumeables.cards) do
-		_c.edition = e_felijo_subspace
+		_c.edition = "e_felijo_subspace"
 	end
+end
+
+
+
+function FELIJO.createTail(card)
+	if card.ability.felijo_tailed then
+		return
+	end
+	local copied_joker = copy_card(card, nil, nil, nil, card.edition and card.edition.negative)
+					
+	copied_joker.ability.felijo_tailed = true
+					
+    if copied_joker.ability.invis_rounds then copied_joker.ability.invis_rounds = 0 end
+    if type(copied_joker.ability.extra) == "table" and copied_joker.ability.extra.invis_rounds then copied_joker.ability.extra.invis_rounds = 0 end
+
+    local tribe = FELIJO.getCardTribe(card)
+
+    local pools = card and card.config and card.config.center and card.config.center.pools
+    if pools and pools["Tentacle"] then
+        tribe = "Tentacle"
+    end
+
+	local tailtable = {
+		{key = "Avian",		x=3,  	akey = "_avi"},
+		{key = "Canine",	x=1, 	akey = "_fur"},
+		{key = "Feline",	x=1,	akey = "_fur"},
+		{key = "Hooved",	x=6,	akey = "_hoo"},
+		{key = "Insect",	x=5,	akey = "_ins"},
+		{key = "Reptile",	x=0,	akey = nil},
+		{key = "Vermin",	x=1,	akey = "_fur"},
+		{key = "Object",	x=7,	akey = "_obj"},
+		{key = "Other", 	x=0,	akey = nil},
+		{key = "Human", 	x=2,	akey = "_hum"},
+		{key = "Tentacle", 	x=4,	akey = "_ten"}
+	}
+	local tail_x = 0
+	local keyapp = nil
+	for _, _tribe in ipairs(tailtable) do
+        if _tribe.key == tribe then
+            tail_x = _tribe.x
+			keyapp = _tribe.akey
+            break
+        end
+    end
+	
+	local newtail = SMODS.add_card { 
+		key = "j_felijo_ins_tail", 
+		key_append = "felijo_tail", 
+		no_edition = true,
+		stickers = nil,
+	}
+	copied_joker:add_to_deck()
+    G.jokers:emplace(copied_joker)
+	if newtail and newtail.children and newtail.children.center then
+        newtail.children.center:set_sprite_pos({x = tail_x, y = 0})
+		newtail.ability.key_app = keyapp
+		newtail.ability.felijo_sgl_tail = false
+    end
+	
+
+
 end
 
 -- https://stackoverflow.com/questions/2353211/hsl-to-rgb-color-conversion + Aikoyori (Aikoshen), rainbow function.

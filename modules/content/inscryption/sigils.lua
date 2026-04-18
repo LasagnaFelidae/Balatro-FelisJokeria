@@ -230,6 +230,40 @@ SMODS.Sticker{
     end
 }
 
+--Loose Tail
+SMODS.Sticker{
+	key = "sgl_tail",
+	badge_colour = HEX '4BC292',
+	atlas="sigils",
+	needs_enable_flag = false,
+	pos = { x=1 , y=0 },
+	sets = {Default = false, Joker = true},
+	config = { extra = { retriggers = 2} },
+	discovered = true,
+	unlocked = true,
+	default_compt = true,
+	compat_exceptions = {"j_felijo_ins_tail", "j_felijo_ins_skink"},
+	loc_vars = function(self, info_queue, card)
+        return { vars = { } }
+    end,
+	apply = function(self, card, val)
+        if canApplySigil(card, self.key) then
+			card.ability[self.key] = val
+		end
+    end,
+	
+	calculate = function(self, card, context)
+        if ((not card.ability.felijo_copied == true and not card.ability.akyrs_self_destructs == true and not card.ability.eterbal == true and not card.ability.extra.tailed == true)
+		and	((context.joker_type_destroyed and context.card == card ))) and not context.retrigger_joker then 
+			
+			FELIJO.createTail(card)
+
+			
+			return {no_retrigger = true}
+		end
+    end
+}
+
 --Stitches for Myco
 SMODS.Sticker{
 	key = "stk_stitched",

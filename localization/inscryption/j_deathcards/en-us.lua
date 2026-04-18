@@ -167,6 +167,22 @@ return {
 					}
 				},
 			},
+			j_felijo_ins_leshy = {
+				name = {
+				"{B:1,V:2,f:felijo_Feli5x8}Leshy{}",
+				},
+				text = {
+					{
+					"{C:chips}+#3#{} Chips, {X:mult,C:white}X#4#{} Mult",
+					},
+					{
+					"Gives an additional",
+					"{C:chips}+#1#{} Chips and {X:mult,C:white}X#2#{} Mult",
+					"for every other",
+					"{C:felijo_trb}Deathcard{} owned.",
+					}
+				},
+			},
 		},
 	},
 }

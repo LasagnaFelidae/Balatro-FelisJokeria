@@ -308,6 +308,7 @@ SMODS.Joker {
 		},  
 	},
     loc_vars = function(self, info_queue, center)
+			info_queue[#info_queue+1] = {key = 'felijo_stock_legend', set = 'Other'}
 			if center.ability.stock.mode[center.ability.stock.mode_i] == "ALL" then
 			return { vars = {
 				center.ability.stock.names[1], center.ability.stock.stock[1], center.ability.stock.price[1],center.ability.stock.stock[1] * center.ability.stock.price[1],

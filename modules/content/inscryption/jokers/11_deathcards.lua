@@ -610,7 +610,7 @@ SMODS.Joker { -- Rare Soul
 	pronouns = "he_him",
 	unlocked = true,
 	
-	attributes = {"xblindsize"},
+	attributes = {"chips","mult","blindsize","xblindsize"},
 	rarity = 3,
 	cost = 8,
 	config = { extra = { debuff = 0.10 , chips = 4, mult = 2, mod = 0.10, mod_add = 100} },
@@ -649,6 +649,68 @@ SMODS.Joker { -- Rare Soul
 			return {
 				chips = card.ability.extra.chips,
 				mult = card.ability.extra.mult
+			}
+		end
+	end,
+	blueprint_compat = true,
+}
+
+SMODS.Joker { -- Rare Leshy
+	atlas = 'insDeathcard',
+	pos = { x = 10, y = 0 },
+	pools = {
+		["FelisJokeria"]=true,
+		["Inscryption"] = true, 
+		["Beast"] = true,
+		["Human"] = true, 
+		["Deathcard"] = true,
+	},
+	key = "felijo_ins_leshy",
+	pronouns = "he_him",
+	unlocked = true,
+	
+	attributes = {"joker"},
+	rarity = 3,
+	cost = 8,
+	config = { extra = { xmult = 0.50, chips = 5 } },
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
+	end,
+	loc_vars = function(self, info_queue, card)
+		if FELIJO.is_mod_loaded("RevosVault") then
+			info_queue[#info_queue+1] = {key = 'felijo_leshy_crossmod', set = 'Other'}
+		end
+		local l_count = 1
+		local l_deathcard_redeem = G.GAME.crv_deathcard_allowed and 2 or 0
+		if G.jokers then
+			for _, j in ipairs(G.jokers.cards) do
+				if j ~= card and j.config.center.pools and j.config.center.pools['Deathcard'] then
+					l_count = l_count + 1
+				end
+			end
+		end
+		return { vars = { card.ability.extra.chips, card.ability.extra.xmult, card.ability.extra.chips*l_count, math.max(1, (1+(card.ability.extra.xmult*l_count)+l_deathcard_redeem)),  colours = { HEX('F0C590'), HEX('351A09') } } }
+	end,
+	calculate = function(self, card, context)
+		if G.GAME.crv_deathcard_allowed then
+			return {
+				chips = card.ability.extra.chips,
+				mult = card.ability.extra.mult,
+				xmult = 2,
+			}
+		end
+	
+		if context.joker_main then
+			local count = 0
+			local deathcard_redeem = G.GAME.crv_deathcard_allowed and 2 or 0
+			for _, j in ipairs(G.jokers.cards) do
+				if j ~= card and j.config.center.pools and j.config.center.pools['Deathcard'] then
+					count = count + 1
+				end
+			end
+			return {
+				chips = card.ability.extra.chips*count,
+				xmult = math.max(1, (1+(card.ability.extra.xmult*count)+deathcard_redeem)),
 			}
 		end
 	end,

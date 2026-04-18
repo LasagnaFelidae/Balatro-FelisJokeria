@@ -126,6 +126,36 @@ FELIJO.Reptile { -- uncommon River Snapper
 	end,
 }
 
+FELIJO.Reptile { -- uncommon Skink
+    pos = { x = 5, y = 0 },
+    key = "felijo_ins_skink",
+    rarity = 1,
+    cost = 4,
+	blueprint_compat = true,
+	eternal_compat = false,
+	perishable_compat = false,
+	pronouns = "he_him",
+	attributes = {"chips", "mult", "joker"},
+	config = { extra = { chips = 1, mult = 2, tailed = false}},
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue+1] = {key = 'felijo_sgl_tail', set = 'Other'}
+		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
+    end,
+    calculate = function(self, card, context)
+		if ((not card.ability.felijo_copied == true and not card.ability.akyrs_self_destructs == true and not card.ability.eterbal == true and not card.ability.extra.tailed == true)
+		and	((context.joker_type_destroyed and context.card == card ))) and not context.retrigger_joker then 
+			
+			FELIJO.createTail(card)
+
+			
+			return {no_retrigger = true}
+		end
+		if context.joker_main then
+			return {chips = card.ability.extra.chips, mult = card.ability.extra.mult}
+		end
+	end,
+}
+
 
 
 

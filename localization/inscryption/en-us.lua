@@ -18,7 +18,7 @@ return {
                     	"no rank or suit",
 					},
 					{
-						"Grants {C:money}$#1#{} on discard",
+						"Grants {C:money}$#2#{} on discard",
 						"only if {C:legendary}traded.",
 					},
 					{
@@ -35,7 +35,7 @@ return {
                     	"no rank or suit",
 					},
 					{
-						"Grants {C:money}$#1#{} on discard",
+						"Grants {C:money}$#2#{} on discard",
 						"only if {C:legendary}traded.",
 					},
 					{
@@ -52,7 +52,7 @@ return {
                     	"no rank or suit",
 					},
 					{
-						"Grants {C:money}$#1#{} on discard",
+						"Grants {C:money}$#2#{} on discard",
 						"only if {C:legendary}traded.",
 					},
 					{
@@ -69,7 +69,7 @@ return {
                     	"no rank or suit",
 					},
 					{
-						"Grants {C:money}$#1#{} on discard",
+						"Grants {C:money}$#2#{} on discard",
 						"only if {C:legendary}traded.",
 					},
 					{
@@ -86,7 +86,7 @@ return {
                     	"no rank or suit",
 					},
 					{
-						"Grants {C:money}$#1#{} on discard",
+						"Grants {C:money}$#2#{} on discard",
 						"only if {C:legendary}traded.",
 					},
 					{
