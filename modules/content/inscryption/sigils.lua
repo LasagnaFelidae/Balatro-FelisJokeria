@@ -253,7 +253,7 @@ SMODS.Sticker{
     end,
 	
 	calculate = function(self, card, context)
-        if ((not card.ability.felijo_copied == true and not card.ability.akyrs_self_destructs == true and not card.ability.eterbal == true and not card.ability.extra.tailed == true)
+        if ((not card.ability.felijo_copied == true and not card.ability.akyrs_self_destructs == true and not card.ability.eternal == true and not card.ability.felijo_tailed == true)
 		and	((context.joker_type_destroyed and context.card == card ))) and not context.retrigger_joker then 
 			
 			FELIJO.createTail(card)

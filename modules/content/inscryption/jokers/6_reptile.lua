@@ -136,13 +136,13 @@ FELIJO.Reptile { -- uncommon Skink
 	perishable_compat = false,
 	pronouns = "he_him",
 	attributes = {"chips", "mult", "joker"},
-	config = { extra = { chips = 1, mult = 2, tailed = false}},
+	config = { extra = { chips = 1, mult = 2,}},
     loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue+1] = {key = 'felijo_sgl_tail', set = 'Other'}
 		return { vars = { card.ability.extra.chips, card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09') } } } 
     end,
     calculate = function(self, card, context)
-		if ((not card.ability.felijo_copied == true and not card.ability.akyrs_self_destructs == true and not card.ability.eterbal == true and not card.ability.extra.tailed == true)
+		if ((not card.ability.felijo_copied == true and not card.ability.akyrs_self_destructs == true and not card.ability.eternal == true and not card.ability.felijo_tailed == true)
 		and	((context.joker_type_destroyed and context.card == card ))) and not context.retrigger_joker then 
 			
 			FELIJO.createTail(card)
