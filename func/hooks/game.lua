@@ -1,10 +1,8 @@
-local XmainMenuHook = Game.main_menu
+--[[local XmainMenuHook = Game.main_menu
 function Game:main_menu(ctx)
     local r = XmainMenuHook(self,ctx)
-    if self.title_top then
-		FELIJO.pool_merge({"Roblox", "Food"},"AND", true, FELIJO.POOLS.Roblox_Food)
-    end
 end
+]]
 
 local gameInitHook = Game.init_game_object
 function Game:init_game_object()
