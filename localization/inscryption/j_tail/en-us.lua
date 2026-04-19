@@ -51,7 +51,7 @@ return {
                 },
             },
             j_felijo_ins_tail_obj = {
-                name = "{B:1,V:2,f:felijo_Feli5x8}Toy Leeg",
+                name = "{B:1,V:2,f:felijo_Feli5x8}Toy Leg",
                 text = {
 					"{C:mult}+#1#{} Mult",
 					"A useless piece of plastic.",

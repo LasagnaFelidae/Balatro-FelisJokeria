@@ -47,6 +47,7 @@ SMODS.Voucher {
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				G.GAME.felijo_totem_parts_rate = (G.GAME.felijo_totem_parts_rate or 0) + 4
+                G.GAME.felijo_totems_enabled = true
 				return true
 			end,
 		}))
@@ -86,7 +87,6 @@ SMODS.Voucher {
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				G.GAME.felijo_totem_parts_rate = math.max(0, G.GAME.felijo_totem_parts_rate - 4)
-				G.GAME.felijo_totems_enabled = true
                 return true
 			end,
 		}))

@@ -493,12 +493,9 @@ FELIJO.Consumable { -- 8 Lost & Found
 		info_queue[#info_queue + 1] = G.P_TAGS["tag_felijo_tag_totem_box"]
 	end,
 	can_use = function(self, card)
-		return G.felijo_totems
+		return (G.felijo_totems and G.GAME.felijo_totems_enabled) and true or false
 	end,
     use = function(self, card, area, copier)
 		add_tag(Tag("tag_felijo_tag_totem_box", false, 'Small')) 
-    end,
-    in_pool = function(self,args)
-        return G.GAME.felijo_totems_enabled or false
     end,
 }

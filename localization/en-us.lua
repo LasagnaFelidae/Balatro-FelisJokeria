@@ -544,7 +544,7 @@ return {
 				"{C:chips}+100{} chips when held."
 				},
 			},
-			felijo_stk_copied = {
+			felijo_copied = {
 				name = "Copied Card",
 				text = {
 				"Disappears at the end of the round."

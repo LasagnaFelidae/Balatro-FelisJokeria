@@ -35,20 +35,31 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.before then
 			local mph = FELIJO.get_most_played_hand()
-			if context.scoring_hand ~= mph and card.ability.extra.ascended == true then
-				card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
-				return {
-					message = localize('k_upgrade_ex'),
-					colour = G.C.GOLD,
-					no_juice = false
-				}
-			elseif context.scoring_hand == mph and card.ability.extra.ascended == true then
-				FELIJO.explodeCard(card, "explosion")
-				return {
-					message = localize('k_reset'),
-					colour = G.C.RED,
-					no_juice = false
-				}
+			if card.ability.extra.ascended == true then
+				local reset = true
+				local play_more_than = (G.GAME.hands[context.scoring_name].played or 0)
+				for handname, values in pairs(G.GAME.hands) do
+					if handname ~= context.scoring_name and values.played >= play_more_than and SMODS.is_poker_hand_visible(handname) then
+						reset = false
+						break
+					end
+				end
+				if reset then
+					FELIJO.explodeCard(card, "explosion")
+					return {
+						message = localize('k_reset'),
+						colour = G.C.RED,
+						no_juice = false
+					}
+				else
+					-- See note about SMODS Scaling Manipulation on the wiki
+					card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
+					return {
+						message = localize('k_upgrade_ex'),
+						colour = G.C.GOLD,
+						no_juice = false
+					}
+				end
 			end
 			if context.scoring_hand ~= mph and card.ability.extra.count < card.ability.extra.max_c then
 				card.ability.extra.count = card.ability.extra.count + 1
