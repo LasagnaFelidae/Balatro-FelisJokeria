@@ -47,14 +47,6 @@ SMODS.ObjectType({
 
 
 
-FELIJO.POOLS.Roblox_Food = SMODS.ObjectType({
-	key = "Roblox_Food",
-	default = "j_joker",
-	cards = {},
-	inject = function(self)
-		SMODS.ObjectType.inject(self)
-	end,
-})
 
 
 SMODS.ObjectType({

@@ -77,13 +77,14 @@ function FELIJO.subspaceExplode()
 	Blind:change_colour(HEX('F400F0')) -- Blind box
 	ease_background_colour{new_colour = HEX('F400F0')}
 	for _, _c in ipairs(G.hand.cards) do
-		_c.edition = "e_felijo_subspace"
+		_c:set_edition("e_felijo_subspace")
 	end
 	for _, _c in ipairs(G.jokers.cards) do
-		_c.edition = "e_felijo_subspace"
+		_c:set_edition("e_felijo_subspace")
 	end
 	for _, _c in ipairs(G.consumeables.cards) do
-		_c.edition = "e_felijo_subspace"
+		_c:set_edition("e_felijo_subspace")
+		
 	end
 end
 

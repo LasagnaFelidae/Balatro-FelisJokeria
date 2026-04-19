@@ -5,7 +5,8 @@ return {
                 name = 'Totem Deck',
                 text = 
                 { 
-                    'Start with {C:felijo_ttm}Totems{} Enabled',
+                    'Start with {C:felijo_ttm}Totems{} enabled and',
+					'{C:felijo_ins}Totem Merchant{} redeemed.',
 					"{C:inactive}(Only one totem can be active at a time)"
                 },
             },
@@ -13,17 +14,20 @@ return {
 		Sleeve = {
             sleeve_felijo_ttm_deck = {
                 name = "Totem Sleeve",
-                text = { 
-                    "Start with {C:felijo_ttm}Totems{} Enabled",
-             }
+                text = 
+				{ 
+                    'Start with {C:felijo_ttm}Totems{} enabled and',
+					'{C:felijo_ins}Totem Merchant{} redeemed.',
+					"{C:inactive}(Only one totem can be active at a time)"
+                },
             },
             sleeve_felijo_ttm_deck_alt = {
                 name = "Totem Sleeve",
                 text = { 
                     "Start with",
-                    "{C:white,X:felijo_ttm}+1{} Totem Area Size",
-					"{C:inactive,s:0.8}(Only one totem can be active at a time)"
-             }
+                    "{C:white,X:felijo_ttm}+1{} Totem Area Size and",
+					'{C:felijo_ins}Totem Tycoon{} redeemed.',
+             	},
             },
 		},
 		
@@ -286,10 +290,10 @@ return {
 
 		},
 		Edition = {
-            e_vremade_foil = {
+            e_felijo_subspace = {
                 name = "Subspaced",
                 text = {
-                    "{X:blind}-#1#%{} Blind Size when Held",
+                    "{X:blind,C:white}-#1#%{} Blind Size when Held",
                 },
             },
 		},
@@ -521,7 +525,7 @@ return {
 				name = "Loose Tail",
 				text = {
 					"When destroyed, clones itself",
-					"and create a tail",
+					"and creates a tail",
 					"{C:inactive}(Effect triggers once){}",
 				},
 			},
@@ -961,7 +965,7 @@ return {
 			---STICKER---
 			-------------
 			felijo_stk_stitched = "Stitched Card",
-			felijo_stk_subspace = "Subspaced Card",
+			felijo_subspace = "Subspaced",
 			felijo_stk_blunder = "Blunder",
 			-------------
 			-------------

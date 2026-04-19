@@ -1,31 +1,5 @@
 return {
     descriptions = {
-		Back={
-            b_felijo_ttm_deck = {
-                name = 'Totem Deck',
-                text = 
-                { 
-                    'Start with {C:felijo_ttm}Totems{} Enabled',
-					"{C:inactive}(Only one totem can be active at a time)"
-                },
-            },
-		},
-		Sleeve = {
-            sleeve_felijo_ttm_deck = {
-                name = "Totem Sleeve",
-                text = { 
-                    "Start with {C:felijo_ttm}Totems{} Enabled",
-             }
-            },
-            sleeve_felijo_ttm_deck_alt = {
-                name = "Totem Sleeve",
-                text = { 
-                    "Start with",
-                    "{C:white,X:felijo_ttm}+1{} Totem Area Size",
-					"{C:inactive,s:0.8}(Only one totem can be active at a time)"
-             }
-            },
-		},
 		Tag = {
 			tag_felijo_tag_totem = {
 				name = "Totem Tag",

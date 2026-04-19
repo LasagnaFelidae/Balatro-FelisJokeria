@@ -125,6 +125,7 @@ return {
                 text = {
                     "{C:felijo_ttm}Totem{} parts appear",
                     "in the shop",
+					"-",
 					"Enables {C:felijo_ttm}Totems{}"
                 },
             },
@@ -134,6 +135,7 @@ return {
                     "{C:felijo_ttm}Totem{} parts appear",
                     "more frequently",
                     "in the shop",
+					"-",
 					"Enables {C:felijo_ttm}Totems{}"
                 },
                 unlock = {
