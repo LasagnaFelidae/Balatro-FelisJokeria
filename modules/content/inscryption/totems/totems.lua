@@ -163,7 +163,7 @@ local retvars_lookup = {
 
 FELIJO.Consumable = SMODS.Consumable:extend{
     in_pool = function(self, args)
-		return (G.GAME.felijo_totems_enabled and (args and (args.source == "felijo_totem" or args.source == "felijo_ttm_box") )) or false
+		return (G.GAME.felijo_totems_enabled) or false
 	end,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
@@ -180,9 +180,6 @@ SMODS.ConsumableType {
     primary_colour = HEX('FFFFFF'),
     secondary_colour = HEX('C49761'),
     collection_rows = { 5, 5},
-    get_weight = function(self)
-		return self.weight * G.GAME.felijo_peltchance
-	end,
 	select_card = G.felijo_totems,
     loc_txt = {
         undiscovered = {
