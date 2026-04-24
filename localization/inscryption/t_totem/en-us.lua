@@ -48,7 +48,7 @@ return {
 				name = "Card Bearer",
 				text = {
 					"Add a random {C:attention}playing card",
-					"to your deck",
+					"to your deck when scored",
 				},
 			},
 			felijo_ttm_sgl_giftbearer = {
@@ -83,7 +83,7 @@ return {
 			felijo_ttm_sgl_stinky = {
 				name = "Stinky",
 				text = {
-					"{X:gold,C:white}-#1#%{} Blind Req.",
+					"{X:blind,C:white}-#1#%{} Blind Size.",
 				},
 			},
 			------------

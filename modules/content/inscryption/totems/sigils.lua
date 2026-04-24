@@ -150,7 +150,7 @@ FELIJO.TotemSigil {
 	atlas = "insTotemSigils",
 	config = { extra = { xbscore = 0.20 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = {self.config.extra.xbscore*100} }
+		return { vars = {(1-self.config.extra.xbscore)*100} }
     end,
     pos = {x = 7, y = 0},
     badge_colour = HEX('BD894B'),
