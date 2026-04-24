@@ -146,7 +146,6 @@ FELIJO.tribe_table = {
 }
 
 if FELIJO.is_mod_loaded("RevosVault") then
-    --[[
     FELIJO.add_tribe({
         key = "Printer", 
         weight = 1.0, 
@@ -155,7 +154,6 @@ if FELIJO.is_mod_loaded("RevosVault") then
         totem_x=10, 
         cost=8
     })
-    ]]
     FELIJO.add_tribe({
         key = "Banana", 
         weight = 1.0, 

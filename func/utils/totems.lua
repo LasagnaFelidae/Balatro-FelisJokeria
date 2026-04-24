@@ -122,16 +122,14 @@ FELIJO.applyTotemSigils = function(totem_body, tribe)
     local sigil_key = totem_body.ability.totem_sigil
 	local applied = false
     for _, card in ipairs(G.jokers.cards) do
-        if card.ability and card.config and card.config.center and card.config.center.pools and not card.ability.sigil_key then
+        if card.ability and card.config and card.config.center and not card.ability.sigil_key then
             if FELIJO.is_mod_loaded("RevosVault") then
-                if card.config.center.pools["BananaPool"] and tribe == "Banana" then
+                if card.config.center.pools and card.config.center.pools["BananaPool"] and tribe == "Banana" then
                     card:add_sticker(sigil_key, true)
                     applied = true
-                    --[[
-                elseif tribe == "Printer" and card:is_rarity("crv_p") then
+                elseif tribe == "Printer" and card.config.center.rarity == "crv_p" then
                     card:add_sticker(sigil_key, true)
                     applied = true
-                ]]
                 end
             end
             if JoyousSpring and JoyousSpring.is_monster_card(card) then
@@ -145,12 +143,12 @@ FELIJO.applyTotemSigils = function(totem_body, tribe)
                     end
                 end
             end
-            if card.config.center.pools[tribe] then
+            if card.config.center.pools and card.config.center.pools[tribe] then
                 card:add_sticker(sigil_key, true)
                 applied = true
             elseif FELIJO.PoolTribes[tribe] then
                 for _, _p in ipairs(FELIJO.PoolTribes[tribe]) do
-                    if card.config.center.pools[_p] then
+                    if card.config.center.pools and card.config.center.pools[_p] then
                         card:add_sticker(sigil_key, true)
                         applied = true
                         break

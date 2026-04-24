@@ -235,6 +235,7 @@ SMODS.Sticker{
 	key = "sgl_tail",
 	badge_colour = HEX '4BC292',
 	atlas="sigils",
+	rate = 0.01,
 	needs_enable_flag = false,
 	pos = { x=1 , y=0 },
 	sets = {Default = false, Joker = true},

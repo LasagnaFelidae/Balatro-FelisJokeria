@@ -44,7 +44,7 @@ function Card:set_cost()
     local ret = cardSetCostHook(self)
     if self.ability.felijo_copied then
         self.cost = 1
-        self.sell_cost = 1
+        self.sell_cost = 0
     end
     return ret
 end

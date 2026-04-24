@@ -6,7 +6,7 @@ return {
                 text = 
                 { 
                     'Start with {C:felijo_ttm}Totems{} enabled and',
-					'{C:felijo_ins}Totem Merchant{} redeemed.',
+					'{C:felijo_ins,T:v_felijo_totemmerchant}Totem Merchant{} redeemed.',
 					"{C:inactive}(Only one totem can be active at a time)"
                 },
             },
@@ -17,7 +17,7 @@ return {
                 text = 
 				{ 
                     'Start with {C:felijo_ttm}Totems{} enabled and',
-					'{C:felijo_ins}Totem Merchant{} redeemed.',
+					'{C:felijo_ins,T:v_felijo_totemmerchant}Totem Merchant{} redeemed',
 					"{C:inactive}(Only one totem can be active at a time)"
                 },
             },
@@ -26,7 +26,15 @@ return {
                 text = { 
                     "Start with",
                     "{C:white,X:felijo_ttm}+1{} Totem Area Size and",
-					'{C:felijo_ins}Totem Tycoon{} redeemed.',
+					'{C:felijo_ins,T:v_felijo_totemtycoon}Totem Tycoon{} redeemed',
+             	},
+            },
+			sleeve_felijo_ttm_deck_crv = {
+                name = "Totem Sleeve",
+                text = { 
+                    "Start with {C:felijo_ttm}Totems{} enabled,",
+                    "{C:felijo_ttm,T:c_felijo_ttm_hd_crv_printer}Totem Head of the Printer{}",
+					'and {C:felijo_ins,T:v_felijo_totemmerchant}Totem Merchant{} redeemed',
              	},
             },
 		},

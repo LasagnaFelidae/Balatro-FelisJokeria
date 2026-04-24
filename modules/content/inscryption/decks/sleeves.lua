@@ -15,10 +15,15 @@ if CardSleeves then
                 self.config = { ttm_area_mod = 1, voucher = 'v_felijo_totemtycoon' }
                 key = self.key .. "_alt"
                 vars = { localize{type = 'name_text', key = self.config.voucher, set = 'Voucher'} }
+            elseif self.get_current_deck_key() == "b_crv_pdeck" then
+                self.config = { voucher = 'v_felijo_totemmerchant' }
+                key = self.key .. "_crv"
+                vars = { localize{type = 'name_text', key = self.config.voucher, set = 'Voucher'} }
             else
                 self.config = { voucher = 'v_felijo_totemmerchant' }
                 vars = { localize{type = 'name_text', key = self.config.voucher, set = 'Voucher'} }
             end
+
             return {
                 key = key,
                 vars = vars
@@ -39,6 +44,20 @@ if CardSleeves then
                         return true
                     end
 				}))
+                
+            end
+            if self.get_current_deck_key() == "b_crv_pdeck" then
+                G.E_MANAGER:add_event(Event({
+					func = function()
+                        local applied = false
+                        if not applied then
+                            SMODS.add_card({key="c_felijo_ttm_hd_crv_printer", area = G.consumeables})
+                            applied = true
+                        end
+                        return true
+                    end
+				}))
+                
             end
             CardSleeves.Sleeve.apply(sleeve)
         end,
