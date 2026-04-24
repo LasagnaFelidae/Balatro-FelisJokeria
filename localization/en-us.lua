@@ -33,7 +33,7 @@ return {
                 name = "Totem Sleeve",
                 text = { 
                     "Start with {C:felijo_ttm}Totems{} enabled,",
-                    "{C:felijo_ttm,T:c_felijo_ttm_hd_crv_printer}Totem Head of the Printer{}",
+                    "a {C:felijo_ttm,T:c_felijo_ttm_hd_crv_printer}Totem Head of the Printer{}",
 					'and {C:felijo_ins,T:v_felijo_totemmerchant}Totem Merchant{} redeemed',
              	},
             },

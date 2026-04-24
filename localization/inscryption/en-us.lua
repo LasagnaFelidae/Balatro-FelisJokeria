@@ -123,20 +123,26 @@ return {
 			v_felijo_totemmerchant = {
                 name = "Totem Merchant",
                 text = {
+					{
                     "{C:felijo_ttm}Totem{} parts appear",
                     "in the shop",
-					"-",
+					},
+					{
 					"Enables {C:felijo_ttm}Totems{}"
+					}
                 },
             },
             v_felijo_totemtycoon = {
                 name = "Totem Tycoon",
                 text = {
+					{
                     "{C:felijo_ttm}Totem{} parts appear",
                     "more frequently",
                     "in the shop",
-					"-",
+					},
+					{
 					"Enables {C:felijo_ttm}Totems{}"
+					}
                 },
                 unlock = {
                     "Win a game with",
