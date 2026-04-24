@@ -7,7 +7,7 @@
 
 
 ## Convoluted bullshit to add on top of your decks.
-## Additions (as of 0.4.0):
+## Additions (as of 0.7.8):
 - 41+ Jokers
   - 10 Crossmod Jokers
     - 2 TOGA's Stuff Jokers
