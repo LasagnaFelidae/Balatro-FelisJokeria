@@ -36,14 +36,15 @@ SMODS.UndiscoveredSprite{
 }
 
 FELIJO.is_upgradable = function(card)
-	if not card or not card.ability or not card.ability.name then
-        return false
+    if not (card and card.ability and card.ability.name) then return false end
+
+    for _, enh in ipairs(FELIJO.upgradablelist) do
+        if SMODS.has_enhancement(card, enh) then
+            return true
+        end
     end
-	for i = 1, #FELIJO.upgradablelist do
-		if SMODS.has_enhancement(card, FELIJO.upgradablelist[i]) then return true
-	end
-	return false
-	end
+
+    return false
 end
 
 
@@ -98,6 +99,7 @@ FELIJO.Consumable { -- 0 Campfire
 	end,
 
     use = function(self, card, area, copier)
+
         G.E_MANAGER:add_event(Event({
             trigger = 'after',
             delay = 0.4,
@@ -128,14 +130,16 @@ FELIJO.Consumable { -- 0 Campfire
 				delay = 0.35,
 				func = function()
 					local current_tier = G.hand.highlighted[i].config.center.key or ""
-					local upgrade = FELIJO.campfire_table[current_tier]
+		            local upgrade = FELIJO.campfire_table[current_tier]
 						
 					if upgrade then
 						if pseudorandom('campfire') < (upgrade.break_chance) then
 							SMODS.destroy_cards(G.hand.highlighted[i])
+                            play_sound('timpani', percent, 0.6)
+                            G.hand.highlighted[i]:juice_up(0.4, 0.4)
 						else
 							play_sound('tarot2', percent, 0.6)
-							G.hand.highlighted[i]:set_ability(upgrade.next, nil, true)
+							G.hand.highlighted[i]:set_ability(upgrade.next)
 							G.hand.highlighted[i]:juice_up(0.4, 0.4)
 						end
 					end
@@ -194,74 +198,22 @@ FELIJO.Consumable { -- 2 The Trader
 	end,
 
     use = function(self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                play_sound('tarot1')
-                card:juice_up(0.3, 0.5)
-                return true
-            end
-        }))
-        for i = 1, #G.hand.highlighted do
-            local percent = 1.15 - (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.15,
-                func = function()
-                    G.hand.highlighted[i]:flip()
-                    play_sound('card1', percent)
-                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
-                    return true
-                end
-            }))
-        end
-        delay(0.2)
 		for i = 1, #G.hand.highlighted do
 			local percent = 0.85 + (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
-			G.E_MANAGER:add_event(Event({
-				trigger = 'after', 
-				delay = 0.35,
-				func = function()
-					local _c = G.hand.highlighted[i].config.center.key or ""
-					for _, _pelt in ipairs(FELIJO.trapperTable) do
-						if _pelt.key == _c then
-							local pelt = _pelt
-							SMODS.destroy_cards(G.hand.highlighted[i])
-							if SMODS.pseudorandom_probability(card, 'felijo_rit_trader', 1, card.ability.extra.odds) then
-								ease_dollars(_pelt.price*2)
-							else
-								ease_dollars(_pelt.price)
-							end
-						end					
+			local _c = G.hand.highlighted[i].config.center.key or ""
+			for _, _pelt in ipairs(FELIJO.trapperTable) do
+				if _pelt.key == _c then
+					local pelt = _pelt
+					SMODS.destroy_cards(G.hand.highlighted[i])
+					if SMODS.pseudorandom_probability(card, 'felijo_rit_trader', 1, card.ability.extra.odds) then
+						ease_dollars(_pelt.price*2)
+                        play_sound('timpani', percent, 0.6)
+					else
+						ease_dollars(_pelt.price)
 					end
-					return true
-				end
-			}))
+				end					
+			end
         end
-		delay(0.2)
-        for i = 1, #G.hand.highlighted do
-            local percent = 0.85 + (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.15,
-                func = function()
-                    G.hand.highlighted[i]:flip()
-                    play_sound('tarot2', percent, 0.6)
-                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
-                    return true
-                end
-            }))
-        end
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.2,
-            func = function()
-                G.hand:unhighlight_all()
-                return true
-            end
-        }))
-        delay(0.5)
     end,
     can_use = function(self, card)
         if not (G.hand and #G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.max_highlighted) then
@@ -329,12 +281,12 @@ FELIJO.Consumable { -- 3 The Prospector
 					local upgrade = pseudorandom('prospect', 1, 3)
 					if upgrade == 3 then
 						play_sound('tarot2', percent, 0.6)
-						G.hand.highlighted[i]:set_ability("m_felijo_trn_goldn", nil, true)
+						G.hand.highlighted[i]:set_ability("m_felijo_trn_goldn")
 						G.hand.highlighted[i]:juice_up(0.4, 0.4)
 					else
 						play_sound('tarot2', percent, 0.6)
                         gold_c = FELIJO.quick_pool_pick(FELIJO.prospectorTable)
-						G.hand.highlighted[i]:set_ability(gold_c, nil, true)
+						G.hand.highlighted[i]:set_ability(gold_c)
 						G.hand.highlighted[i]:juice_up(0.4, 0.4)
 					end
 					return true
@@ -421,14 +373,11 @@ FELIJO.Consumable { -- 7 The Trapper
         for i = 1, #G.hand.highlighted do
             local percent = 1.15 - (i - 0.999) / (#G.hand.highlighted - 0.998) * 0.3
             G.E_MANAGER:add_event(Event({
-                trigger = 'immediate',
+                trigger = 'after',
                 delay = 0.15,
                 func = function()
                     G.hand.highlighted[i]:flip()
-					pelt_c = FELIJO.quick_pool_pick(FELIJO.trapperTable)
-					G.hand.highlighted[i]:set_ability(pelt_c, nil, true)
-                    play_sound('card1', percent)
-                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+					G.hand.highlighted[i]:juice_up(0.3, 0.3)
                     return true
                 end
             }))
@@ -441,6 +390,9 @@ FELIJO.Consumable { -- 7 The Trapper
 				delay = 0.15,
 				func = function()
 					play_sound('tarot2', percent, 0.6)
+                    pelt_c = FELIJO.quick_pool_pick(FELIJO.trapperTable)
+					G.hand.highlighted[i]:set_ability(pelt_c)
+                    play_sound('card1', percent)
 					G.hand.highlighted[i]:juice_up(0.4, 0.4)
 					return true
 				end
@@ -489,12 +441,15 @@ FELIJO.Consumable { -- 8 Lost & Found
 	atlas= 'insRitual',
     pos = { x = 8, y = 0 },
     config = {},
+    in_pool = function(self, args)
+		return G.GAME.felijo_totems_enabled
+	end,
     loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_TAGS["tag_felijo_tag_totem_box"]
 	end,
-	can_use = function(self, card)
-		return (G.felijo_totems and G.GAME.felijo_totems_enabled) and true or false
-	end,
+    can_use = function(self,card)
+        return G.felijo_totems and #G.felijo_totems.cards < G.felijo_totems.config.card_limit
+    end,
     use = function(self, card, area, copier)
 		add_tag(Tag("tag_felijo_tag_totem_box", false, 'Small')) 
     end,

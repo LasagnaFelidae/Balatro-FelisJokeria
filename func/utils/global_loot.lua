@@ -1,5 +1,5 @@
 --[[
-Adds a new crossmod tribe.
+Adds a new crossmod tribe to the tribe table so that it can use the totem sigil application.
 
 Params:
   data (table): {key = "Tribe", weight = 1, totem_key = "ttm_hd_human",	tribe_card_key = "trb_human", totem_x=2,cost = 8,}
@@ -25,7 +25,7 @@ FELIJO.add_tribe = function(tribe)
 	print("[FELI'S JOKERIA] Tribe "..tribe.key.." added successfully")
 	return #FELIJO.tribe_table
 end
-
+--
 FELIJO.campfire_table = {
     ["m_bonus"]               = { next = "m_felijo_bonus_t2",   break_chance = 0.10 },
     ["m_felijo_bonus_t2"]     = { next = "m_felijo_bonus_t3",   break_chance = 0.30 },
@@ -62,8 +62,8 @@ FELIJO.campfire_table = {
 }
 
 FELIJO.prospectorTable = {
-	{key = "m_gold",   				weight = 5},
-	{key = "m_felijo_gold_t2",   	weight = 2},
+	{key = "m_gold",   				weight = 10},
+	{key = "m_felijo_gold_t2",   	weight = 1},
 	{key = "m_felijo_gold_t3",   	weight = 0.02},
 	{key = "m_felijo_gold_t4",   	weight = 0.001}
 }

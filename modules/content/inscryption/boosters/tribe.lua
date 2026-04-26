@@ -108,7 +108,7 @@ SMODS.Booster {
     config = { extra = 4, choose = 1 },
     group_key = "k_felijo_ttm_box", -- Delete this if you're using `group_name` in `loc_txt`
     draw_hand = false,
-    select_card = "consumeables",
+    select_card = "felijo_totems",
 	in_pool = function(self,args)
 		return G.GAME.felijo_totems_enabled or false
 	end,
@@ -158,7 +158,7 @@ SMODS.Booster {
     config = { extra = 6, choose = 2 },
     group_key = "k_felijo_ttm_box", -- Delete this if you're using `group_name` in `loc_txt`
     draw_hand = false,
-    select_card = "consumeables",
+    select_card = "felijo_totems",
 	in_pool = function(self,args)
 		return G.GAME.felijo_totems_enabled or false
 	end,
