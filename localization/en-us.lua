@@ -566,8 +566,16 @@ return {
 			felijo_stk_blunder = {
 				name = "Blunder",
 				text = {
-				"{X:gold,C:white}X#1#{} Blind Req.",
+				"{X:blind,C:white}X#1#{} Blind Req.",
 				"{C:mult}#2#{} Mult",
+				},
+			},
+			felijo_stk_goobert = {
+				name = "Painted",
+				text = {
+				"{X:felijo_goobert,C:white}X#1#{} to all card values.",
+				"{s:0.8,C:inactive}(Value is a random number",
+				"{s:0.8,C:inactive}between 1.1 and 2)"
 				},
 			},
 		},
@@ -975,6 +983,7 @@ return {
 			felijo_stk_stitched = "Stitched Card",
 			felijo_subspace = "Subspaced",
 			felijo_stk_blunder = "Blunder",
+			felijo_stk_goobert = "Painted",
 			-------------
 			-------------
 			felijo_plt_gold = "Gold Pelt",

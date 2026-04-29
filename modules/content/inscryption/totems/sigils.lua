@@ -150,16 +150,15 @@ FELIJO.TotemSigil {
 	atlas = "insTotemSigils",
 	config = { extra = { xbscore = 0.20 } },
 	loc_vars = function(self, info_queue, card)
-		return { vars = {(1-self.config.extra.xbscore)*100} }
+		return { vars = {(self.config.extra.xbscore)*100} }
     end,
     pos = {x = 7, y = 0},
     badge_colour = HEX('BD894B'),
 	no_collection = true,
     calculate = function(self, card, context)
 		if context.joker_main then
-			card_eval_status_text(card, 'extra', nil, nil, nil, {message = "-"..(self.config.extra.xbscore*100).."% Blind Req.",volume = 0.5,sound = "gong", colour = G.C.GOLD})
 			return {
-				x_blindsize = (1 - card.ability.extra.xbscore)
+				x_blindsize = (1 - self.config.extra.xbscore)
 			}
 		end
 	end

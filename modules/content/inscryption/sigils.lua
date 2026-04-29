@@ -147,7 +147,6 @@ SMODS.Sticker{
 		if canApplySigil(card, self.key) then
 			card.ability[self.key] = val
 
-			updatePos(card, self, self.pos.x, self.pos.y)
 
 			if card.ability.eternal then 
 				card:remove_sticker('eternal') 
@@ -180,7 +179,7 @@ SMODS.Sticker{
 	badge_colour = HEX '009DFF',
 	atlas="sigils",
 	needs_enable_flag = false,
-	pos = { x=4 , y=4 },
+	pos = { x=4 , y=1 },
 	sets = {Default = true, Joker = false},
 	config = { extra = { retriggers = 1} },
 	discovered = true,
@@ -207,7 +206,7 @@ SMODS.Sticker{
 	badge_colour = HEX '4BC292',
 	atlas="sigils",
 	needs_enable_flag = false,
-	pos = { x=5 , y=8 },
+	pos = { x=5 , y=1 },
 	sets = {Default = true, Joker = false},
 	config = { extra = { retriggers = 2} },
 	discovered = true,
@@ -239,7 +238,7 @@ SMODS.Sticker{
 	needs_enable_flag = false,
 	pos = { x=1 , y=0 },
 	sets = {Default = false, Joker = true},
-	config = { extra = { retriggers = 2} },
+	config = { extra = {} },
 	discovered = true,
 	unlocked = true,
 	default_compt = true,
@@ -289,6 +288,62 @@ SMODS.Sticker{
         G.shared_stickers[self.key].role.draw_major = card
         G.shared_stickers[self.key]:draw_shader('dissolve', nil, nil, nil, card.children.center)
     end
+}
+
+SMODS.Sticker{
+	key = "stk_goobert",
+	badge_colour = HEX '218812',
+	atlas = "insGoobert",
+	needs_enable_flag = true,
+	pos = { x=0 , y=0 },
+	sets = {Joker = true},
+	no_collection = true,
+	config = { 
+		extra = {
+			mult = "1.1 - x2",
+		}
+	},
+	loc_vars = function(self, info_queue, card)
+		mult_v = card.ability.stk_goobert_mult or "1.1 - x2"
+		return { vars = {mult_v} }
+	end,
+	apply = function(self, card, val)
+		card.ability.stk_goobert_mult = 1 + (pseudorandom("stk_goobert", 10, 100)/100)
+		card.ability[self.key] = val
+		if card.ability.extra and type(card.ability.extra) == "table" then
+			for _, v in pairs(card.ability.extra) do
+				if type(v) == "number" and v ~= 0 then
+					card.ability.extra[_] = card.ability.extra[_] * card.ability.stk_goobert_mult
+				end
+			end
+		end
+		if card.ability and type(card.ability) == "table" then
+			for _, v in pairs(card.ability) do
+				if type(v) == "number" and _ ~= "stk_goobert_mult" and v ~= 0 and v ~= 1 then
+					card.ability[_] = card.ability[_] * card.ability.stk_goobert_mult
+				end
+			end
+		end
+	end,
+
+	remove = function(self, card)
+		if card.ability.extra and type(card.ability.extra) == "table" then
+			for _, v in pairs(card.ability.extra) do
+				if type(v) == "number" and _ ~= "stk_goobert_mult" and v ~= 0 and v ~= 1 then
+					card.ability.extra[_] = card.ability.extra[_] / card.ability.stk_goobert_mult
+				end
+			end
+		end
+		if card.ability and type(card.ability) == "table" then
+			for _, v in pairs(card.ability) do
+				if type(v) == "number" and _ ~= "stk_goobert_mult" and v ~= 0 and v ~= 1 then
+					card.ability[_] = card.ability[_] / card.ability.stk_goobert_mult
+				end
+			end
+		end
+		card.ability.stk_goobert_mult = nil
+	end,
+
 }
 --[[ Loose Tail
 SMODS.Sticker{

@@ -123,14 +123,13 @@ return {
 					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-					"{C:green}#3# in #4#{} chance to add a",
-					"{C:enhanced}unenhanced{} copy",
+					"Add an {C:enhanced}unenhanced{} copy",
 					"of a playing card to the deck",
 					},
 					{
-					"Once {C:attention}#6#{} cards have been copied,",
+					"Once {C:attention}#4#{} cards have been copied,",
 					"become {C:tarot}Superior{}",
-					"{C:inactive,s:0.8}(Currently {C:attention,s:0.8}#5#{C:inactive,s:0.8}/#6#){}{}{}"
+					"{C:inactive,s:0.8}(Currently {C:attention,s:0.8}#3#{C:inactive,s:0.8}/#4#){}{}{}"
 					},
 				},
 			},
@@ -145,9 +144,9 @@ return {
 					"{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-					"{C:green}#3# in #4#{} chance to add a",
-					"tiered {C:tarot}Superior{} copy",
-					"of a playing card to the deck,",
+					"Add a randomly tiered",
+					"{C:tarot}Superior{} playing card",
+					"to the deck.",
 					}
 				},
 			},

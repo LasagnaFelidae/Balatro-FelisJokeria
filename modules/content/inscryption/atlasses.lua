@@ -162,3 +162,9 @@ SMODS.Atlas {
 	px = 71,
 	py = 95,
 }
+SMODS.Atlas {
+	key = "insGoobert",
+	path = "inscryption/painted.png",
+	px = 71,
+	py = 95,
+}

@@ -42,6 +42,10 @@ end
 local cardSetCostHook = Card.set_cost
 function Card:set_cost()
     local ret = cardSetCostHook(self)
+    if self.config.center.key == "j_felijo_ins_ouro" and (self.ability.sell.curr >= self.ability.sell.limit) then
+        self.cost = 0
+        self.sell_cost = 0
+    end
     if self.ability.felijo_copied then
         self.cost = 1
         self.sell_cost = 0

@@ -182,6 +182,7 @@ FELIJO.Reptile { -- Rare Ouro
     calculate = function(self, card, context)
 		if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint and not context.retrigger_joker then
             card.ability.sell.curr = card.ability.sell.curr + 1
+			card:set_cost()
             if card.ability.sell.curr == card.ability.sell.limit then
                 local eval = function(card) return not card.REMOVED end
                 juice_card_until(card, eval, true)

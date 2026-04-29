@@ -73,6 +73,13 @@ return {
 					"{C:inactive}(Must have Joker room)"
 				},
 			},
+			c_felijo_rit_goobert = {
+				name = "Goobert",
+				text = {
+					"Paint over {C:attention}#1#{} selected joker.",
+					"{s:0.8,C:inactive}\"I will paint! Just like The Master!\"",
+				},
+			},
 			c_felijo_rit_trapper = {
 				name = "The Trapper",
 				text = {

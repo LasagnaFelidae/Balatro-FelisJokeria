@@ -348,6 +348,73 @@ FELIJO.Consumable { -- 4 The Tribes
 	end,
 }
 
+FELIJO.Consumable { -- 6 Goobert
+    key = 'rit_goobert',
+    set = 'felijo_ritual',
+	atlas= 'insRitual',
+    pos = { x = 6, y = 0 },
+    config = { max_highlighted = 1 },
+    hidden = true, 
+    soul_set = 'felijo_ritual',
+    soul_rate = 0.03,
+
+    loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue + 1] = {key = 'felijo_stk_goobert', set = 'Other', vars = {"???"}}
+		return { vars = { card.ability.max_highlighted } }
+	end,
+	use = function(self, card, area, copier)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                play_sound('tarot1')
+                card:juice_up(0.3, 0.5)
+                return true
+            end
+        }))
+		for i = 1, #G.jokers.highlighted do
+			local percent = 0.85 + (i - 0.999) / (#G.jokers.highlighted - 0.998) * 0.3
+			G.E_MANAGER:add_event(Event({
+				trigger = 'after', 
+				delay = 0.15,
+				func = function()
+					play_sound('tarot2', percent, 0.6)
+					G.jokers.highlighted[i]:add_sticker("felijo_stk_goobert", true)
+                    play_sound('card1', percent)
+					G.jokers.highlighted[i]:juice_up(0.4, 0.4)
+					return true
+				end
+			}))
+        end
+		delay(0.4)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.jokers:unhighlight_all()
+                return true
+            end
+        }))
+        delay(0.5)
+    end,
+    can_use = function(self, card)
+        if not (G.jokers and #G.jokers.highlighted > 0 and #G.jokers.highlighted <= card.ability.max_highlighted) then
+			return false
+		end
+
+        
+
+		for i = 1, #G.jokers.highlighted do
+            if G.jokers.highlighted[i].ability.stk_goobert_mult then
+                return false
+            end
+			return true
+		end
+		
+		return false
+    end
+}
+
 FELIJO.Consumable { -- 7 The Trapper
     key = 'rit_trapper',
     set = 'felijo_ritual',
