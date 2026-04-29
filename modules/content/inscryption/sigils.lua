@@ -300,15 +300,15 @@ SMODS.Sticker{
 	no_collection = true,
 	config = { 
 		extra = {
-			mult = "1.1 - x2",
+			mult = "0.9 - x2.5",
 		}
 	},
 	loc_vars = function(self, info_queue, card)
-		mult_v = card.ability.stk_goobert_mult or "1.1 - x2"
+		mult_v = card.ability.stk_goobert_mult or "0.9 - x2.5"
 		return { vars = {mult_v} }
 	end,
 	apply = function(self, card, val)
-		card.ability.stk_goobert_mult = 1 + (pseudorandom("stk_goobert", 10, 100)/100)
+		card.ability.stk_goobert_mult = (pseudorandom("stk_goobert", 90, 250)/100)
 		card.ability[self.key] = val
 		if card.ability.extra and type(card.ability.extra) == "table" then
 			for _, v in pairs(card.ability.extra) do

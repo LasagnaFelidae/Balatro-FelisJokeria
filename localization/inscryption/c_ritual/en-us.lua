@@ -76,7 +76,9 @@ return {
 			c_felijo_rit_goobert = {
 				name = "Goobert",
 				text = {
-					"Paint over {C:attention}#1#{} selected joker.",
+					"Create a {C:felijo_goobert}Painted{} copy",
+					"of {C:attention}#1#{} selected joker.",
+					"{C:inactive}(Must have room)",
 					"{s:0.8,C:inactive}\"I will paint! Just like The Master!\"",
 				},
 			},

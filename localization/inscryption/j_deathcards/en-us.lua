@@ -178,7 +178,7 @@ return {
 					"Gives an additional",
 					"{C:chips}+#1#{} Chips and {X:mult,C:white}X#2#{} Mult",
 					"for every other",
-					"{C:felijo_trb}Deathcard{} owned.",
+					"{C:felijo_trb}Beast{} Joker owned.",
 					}
 				},
 			},

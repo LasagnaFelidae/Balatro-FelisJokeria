@@ -379,7 +379,8 @@ FELIJO.Consumable { -- 6 Goobert
 				delay = 0.15,
 				func = function()
 					play_sound('tarot2', percent, 0.6)
-					G.jokers.highlighted[i]:add_sticker("felijo_stk_goobert", true)
+                    local new_card = FELIJO.copy_card(G.jokers.highlighted[i], nil, G.jokers)
+					new_card:add_sticker("felijo_stk_goobert", true)
                     play_sound('card1', percent)
 					G.jokers.highlighted[i]:juice_up(0.4, 0.4)
 					return true
@@ -403,13 +404,14 @@ FELIJO.Consumable { -- 6 Goobert
 		end
 
         
-
-		for i = 1, #G.jokers.highlighted do
-            if G.jokers.highlighted[i].ability.stk_goobert_mult then
-                return false
+        if #G.jokers.cards < G.jokers.config.card_limit then
+            for i = 1, #G.jokers.highlighted do
+                if G.jokers.highlighted[i].ability.stk_goobert_mult then
+                    return false
+                end
+                return true
             end
-			return true
-		end
+        end
 		
 		return false
     end

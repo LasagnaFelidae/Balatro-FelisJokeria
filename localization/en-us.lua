@@ -575,7 +575,7 @@ return {
 				text = {
 				"{X:felijo_goobert,C:white}X#1#{} to all card values.",
 				"{s:0.8,C:inactive}(Value is a random number",
-				"{s:0.8,C:inactive}between 1.1 and 2)"
+				"{s:0.8,C:inactive}between 0.9 and 2.5)"
 				},
 			},
 		},
@@ -916,9 +916,13 @@ return {
 			----------------
 			---MOD BADGES---
 			----------------
+			---
+			--If i were you, i wouldn't try to copy this way of handling crossmod badges.
+
 			k_felijo_revo = "Revo's Vault",
 			k_felijo_toga = "TOGA's Stuff",
 			k_felijo_bs = "Blindside",
+			k_felijo_synthb = "SynthB",
 			----------------
 			--J.CATEGORIES--
 			----------------

@@ -75,13 +75,20 @@ assert(SMODS.load_file("./modules/content/tarots.lua"))()
 --┃  ┣┳┛┃ ┃┗━┓┗━┓┃┃┃┃ ┃ ┃┃--
 --┗━╸╹┗╸┗━┛┗━┛┗━┛╹ ╹┗━┛╺┻┛--
 ----------------------------
-assert(SMODS.load_file("./modules/content/crossmod/togastuff.lua"))()
-
-assert(SMODS.load_file("./modules/content/crossmod/revo.lua"))()
-
-assert(SMODS.load_file("./modules/content/crossmod/aikoshen.lua"))()
+if FELIJO.is_mod_loaded("TOGAPack") then
+    assert(SMODS.load_file("./modules/content/crossmod/togastuff.lua"))()
+end
+if FELIJO.is_mod_loaded("RevosVault") then
+    assert(SMODS.load_file("./modules/content/crossmod/revo.lua"))()
+end
+if FELIJO.is_mod_loaded("aikoyorisshenanigans") then
+    assert(SMODS.load_file("./modules/content/crossmod/aikoshen.lua"))()
+end
 if FELIJO.is_mod_loaded("Blindside") then
     assert(SMODS.load_file("./modules/content/crossmod/blindside.lua"))()
+end
+if FELIJO.is_mod_loaded("synthb") then
+    assert(SMODS.load_file("./modules/content/crossmod/synthb.lua"))()
 end
 --[[
 ▄▄▄▄  ▄▄▄▄▄ ▄▄▄▄  ▄▄    ▄▄▄▄▄ ▄▄ ▄▄ 

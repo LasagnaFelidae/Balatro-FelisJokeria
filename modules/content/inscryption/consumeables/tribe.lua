@@ -76,7 +76,12 @@ for _, data in ipairs(FELIJO.tribe_table) do
 					func = function()
 						play_sound('timpani')
 						rf = pseudorandom_element(pool, pseudoseed(data.key))
-						SMODS.add_card{set = 'Joker', key = rf}
+						local iterations = 1
+						while rf == 'UNAVAILABLE' do
+							iterations = iterations + 1
+							rf = pseudorandom_element(pool, pseudoseed(data.key)..iterations)
+						end
+						SMODS.add_card{set = "Joker", key = rf}
 						card:juice_up(0.3, 0.5)
 						return true
 					end

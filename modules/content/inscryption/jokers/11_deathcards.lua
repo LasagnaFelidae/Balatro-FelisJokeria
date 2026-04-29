@@ -676,7 +676,7 @@ loc_vars = function(self, info_queue, card)
 	local l_deathcard_redeem = G.GAME.crv_deathcard_allowed and 2 or 0
 	if G.jokers then
 		for _, j in ipairs(G.jokers.cards) do
-			if j ~= card and j.config.center.pools and j.config.center.pools['Deathcard'] then
+			if j ~= card and j.config.center.pools and j.config.center.pools['Beast'] and j.config.center.pools['Inscryption'] then
 				l_count = l_count + 1
 			end
 		end
@@ -688,7 +688,7 @@ calculate = function(self, card, context)
 		local count = 0
 		local deathcard_redeem = G.GAME.crv_deathcard_allowed and 2 or 0
 		for _, j in ipairs(G.jokers.cards) do
-			if j ~= card and j.config.center.pools and j.config.center.pools['Deathcard'] then
+			if j ~= card and j.config.center.pools and j.config.center.pools['Beast'] and j.config.center.pools['Inscryption'] then
 				count = count + 1
 			end
 		end
