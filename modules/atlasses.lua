@@ -72,6 +72,25 @@ SMODS.Atlas {
 }
 
 SMODS.Atlas {
+    key = "t2Planets",
+    path = "tiered/t2planets.png",
+    px = 71,
+    py = 95
+}
+SMODS.Atlas {
+    key = "t3Planets",
+    path = "tiered/t3planets.png",
+    px = 71,
+    py = 95
+}
+SMODS.Atlas {
+    key = "t4Planets",
+    path = "tiered/t4planets.png",
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas {
     key = "aikoJokers",
     path = "crossmod/aikoshen/jokers.png",
     px = 71,
@@ -102,6 +121,12 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = "synthbJokers",
     path = "crossmod/synthb/jokers.png",
+    px = 71,
+    py = 95
+}
+SMODS.Atlas {
+    key = "felijo_synthbAlbums",
+    path = "crossmod/synthb/albums.png",
     px = 71,
     py = 95
 }

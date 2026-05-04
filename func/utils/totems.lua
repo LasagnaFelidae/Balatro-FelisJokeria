@@ -106,7 +106,7 @@ Apply totem sigils to jokers based on tribe and card pools.
 
 Valid tribes:
   "Avian", "Canine", "Feline", "Hooved", "Insect", "Reptile", "Vermin",
-  "Object", "Other", "Human"
+  "Object", "Other", "Human", "Banana", "Printer", "All"
 
 Parameters:
   totem_body (table): required totem body card containing ability.totem_sigil.
@@ -114,93 +114,128 @@ Parameters:
 ]]--
 FELIJO.applyTotemSigils = function(totem_body, tribe)
     totem_body = totem_body or FELIJO.active_totem
-    tribe = tribe or FELIJO.active_totem.ability.totem_tribe
-    if not totem_body then return end
-    if not totem_body.ability.totem_sigil then return end
-    if not G.jokers or not G.jokers.cards then return end
-
-    local sigil_key = totem_body.ability.totem_sigil
-	local applied = false
-    for _, card in ipairs(G.jokers.cards) do
-        if card.ability and card.config and card.config.center and not card.ability.sigil_key then
-            if FELIJO.is_mod_loaded("RevosVault") then
-                if card.config.center.pools and card.config.center.pools["BananaPool"] and tribe == "Banana" then
-                    card:add_sticker(sigil_key, true)
-                    applied = true
-                elseif tribe == "Printer" and card.config.center.rarity == "crv_p" then
-                    card:add_sticker(sigil_key, true)
-                    applied = true
-                end
-            end
-            if JoyousSpring and JoyousSpring.is_monster_card(card) then
-                if card.ability.extra.joyous_spring.is_all_types then
-                    card:add_sticker(sigil_key, true)
-                    applied = true
-                elseif FELIJO.JoyousTribes and FELIJO.JoyousTribes[tribe] then
-                    if FELIJO.JoyousTribes[tribe][card.ability.extra.joyous_spring.monster_type] then
-                        card:add_sticker(sigil_key, true)
-                        applied = true
-                    end
-                end
-            end
-            if card.config.center.pools and card.config.center.pools[tribe] then
-                card:add_sticker(sigil_key, true)
-                applied = true
-            elseif FELIJO.PoolTribes[tribe] then
-                for _, _p in ipairs(FELIJO.PoolTribes[tribe]) do
-                    if card.config.center.pools and card.config.center.pools[_p] then
-                        card:add_sticker(sigil_key, true)
-                        applied = true
-                        break
-                    end
-                end
-            end
-        end
+    tribe = tribe or (totem_body and totem_body.ability.totem_tribe)
+    
+    if not totem_body or not tribe or not totem_body.ability.totem_sigil then
+        return
     end
-	if applied then
-        play_sound("felijo_totem_activate",1)
-    end
-end
-
-FELIJO.getCardTribe = function(card)
-    if not card or not card.config or not card.config.center or not card.config.center.pools then
+    if not G.jokers or not G.jokers.cards then
         return
     end
 
-    local pools = card.config.center.pools
+    local sigil_key = totem_body.ability.totem_sigil
+    local applied = false
 
-
-    if JoyousSpring and JoyousSpring.is_monster_card(card) then
-        local js = card.ability.extra.joyous_spring
-
-        if js.is_all_types then
-            return "Other"
+    for _, card in ipairs(G.jokers.cards) do
+        if card.ability and card.ability.sigil_key then
+            goto continue
         end
 
-        if FELIJO.JoyousTribes then
+        local tribes = FELIJO.getCardTribe(card)
+
+        if tribes and type(tribes) ~= "table" then
+            tribes = {tribes}
+        elseif not tribes then
+            return
+        end
+
+        local flag = false
+
+        for _, t in ipairs(tribes) do
+            if t == tribe or t == "All" then
+                flag = true
+                break
+            end
+        end
+
+        if flag then
+            card:add_sticker(sigil_key, true)
+            applied = true
+        end
+
+        ::continue::
+    end
+
+    if applied then
+        play_sound("felijo_totem_activate", 1)
+    end
+end
+
+--[[
+Grab tribe keys for a card.
+
+Valid tribes:
+  "Avian", "Canine", "Feline", "Hooved", "Insect", "Reptile", "Vermin",
+  "Object", "Other", "Human", "Banana", "Printer", "All"
+
+Parameters:
+  card: required card to check for tribe keys. Should have config.center
+
+Returns:
+    table: list of tribe keys that apply to the card, or {"Other"} if none found.
+]]--
+FELIJO.getCardTribe = function(card)
+    if not card or not card.config or not card.config.center then
+        return nil
+    end
+
+    local tribes = {}
+
+    -- Menthol XMOD
+    if card.ability and card.ability.minty_cat_ears then
+        table.insert(tribes, "Feline")
+    end
+
+    -- Revo XMOD
+    if FELIJO.is_mod_loaded("RevosVault") then
+        if card.config.center.pools and card.config.center.pools["BananaPool"] then
+            table.insert(tribes, "Banana")
+        end
+        if card.config.center.rarity == "crv_p" then
+            table.insert(tribes, "Printer")
+        end
+    end
+
+    -- JoyousSpring XMOD
+    if JoyousSpring and JoyousSpring.is_monster_card(card) then
+        local js = card.ability.extra.joyous_spring
+        if js.is_all_types then
+            table.insert(tribes, "All")
+        elseif FELIJO.JoyousTribes then
             for tribe_name, type_table in pairs(FELIJO.JoyousTribes) do
                 if type_table[js.monster_type] then
-                    return tribe_name
+                    table.insert(tribes, tribe_name)
                 end
             end
         end
     end
 
-    if FELIJO.PoolTribes then
+    -- XMOD Pool Aliases
+    local pools = card.config.center.pools
+    if pools and FELIJO.PoolTribes then
         for tribe_name, pool_list in pairs(FELIJO.PoolTribes) do
             for _, pool_name in ipairs(pool_list) do
                 if pools[pool_name] then
-                    return tribe_name
+                    table.insert(tribes, tribe_name)
+                    break  
                 end
             end
         end
     end
 
-    for tribe_name, _ in pairs(FELIJO.PoolTribes or {}) do
-        if pools[tribe_name] then
-            return tribe_name
+    -- Base Felijo Tribes
+    if pools then
+        for tribe_name, _ in pairs(FELIJO.PoolTribes or {}) do
+            if pools[tribe_name] then
+                table.insert(tribes, tribe_name)
+            end
         end
     end
 
-    return "Other"
+    -- Default to "Other" if no tribes found
+    if #tribes == 0 then
+        table.insert(tribes, "Other")
+    end
+
+    return tribes
 end

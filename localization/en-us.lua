@@ -335,10 +335,10 @@ return {
 		},
 		
         Joker = {
-			j_felijo_lgd_jokerpp = {
-                name = "Joker++",
+			j_felijo_joker = {
+                name = "Feli's Placeholderia",
                 text = {
-                    "{C:red}+#1#{} Mult?",
+                    "{C:red}+#1#{} Mult",
                 },
             },
 			j_felijo_lgd_jokerpp_a = {
@@ -874,6 +874,337 @@ return {
 				},
 			},
 		},
+
+		felijo_tier2_planet = {
+            c_felijo_tier2_pluto = {
+                name = "Pluto [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+            c_felijo_tier2_mercury = {
+                name = "Mercury [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier2_uranus = {
+                name = "Uranus [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier2_venus = {
+                name = "Venus [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier2_saturn = {
+                name = "Saturn [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier2_jupiter = {
+                name = "Jupiter [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier2_earth = {
+                name = "Earth [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier2_mars = {
+                name = "Mars [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier2_neptune = {
+                name = "Neptune [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier2_planetx = {
+                name = "Planet X [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier2_eris = {
+                name = "Eris [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier2_ceres = {
+                name = "Ceres [II]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+        },
+		felijo_tier3_planet = {
+			c_felijo_tier3_pluto = {
+                name = "Pluto [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+            c_felijo_tier3_mercury = {
+                name = "Mercury [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier3_uranus = {
+                name = "Uranus [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier3_venus = {
+                name = "Venus [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier3_saturn = {
+                name = "Saturn [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier3_jupiter = {
+                name = "Jupiter [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier3_earth = {
+                name = "Earth [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier3_mars = {
+                name = "Mars [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier3_neptune = {
+                name = "Neptune [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier3_planetx = {
+                name = "Planet X [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier3_eris = {
+                name = "Eris [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier3_ceres = {
+                name = "Ceres [III]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+        },
+		felijo_tier4_planet = {
+            c_felijo_tier4_pluto = {
+                name = "Pluto [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+            c_felijo_tier4_mercury = {
+                name = "Mercury [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier4_uranus = {
+                name = "Uranus [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier4_venus = {
+                name = "Venus [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier4_saturn = {
+                name = "Saturn [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier4_jupiter = {
+                name = "Jupiter [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier4_earth = {
+                name = "Earth [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier4_mars = {
+                name = "Mars [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier4_neptune = {
+                name = "Neptune [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier4_planetx = {
+                name = "Planet X [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier4_eris = {
+                name = "Eris [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+			c_felijo_tier4_ceres = {
+                name = "Ceres [IV]",
+                text = {
+                    "({V:1}lvl.#1#{}/{V:2}#2#{}) Level up",
+                    "{C:attention}#3#",
+                    "{C:mult}+#4#{}/{C:mult}#6#{} Mult and",
+                    "{C:chips}+#5#{}/{C:chips}#7#{} Chips",
+                },
+            },
+        },
 		
 
         --Partner = {
@@ -946,9 +1277,15 @@ return {
 			b_felijo_tier2_tarot_cards = "Tarot Cards [II]",
 			b_felijo_tier3_tarot_cards = "Tarot Cards [III]",
 			b_felijo_tier4_tarot_cards = "Tarot Cards [IV]",
+			b_felijo_tier2_planet_cards = "Planet Cards [II]",
+			b_felijo_tier3_planet_cards = "Planet Cards [III]",
+			b_felijo_tier4_planet_cards = "Planet Cards [IV]",
 			k_felijo_tier2_tarot = "Tier 2 Tarot",
 			k_felijo_tier3_tarot = "Tier 3 Tarot",
 			k_felijo_tier4_tarot = "Tier 4 Tarot",
+			k_felijo_tier2_planet = "Tier 2 Planet",
+			k_felijo_tier3_planet = "Tier 3 Planet",
+			k_felijo_tier4_planet = "Tier 4 Planet",
 			---
 			k_felijo_combine_button = "COMBINE",
 			k_felijo_separate_button = "SEPARATE",
@@ -958,6 +1295,58 @@ return {
 			k_felijo_ttm_box = "Totem Box",
 			felijo_toggle_to_totems = "Show Totems",
 			felijo_toggle_to_jokers = "Show Jokers",
+			--------------
+			---PKR HANDS--
+			--------------
+
+			k_felijo_pair_t2_below = "Pair / Pair [II]",
+			k_felijo_pair_t3_below = "Pair / Pair [II - III]",
+			k_felijo_pair_t4_below = "Pair / Pair [II - IV]",
+
+			k_felijo_3oak_t2_below = "Three of a Kind / Three of a Kind [II]",
+			k_felijo_3oak_t3_below = "Three of a Kind / Three of a Kind [II - III]",
+			k_felijo_3oak_t4_below = "Three of a Kind / Three of a Kind [II - IV]",
+
+			k_felijo_house_t2_below = "Full House / Full House [II]",
+			k_felijo_house_t3_below = "Full House / Full House [II - III]",
+			k_felijo_house_t4_below = "Full House / Full House [II - IV]",
+
+			k_felijo_4oak_t2_below = "Four of a Kind / Four of a Kind [II]",
+			k_felijo_4oak_t3_below = "Four of a Kind / Four of a Kind [II - III]",
+			k_felijo_4oak_t4_below = "Four of a Kind / Four of a Kind [II - IV]",
+
+			k_felijo_flush_t2_below = "Flush / Flush [II]",
+			k_felijo_flush_t3_below = "Flush / Flush [II - III]",
+			k_felijo_flush_t4_below = "Flush / Flush [II - IV]",
+
+			k_felijo_straight_t2_below = "Straight / Straight [II]",
+			k_felijo_straight_t3_below = "Straight / Straight [II - III]",
+			k_felijo_straight_t4_below = "Straight / Straight [II - IV]",
+
+			k_felijo_two_pair_t2_below = "Two Pair / Two Pair [II]",
+			k_felijo_two_pair_t3_below = "Two Pair / Two Pair [II - III]",
+			k_felijo_two_pair_t4_below = "Two Pair / Two Pair [II - IV]",
+
+			k_felijo_straight_flush_t2_below = "Straight Flush / Straight Flush [II]",
+			k_felijo_straight_flush_t3_below = "Straight Flush / Straight Flush [II - III]",
+			k_felijo_straight_flush_t4_below = "Straight Flush / Straight Flush [II - IV]",
+
+			k_felijo_highcard_t2_below = "High Card / High Card [II]",
+			k_felijo_highcard_t3_below = "High Card / High Card [II - III]",
+			k_felijo_highcard_t4_below = "High Card / High Card [II - IV]",
+
+			k_felijo_5oak_t2_below = "Five of a Kind / Five of a Kind [II]",
+			k_felijo_5oak_t3_below = "Five of a Kind / Five of a Kind [II - III]",
+			k_felijo_5oak_t4_below = "Five of a Kind / Five of a Kind [II - IV]",
+
+			k_felijo_flushhouse_t2_below = "Flush House / Flush House [II]",
+			k_felijo_flushhouse_t3_below = "Flush House / Flush House [II - III]",
+			k_felijo_flushhouse_t4_below = "Flush House / Flush House [II - IV]",
+
+			k_felijo_flushfive_t2_below = "Flush Five / Flush Five [II]",
+			k_felijo_flushfive_t3_below = "Flush Five / Flush Five [II - III]",
+			k_felijo_flushfive_t4_below = "Flush Five / Flush Five [II - IV]",
+
 			
 		},
 		labels = {
@@ -1000,6 +1389,237 @@ return {
 			felijo_tier2_tarot = "Tier 2 Tarot",
 			felijo_tier3_tarot = "Tier 3 Tarot",
 			felijo_tier4_tarot = "Tier 4 Tarot",
+			felijo_tier2_planet = "Tier 2 Planet",
+			felijo_tier3_planet = "Tier 3 Planet",
+			felijo_tier4_planet = "Tier 4 Planet",
+			
 		},
+		poker_hand_descriptions = {
+			["felijo_tier2_highcard"] = {
+                "If the played hand is not any of the above",
+                "hands, only the highest ranked card with",
+				"a Tier 2 enhancement scores",
+            },
+            ["felijo_tier2_5oak"] = {
+                "5 cards with the same rank",
+				"and having Tier 2 enhancements",
+            },
+            ["felijo_tier2_flush"] = {
+                "5 cards that share the same suit",
+				"and having Tier 2 enhancements",
+            },
+            ["felijo_tier2_flushfive"] = {
+                "5 cards with the same rank and suit",
+				"and having Tier 2 enhancements",
+            },
+            ["felijo_tier2_flushhouse"] = {
+                "A Three of a Kind and a Pair with",
+                "all cards sharing the same suit",
+				"and having Tier 2 enhancements",
+            },
+            ["felijo_tier2_4oak"] = {
+                "4 cards with the same rank. They may",
+                "be played with 1 other unscored card",
+				"and having Tier 2 enhancements",
+            },
+            ["felijo_tier2_house"] = {
+                "A Three of a Kind and a Pair",
+                "having Tier 2 enhancements",
+            },
+            ["felijo_tier2_pair"] = {
+                "2 cards that share the same rank. They may",
+                "be played with up to 3 other unscored cards",
+				"and having Tier 2 enhancements",
+            },
+            ["felijo_tier2_royal"] = {
+                "5 cards in a row (consecutive ranks) with",
+                "all cards sharing the same suit",
+				"and having Tier 2 enhancements",
+            },
+            ["felijo_tier2_straight"] = {
+                "5 cards in a row (consecutive ranks)",
+				"with Tier 2 enhancements",
+            },
+            ["felijo_tier2_straight_flush"] = {
+                "5 cards in a row (consecutive ranks) with",
+                "all cards sharing the same suit",
+				"and having Tier 2 enhancements",
+            },
+            ["felijo_tier2_3oak"] = {
+                "3 cards with the same rank. They may be",
+                "played with up to 2 other unscored cards",
+				"and having Tier 2 enhancements",
+            },
+            ["felijo_tier2_two_pair"] = {
+                "2 pairs of cards with different ranks, may",
+                "be played with 1 other unscored card",
+				"and having Tier 2 enhancements",
+            },
+			["felijo_tier3_highcard"] = {
+                "If the played hand is not any of the above",
+                "hands, only the highest ranked card with",
+				"a Tier 3 enhancement scores",
+            },
+			["felijo_tier3_5oak"] = {
+                "5 cards with the same rank",
+				"and having Tier 3 enhancements",
+            },
+            ["felijo_tier3_flush"] = {
+                "5 cards that share the same suit",
+				"and having Tier 3 enhancements",
+            },
+            ["felijo_tier3_flushfive"] = {
+                "5 cards with the same rank and suit",
+				"and having Tier 3 enhancements",
+            },
+            ["felijo_tier3_flushhouse"] = {
+                "A Three of a Kind and a Pair with",
+                "all cards sharing the same suit",
+				"and having Tier 3 enhancements",
+            },
+            ["felijo_tier3_4oak"] = {
+                "4 cards with the same rank. They may",
+                "be played with 1 other unscored card",
+				"and having Tier 3 enhancements",
+            },
+            ["felijo_tier3_house"] = {
+                "A Three of a Kind and a Pair",
+                "having Tier 3 enhancements",
+            },
+            ["felijo_tier3_pair"] = {
+                "2 cards that share the same rank. They may",
+                "be played with up to 3 other unscored cards",
+				"and having Tier 3 enhancements",
+            },
+            ["felijo_tier3_royal"] = {
+                "5 cards in a row (consecutive ranks) with",
+                "all cards sharing the same suit",
+				"and having Tier 3 enhancements",
+            },
+            ["felijo_tier3_straight"] = {
+                "5 cards in a row (consecutive ranks)",
+				"with Tier 3 enhancements",
+            },
+            ["felijo_tier3_straight_flush"] = {
+                "5 cards in a row (consecutive ranks) with",
+                "all cards sharing the same suit",
+				"and having Tier 3 enhancements",
+            },
+            ["felijo_tier3_3oak"] = {
+                "3 cards with the same rank. They may be",
+                "played with up to 2 other unscored cards",
+				"and having Tier 3 enhancements",
+            },
+            ["felijo_tier3_two_pair"] = {
+                "2 pairs of cards with different ranks, may",
+                "be played with 1 other unscored card",
+				"and having Tier 3 enhancements",
+            },
+
+			["felijo_tier4_highcard"] = {
+                "If the played hand is not any of the above",
+                "hands, only the highest ranked card with",
+				"a Tier 4 enhancement scores",
+            },
+
+			["felijo_tier4_5oak"] = {
+                "5 cards with the same rank",
+				"and having Tier 4 enhancements",
+            },
+            ["felijo_tier4_flush"] = {
+                "5 cards that share the same suit",
+				"and having Tier 4 enhancements",
+            },
+            ["felijo_tier4_flushfive"] = {
+                "5 cards with the same rank and suit",
+				"and having Tier 4 enhancements",
+            },
+            ["felijo_tier4_flushhouse"] = {
+                "A Three of a Kind and a Pair with",
+                "all cards sharing the same suit",
+				"and having Tier 4 enhancements",
+            },
+            ["felijo_tier4_4oak"] = {
+                "4 cards with the same rank. They may",
+                "be played with 1 other unscored card",
+				"and having Tier 4 enhancements",
+            },
+            ["felijo_tier4_house"] = {
+                "A Three of a Kind and a Pair",
+                "having Tier 4 enhancements",
+            },
+            ["felijo_tier4_pair"] = {
+                "2 cards that share the same rank. They may",
+                "be played with up to 3 other unscored cards",
+				"and having Tier 4 enhancements",
+            },
+            ["felijo_tier4_royal"] = {
+                "5 cards in a row (consecutive ranks) with",
+                "all cards sharing the same suit",
+				"and having Tier 4 enhancements",
+            },
+            ["felijo_tier4_straight"] = {
+                "5 cards in a row (consecutive ranks)",
+				"with Tier 4 enhancements",
+            },
+            ["felijo_tier4_straight_flush"] = {
+                "5 cards in a row (consecutive ranks) with",
+                "all cards sharing the same suit",
+				"and having Tier 4 enhancements",
+            },
+            ["felijo_tier4_3oak"] = {
+                "3 cards with the same rank. They may be",
+                "played with up to 2 other unscored cards",
+				"and having Tier 4 enhancements",
+            },
+            ["felijo_tier4_two_pair"] = {
+                "2 pairs of cards with different ranks, may",
+                "be played with 1 other unscored card",
+				"and having Tier 4 enhancements",
+            },
+        },
+        poker_hands = {
+			["felijo_tier2_highcard"] = "High Card [II]",
+            ["felijo_tier2_5oak"] = "Five of a Kind [II]",
+            ["felijo_tier2_flush"] = "Flush [II]",
+            ["felijo_tier2_flushfive"] = "Flush Five [II]",
+            ["felijo_tier2_flushhouse"] = "Flush House [II]",
+            ["felijo_tier2_4oak"] = "Four of a Kind [II]",
+            ["felijo_tier2_house"] = "Full House [II]",
+            ["felijo_tier2_pair"] = "Pair [II]",
+            ["felijo_tier2_royal"] = "Royal Flush [II]",
+            ["felijo_tier2_straight"] = "Straight [II]",
+            ["felijo_tier2_straight_flush"] = "Straight Flush [II]",
+            ["felijo_tier2_3oak"] = "Three of a Kind [II]",
+            ["felijo_tier2_two_pair"] = "Two Pair [II]",
+
+			["felijo_tier3_highcard"] = "High Card [III]",
+			["felijo_tier3_5oak"] = "Five of a Kind [III]",
+            ["felijo_tier3_flush"] = "Flush [III]",
+            ["felijo_tier3_flushfive"] = "Flush Five [III]",
+            ["felijo_tier3_flushhouse"] = "Flush House [III]",
+            ["felijo_tier3_4oak"] = "Four of a Kind [III]",
+            ["felijo_tier3_house"] = "Full House [III]",
+            ["felijo_tier3_pair"] = "Pair [III]",
+            ["felijo_tier3_royal"] = "Royal Flush [III]",
+            ["felijo_tier3_straight"] = "Straight [III]",
+            ["felijo_tier3_straight_flush"] = "Straight Flush [III]",
+            ["felijo_tier3_3oak"] = "Three of a Kind [III]",
+            ["felijo_tier3_two_pair"] = "Two Pair [III]",
+
+			["felijo_tier4_highcard"] = "High Card [IV]",
+			["felijo_tier4_5oak"] = "Five of a Kind [IV]",
+            ["felijo_tier4_flush"] = "Flush [IV]",
+            ["felijo_tier4_flushfive"] = "Flush Five [IV]",
+            ["felijo_tier4_flushhouse"] = "Flush House [IV]",
+            ["felijo_tier4_4oak"] = "Four of a Kind [IV]",
+            ["felijo_tier4_house"] = "Full House [IV]",
+            ["felijo_tier4_pair"] = "Pair [IV]",
+            ["felijo_tier4_royal"] = "Royal Flush [IV]",
+            ["felijo_tier4_straight"] = "Straight [IV]",
+            ["felijo_tier4_straight_flush"] = "Straight Flush [IV]",
+            ["felijo_tier4_3oak"] = "Three of a Kind [IV]",
+            ["felijo_tier4_two_pair"] = "Two Pair [IV]",
+        },
     },
 }
