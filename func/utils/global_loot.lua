@@ -76,6 +76,71 @@ FELIJO.trapperTable = {
 	{key = "m_felijo_trn_goldn",   		weight = 0.000, 	modifier=0.000  ,price = 3}
 }
 
+FELIJO.enhancement_tiers = {
+	{key = "m_bonus", tier = 1},
+	{key = "m_felijo_bonus_t2", tier = 2},
+	{key = "m_felijo_bonus_t3", tier = 3},
+    {key = "m_felijo_bonus_t4", tier = 4},
+
+    {key = "m_crv_tier1card", tier = 2},
+    {key = "m_crv_tier2card", tier = 3},
+    {key = "m_crv_tier3card", tier = 4},
+
+	{key = "m_mult", tier = 1},
+	{key = "m_felijo_mult_t2", tier = 2},
+	{key = "m_felijo_mult_t3", tier = 3},
+    {key = "m_felijo_mult_t4", tier = 4},
+    
+    {key = "m_crv_xmultcard", tier = 2},
+
+	{key = "m_lucky", tier = 1},
+	{key = "m_felijo_lucky_t2", tier = 2},
+	{key = "m_felijo_lucky_t3", tier = 3},
+    {key = "m_felijo_lucky_t4", tier = 4},
+
+    {key = "m_crv_blessedcard", tier = 2},
+
+	{key = "m_glass", tier = 1},
+	{key = "m_felijo_glass_t2", tier = 2},
+	{key = "m_felijo_glass_t3", tier = 3},
+    {key = "m_felijo_glass_t4", tier = 4},
+
+    {key = "m_crv_bulletproofcard", tier = 2},
+    {key = "m_crv_mega", tier = 3},
+
+	{key = "m_steel", tier = 1},
+	{key = "m_felijo_steel_t2", tier = 2},
+	{key = "m_felijo_steel_t3", tier = 3},
+    {key = "m_felijo_steel_t4", tier = 4},
+
+    {key = "m_crv_diamondcard", tier = 2},
+
+
+
+	{key = "m_stone", tier = 1},
+	{key = "m_felijo_stone_t2", tier = 2},
+	{key = "m_felijo_stone_t3", tier = 3},
+    {key = "m_felijo_stone_t4", tier = 4},
+
+
+	{key = "m_gold", tier = 1},
+	{key = "m_felijo_gold_t2", tier = 2},
+	{key = "m_felijo_gold_t3", tier = 3},
+    {key = "m_felijo_gold_t4", tier = 4},
+
+    {key = "m_crv_rhodium", tier = 2},
+
+
+	{key = "m_crv_superiore", tier = 1},
+	{key = "m_felijo_enh_sup", tier = 1},
+	{key = "m_felijo_enh_sup_t2", tier = 2},
+	{key = "m_felijo_enh_sup_t3", tier = 3},
+    {key = "m_felijo_enh_sup_t4", tier = 4},
+
+
+
+}
+
 FELIJO.upgradablelist = {
 	"m_bonus",
 	"m_felijo_bonus_t2",
@@ -126,10 +191,13 @@ FELIJO.PoolTribes = {
     Canine = { "Dog", "Puppy" , },
     Avian  = { "Birb", "Bird" , },
     Human  = { "Anime", "Vocaloid" , "VTuber" , },
-    Other  = { "Food", "Video Game" , "Minecraft" , },
-    Object = { "Meme" , },
+    Other  = { "Meme", "Video Game" , "Minecraft" , },
+    Object = { "Food",  },
     Insect = { "Bug" , },
     Hooved = { "Pony", "Horse" ,},
+    All = { "Amalgam"},
+    Reptile = {"Dragon"},
+    Vermin = {"Squirrel"},
 }
 
 FELIJO.tribe_table = {

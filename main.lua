@@ -69,6 +69,8 @@ assert(SMODS.load_file("./modules/content/legendaries.lua"))()
 assert(SMODS.load_file("./modules/content/stockmarket.lua"))()
 assert(SMODS.load_file("./modules/content/jokers.lua"))()
 assert(SMODS.load_file("./modules/content/stickers.lua"))()
+assert(SMODS.load_file("./modules/content/hands.lua"))()
+assert(SMODS.load_file("./modules/content/planet.lua"))()
 assert(SMODS.load_file("./modules/content/tarots.lua"))()
 ----------------------------
 --┏━╸┏━┓┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳┓--

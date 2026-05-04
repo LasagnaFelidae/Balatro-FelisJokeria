@@ -101,12 +101,16 @@ function FELIJO.createTail(card)
     if copied_joker.ability.invis_rounds then copied_joker.ability.invis_rounds = 0 end
     if type(copied_joker.ability.extra) == "table" and copied_joker.ability.extra.invis_rounds then copied_joker.ability.extra.invis_rounds = 0 end
 
-    local tribe = FELIJO.getCardTribe(card)
+    local tribes = FELIJO.getCardTribe(card)
+	local tribe = type(tribes) == "table" and tribes[1] or "Other"
 
     local pools = card and card.config and card.config.center and card.config.center.pools
     if pools and pools["Tentacle"] then
         tribe = "Tentacle"
     end
+	if card and card.ability and card.ability.minty_cat_ears then
+		tribe = "Feline"
+	end
 
 	local tailtable = {
 		{key = "Avian",		x=3,  	akey = "_avi"},
@@ -118,8 +122,11 @@ function FELIJO.createTail(card)
 		{key = "Vermin",	x=1,	akey = "_fur"},
 		{key = "Object",	x=7,	akey = "_obj"},
 		{key = "Other", 	x=0,	akey = nil},
+		{key = "All", 		x=0,	akey = nil},
 		{key = "Human", 	x=2,	akey = "_hum"},
-		{key = "Tentacle", 	x=4,	akey = "_ten"}
+		{key = "Tentacle", 	x=4,	akey = "_ten"},
+		{key = "Banana", 	x=0,	akey = nil}, --Temporary :)
+		{key = "Printer", 	x=0,	akey = nil},
 	}
 	local tail_x = 0
 	local keyapp = nil
@@ -392,3 +399,19 @@ FELIJO.is_in_cardarea = function(card, area)
 end
 
 
+--[[
+Get the current card tier
+
+Returns:
+  return card tier
+]]--
+FELIJO.get_card_tier = function(card)
+	if not (card and card.base and card.base.name) then return nil end
+	for _, enh in ipairs(FELIJO.enhancement_tiers) do
+		if card.config.center.key == enh.key then
+			return enh.tier
+		end
+	end
+	if not next(SMODS.get_enhancements(card)) then return 0 end
+	return 1
+end
