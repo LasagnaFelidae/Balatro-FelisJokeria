@@ -58,3 +58,13 @@ SMODS.Joker {
         end
     end
 }
+
+if SynthB and SynthB.inject_song_data then
+	SynthB.inject_song_data{
+			link = "https://www.youtube.com/watch?v=4Z1_44GUBq4",
+			key = "yokatsu",
+			prefix = "j_felijo_synthb_",
+			atlas = "felijo_synthbAlbums",
+			pos = {x = 0, y = 0},
+	}
+end
