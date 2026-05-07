@@ -3,11 +3,15 @@ SMODS.Joker {
     blueprint_compat = true,
     rarity = 3,
     cost = 8,
+	attributes = {"song", "vocaloid song", "generation", "chance", "GUMI", "otetsu"},
+	synthb_song = true,
+	synthb_count = 0,
+	synthb_timer = 0,
     atlas = "synthbJokers",
     pos = { x = 0, y = 0 },
     config = { extra = { copy = 1, max_copies = 3} },
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = {set = "SongInfo", key = "synthb_yokatsu", type="descriptions"}
+        info_queue[#info_queue+1] = {set = "SongInfo", key = "yokatsu", type="descriptions"}
         
         return { vars = { math.floor(card.ability.extra.copy), math.floor(card.ability.extra.max_copies) } }
     end,

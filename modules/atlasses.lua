@@ -127,8 +127,8 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = "felijo_synthbAlbums",
     path = "crossmod/synthb/albums.png",
-    px = 71,
-    py = 95
+    px = 301,
+    py = 301
 }
 
 --[[

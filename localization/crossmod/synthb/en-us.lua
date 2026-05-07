@@ -15,7 +15,7 @@ local descriptions ={
 			},
         },
         SongInfo = {
-            synthb_yokatsu = {
+            yokatsu = {
                 text = {
                     "{C:attention}Title:",
                     "{f:5}抑圧錯乱ガール",
