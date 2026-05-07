@@ -1,7 +1,7 @@
 local descriptions ={
     descriptions = {
         Joker={
-            j_felijo_synthb_yokatsu = {
+            j_felijo_synthb_yokuatsu = {
 				name = {"{f:5}抑圧錯乱ガール", "{s:0.7}Disordered Self-restraint Girl"},
 				text = {
 					"If {C:attention}first hand{} of round",
@@ -15,7 +15,7 @@ local descriptions ={
 			},
         },
         SongInfo = {
-            yokatsu = {
+            yokuatsu = {
                 text = {
                     "{C:attention}Title:",
                     "{f:5}抑圧錯乱ガール",

@@ -1,17 +1,17 @@
 SMODS.Joker {
-    key = "felijo_synthb_yokatsu",
+    key = "felijo_synthb_yokuatsu",
     blueprint_compat = true,
     rarity = 3,
     cost = 8,
 	attributes = {"song", "vocaloid song", "generation", "chance", "GUMI", "otetsu"},
-	synthb_song = true,
+	synthb_song = "synthb_yokuatsu",
 	synthb_count = 0,
 	synthb_timer = 0,
     atlas = "synthbJokers",
     pos = { x = 0, y = 0 },
     config = { extra = { copy = 1, max_copies = 3} },
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = {set = "SongInfo", key = "yokatsu", type="descriptions"}
+        SynthB.song_info(info_queue, "yokuatsu")
         
         return { vars = { math.floor(card.ability.extra.copy), math.floor(card.ability.extra.max_copies) } }
     end,
@@ -24,7 +24,7 @@ SMODS.Joker {
             juice_card_until(card, eval, true)
         end
         if context.before and G.GAME.current_round.hands_played == 0 and #context.full_hand == math.floor(card.ability.extra.copy) then
-            local roll = pseudorandom("j_felijo_synthb_yokatsu",0, math.floor(card.ability.extra.max_copies))
+            local roll = pseudorandom("j_felijo_synthb_yokuatsu",0, math.floor(card.ability.extra.max_copies))
             if roll > 0 then
                 for i = 1, roll do
                     G.E_MANAGER:add_event(Event({
@@ -66,8 +66,8 @@ SMODS.Joker {
 if SynthB and SynthB.inject_song_data then
 	SynthB.inject_song_data{
 			link = "https://www.youtube.com/watch?v=4Z1_44GUBq4",
-			key = "yokatsu",
-			prefix = "j_felijo_synthb_",
+			key = "synthb_yokuatsu",
+			prefix = "j_felijo_",
 			atlas = "felijo_synthbAlbums",
 			pos = {x = 0, y = 0},
 	}
