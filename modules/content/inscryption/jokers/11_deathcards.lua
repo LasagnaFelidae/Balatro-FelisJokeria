@@ -142,12 +142,12 @@ unlocked = true,
 discovered = false,
 rarity = 2,
 cost = 8,
-config = { extra = { xchips = 1, chips = 17, mult = 6} },
+config = { extra = { xchips = 1, chips = 17, mult = 6, increment = 0.1,} },
 set_badges = function(self, card, badges)
 	badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 end,
 loc_vars = function(self, info_queue, card)
-	return { vars = { card.ability.extra.xchips, card.ability.extra.chips ,card.ability.extra.mult, colours = { HEX('F0C590'), HEX('351A09')  } }}
+	return { vars = { card.ability.extra.xchips, card.ability.extra.chips , card.ability.extra.mult, card.ability.extra.increment*100, colours = { HEX('F0C590'), HEX('351A09')  } }}
 end,
 calculate = function(self, card, context)
 	if context.setting_blind and not context.blueprint then
@@ -165,7 +165,7 @@ calculate = function(self, card, context)
 			G.E_MANAGER:add_event(Event({
 				func = function()
 					G.GAME.joker_buffer = 0					
-					card.ability.extra.xchips = card.ability.extra.xchips + ( 0.1 * sliced_card.sell_cost )
+					card.ability.extra.xchips = card.ability.extra.xchips + ( card.ability.extra.increment * sliced_card.sell_cost )
 					card:juice_up(0.8, 0.8)
 					sliced_card:start_dissolve({ HEX("d8a768") }, nil, 1.6)
 					play_sound('slice1', 0.96 + math.random() * 0.08)
@@ -173,7 +173,7 @@ calculate = function(self, card, context)
 				end
 			}))
 			return {
-				message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.xchips + 0.1 * sliced_card.sell_cost } },
+				message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.xchips + card.ability.extra.increment * sliced_card.sell_cost } },
 				colour = G.C.BLUE,
 				no_juice = true
 			}
