@@ -37,66 +37,6 @@ local sigilKeys = {
 	"felijo_sgl_omnistrike",
 }
 
-local MAX_SIGILS = 3
-
-local function countSigils(card)
-    local count = 0
-    for _, key in ipairs(sigilKeys) do
-        if card.ability[key] then
-            count = count + 1
-        end
-    end
-    return count
-end
-
-local function canApplySigil(card, sigilKey)
-	if card.ability[sigilKey] then --check if sigil is there alrdy
-        return false
-    end
-	
-	if countSigils(card) >= MAX_SIGILS then --check if already 3 sigils
-        return false
-    end
-	-- print(countSigils(card))
-    for group_name, members in pairs(sigil_groups) do -- check for conflicting sigils
-		local in_group = false
-		for _, member in ipairs(members) do
-			if member == sigilKey then in_group = true; break end
-		end
-		if in_group then
-			for _, member in ipairs(members) do
-				if member ~= sigilKey and card.ability[member] then
-					return false
-				end
-			end
-		end
-	end
-	--if sigilKey == "sgl_fledgling" then  
-	
-
-    return true
-end
-
-local function updatePos(card, self, base_x, base_y)
-    if not card.self then
-        return
-    end
-
-    shift_per_sigil = 4
-
-    local count = countSigils(card)
-
-    local new_x = base_x
-    local new_y = base_y
-
-    
-    new_x = base_x + ((count - 1) * shift_per_sigil)
-
-    card.self:set_sprite_pos({x = new_x, y = new_y})
-
-    card:juice_up(0.08, 0.02)
-
-end
 
 
 --[[ sets:
@@ -143,8 +83,11 @@ SMODS.Sticker{
 	needs_enable_flag = true,
 	discovered = true,
 	unlocked = true,
+	no_collection = true,
+	loc_vars = function(self, info_queue, card)
+        return { vars = {} }
+    end,
 	apply = function(self,card,val)
-		if canApplySigil(card, self.key) then
 			card.ability[self.key] = val
 
 
@@ -153,9 +96,7 @@ SMODS.Sticker{
 			end
 			if card.ability.perishable then 
 				card:remove_sticker('perishable') 
-			end
-		end
-		
+			end		
 	end,
 
 	calculate = function(self, card, context)
@@ -179,18 +120,17 @@ SMODS.Sticker{
 	badge_colour = HEX '009DFF',
 	atlas="sigils",
 	needs_enable_flag = false,
-	pos = { x=4 , y=1 },
+	pos = { x=4 , y=0 },
 	sets = {Default = true, Joker = false},
 	config = { extra = { retriggers = 1} },
 	discovered = true,
 	unlocked = true,
+	no_collection = true,
 	loc_vars = function(self, info_queue, card)
         return { vars = { self.config.extra.retriggers } }
     end,
 	apply = function(self, card, val)
-		if canApplySigil(card, self.key) then
-			card.ability[self.key] = val
-		end
+		card.ability[self.key] = val
     end,
 	calculate = function(self, card, context)
         if context.repetition then
@@ -206,18 +146,17 @@ SMODS.Sticker{
 	badge_colour = HEX '4BC292',
 	atlas="sigils",
 	needs_enable_flag = false,
-	pos = { x=5 , y=1 },
+	pos = { x=5 , y=0 },
 	sets = {Default = true, Joker = false},
 	config = { extra = { retriggers = 2} },
 	discovered = true,
 	unlocked = true,
+	no_collection = true,
 	loc_vars = function(self, info_queue, card)
         return { vars = { self.config.extra.retriggers } }
     end,
 	apply = function(self, card, val)
-        if canApplySigil(card, self.key) then
-			card.ability[self.key] = val
-		end
+		card.ability[self.key] = val
     end,
 	
 	calculate = function(self, card, context)
@@ -241,15 +180,14 @@ SMODS.Sticker{
 	config = { extra = {} },
 	discovered = true,
 	unlocked = true,
-	default_compt = true,
+	no_collection = true,
+	default_compat = true,
 	compat_exceptions = {"j_felijo_ins_tail", "j_felijo_ins_skink"},
 	loc_vars = function(self, info_queue, card)
         return { vars = { } }
     end,
 	apply = function(self, card, val)
-        if canApplySigil(card, self.key) then
-			card.ability[self.key] = val
-		end
+		card.ability[self.key] = val
     end,
 	
 	calculate = function(self, card, context)

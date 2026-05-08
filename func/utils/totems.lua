@@ -131,7 +131,7 @@ FELIJO.applyTotemSigils = function(totem_body, tribe)
             goto continue
         end
 
-        local tribes = FELIJO.getCardTribe(card)
+        local tribes = FELIJO.getCardTribes(card)
 
         if tribes and type(tribes) ~= "table" then
             tribes = {tribes}
@@ -174,7 +174,7 @@ Parameters:
 Returns:
     table: list of tribe keys that apply to the card, or {"Other"} if none found.
 ]]--
-FELIJO.getCardTribe = function(card)
+FELIJO.getCardTribes = function(card)
     if not card or not card.config or not card.config.center then
         return nil
     end
@@ -186,13 +186,20 @@ FELIJO.getCardTribe = function(card)
         table.insert(tribes, "Feline")
     end
 
+    if card:has_attribute("vocaloid song") then
+        table.insert(tribes, "Human")
+        table.insert(tribes, "Object")
+    end
+
     -- Revo XMOD
     if FELIJO.is_mod_loaded("RevosVault") then
         if card.config.center.pools and card.config.center.pools["BananaPool"] then
             table.insert(tribes, "Banana")
+            table.insert(tribes, "Food")
         end
         if card.config.center.rarity == "crv_p" then
             table.insert(tribes, "Printer")
+            table.insert(tribes, "Object")
         end
     end
 
