@@ -57,6 +57,22 @@ return {
 					"A useless piece of plastic.",
                 },
             },
+            j_felijo_ins_tail_ban = {
+                name = "{B:1,V:2,f:felijo_Feli5x8}Sliced Banana",
+                text = {
+					"{C:mult}+#1#{} Mult",
+					"A sliced banana,",
+                    "could still be edible.",
+                },
+            },
+            j_felijo_ins_tail_pri = {
+                name = "{B:1,V:2,f:felijo_Feli5x8}Broken Transistor",
+                text = {
+					"{C:mult}+#1#{} Mult",
+					"Are there even transistors",
+                    "in printers?",
+                },
+            },
 			
 
         }

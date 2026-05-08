@@ -10,7 +10,7 @@ return {
 					{
 					"When {C:attention}Blind{} is selected,",
 					"destroys the Joker to its left",
-					"and permanently add {C:attention}1{}% of its",
+					"and permanently add {C:attention}#4#{}% of its",
 					"sell value to this card's {X:chips,C:white}XChips",
 					},
 					{

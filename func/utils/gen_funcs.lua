@@ -101,7 +101,7 @@ function FELIJO.createTail(card)
     if copied_joker.ability.invis_rounds then copied_joker.ability.invis_rounds = 0 end
     if type(copied_joker.ability.extra) == "table" and copied_joker.ability.extra.invis_rounds then copied_joker.ability.extra.invis_rounds = 0 end
 
-    local tribes = FELIJO.getCardTribe(card)
+    local tribes = FELIJO.getCardTribes(card)
 	local tribe = type(tribes) == "table" and tribes[1] or "Other"
 
     local pools = card and card.config and card.config.center and card.config.center.pools
@@ -111,6 +111,13 @@ function FELIJO.createTail(card)
 	if card and card.ability and card.ability.minty_cat_ears then
 		tribe = "Feline"
 	end
+
+	if pools and pools["BananaPool"] then
+        tribe = "Banana"
+    end
+    if card and card.config and card.config.center.rarity == "crv_p" then
+        tribe = "Printer"
+    end
 
 	local tailtable = {
 		{key = "Avian",		x=3,  	akey = "_avi"},
@@ -125,8 +132,8 @@ function FELIJO.createTail(card)
 		{key = "All", 		x=0,	akey = nil},
 		{key = "Human", 	x=2,	akey = "_hum"},
 		{key = "Tentacle", 	x=4,	akey = "_ten"},
-		{key = "Banana", 	x=0,	akey = nil}, --Temporary :)
-		{key = "Printer", 	x=0,	akey = nil},
+		{key = "Banana", 	x=8,	akey = "_ban"},
+		{key = "Printer", 	x=9,	akey = "_pri"},
 	}
 	local tail_x = 0
 	local keyapp = nil
