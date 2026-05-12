@@ -192,100 +192,100 @@ end
 
 
 SMODS.Joker { -- Uncommon Lily
-atlas = 'insDeathcard',
-pos = { x = 4, y = 0},
-pools = {
-	["FelisJokeria"]=true, 
-	["Inscryption"] = true, 
-	["Beast"] = true,
-	["Feline"] = true, 
-	["Deathcard"] = true 
-},
-key = "felijo_ins_lilyfelli",
-pronouns = "she_her",
-unlocked = true,
-discovered = false,
-rarity = 2,
-cost = 7,
-attributes = {"chips", "mult", "retrigger"},
-config = { extra = {chips = 9, mult = 19, repetitions = 1, pronoun = "neutral"} },
-set_badges = function(self, card, badges)
-	badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
-end,
-loc_vars = function(self, info_queue, card)
-	if CardPronouns then		
-		if card.ability.extra.pronoun == "masculine" then
+	atlas = 'insDeathcard',
+	pos = { x = 4, y = 0},
+	pools = {
+		["FelisJokeria"]=true, 
+		["Inscryption"] = true, 
+		["Beast"] = true,
+		["Feline"] = true, 
+		["Deathcard"] = true 
+	},
+	key = "felijo_ins_lilyfelli",
+	pronouns = "she_her",
+	unlocked = true,
+	discovered = false,
+	rarity = 2,
+	cost = 7,
+	attributes = {"chips", "mult", "retrigger"},
+	config = { extra = {chips = 9, mult = 19, repetitions = 1, pronoun = "neutral"} },
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
+	end,
+	loc_vars = function(self, info_queue, card)
+		if CardPronouns then		
+			if card.ability.extra.pronoun == "masculine" then
+				return {
+					vars = { 
+						card.ability.extra.chips, 
+						card.ability.extra.mult, 
+						card.ability.extra.repetitions,
+						card.ability.extra.pronoun,
+						colours = { HEX('F0C590'), HEX('351A09'), HEX("61B5FA"),} 
+					} 
+				}
+			elseif card.ability.extra.pronoun == "feminine" then
+				return {
+					vars = {
+						card.ability.extra.chips, 
+						card.ability.extra.mult, 
+						card.ability.extra.repetitions,
+						card.ability.extra.pronoun,
+						colours = { HEX('F0C590'), HEX('351A09'), HEX("FF90FF"),} 
+					} 
+				}
+			else
+				return {
+					vars = {
+						
+						card.ability.extra.chips, 
+						card.ability.extra.mult, 
+						card.ability.extra.repetitions,
+						card.ability.extra.pronoun,
+						colours = { HEX('F0C590'), HEX('351A09'), HEX("5F5F5F"),} 
+					} 
+				}
+			end
+		else
 			return {
+				key = self.key .. "_nop", 
 				vars = { 
 					card.ability.extra.chips, 
 					card.ability.extra.mult, 
 					card.ability.extra.repetitions,
-					card.ability.extra.pronoun,
-					colours = { HEX('F0C590'), HEX('351A09'), HEX("61B5FA"),} 
-				} 
-			}
-		elseif card.ability.extra.pronoun == "feminine" then
-			return {
-				vars = {
-					card.ability.extra.chips, 
-					card.ability.extra.mult, 
-					card.ability.extra.repetitions,
-					card.ability.extra.pronoun,
-					colours = { HEX('F0C590'), HEX('351A09'), HEX("FF90FF"),} 
-				} 
-			}
-		else
-			return {
-				vars = {
-					
-					card.ability.extra.chips, 
-					card.ability.extra.mult, 
-					card.ability.extra.repetitions,
-					card.ability.extra.pronoun,
+					1, 3,
 					colours = { HEX('F0C590'), HEX('351A09'), HEX("5F5F5F"),} 
 				} 
 			}
 		end
-	else
-		return {
-			key = self.key .. "_nop", 
-			vars = { 
-				card.ability.extra.chips, 
-				card.ability.extra.mult, 
-				card.ability.extra.repetitions,
-				1, 3,
-				colours = { HEX('F0C590'), HEX('351A09'), HEX("5F5F5F"),} 
-			} 
-		}
-	end
-end,
-calculate = function(self, card, context)
-	if context.setting_blind then
-		local current = card.ability.extra.pronoun or "neutral"
-		card.ability.extra.pronoun = pseudorandom_element(PRONOUNS, "meowmeowmeowmeowmeowm30w")
-	end
-	
-	if context.cardarea == G.play
-	and context.repetition
-	and context.other_card then
-		if CardPronouns and type(CardPronouns.has) == "function" and CardPronouns.has(card.ability.extra.pronoun, context.other_card) then
+	end,
+	calculate = function(self, card, context)
+		if context.setting_blind then
+			local current = card.ability.extra.pronoun or "neutral"
+			card.ability.extra.pronoun = pseudorandom_element(PRONOUNS, "meowmeowmeowmeowmeowm30w")
+		end
+		
+		if context.cardarea == G.play
+		and context.repetition
+		and context.other_card then
+			if CardPronouns and type(CardPronouns.has) == "function" and CardPronouns.has(card.ability.extra.pronoun, context.other_card) then
+				return {
+					repetitions = card.ability.extra.repetitions,
+				}
+			elseif pseudorandom("meoooooowww", 1, 3) == 3 then
+				return {
+					repetitions = card.ability.extra.repetitions,
+				}
+			end
+		end
+		if context.joker_main then
 			return {
-				repetitions = card.ability.extra.repetitions,
-			}
-		elseif pseudorandom("meoooooowww", 1, 3) == 3 then
-			return {
-				repetitions = card.ability.extra.repetitions,
+				chips = card.ability.extra.chips,
+				mult = card.ability.extra.mult
 			}
 		end
-	end
-	if context.joker_main then
-		return {
-			chips = card.ability.extra.chips,
-			mult = card.ability.extra.mult
-		}
-	end
-end,
-blueprint_compat = true,
+	end,
+	blueprint_compat = true,
 }
 
 
@@ -383,6 +383,71 @@ calculate = function(self, card, context)
 end
 }
 
+SMODS.Joker { -- Uncommon Tatsu
+	atlas = 'insDeathcard',
+	pos = { x = 1, y = 1},
+	pools = {
+		["FelisJokeria"]=true, 
+		["Inscryption"] = true, 
+		["Beast"] = true,
+		["Feline"] = true, 
+		["Deathcard"] = true 
+	},
+	key = "felijo_ins_tatsu",
+	pronouns = "any_all",
+	unlocked = true,
+	discovered = false,
+	rarity = 2,
+	cost = 7,
+	attributes = {"mult","xmult","chance","enhancements","ace"},
+	config = { extra = {mult = 20, xmult = 3,} },
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
+	end,
+	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue+1] = {key = 'felijo_tiered', set = 'Other'}
+		info_queue[#info_queue+1] = G.P_CENTERS.m_wild
+		info_queue[#info_queue+1] = G.P_CENTERS.m_felijo_wild_t2
+		info_queue[#info_queue+1] = G.P_CENTERS.m_felijo_wild_t3
+		info_queue[#info_queue+1] = G.P_CENTERS.m_felijo_wild_t4
+		return { vars = { card.ability.extra.mult, card.ability.extra.xmult, colours = { HEX('F0C590'), HEX('351A09') } } }
+	end,
+	calculate = function(self, card, context)
+		if context.individual and context.cardarea == G.play and not context.blueprint then
+			if context.other_card and context.other_card:is_suit("Spades") then
+				local roll = pseudorandom(G.GAME.round_resets.ante.."garfieldsthanksgiving", 1, 3)
+				if roll == 1 then
+					SMODS.destroy_cards(context.other_card)
+					return {
+						xmult = card.ability.extra.xmult,
+					}
+				elseif roll == 2 then
+					context.other_card:set_ability("c_base")
+					SMODS.change_base(context.other_card,nil ,"Ace")
+				else
+					local wild = FELIJO.quick_pool_pick(
+						{
+							{"m_wild", 1},
+							{"m_felijo_wild_t2",0.2},
+							{"m_felijo_wild_t3",0.05},
+							{"m_felijo_wild_t4",0.001}
+						}
+					)
+					context.other_card:set_ability(wild)
+				end
+			end
+		end
+
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.mult,
+
+			}
+		end
+	end,
+	blueprint_compat = false,
+}
+
 SMODS.Joker{  -- Uncommon Toga
 atlas = 'insDeathcard',
 pos = { x = 6, y = 0 },
@@ -418,14 +483,12 @@ calculate = function(self, card, context)
 		if card.ability.stage.i >= card.ability.stage.max_i then
 			card.ability.stage.max_i = card.ability.stage.max_i + 1
 			card.ability.stage.i = 0
-			local croll = pseudorandom("felijo_ins_toga"..G.GAME.round..G.GAME.pseudorandom.seed)
 			local negative = pseudorandom("felijo_ins_toga2"..G.GAME.round..G.GAME.pseudorandom.seed,1,6)
-			local cons = FELIJO.quick_pool_pick(FELIJO.consumeables_table, croll)
 			if negative == 6 then
-				SMODS.add_card{ set = cons, edition = "e_negative" }
+				SMODS.add_card{ set = "Consumeables", edition = "e_negative" }
 			elseif #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
 				G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-				SMODS.add_card{ set = cons, no_edition = true }
+				SMODS.add_card{ set = "Consumeables", no_edition = true }
 				G.GAME.consumeable_buffer = 0
 			else
 				card.ability.stage.max_i = card.ability.stage.max_i - 1
@@ -544,7 +607,6 @@ set_sprites = function(self, card, front)
 end,
 
 calculate = function(self, card, context)
-	---@diagnostic disable: need-check-nil
 	local cloned = nil
 	if context.joker_main then
 		local new_card = FELIJO.copy_card(G.playing_cards[pseudorandom(pseudoseed('felijo_ins_revo'), 1, #G.playing_cards or 1)], nil, G.deck)
