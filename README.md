@@ -13,9 +13,9 @@
     - 2 TOGA's Stuff Jokers
     - 8 Aikoyori's Shenanigans Jokers
   - 13 Roblox Jokers
-  - 23+ Inscryption Jokers (+1 if you count evolved states)
-- 25 Tiered Enhancements
-  - Stone; Gold; Steel; Mult; Bonus; Lucky & Glass Cards (3 tiers)
+  - 24+ Inscryption Jokers (+10 if you count evolved states and alternative tail designs)
+- 29 Tiered Enhancements
+  - All Vanilla Enhancements have 3 extra tiers (up to T4)
   - Superior (new modded enhancement with 3 additional tiers, + 1 fallback if Revo's Vault isn't installed)
 - Totem System (NEW)
   - Grab Totem Parts and combine them!
@@ -36,7 +36,7 @@
 	  - Card Bearer: Add a random playing card to deck.
 	  - Repulsive: Whenever something debuffs this card, it does not.
   - Current Tribes are:
-	  - Feline (ex: Feli, Lilly, Lucky Cat - includes "Cat" Jokers (ex: Yahimod, TOGAPack) and "Kitty" Jokers (ex: Valkarri/Valk:Redux)
+	  - Feline (ex: Feli, Lilly, Lucky Cat - includes "Cat" Jokers (ex: Yahimod, TOGAPack) and "Kitty/Kity" Jokers (ex: Valkarri/Valk:Redux)
 	  - Human (ex: Leshy, Joker, Showman, Perkeo, ...) - 2nd most populated tribe at this time
 	  - Object (ex: Luna, Credit Card, Business Card, ... ) - includes "Food Jokers
 	  - Other (ex: (X) Tentacle, Fibonacci, Scary Face, ...) - includes "Meme" Jokers
@@ -51,23 +51,24 @@
     	- Banana (Revo's Vault)
      	- Printer (Revo's Vault)
   	- Tribes each have their own Tribe Card to grant a random Joker from the tribe.<br>Tribe Packs are only obtainable  through a Ritual Card
-  
 - Pelt System
   - Bear Trap (Voucher, enables pelts in pool)
   - Pelt Market (Voucher, enables pelt trading by discard)
   - Bunny, Wolf and Gold Pelts; OLD_DATA; Gold Nugget (5 enhancements, rankless and suitless)
 - 1 Blind (and Blind Card, Blindside cross-mod)
   - The Pin (appears if game is won or if you beat The Login (from TOGA's Stuff) previously)
-- 21 Tiered Tarots
-  - The Magician; The Hierophant; The Empress; The Chariot; Justice & The Devil (3 tiers)
+- 24 Tiered Tarots
+  - The Magician; The Hierophant; The Empress; The Chariot; The Lovers, Justice & The Devil (3 tiers)
   - The Ascended (new modded tarot with 3 additional tiers)
-- 6 "Ritual Card" (Consumable related to Inscryption)
+- 36 Tiered Planets
+- 7 "Ritual Cards" (Consumable related to Inscryption)
   - Campfire (Interacts with Tiered Enhancements)
   - Trader (Interacts with Pelt Cards)
   - Prospector (Turns cards into Gold Cards or Gold Nuggets)
   - Trapper (Turns cards into Pelt Cards)
   - Tribes (Grants you a Tribe Pack)
   - Lost and Found (Grants you a Totem Box)
+  - Goobert (clones a Joker with better stats)
 - 4 Sigils (Different from Totem Sigils)
   - Bifurcated and Trifucated Strike, retriggers 1 and 2 times respectively
   - Loose Tail (clones card and creates a tail ONCE if destroyed)
@@ -91,6 +92,7 @@
 - [Yahimod](https://github.com/Yahiamice/yahimod-balatro)
 - [CardSleeves](https://github.com/larswijn/CardSleeves)
 - [Blindside](https://github.com/LunaAstraCassiopeia/Blindside)
+- [SynthB](https://github.com/Foo54/SynthB)
 
 
 ## License
