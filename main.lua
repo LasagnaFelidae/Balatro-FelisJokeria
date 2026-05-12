@@ -1,5 +1,5 @@
 FELIJO = SMODS.current_mod
-FELIJO.optional_features = {post_trigger = true,}
+FELIJO.optional_features = {post_trigger = true,quantum_enhancements = true,}
 G.GAME = {}
 -----------------------------
 --┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓--

@@ -39,7 +39,7 @@ SMODS.ConsumableType {
     default = 'c_felijo_tier2_magician',
     primary_colour = G.C.SET.Tarot,
     secondary_colour = HEX('ED9AA8'),
-    collection_rows = { 6, 1 },
+    collection_rows = { 6, 6 },
     shop_rate = 0.3,
     loc_txt = {
         undiscovered = {
@@ -65,7 +65,7 @@ SMODS.ConsumableType {
     default = 'c_felijo_tier3_magician',
     primary_colour = G.C.SET.Tarot,
     secondary_colour = HEX('8096D2'),
-    collection_rows = { 6, 1 },
+    collection_rows = { 6, 6 },
     shop_rate = 0.2,
     loc_txt = {
         undiscovered = {
@@ -90,7 +90,7 @@ SMODS.ConsumableType {
     default = 'c_felijo_tier4_magician',
     primary_colour = G.C.SET.Tarot,
     secondary_colour = HEX('F0CF99'),
-    collection_rows = { 6, 1 },
+    collection_rows = { 6, 6 },
     shop_rate = 0.01,
     loc_txt = {
         undiscovered = {
@@ -129,8 +129,64 @@ SMODS.Consumable {
     end
 }
 
---------------
+--[[
+FELIJO.T2 {
+    key = 'fool',
+    set = 'vremade_Tarot',
+    pos = { x = 0, y = 0 },
+    config = { max_clones = 2,},
+    loc_vars = function(self, info_queue, card)
+        local fool_c = G.GAME.last_tarot_planet and G.P_CENTERS[G.GAME.last_tarot_planet] or nil
+        local last_tarot_planet = fool_c and localize { type = 'name_text', key = fool_c.key, set = fool_c.set } or
+            localize('k_none')
+        local colour = (not fool_c or fool_c.name == 'The Fool' or fool_c.name == 'The Fool [II]' or fool_c.name == 'The Fool [III]' or fool_c.name == 'The Fool [IV]') and G.C.RED or G.C.GREEN
 
+        if not (not fool_c or fool_c.name == 'The Fool' or fool_c.name == 'The Fool [II]' or fool_c.name == 'The Fool [III]' or fool_c.name == 'The Fool [IV]') then
+            info_queue[#info_queue + 1] = fool_c
+        end
+
+        local main_end = {
+            {
+                n = G.UIT.C,
+                config = { align = "bm", padding = 0.02 },
+                nodes = {
+                    {
+                        n = G.UIT.C,
+                        config = { align = "m", colour = colour, r = 0.05, padding = 0.05 },
+                        nodes = {
+                            { n = G.UIT.T, config = { text = ' ' .. last_tarot_planet .. ' ', colour = G.C.UI.TEXT_LIGHT, scale = 0.3, shadow = true } },
+                        }
+                    }
+                }
+            }
+        }
+
+        return { vars = { last_tarot_planet, card.ability.max_clones }, main_end = main_end }
+    end,
+    use = function(self, card, area, copier)
+        for i=0, card.ability.max_clones do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                    if G.consumeables.config.card_limit > #G.consumeables.cards then
+                        play_sound('timpani')
+                        SMODS.add_card({ key = G.GAME.last_tarot_planet })
+                        card:juice_up(0.3, 0.5)
+                    end
+                    return true
+                end
+            }))
+            delay(0.6)
+        end
+    end,
+    can_use = function(self, card)
+        return (#G.consumeables.cards < G.consumeables.config.card_limit or card.area == G.consumeables) and
+            G.GAME.last_tarot_planet and
+            G.GAME.last_tarot_planet ~= 'c_fool'
+    end
+}
+]]--
 FELIJO.T2 {
     key = 't2_magician',
     set = 'felijo_tier2_tarot',
@@ -170,6 +226,19 @@ FELIJO.T2 {
         return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
     end,
 }
+FELIJO.T2 {
+    key = 't2_lovers',
+    set = 'felijo_tier2_tarot',
+	atlas = 't2Tarots',
+
+    pos = { x = 6, y = 0 },
+    config = { max_highlighted = 1, mod_conv = 'm_felijo_wild_t2' },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
+}
+
 FELIJO.T2 {
     key = 't2_chariot',
     set = 'felijo_tier2_tarot',
@@ -277,6 +346,18 @@ FELIJO.T3 {
     end,
 }
 FELIJO.T3 {
+    key = 't3_lovers',
+    set = 'felijo_tier3_tarot',
+	atlas = 't3Tarots',
+
+    pos = { x = 6, y = 0 },
+    config = { max_highlighted = 1, mod_conv = 'm_felijo_wild_t3' },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
+}
+FELIJO.T3 {
     key = 't3_chariot',
     set = 'felijo_tier3_tarot',
 	atlas = 't3Tarots',
@@ -377,6 +458,18 @@ FELIJO.T4 {
 
     pos = { x = 5, y = 0 },
     config = { max_highlighted = 2, mod_conv = 'm_felijo_bonus_t4' },
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
+        return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }
+    end,
+}
+FELIJO.T4 {
+    key = 't4_lovers',
+    set = 'felijo_tier4_tarot',
+	atlas = 't4Tarots',
+
+    pos = { x = 6, y = 0 },
+    config = { max_highlighted = 1, mod_conv = 'm_felijo_wild_t4' },
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_CENTERS[card.ability.mod_conv]
         return { vars = { card.ability.max_highlighted, localize { type = 'name_text', set = 'Enhanced', key = card.ability.mod_conv } } }

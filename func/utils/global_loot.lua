@@ -27,6 +27,10 @@ FELIJO.add_tribe = function(tribe)
 end
 --
 FELIJO.campfire_table = {
+    ["m_wild"]               = { next = "m_felijo_wild_t2",   break_chance = 0.10 },
+    ["m_felijo_wild_t2"]     = { next = "m_felijo_wild_t3",   break_chance = 0.30 },
+    ["m_felijo_wild_t3"]     = { next = "m_felijo_wild_t4",   break_chance = 0.60 }, 
+
     ["m_bonus"]               = { next = "m_felijo_bonus_t2",   break_chance = 0.10 },
     ["m_felijo_bonus_t2"]     = { next = "m_felijo_bonus_t3",   break_chance = 0.30 },
     ["m_felijo_bonus_t3"]     = { next = "m_felijo_bonus_t4",   break_chance = 0.60 }, 
@@ -77,6 +81,11 @@ FELIJO.trapperTable = {
 }
 
 FELIJO.enhancement_tiers = {
+    {key = "m_wild", tier = 1},
+	{key = "m_felijo_wild_t2", tier = 2},
+	{key = "m_felijo_wild_t3", tier = 3},
+    {key = "m_felijo_wild_t4", tier = 4},
+
 	{key = "m_bonus", tier = 1},
 	{key = "m_felijo_bonus_t2", tier = 2},
 	{key = "m_felijo_bonus_t3", tier = 3},
@@ -142,6 +151,9 @@ FELIJO.enhancement_tiers = {
 }
 
 FELIJO.upgradablelist = {
+    "m_wild",
+	"m_felijo_wild_t2",
+	"m_felijo_wild_t3",
 	"m_bonus",
 	"m_felijo_bonus_t2",
 	"m_felijo_bonus_t3",

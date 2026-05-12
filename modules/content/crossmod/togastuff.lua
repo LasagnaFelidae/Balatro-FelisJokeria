@@ -56,31 +56,34 @@ FELIJO.TOGAJoker {
 	end,
 	config = {
 		extra = { 
-			mult = 0, m_mult = 2,
+			mult = 0, m_mult = 2, m_i = 1
+		},
+		imm = {
 			charge = 0, charge_m = 2, 
 			cooldown = 0, cooldown_m = 1,
 			status = "Charging",
-			c_i = 0.5, m_i = 1} 
+			c_i = 0.5
+		}, 
 	},
     loc_vars = function(self, info_queue, card)
-			if card.ability.extra.status == "Charging" then
+			if card.ability.imm.status == "Charging" then
 					return {
 						vars = {
 							card.ability.extra.mult, card.ability.extra.m_mult, 
-							card.ability.extra.charge, card.ability.extra.charge_m, 
-							card.ability.extra.cooldown, card.ability.extra.cooldown_m,
-							card.ability.extra.status, card.ability.extra.c_i, card.ability.extra.m_i,
+							card.ability.imm.charge, card.ability.imm.charge_m, 
+							card.ability.imm.cooldown, card.ability.imm.cooldown_m,
+							card.ability.imm.status, card.ability.imm.c_i, card.ability.extra.m_i,
 							colours = { HEX('7AFFF6'), HEX('000000'), HEX("004E70"),
 							} 
 						}
 					}
-			elseif card.ability.extra.status == "Ready!" then
+			elseif card.ability.imm.status == "Ready!" then
 				return {
 						vars = {
 							card.ability.extra.mult, card.ability.extra.m_mult, 
-							card.ability.extra.charge, card.ability.extra.charge_m, 
-							card.ability.extra.cooldown, card.ability.extra.cooldown_m,
-							card.ability.extra.status, card.ability.extra.c_i, card.ability.extra.m_i,
+							card.ability.imm.charge, card.ability.imm.charge_m, 
+							card.ability.imm.cooldown, card.ability.imm.cooldown_m,
+							card.ability.imm.status, card.ability.imm.c_i, card.ability.extra.m_i,
 							colours = { HEX('7AFFF6'), HEX('000000'), HEX("00D11C"),
 							} 
 						}
@@ -89,9 +92,9 @@ FELIJO.TOGAJoker {
 				return {
 						vars = {
 							card.ability.extra.mult, card.ability.extra.m_mult, 
-							card.ability.extra.charge, card.ability.extra.charge_m, 
-							card.ability.extra.cooldown, card.ability.extra.cooldown_m,
-							card.ability.extra.status, card.ability.extra.c_i, card.ability.extra.m_i,
+							card.ability.imm.charge, card.ability.imm.charge_m, 
+							card.ability.imm.cooldown, card.ability.imm.cooldown_m,
+							card.ability.imm.status, card.ability.imm.c_i, card.ability.extra.m_i,
 							colours = { HEX('7AFFF6'), HEX('000000'), HEX("95A2A3"),
 							} 
 						}
@@ -100,12 +103,12 @@ FELIJO.TOGAJoker {
     end,
     calculate = function(self, card, context)
 		if context.joker_main then
-			if card.ability.extra.cooldown == 0 then
-				if card.ability.extra.charge < card.ability.extra.charge_m then
+			if card.ability.imm.cooldown == 0 then
+				if card.ability.imm.charge < card.ability.imm.charge_m then
 					card.ability.extra.mult = card.ability.extra.mult + (G.GAME.chips * card.ability.extra.m_mult)
-					card.ability.extra.charge = card.ability.extra.charge + 1
-					if card.ability.extra.charge >= card.ability.extra.charge_m then
-						card.ability.extra.status = "Ready!"
+					card.ability.imm.charge = card.ability.imm.charge + 1
+					if card.ability.imm.charge >= card.ability.imm.charge_m then
+						card.ability.imm.status = "Ready!"
 						return {
 							message = localize("k_felijo_loic2"), 
 							sound = "felijo_loic_ready",
@@ -115,17 +118,17 @@ FELIJO.TOGAJoker {
 					return {
 						message = localize("k_felijo_loic1"), 
 						sound = "felijo_loic_charging",
-						pitch = 1+(0.2 * card.ability.extra.charge)
+						pitch = 1+(0.2 * card.ability.imm.charge)
 						}
 					
-				elseif card.ability.extra.charge >= card.ability.extra.charge_m then
+				elseif card.ability.imm.charge >= card.ability.imm.charge_m then
 					beam = card.ability.extra.mult
 					card.ability.extra.mult = 0
 					
-					card.ability.extra.status = "Cooling"
-					card.ability.extra.cooldown = card.ability.extra.cooldown_m
-					card.ability.extra.charge = 0
-					card.ability.extra.charge_m = card.ability.extra.charge_m + card.ability.extra.c_i
+					card.ability.imm.status = "Cooling"
+					card.ability.imm.cooldown = card.ability.imm.cooldown_m
+					card.ability.imm.charge = 0
+					card.ability.imm.charge_m = card.ability.imm.charge_m + card.ability.imm.c_i
 					card.ability.extra.m_mult = card.ability.extra.m_mult + card.ability.extra.m_i
 					return {
 						mult = beam,
@@ -137,10 +140,10 @@ FELIJO.TOGAJoker {
 					}
 				end
 			end
-			if card.ability.extra.cooldown > 0 and card.ability.extra.cooldown <= card.ability.extra.cooldown_m then
-				card.ability.extra.cooldown = card.ability.extra.cooldown - 1 
-				if card.ability.extra.cooldown == 0 then
-					card.ability.extra.status = "Charging"
+			if card.ability.imm.cooldown > 0 and card.ability.imm.cooldown <= card.ability.imm.cooldown_m then
+				card.ability.imm.cooldown = card.ability.imm.cooldown - 1 
+				if card.ability.imm.cooldown == 0 then
+					card.ability.imm.status = "Charging"
 					return{message = localize("k_felijo_loic5"),}
 				end
 				return{message = localize("k_felijo_loic4"),}

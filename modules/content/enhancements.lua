@@ -72,6 +72,48 @@ if not FELIJO.is_mod_loaded("RevosVault") then
         end,
     }
 end
+
+-- Wild
+FELIJO.T2Enhancement {
+	atlas = 'tieredEnhancements',
+    key = 'wild_t2',
+    pos = { x = 1, y = 8 },
+    config = { },
+    any_suit = true,
+    
+
+}
+FELIJO.T3Enhancement {
+	atlas = 'tieredEnhancements',
+    key = 'wild_t3',
+    pos = { x = 2, y = 8 },
+    any_suit = true,
+    config = { extra = { repetitions = 1 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.repetitions } }
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.play and context.repetition then
+            return { repetitions = card.ability.extra.repetitions }
+        end
+    end,
+}
+FELIJO.T4Enhancement {
+	atlas = 'tieredEnhancements',
+    key = 'wild_t4',
+    pos = { x = 3, y = 8 },
+    any_suit = true,
+    config = { extra = { repetitions = 3 } },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.repetitions } }
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.play and context.repetition then
+            return { repetitions = card.ability.extra.repetitions }
+        end
+    end,
+
+}
 -- Bonus
 FELIJO.T2Enhancement {
 	atlas = 'tieredEnhancements',

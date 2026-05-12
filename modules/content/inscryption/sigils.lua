@@ -83,7 +83,6 @@ SMODS.Sticker{
 	needs_enable_flag = true,
 	discovered = true,
 	unlocked = true,
-	no_collection = true,
 	loc_vars = function(self, info_queue, card)
         return { vars = {} }
     end,
@@ -125,7 +124,6 @@ SMODS.Sticker{
 	config = { extra = { retriggers = 1} },
 	discovered = true,
 	unlocked = true,
-	no_collection = true,
 	loc_vars = function(self, info_queue, card)
         return { vars = { self.config.extra.retriggers } }
     end,
@@ -151,7 +149,6 @@ SMODS.Sticker{
 	config = { extra = { retriggers = 2} },
 	discovered = true,
 	unlocked = true,
-	no_collection = true,
 	loc_vars = function(self, info_queue, card)
         return { vars = { self.config.extra.retriggers } }
     end,
@@ -180,7 +177,6 @@ SMODS.Sticker{
 	config = { extra = {} },
 	discovered = true,
 	unlocked = true,
-	no_collection = true,
 	default_compat = true,
 	compat_exceptions = {"j_felijo_ins_tail", "j_felijo_ins_skink"},
 	loc_vars = function(self, info_queue, card)

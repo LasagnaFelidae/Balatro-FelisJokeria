@@ -625,7 +625,7 @@ SMODS.PokerHand {
 SMODS.PokerHand {
     key = "tier3_5oak",
     chips = 120,
-    mult = 13,
+    mult = 14,
     l_chips = 50,
     l_mult = 5,
     visible = false,
@@ -974,7 +974,7 @@ SMODS.PokerHand {
 SMODS.PokerHand {
     key = "tier4_5oak",
     chips = 120,
-    mult = 14,
+    mult = 15,
     l_chips = 40,
     l_mult = 4,
     visible = false,

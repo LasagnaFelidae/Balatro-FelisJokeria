@@ -72,6 +72,33 @@ return {
 					
                 },
             },
+            m_felijo_wild_t2 = {
+                name = "Wild Card [II]",
+                text = {
+                    "Can be used",
+                    "as any suit",
+                    "Can't be debuffed",
+                },
+            },
+			m_felijo_wild_t3 = {
+                name = "Wild Card [III]",
+                text = {
+                    "Can be used",
+                    "as any suit",
+                    "Can't be debuffed",
+                    "Retriggers {C:attention}#1#{} time",
+                },
+            },
+			m_felijo_wild_t4 = {
+                name = "Wild Card [IV]",
+                text = {
+                    "Can be used",
+                    "as any suit",
+                    "Can't be debuffed",
+                    "Retriggers {C:attention}#1#{} times",
+                },
+            },
+
 			m_felijo_bonus_t2 = {
                 name = "Bonus Card [II]",
                 text = {
@@ -466,6 +493,14 @@ return {
 					"permanently from deck",
 				}
 			},
+            felijo_tiered = {
+                name = "Tiered Cards",
+				text= {
+					"{C:enhanced}Enhancements{}, {C:planet}consumables{}",
+                    "and {C:attention}poker hands{} can have",
+					"up to {C:gold}4 tiers{}",
+				}
+            },
 			felijo_delete	= {
 				name = "Delete",
 				text= {
@@ -630,6 +665,14 @@ return {
                     "{C:attention}#2#s",
                 },
             },
+            c_felijo_t2_lovers = {
+                name = "The Lovers [II]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
 			c_felijo_t2_justice = {
                 name = "Justice [II]",
                 text = {
@@ -696,6 +739,14 @@ return {
                     "{C:attention}#2#s",
                 },
             },
+            c_felijo_t3_lovers = {
+                name = "The Lovers [III]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
 			c_felijo_t3_justice = {
                 name = "Justice [III]",
                 text = {
@@ -756,6 +807,14 @@ return {
             },
 			c_felijo_t4_heirophant = {
                 name = "The Hierophant [IV]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+            c_felijo_t4_lovers = {
+                name = "The Lovers [IV]",
                 text = {
                     "Enhances {C:attention}#1#",
                     "selected cards to",

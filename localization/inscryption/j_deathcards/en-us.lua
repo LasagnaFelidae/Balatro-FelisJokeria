@@ -115,6 +115,20 @@ return {
 					},
 				},
 			},
+			j_felijo_ins_tatsu = {
+				name = "{B:1,V:2,f:felijo_Feli5x8}Tatsu{}",
+				text = {
+					{
+					"{C:mult}+#1#{} Mult",
+					},
+					{
+					"Scored {C:spades}Spades{} will either:",
+					"Enhance into a {C:gold}tiered {C:enhanced}Wild Card{},",
+					"become an unenhanced {C:attention}Ace{} or",
+					"get {C:red}destroyed{} and give {X:mult,C:white}X#2#{} Mult",
+					},
+				},
+			},
 			
 			j_felijo_ins_revo = {
 				name = "{B:1,V:2,f:felijo_Feli5x8}Revo{}",
