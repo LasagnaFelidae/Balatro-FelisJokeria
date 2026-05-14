@@ -23,7 +23,7 @@ SMODS.Joker { -- Uncommon, Magpie
     end,
 	badgeCalc = function (self,card)
 		local level = 5
-		level = math.max((G.STEAM.user.getPlayerSteamLevel() or 5), 5)
+		level = math.max((G.STEAM and G.STEAM.user.getPlayerSteamLevel() or 10), 10)
 
 		local totalxp = 0
 		local lvl_groups = math.floor((level - 1) / 10)
