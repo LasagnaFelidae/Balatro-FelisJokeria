@@ -8,6 +8,12 @@ return {
 					"{C:felijo_rit}Mega Ritual Pack",
 				},
 			},
+			tag_felijo_packrat_gift = {
+				name = "Pack Rat\'s Gift",
+				text = {
+					"A gift for your troubles",
+				},
+			},
 		},
 		Other = {
 			---- Boosters
@@ -33,6 +39,13 @@ return {
                     "Choose {C:attention}#1#{} of up to",
                     "{C:attention}#2#{C:feljio_trb} Ritual{} cards to",
                     "be used immediately",
+                },
+            },
+			p_felijo_pack_rat = {
+                name = "Pack Rat\'s Gift",
+                text = {
+                    "Choose {C:attention}#1#{} of up to",
+                    "{C:attention}#2#{} Playing Cards",
                 },
             },
 		},
@@ -102,6 +115,7 @@ return {
 		dictionary={
 			b_felijo_ritual_cards = "Ritual Cards",
 			k_felijo_ritual_pack = "Ritual Pack",
+			k_felijo_pack_rat = "Pack Rat\'s Gift",
 			k_felijo_ritual = "Ritual",
 		},
 		labels = {

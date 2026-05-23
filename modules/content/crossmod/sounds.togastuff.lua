@@ -1,0 +1,1 @@
+SMODS.Sound({key = "toga_idiot", path = "toga/idiot.ogg"})

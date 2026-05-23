@@ -62,18 +62,21 @@ end
 Explode a card with sound and destroy it.
 
 Parameters:
-  card (table): required card to explode.
-  sound (any): currently ignored; function uses global explosion/delete checks.
+  	card (table): required card to explode.
+  	sound (string): the sound used, should be either 
+	bypass_eternal (boolean): 
 ]]--
-function FELIJO.explodeCard(card, sound)
-	sound = sound or "explosion"
+function FELIJO.explodeCard(card, sound, bypass_eternal)
+	if not card then return end
+	bypass_eternal = bypass_eternal or false
+	sound = (sound == "delete" or sound == "explosion") and sound or "explosion"
 	if sound == "delete" then
 		play_sound("felijo_rbx_delete")
 	elseif sound == "explosion" then
 		play_sound("felijo_rbx_explosion")
 	end
     playEffect("explosion",card.tilt_var.mx,card.tilt_var.my)
-    SMODS.destroy_cards(card)
+    SMODS.destroy_cards(card, bypass_eternal)
 end
 
 --[[

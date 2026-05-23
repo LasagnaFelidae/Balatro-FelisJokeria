@@ -21,7 +21,7 @@ return {
 			j_felijo_ins_tentacle_cons = {
                 name = {
 					"{B:1,V:2,f:felijo_Feli5x8,E:1}@{}",
-					"{V:1,s:0.5,f:felijo_Feli5x8}(Consumeable Tentacle)"
+					"{V:1,s:0.5,f:felijo_Feli5x8}(Consumable Tentacle)"
 					},
                 text = {
 					{
@@ -29,7 +29,7 @@ return {
 					},
 					{
                     "Gives {X:chips,C:white}x#1#{} Chips per",
-					"{C:tarot}Consumeable{} owned",
+					"{C:tarot}Consumable{} owned",
 					}
                 }
 		    },

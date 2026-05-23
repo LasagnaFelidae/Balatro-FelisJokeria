@@ -14,6 +14,9 @@ SMODS.Attribute {
     key = "editions"
 }
 SMODS.Attribute {
+    key = "debuff"
+}
+SMODS.Attribute {
     key = "blindsize"
 }
 SMODS.Attribute {

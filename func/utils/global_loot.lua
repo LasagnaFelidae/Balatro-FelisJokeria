@@ -66,7 +66,7 @@ FELIJO.campfire_table = {
 }
 
 FELIJO.prospectorTable = {
-	{key = "m_gold",   				weight = 10},
+	{key = "m_gold",   				weight = 8},
 	{key = "m_felijo_gold_t2",   	weight = 1},
 	{key = "m_felijo_gold_t3",   	weight = 0.02},
 	{key = "m_felijo_gold_t4",   	weight = 0.001}

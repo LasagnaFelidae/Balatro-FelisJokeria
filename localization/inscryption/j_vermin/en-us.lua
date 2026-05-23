@@ -26,6 +26,23 @@ return {
 					},
                 },
             },
-        }
+
+            j_felijo_ins_packrat = {
+                name = "{B:1,V:2,f:felijo_Feli5x8}Pack Rat",
+                text = {
+                    {
+                        "{C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult",
+                    },
+                    {
+                        "Gives a {C:dark_edition}Negative {C:planet}Consumable{}",
+                        "after beating an {C:attention}Ante{}",    
+                    },
+                    {
+                        "When destroyed or sold,",
+                        "earn a {C:attention}gift{}"
+                    },
+                },
+            },
+        },
     }
 }

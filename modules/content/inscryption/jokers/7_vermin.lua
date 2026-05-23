@@ -108,3 +108,32 @@ FELIJO.Vermin { -- common Squirrel Ball
         end
 	end,
 }
+
+FELIJO.Vermin { -- Rare Pack Rat
+    pos = { x = 4, y = 0 },
+    key = "felijo_ins_packrat",
+    rarity = 3,
+    cost = 8,
+	blueprint_compat = false,
+	eternal_compat = true,
+	pronouns = "she_her",
+	attributes = {"mult","chips","generation"},
+	config = { extra = { mult = 2, chips = 2}},
+    loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = G.P_CENTERS["p_felijo_pack_rat"]
+		return { vars = { card.ability.extra.chips, card.ability.extra.mult,  colours = { HEX('F0C590'), HEX('351A09') } } } 
+    end,
+    calculate = function(self, card, context)
+        if context.joker_type_destroyed and context.card == card then
+            add_tag(Tag("tag_felijo_packrat_gift", false, 'Small')) 
+        end
+        if context.modify_ante and context.ante_end then
+            SMODS.add_card{ set = "Consumeables", edition = "e_negative" }
+        end
+		if context.joker_main then
+			return {
+				mult = card.ability.extra.mult,
+			}
+        end
+	end,
+}

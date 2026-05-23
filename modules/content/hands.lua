@@ -18,7 +18,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if #eligible_cards <= #hand and FELIJO.get_card_tier(card) == 2 then
+            if #eligible_cards <= #hand and FELIJO.get_card_tier(card) >= 2 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -59,7 +59,7 @@ SMODS.PokerHand {
         if not next(parts._2) then return {} end
         local cards = parts._2[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 2) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 2) then return {} end
         end
         return { cards }
     end,
@@ -87,7 +87,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if #eligible_cards <= 4 and FELIJO.get_card_tier(card) == 2 then
+            if #eligible_cards <= 4 and FELIJO.get_card_tier(card) >= 2 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -114,7 +114,7 @@ SMODS.PokerHand {
         if not next(parts._3) then return {} end
         local cards = parts._3[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 2) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 2) then return {} end
         end
         return { cards }
     end,
@@ -139,7 +139,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 2 then
+            if FELIJO.get_card_tier(card) >= 2 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -167,7 +167,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 2 then
+            if FELIJO.get_card_tier(card) >= 2 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -195,7 +195,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 2 then
+            if FELIJO.get_card_tier(card) >= 2 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -223,7 +223,7 @@ SMODS.PokerHand {
         if not next(parts._4) then return {} end
         local cards = parts._4[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 2) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 2) then return {} end
         end
         return { cards }
     end,
@@ -250,7 +250,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 2 then
+            if FELIJO.get_card_tier(card) >= 2 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -288,7 +288,7 @@ SMODS.PokerHand {
         if not next(parts._5) then return {} end
         local cards = parts._5[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 2) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 2) then return {} end
         end
         return { cards }
     end,
@@ -313,7 +313,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 2 then
+            if FELIJO.get_card_tier(card) >= 2 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -341,7 +341,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 2 then
+            if FELIJO.get_card_tier(card) >= 2 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -373,7 +373,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if #eligible_cards <= #hand and FELIJO.get_card_tier(card) == 3 then
+            if #eligible_cards <= #hand and FELIJO.get_card_tier(card) >= 3 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -413,7 +413,7 @@ SMODS.PokerHand {
         if not next(parts._2) then return {} end
         local cards = parts._2[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 3) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 3) then return {} end
         end
         return { cards }
     end,
@@ -440,7 +440,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if #eligible_cards <= 4 and FELIJO.get_card_tier(card) == 3 then
+            if #eligible_cards <= 4 and FELIJO.get_card_tier(card) >= 3 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -467,7 +467,7 @@ SMODS.PokerHand {
         if not next(parts._3) then return {} end
         local cards = parts._3[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 3) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 3) then return {} end
         end
         return { cards }
     end,
@@ -492,7 +492,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 2 then
+            if FELIJO.get_card_tier(card) >= 2 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -520,7 +520,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 3 then
+            if FELIJO.get_card_tier(card) >= 3 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -548,7 +548,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 3 then
+            if FELIJO.get_card_tier(card) >= 3 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -576,7 +576,7 @@ SMODS.PokerHand {
         if not next(parts._4) then return {} end
         local cards = parts._4[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 3) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 3) then return {} end
         end
         return { cards }
     end,
@@ -603,7 +603,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 3 then
+            if FELIJO.get_card_tier(card) >= 3 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -641,7 +641,7 @@ SMODS.PokerHand {
         if not next(parts._5) then return {} end
         local cards = parts._5[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 3) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 3) then return {} end
         end
         return { cards }
     end,
@@ -666,7 +666,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 3 then
+            if FELIJO.get_card_tier(card) >= 3 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -694,7 +694,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 3 then
+            if FELIJO.get_card_tier(card) >= 3 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -722,7 +722,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if #eligible_cards <= #hand and FELIJO.get_card_tier(card) == 4 then
+            if #eligible_cards <= #hand and FELIJO.get_card_tier(card) >= 4 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -762,7 +762,7 @@ SMODS.PokerHand {
         if not next(parts._2) then return {} end
         local cards = parts._2[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 4) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 4) then return {} end
         end
         return { cards }
     end,
@@ -789,7 +789,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if #eligible_cards <= 4 and FELIJO.get_card_tier(card) == 4 then
+            if #eligible_cards <= 4 and FELIJO.get_card_tier(card) >= 4 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -816,7 +816,7 @@ SMODS.PokerHand {
         if not next(parts._3) then return {} end
         local cards = parts._3[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 4) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 4) then return {} end
         end
         return { cards }
     end,
@@ -841,7 +841,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 4 then
+            if FELIJO.get_card_tier(card) >= 4 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -869,7 +869,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 4 then
+            if FELIJO.get_card_tier(card) >= 4 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -897,7 +897,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 4 then
+            if FELIJO.get_card_tier(card) >= 4 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -925,7 +925,7 @@ SMODS.PokerHand {
         if not next(parts._4) then return {} end
         local cards = parts._4[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 4) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 4) then return {} end
         end
         return { cards }
     end,
@@ -952,7 +952,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 4 then
+            if FELIJO.get_card_tier(card) >= 4 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -990,7 +990,7 @@ SMODS.PokerHand {
         if not next(parts._5) then return {} end
         local cards = parts._5[1]
         for i, card in ipairs(cards) do
-            if not (FELIJO.get_card_tier(card) == 4) then return {} end
+            if not (FELIJO.get_card_tier(card) >= 4) then return {} end
         end
         return { cards }
     end,
@@ -1015,7 +1015,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 4 then
+            if FELIJO.get_card_tier(card) >= 4 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end
@@ -1043,7 +1043,7 @@ SMODS.PokerHand {
         local eligible_cards = {}
 
         for i, card in ipairs(hand) do
-            if FELIJO.get_card_tier(card) == 4 then
+            if FELIJO.get_card_tier(card) >= 4 then
                 eligible_cards[#eligible_cards + 1] = card
             end
         end

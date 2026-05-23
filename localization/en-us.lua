@@ -342,21 +342,6 @@ return {
 				},
 			
 			},
-			bl_felijo_pin = {
-				name = "The Pin",
-				text = {
-					"Hand must contain 4 cards or more",
-					"and no face cards or 10s."
-				}
-			},
-			bl_felijo_pin_c = {
-				name = "The Pin",
-				text = {
-					"Hand must contain 4 cards or more ",
-					"and no face cards or 10s.",
-					"{s:0.8}(Appears if The Login is cleared or if game is won.){}"
-				}
-			},
 		
 		
 		},
@@ -411,47 +396,6 @@ return {
 		-- LETTERJOKERS
 		-- LETTERJOKERS
 		-- LETTERJOKERS
-			
-
-			-- TOGAPack
-			j_felijo_toga_loic = {
-                name = "{B:1,V:2}Low-Orbit Ion Cannon",
-                text = {
-					{
-						"While {C:legendary}charging{}, earn {X:legendary,C:white}X#2#{} of your",
-						"{C:attention}current score{} as this Joker's {C:mult}Mult{}.",
-					},
-					{
-						"Once {C:legendary}ready{}, blast {C:mult}#1#{} Mult, ",
-						"gain {C:attention}+#8#{} CT, {X:legendary,C:white}+#9#{} charge multiplier",
-						"and go into {C:legendary}cooldown{} for {C:attention}#6#{} hands.",
-					},
-					{
-						"Status: {B:3,C:white}#7#{} | CT: {C:inactive}#3#{}/#4# | CD:{C:inactive}#5#{}/#6#",
-						"{s:0.7,C:inactive}When harpoons, air strikes and nukes fail. | v. 1.0.4.0",
-					},
-                }
-            },
-			
-			
-			
-			
-			
-			-- INSCRYPTION
-			
-			
-			
-
-			
-			j_felijo_bliss = {
-			  name = "Bliss",
-			  text = { 
-				"Gains {C:chips}+#1#{} Chips",
-				"if {C:attention}#2#{} or more suits",
-				"have been scored.",
-				"{C:inactive}(Currently {}{C:chips}+#3#{}{C:inactive} Chips.)"
-			  }
-			},
 			
 			j_felijo_stock_exchange = {
 			  name = {
@@ -508,6 +452,13 @@ return {
 					"permanently from deck",
 				}
 			},
+            felijo_immutable = {
+                name = "Immutable Chances",
+				text= {
+					"All {C:green}probabilites",
+					"{C:red}cannot{} be modified",
+				}
+            },
 			felijo_stock_legend	= {
 				name = "Legend",
 				text={
@@ -1318,6 +1269,7 @@ return {
 			----------------
 			k_felijo_ins = "Inscryption",
 			k_felijo_rbx = "ROBLOX",
+            k_felijo_toga_malware = "Malware",
 			----------------
 			----------------
 			k_felijo_loic1 = "Charging...",
@@ -1462,57 +1414,69 @@ return {
             ["felijo_tier2_5oak"] = {
                 "5 cards with the same rank",
 				"and having Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_flush"] = {
                 "5 cards that share the same suit",
 				"and having Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_flushfive"] = {
                 "5 cards with the same rank and suit",
 				"and having Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_flushhouse"] = {
                 "A Three of a Kind and a Pair with",
                 "all cards sharing the same suit",
 				"and having Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_4oak"] = {
                 "4 cards with the same rank. They may",
                 "be played with 1 other unscored card",
 				"and having Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_house"] = {
                 "A Three of a Kind and a Pair",
                 "having Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_pair"] = {
                 "2 cards that share the same rank. They may",
                 "be played with up to 3 other unscored cards",
 				"and having Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_royal"] = {
                 "5 cards in a row (consecutive ranks) with",
                 "all cards sharing the same suit",
 				"and having Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_straight"] = {
                 "5 cards in a row (consecutive ranks)",
 				"with Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_straight_flush"] = {
                 "5 cards in a row (consecutive ranks) with",
                 "all cards sharing the same suit",
 				"and having Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_3oak"] = {
                 "3 cards with the same rank. They may be",
                 "played with up to 2 other unscored cards",
 				"and having Tier 2 enhancements",
+                "or higher",
             },
             ["felijo_tier2_two_pair"] = {
                 "2 pairs of cards with different ranks, may",
                 "be played with 1 other unscored card",
 				"and having Tier 2 enhancements",
+                "or higher",
             },
 			["felijo_tier3_highcard"] = {
                 "If the played hand is not any of the above",
@@ -1522,57 +1486,69 @@ return {
 			["felijo_tier3_5oak"] = {
                 "5 cards with the same rank",
 				"and having Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_flush"] = {
                 "5 cards that share the same suit",
 				"and having Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_flushfive"] = {
                 "5 cards with the same rank and suit",
 				"and having Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_flushhouse"] = {
                 "A Three of a Kind and a Pair with",
                 "all cards sharing the same suit",
 				"and having Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_4oak"] = {
                 "4 cards with the same rank. They may",
                 "be played with 1 other unscored card",
 				"and having Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_house"] = {
                 "A Three of a Kind and a Pair",
                 "having Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_pair"] = {
                 "2 cards that share the same rank. They may",
                 "be played with up to 3 other unscored cards",
 				"and having Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_royal"] = {
                 "5 cards in a row (consecutive ranks) with",
                 "all cards sharing the same suit",
 				"and having Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_straight"] = {
                 "5 cards in a row (consecutive ranks)",
 				"with Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_straight_flush"] = {
                 "5 cards in a row (consecutive ranks) with",
                 "all cards sharing the same suit",
 				"and having Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_3oak"] = {
                 "3 cards with the same rank. They may be",
                 "played with up to 2 other unscored cards",
 				"and having Tier 3 enhancements",
+                "or higher",
             },
             ["felijo_tier3_two_pair"] = {
                 "2 pairs of cards with different ranks, may",
                 "be played with 1 other unscored card",
 				"and having Tier 3 enhancements",
+                "or higher",
             },
 
 			["felijo_tier4_highcard"] = {
@@ -1606,6 +1582,7 @@ return {
             ["felijo_tier4_house"] = {
                 "A Three of a Kind and a Pair",
                 "having Tier 4 enhancements",
+
             },
             ["felijo_tier4_pair"] = {
                 "2 cards that share the same rank. They may",

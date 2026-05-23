@@ -741,8 +741,11 @@ SMODS.Joker {
 				for i = 1, j_delete do
 					local _card = pseudorandom_element(jokers, pseudoseed("j_felijo_rbx_delete"))
 					if _card then
-						
-						FELIJO.explodeCard(_card, "delete")
+						if _card.config.center.key == "j_felijo_toga_idiot" then
+							FELIJO.explodeCard(_card, "delete", true)
+						else
+							FELIJO.explodeCard(_card, "delete", false)
+						end
 						count = count + 1
 					end
 				end

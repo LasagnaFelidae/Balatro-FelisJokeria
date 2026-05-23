@@ -113,7 +113,8 @@ return {
 			j_felijo_rbx_delete = {
                 name = "Delete Tool",
                 text = {
-                    "Delete a random amount of jokers then",
+                    "Delete a random amount",
+                    "of jokers then",
 					"gain {X:red,C:white}x#2#{} Mult",
 					"per deleted Joker",
                     "at the end of a round.",

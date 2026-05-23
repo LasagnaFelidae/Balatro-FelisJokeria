@@ -197,3 +197,53 @@ SMODS.Booster {
         }
     end,
 }
+
+SMODS.Booster {
+    key = "pack_rat",
+    weight = 0,
+    kind = 'felijo_pack_rat',
+    cost = 16,
+    atlas = "insRitualBoost",
+    pos = { x = 2, y = 2 },
+    config = { extra = 10, choose = 5 },
+    group_key = "k_felijo_pack_rat",
+    --no_collection = true,
+    disable_shine = true,
+    loc_vars = function(self, info_queue, card)
+        local cfg = (card and card.ability) or self.config
+        return {
+            vars = { cfg.choose, cfg.extra },
+        }
+    end,
+    ease_background_colour = function(self)
+        ease_background_colour_blind(G.STATES.STANDARD_PACK)
+    end,
+    particles = function(self)
+        G.booster_pack_sparkles = Particles(1, 1, 0, 0, {
+            timer = 0.015,
+            scale = 0.3,
+            initialize = true,
+            lifespan = 3,
+            speed = 0.2,
+            padding = -1,
+            attach = G.ROOM_ATTACH,
+            colours = { G.C.BLACK, G.C.RED },
+            fill = true
+        })
+        G.booster_pack_sparkles.fade_alpha = 1
+        G.booster_pack_sparkles:fade(1, 0)
+    end,
+    create_card = function(self, card, i)
+        local _edition = SMODS.poll_edition { key = "packrat" .. G.GAME.round_resets.ante, mod = 2, no_negative = true }
+        local _seal = SMODS.poll_seal({ mod = 10 })
+        return {
+            set = "Playing Card",
+            edition = _edition,
+            seal = _seal,
+            area = G.pack_cards,
+            skip_materialize = true,
+            soulable = true,
+            key_append = "felijo_packrat"
+        }
+    end,
+}

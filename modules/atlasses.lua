@@ -111,6 +111,16 @@ SMODS.Atlas {
     px = 71,
     py = 95
 }
+
+SMODS.Atlas {
+    key = "togaYAAI",
+    path = "crossmod/togapack/idiot.png",
+	atlas_table = 'ANIMATION_ATLAS',
+	frames = 2,
+	fps = 0.8,
+    px = 71,
+    py = 95
+}
 SMODS.Atlas {
     key = "togaBlinds",
     path = "crossmod/togapack/blinds.png",
