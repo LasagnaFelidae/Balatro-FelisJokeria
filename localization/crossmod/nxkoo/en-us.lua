@@ -33,18 +33,21 @@ return {
                 name = "nus CardBo [II]",
                 text = {
                     "{C:chips}+#1#{} extra chips",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
 			m_felijo_bonus_t3_mp = {
                 name = "nus CardBo [III]",
                 text = {
                     "{C:chips}+#1#{} extra chips",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
 			m_felijo_bonus_t4_mp = {
                 name = "nus CardBo [IV]",
                 text = {
                     "{C:chips}+#1#{} extra chips",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
             m_felijo_glass_t2_mp = {
@@ -53,6 +56,7 @@ return {
                     "{X:mult,C:white}X#1#{} Mult",
                     "{C:green}#2# in #3#{} chance to",
                     "destroy card",
+                    "multiplied by {X:planet,C:white}X#4# ~ X#5#{}",
                 },
             },
 			m_felijo_glass_t3_mp = {
@@ -61,6 +65,7 @@ return {
                     "{X:mult,C:white} X#1# {} Mult",
                     "{C:green}#2# in #3#{} chance to",
                     "destroy card",
+                    "multiplied by {X:planet,C:white}X#4# ~ X#5#{}",
                 },
             },
 			m_felijo_glass_t4_mp = {
@@ -69,6 +74,7 @@ return {
                     "{X:mult,C:white} X#1# {} Mult",
                     "{C:green}#2# in #3#{} chance to",
                     "destroy card",
+                    "multiplied by {X:planet,C:white}X#4# ~ X#5#{}",
                 },
             },
             m_felijo_gold_t2_mp = {
@@ -83,6 +89,7 @@ return {
 						"Earn {C:money}$#2#{} when this",
 						"card is played",
 						"and scores",
+                        "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
 					}
 				}
             },
@@ -98,6 +105,7 @@ return {
 						"Earn {C:money}$#2#{} when this",
 						"card is played",
 						"and scores",
+                        "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
 					}
 				}
             },
@@ -113,6 +121,7 @@ return {
 						"Earn {C:money}$#2#{} when this",
 						"card is played",
 						"and scores",
+                        "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
 					}
 				}
             },
@@ -125,6 +134,7 @@ return {
                     "for {C:chips}+#9#{} Chips",
                     "{C:green}#2# in #6#{} chance",
                     "to win {C:money}$#5#",
+                    "multiplied by {X:planet,C:white}X#10# ~ X#11#{}",
                 },
             },
 			m_felijo_lucky_t3_mp = {
@@ -136,6 +146,7 @@ return {
                     "for {C:chips}+#9#{} Chips",
                     "{C:green}#2# in #6#{} chance",
                     "to win {C:money}$#5#",
+                    "multiplied by {X:planet,C:white}X#10# ~ X#11#{}",
                 },
             },
 			m_felijo_lucky_t4_mp = {
@@ -147,24 +158,28 @@ return {
                     "for {C:chips}+#9#{} Chips",
                     "{C:green}#2# in #6#{} chance",
                     "to win {C:money}$#5#",
+                    "multiplied by {X:planet,C:white}X#10# ~ X#11#{}",
                 },
             },
             m_felijo_mult_t2_mp = {
                 name = "ult CardM [II]",
                 text = {
                     "{C:mult}+#1#{} Mult",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
 			m_felijo_mult_t3_mp = {
                 name = "ult CardM [III]",
                 text = {
                     "{C:mult}+#1#{} Mult",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
 			m_felijo_mult_t4_mp = {
                 name = "ult CardM [IV]",
                 text = {
                     "{C:mult}+#1#{} Mult",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
             m_felijo_steel_t2_mp = {
@@ -173,6 +188,7 @@ return {
                     "{X:mult,C:white} X#1# {} Mult",
                     "while this card",
                     "stays in hand",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
 			m_felijo_steel_t3_mp = {
@@ -181,6 +197,7 @@ return {
                     "{X:mult,C:white} X#1# {} Mult,",
                     "while this card",
                     "stays in hand",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
 			m_felijo_steel_t4_mp = {
@@ -189,6 +206,7 @@ return {
                     "{X:mult,C:white} X#1# {} Mult,",
                     "while this card",
                     "stays in hand",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
             m_felijo_stone_t2_mp = {
@@ -196,6 +214,7 @@ return {
                 text = {
                     "{C:chips}+#1#{} Chips",
                     "no rank or suit",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
 			m_felijo_stone_t3_mp = {
@@ -204,6 +223,7 @@ return {
                     "{C:chips}+#1#{} Chips,",
 					"{C:mult}+#2#{} Mult,",
                     "no rank or suit",
+                    "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
                 },
             },
 			m_felijo_stone_t4_mp = {
@@ -212,6 +232,7 @@ return {
                     "{C:chips}+#1#{} Chips,",
 					"{C:mult}+#2#{} Mult,",
                     "no rank or suit",
+                    "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
                 },
             },
 			m_felijo_enh_sup_mp = {

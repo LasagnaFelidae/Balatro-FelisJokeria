@@ -94,10 +94,10 @@ end
 if FELIJO.is_mod_loaded("synthb") then
     assert(SMODS.load_file("./modules/content/crossmod/synthb.lua"))()
 end
---[[
+
 if FELIJO.is_mod_loaded("baddirector") then
     assert(SMODS.load_file("./modules/content/crossmod/nxkoo.lua"))()
-end]]
+end
 --[[
 ▄▄▄▄  ▄▄▄▄▄ ▄▄▄▄  ▄▄    ▄▄▄▄▄ ▄▄ ▄▄ 
 ██▄█▄ ██▀██ ██▄██ ██    ██▀██ ▀█▄█▀ 

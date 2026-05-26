@@ -271,3 +271,10 @@ FELIJO.superior_tiers = {
     {"m_felijo_enh_sup_t2", 4},
     {FELIJO.superior_enhancement, 13},
 }
+
+if FELIJO.is_mod_loaded("baddirector") then
+    table.insert(FELIJO.superior_tiers, {"m_felijo_enh_sup_t4_mp", 0.4})
+    table.insert(FELIJO.superior_tiers, {"m_felijo_enh_sup_t3_mp", 0.8})
+    table.insert(FELIJO.superior_tiers, {"m_felijo_enh_sup_t2_mp", 1.8})
+    table.insert(FELIJO.superior_tiers, {"m_felijo_enh_sup_mp", 7})
+end
