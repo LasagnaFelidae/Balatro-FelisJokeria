@@ -190,6 +190,12 @@ FELIJO.getCardTribes = function(card)
         table.insert(tribes, "Human")
         table.insert(tribes, "Object")
     end
+    if card.config.center.rarity == "bcats_normal" or
+        card.config.center.rarity == "bcats_rare" or
+        card.config.center.rarity == "bcats_super_rare" or
+        card.config.center.rarity == "bcats_uber_rare" then
+            table.insert(tribes, "Feline")
+    end
 
     -- Revo XMOD
     if FELIJO.is_mod_loaded("RevosVault") then

@@ -2,67 +2,67 @@ local PRONOUNS = { "neutral", "masculine", "feminine"}
 
 
 SMODS.Joker { -- Uncommon Aiko
-atlas = 'insDeathcard',
-pos = { x = 1, y = 0},
-pools = {
-	["FelisJokeria"]=true,
-	["Inscryption"] = true, 
-	["Beast"] = true,
-	["Human"] = true, 
-	["Deathcard"] = true 
-},
-key = "felijo_ins_aiko",
-pronouns = "any_all",
-attributes = {"chips", "mult", "xchips", "scaling", "destroy_card", "sell_value"},
-unlocked = true,
-discovered = false,
-rarity = 2,
-cost = 8,
-config = { extra = { xchips = 1, chips = 17, mult = 6, increment = 0.1,} },
-set_badges = function(self, card, badges)
-	badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
-end,
-loc_vars = function(self, info_queue, card)
-	return { vars = { card.ability.extra.xchips, card.ability.extra.chips , card.ability.extra.mult, card.ability.extra.increment*100, colours = { HEX('F0C590'), HEX('351A09')  } }}
-end,
-calculate = function(self, card, context)
-	if context.setting_blind and not context.blueprint then
-		local my_pos = nil
-		for i = 1, #G.jokers.cards do
-			if G.jokers.cards[i] == card then
-				my_pos = i
-				break
+	atlas = 'insDeathcard',
+	pos = { x = 1, y = 0},
+	pools = {
+		["FelisJokeria"]=true,
+		["Inscryption"] = true, 
+		["Beast"] = true,
+		["Human"] = true, 
+		["Deathcard"] = true 
+	},
+	key = "felijo_ins_aiko",
+	pronouns = "any_all",
+	attributes = {"chips", "mult", "xchips", "scaling", "destroy_card", "sell_value"},
+	unlocked = true,
+	discovered = false,
+	rarity = 2,
+	cost = 8,
+	config = { extra = { xchips = 1, chips = 17, mult = 6, increment = 0.1,} },
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
+	end,
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.xchips, card.ability.extra.chips , card.ability.extra.mult, card.ability.extra.increment*100, colours = { HEX('F0C590'), HEX('351A09')  } }}
+	end,
+	calculate = function(self, card, context)
+		if context.setting_blind and not context.blueprint then
+			local my_pos = nil
+			for i = 1, #G.jokers.cards do
+				if G.jokers.cards[i] == card then
+					my_pos = i
+					break
+				end
+			end
+			if my_pos and G.jokers.cards[my_pos - 1] and not SMODS.is_eternal(G.jokers.cards[my_pos - 1], card) and not G.jokers.cards[my_pos - 1].getting_sliced then
+				local sliced_card = G.jokers.cards[my_pos - 1]
+				sliced_card.getting_sliced = true
+				G.GAME.joker_buffer = G.GAME.joker_buffer - 1
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						G.GAME.joker_buffer = 0					
+						card.ability.extra.xchips = card.ability.extra.xchips + ( card.ability.extra.increment * sliced_card.sell_cost )
+						card:juice_up(0.8, 0.8)
+						sliced_card:start_dissolve({ HEX("d8a768") }, nil, 1.6)
+						play_sound('slice1', 0.96 + math.random() * 0.08)
+						return true
+					end
+				}))
+				return {
+					message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.xchips + card.ability.extra.increment * sliced_card.sell_cost } },
+					colour = G.C.BLUE,
+					no_juice = true
+				}
 			end
 		end
-		if my_pos and G.jokers.cards[my_pos - 1] and not SMODS.is_eternal(G.jokers.cards[my_pos - 1], card) and not G.jokers.cards[my_pos - 1].getting_sliced then
-			local sliced_card = G.jokers.cards[my_pos - 1]
-			sliced_card.getting_sliced = true
-			G.GAME.joker_buffer = G.GAME.joker_buffer - 1
-			G.E_MANAGER:add_event(Event({
-				func = function()
-					G.GAME.joker_buffer = 0					
-					card.ability.extra.xchips = card.ability.extra.xchips + ( card.ability.extra.increment * sliced_card.sell_cost )
-					card:juice_up(0.8, 0.8)
-					sliced_card:start_dissolve({ HEX("d8a768") }, nil, 1.6)
-					play_sound('slice1', 0.96 + math.random() * 0.08)
-					return true
-				end
-			}))
+		if context.joker_main then
 			return {
-				message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.xchips + card.ability.extra.increment * sliced_card.sell_cost } },
-				colour = G.C.BLUE,
-				no_juice = true
+				xchips = card.ability.extra.xchips,
+				chips = card.ability.extra.chips,
+				mult = card.ability.extra.mult
 			}
 		end
 	end
-	if context.joker_main then
-		return {
-			xchips = card.ability.extra.xchips,
-			chips = card.ability.extra.chips,
-			mult = card.ability.extra.mult
-		}
-	end
-end
 }
 
 
@@ -224,39 +224,39 @@ blueprint_compat = true,
 
 
 SMODS.Joker{  -- uncommon nxkoo
-atlas = 'insDeathcard',
-pos = { x = 5, y = 0 },
-pools = {
-	["FelisJokeria"]= true, 
-	["Inscryption"] = true, 
-	["Beast"] = true,
-	["Human"] = true, 
-	["Deathcard"] = true 
-},
-key = "felijo_ins_nxkoo",
-pronouns = "she_they",
-attributes = {"chips", "mult", "joker_slot"},
-rarity = 2,
-cost = 8,
-blueprint_compat = true,
-eternal_compat = true,
-perishable_compat = true,
-unlocked = true,
-discovered = false,
-config = { extra = {chips = 6, mult = 7,} },
-set_badges = function(self, card, badges)
-	badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
-end,
-loc_vars = function(self, info_queue, card)
-	return { vars = {card.ability.extra.chips, card.ability.extra.mult, G.jokers and math.max(1, #G.jokers.cards + (#SMODS.find_card("j_lusty_joker", true)*0.5)) or 1, colours = { HEX('F0C590'), HEX('351A09')} } }
-end,
-calculate = function(self, card, context)
-	if context.joker_main then
-		return {
-			xmult = math.max(1, #G.jokers.cards + (#SMODS.find_card("j_lusty_joker", true)*0.5))
-		}
+	atlas = 'insDeathcard',
+	pos = { x = 5, y = 0 },
+	pools = {
+		["FelisJokeria"]= true, 
+		["Inscryption"] = true, 
+		["Beast"] = true,
+		["Human"] = true, 
+		["Deathcard"] = true 
+	},
+	key = "felijo_ins_nxkoo",
+	pronouns = "she_they",
+	attributes = {"chips", "mult", "joker_slot"},
+	rarity = 2,
+	cost = 8,
+	blueprint_compat = true,
+	eternal_compat = true,
+	perishable_compat = true,
+	unlocked = true,
+	discovered = false,
+	config = { extra = {chips = 6, mult = 7,} },
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
+	end,
+	loc_vars = function(self, info_queue, card)
+		return { vars = {card.ability.extra.chips, card.ability.extra.mult, G.jokers and math.max(1, #G.jokers.cards + (#SMODS.find_card("j_lusty_joker", true)*0.5)) or 1, colours = { HEX('F0C590'), HEX('351A09')} } }
+	end,
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				xmult = math.max(1, #G.jokers.cards + (#SMODS.find_card("j_lusty_joker", true)*0.5))
+			}
+		end
 	end
-end
 }
 
 SMODS.Joker { -- Uncommon Tatsu

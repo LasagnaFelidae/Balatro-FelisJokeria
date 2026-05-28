@@ -89,7 +89,7 @@ return {
 						"Earn {C:money}$#2#{} when this",
 						"card is played",
 						"and scores",
-                        "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
+                        "{s:0.8,C:inactive}(All multiplied by {s:0.8,X:planet,C:white}X#3# ~ X#4#{C:inactive,s:0.8})",
 					}
 				}
             },
@@ -105,7 +105,7 @@ return {
 						"Earn {C:money}$#2#{} when this",
 						"card is played",
 						"and scores",
-                        "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
+                        "{s:0.8,C:inactive}(All multiplied by {s:0.8,X:planet,C:white}X#3# ~ X#4#{C:inactive,s:0.8})",
 					}
 				}
             },
@@ -121,7 +121,7 @@ return {
 						"Earn {C:money}$#2#{} when this",
 						"card is played",
 						"and scores",
-                        "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
+                        "{s:0.8,C:inactive}(All multiplied by {s:0.8,X:planet,C:white}X#3# ~ X#4#{C:inactive,s:0.8})",
 					}
 				}
             },
@@ -223,7 +223,7 @@ return {
                     "{C:chips}+#1#{} Chips,",
 					"{C:mult}+#2#{} Mult,",
                     "no rank or suit",
-                    "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
+                    "{s:0.8,C:inactive}(All multiplied by {s:0.8,X:planet,C:white}X#3# ~ X#4#{C:inactive,s:0.8})",
                 },
             },
 			m_felijo_stone_t4_mp = {
@@ -232,7 +232,7 @@ return {
                     "{C:chips}+#1#{} Chips,",
 					"{C:mult}+#2#{} Mult,",
                     "no rank or suit",
-                    "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
+                    "{s:0.8,C:inactive}(All multiplied by {s:0.8,X:planet,C:white}X#3# ~ X#4#{C:inactive,s:0.8})",
                 },
             },
 			m_felijo_enh_sup_mp = {

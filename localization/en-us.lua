@@ -1264,6 +1264,7 @@ return {
 			k_felijo_toga = "TOGA's Stuff",
 			k_felijo_bs = "Blindside",
 			k_felijo_synthb = "SynthB",
+            k_felijo_bd = "Bad Director",
 			----------------
 			--J.CATEGORIES--
 			----------------

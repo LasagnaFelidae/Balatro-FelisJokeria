@@ -161,8 +161,8 @@ FELIJO.TOGAJoker {
 	rarity = 1,
 	cost = 1,
 	set_badges = function(self, card, badges)
-		badges[#badges+1] = create_badge(localize('k_felijo_toga'), HEX('fd9712'), HEX('ffffff'), 1 )
 		badges[#badges+1] = create_badge(localize('k_felijo_toga_malware'), HEX('000000'), HEX('ffffff'), 1 )
+		badges[#badges+1] = create_badge(localize('k_felijo_toga'), HEX('fd9712'), HEX('ffffff'), 1 )
 	end,
 	config = { extra = { mult = 25 }, imm = {n1 = 1, d1= 5, d2 = 200} },
 	loc_vars = function(self, info_queue, card)

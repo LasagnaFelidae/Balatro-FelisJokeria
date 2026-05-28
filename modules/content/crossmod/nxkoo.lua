@@ -12,6 +12,7 @@ SMODS.Enhancement {
 	weight = 0,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_revo'), HEX('7E7AFF'), HEX('40093A'), 1 )
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
 	end,
 	
 	
@@ -47,6 +48,7 @@ FELIJO.T2Enhancement {
 	weight = 0,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_revo'), HEX('7E7AFF'), HEX('40093A'), 1 )
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
 	end,
 	
 	
@@ -82,6 +84,7 @@ FELIJO.T3Enhancement {
 	weight = 0,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_revo'), HEX('7E7AFF'), HEX('40093A'), 1 )
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
 	end,
 	
 	
@@ -117,6 +120,7 @@ FELIJO.T4Enhancement {
 	weight = 0,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_revo'), HEX('7E7AFF'), HEX('40093A'), 1 )
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
 	end,
 	
 	in_pool = function(self)
@@ -146,6 +150,9 @@ FELIJO.T2Enhancement {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.mod.min, card.ability.mod.max } }
     end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
 	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
             local modifier = pseudorandom(pseudoseed("sayasukakamu"), card.ability.mod.min, card.ability.mod.max)
@@ -154,6 +161,7 @@ FELIJO.T2Enhancement {
 			}
 		end
 	end,
+    m_misprint_original = "m_felijo_bonus_t2",
 }
 
 FELIJO.T3Enhancement {
@@ -164,6 +172,9 @@ FELIJO.T3Enhancement {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.chips, card.ability.mod.min, card.ability.mod.max } }
     end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
 	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
             local modifier = pseudorandom(pseudoseed("sayasukakamu"), card.ability.mod.min, card.ability.mod.max)
@@ -172,6 +183,7 @@ FELIJO.T3Enhancement {
 			}
 		end
 	end,
+    m_misprint_original = "m_felijo_bonus_t3",
 }
 
 FELIJO.T4Enhancement {
@@ -191,6 +203,7 @@ FELIJO.T4Enhancement {
 			}
 		end
 	end,
+    m_misprint_original = "m_felijo_bonus_t4",
 }
 
 -- Mult
@@ -202,6 +215,9 @@ FELIJO.T2Enhancement {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.mod.min, card.ability.mod.max } }
     end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
 	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
             local modifier = pseudorandom(pseudoseed("sayasukakamu"), card.ability.mod.min, card.ability.mod.max)
@@ -210,6 +226,7 @@ FELIJO.T2Enhancement {
 			}
 		end
 	end,
+    m_misprint_original = "m_felijo_mult_t2",
 }
 
 FELIJO.T3Enhancement {
@@ -220,6 +237,9 @@ FELIJO.T3Enhancement {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.mod.min, card.ability.mod.max } }
     end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
 	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
             local modifier = pseudorandom(pseudoseed("sayasukakamu"), card.ability.mod.min, card.ability.mod.max)
@@ -228,6 +248,7 @@ FELIJO.T3Enhancement {
 			}
 		end
 	end,
+    m_misprint_original = "m_felijo_mult_t3",
 }
 
 FELIJO.T4Enhancement {
@@ -235,6 +256,9 @@ FELIJO.T4Enhancement {
     key = 'mult_t4_mp',
     pos = { x = 3, y = 1 },
     config = { extra = {mult = 32}, mod = {min = 0.9, max = 4} },
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.mult, card.ability.mod.min, card.ability.mod.max } }
     end,
@@ -246,6 +270,7 @@ FELIJO.T4Enhancement {
 			}
 		end
 	end,
+    m_misprint_original = "m_felijo_mult_t4",
 }
 
 -- Glass
@@ -255,6 +280,9 @@ FELIJO.T2Enhancement {
     pos = { x = 1, y = 3 },
     config = { extra = {xmult = 2.5, odds = 4 }, mod = {min = 0.7, max = 2.5}  },
     shatters = true,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_glass')
         return { vars = { card.ability.extra.xmult, numerator, denominator, card.ability.mod.min,card.ability.mod.max, } }
@@ -269,6 +297,7 @@ FELIJO.T2Enhancement {
 			return {xmult = math.max(0.7,(card.base.id * card.ability.extra.xmult) * modifier)}
 		end
     end,
+    m_misprint_original = "m_felijo_glass_t2",
 }
 
 FELIJO.T3Enhancement {
@@ -277,6 +306,9 @@ FELIJO.T3Enhancement {
     pos = { x = 2, y = 3 },
     config = { extra = {xmult = 3, odds = 6 }, mod = {min = 0.8, max = 3}  },
     shatters = true,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_glass')
         return { vars = { card.ability.extra.xmult, numerator, denominator, card.ability.mod.min,card.ability.mod.max,  } }
@@ -291,6 +323,7 @@ FELIJO.T3Enhancement {
 			return {xmult = math.max(0.7,(card.base.id * card.ability.extra.xmult) * modifier)}
 		end
     end,
+    m_misprint_original = "m_felijo_glass_t3",
 }
 
 FELIJO.T4Enhancement {
@@ -299,6 +332,9 @@ FELIJO.T4Enhancement {
     pos = { x = 3, y = 3 },
     config = { extra = {xmult = 5, odds = 8 }, mod = {min = 0.9, max = 3.5}  },
     shatters = true,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_glass')
         return { vars = { card.ability.extra.xmult, numerator, denominator, card.ability.mod.min,card.ability.mod.max,  } }
@@ -313,6 +349,7 @@ FELIJO.T4Enhancement {
 			return {xmult = math.max(0.7,(card.base.id * card.ability.extra.xmult) * modifier)}
 		end
     end,
+    m_misprint_original = "m_felijo_glass_t4",
 }
 
 -- Steel
@@ -321,6 +358,9 @@ FELIJO.T2Enhancement {
     key = 'steel_t2_mp',
     pos = { x = 1, y = 4 },
     config = { extra = {xmult = 2.5}, mod = {min = 0.5, max = 1.5}  },
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, card.ability.mod.min, card.ability.mod.max,  } }
     end,
@@ -330,6 +370,7 @@ FELIJO.T2Enhancement {
 			return {xmult = math.max(0.7,(card.base.id * card.ability.extra.xmult) * modifier)}
 		end
     end,
+    m_misprint_original = "m_felijo_steel_t2",
 }
 
 FELIJO.T2Enhancement {
@@ -337,6 +378,9 @@ FELIJO.T2Enhancement {
     key = 'steel_t3_mp',
     pos = { x = 2, y = 4 },
     config = { extra = {xmult = 3}, mod = {min = 0.6, max = 2.5}  },
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, card.ability.mod.min, card.ability.mod.max,  } }
     end,
@@ -346,6 +390,7 @@ FELIJO.T2Enhancement {
 			return {xmult = math.max(0.7,(card.base.id * card.ability.extra.xmult) * modifier)}
 		end
     end,
+    m_misprint_original = "m_felijo_steel_t3",
 }
 
 FELIJO.T2Enhancement {
@@ -353,6 +398,9 @@ FELIJO.T2Enhancement {
     key = 'steel_t4_mp',
     pos = { x = 3, y = 4 },
     config = { extra = {xmult = 4}, mod = {min = 0.8, max = 3}  },
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.xmult, card.ability.mod.min, card.ability.mod.max,  } }
     end,
@@ -362,6 +410,7 @@ FELIJO.T2Enhancement {
 			return {xmult = math.max(0.7,(card.base.id * card.ability.extra.xmult) * modifier)}
 		end
     end,
+    m_misprint_original = "m_felijo_steel_t4",
 }
 
 -- Stone
@@ -374,6 +423,9 @@ FELIJO.T2Enhancement {
     no_rank = true,
     no_suit = true,
     always_scores = true,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.bonus, card.ability.mod.min, card.ability.mod.max} }
     end,
@@ -383,6 +435,7 @@ FELIJO.T2Enhancement {
 			return {chips = math.max(0.7,(card.base.id * card.ability.extra.bonus) * modifier)}
 		end
     end,
+    m_misprint_original = "m_felijo_stone_t2",
 }
 FELIJO.T3Enhancement {
 	atlas = 'lover_tieredEnhancements',
@@ -393,8 +446,11 @@ FELIJO.T3Enhancement {
     no_rank = true,
     no_suit = true,
     always_scores = true,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.bonus, card.ability.mult, card.ability.mod.min, card.ability.mod.max } }
+        return { vars = {   card.ability.extra.bonus, card.ability.extra.mult, card.ability.mod.min, card.ability.mod.max } }
     end,
 	calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.play then
@@ -405,6 +461,7 @@ FELIJO.T3Enhancement {
 			}
 		end
     end,
+    m_misprint_original = "m_felijo_stone_t3",
 }
 FELIJO.T4Enhancement {
 	atlas = 'lover_tieredEnhancements',
@@ -415,8 +472,11 @@ FELIJO.T4Enhancement {
     no_rank = true,
     no_suit = true,
     always_scores = true,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.bonus, card.ability.mult, card.ability.mod.min, card.ability.mod.max } }
+        return { vars = { card.ability.extra.bonus, card.ability.extra.mult, card.ability.mod.min, card.ability.mod.max } }
     end,
 	calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.play then
@@ -427,6 +487,7 @@ FELIJO.T4Enhancement {
 			}
 		end
     end,
+    m_misprint_original = "m_felijo_stone_t4",
 }
 
 -- Gold
@@ -438,6 +499,9 @@ FELIJO.T2Enhancement {
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.h_dollars, card.ability.extra.p_dollars, card.ability.mod.min, card.ability.mod.max  } }
     end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
 	calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.hand then
 			local modifier = pseudorandom(pseudoseed("sayasukakamu"), card.ability.mod.min, card.ability.mod.max)
@@ -448,12 +512,16 @@ FELIJO.T2Enhancement {
 			return {dollars = math.max(0.7,(card.base.id * card.ability.extra.p_dollars) * modifier)}
 		end
     end,
+    m_misprint_original = "m_felijo_gold_t2",
 }
 FELIJO.T3Enhancement {
 	atlas = 'lover_tieredEnhancements',
     key = 'gold_t3_mp',
     pos = { x = 2, y = 6 },
     config = { extra = {h_dollars = 6, p_dollars = 2}, mod = {min = 0.6, max = 3} },
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.h_dollars, card.ability.extra.p_dollars, card.ability.mod.min, card.ability.mod.max  } }
     end,
@@ -467,12 +535,16 @@ FELIJO.T3Enhancement {
 			return {dollars = math.max(0.7,(card.base.id * card.ability.extra.p_dollars) * modifier)}
 		end
     end,
+    m_misprint_original = "m_felijo_gold_t3",
 }
 FELIJO.T4Enhancement {
 	atlas = 'lover_tieredEnhancements',
     key = 'gold_t4_mp',
     pos = { x = 3, y = 6 },
     config = { extra = {h_dollars = 8, p_dollars = 4}, mod = {min = 0.7, max = 4} },
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.h_dollars, card.ability.extra.p_dollars, card.ability.mod.min, card.ability.mod.max  } }
     end,
@@ -486,6 +558,7 @@ FELIJO.T4Enhancement {
 			return {dollars = math.max(0.7,(card.base.id * card.ability.extra.p_dollars) * modifier)}
 		end
     end,
+    m_misprint_original = "m_felijo_gold_t4",
 }
 
 -- Lucky
@@ -494,6 +567,9 @@ FELIJO.T2Enhancement {
     key = 'lucky_t2_mp',
     pos = { x = 1, y = 2 },
     config = { extra = { mult = 30, chips = 100, dollars = 30, mult_odds = 5, chips_odds = 5, dollars_odds = 15 }, mod = {min = 0.4, max = 2.5} },
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         local mult_numerator, mult_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.mult_odds,
             'felijo_lucky_mult')
@@ -522,12 +598,16 @@ FELIJO.T2Enhancement {
             return ret
         end
     end,
+    m_misprint_original = "m_felijo_lucky_t2",
 }
 FELIJO.T3Enhancement {
 	atlas = 'lover_tieredEnhancements',
     key = 'lucky_t3_mp',
     pos = { x = 2, y = 2 },
     config = { extra = { mult = 35, chips = 150, dollars = 35, mult_odds = 4, chips_odds = 4, dollars_odds = 12 }, mod = {min = 0.7, max = 3}  },
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         local mult_numerator, mult_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.mult_odds,
             'felijo_lucky_mult')
@@ -556,12 +636,16 @@ FELIJO.T3Enhancement {
             return ret
         end
     end,
+    m_misprint_original = "m_felijo_lucky_t3",
 }
 FELIJO.T4Enhancement {
 	atlas = 'lover_tieredEnhancements',
     key = 'lucky_t4_mp',
     pos = { x = 3, y = 2 },
     config = { extra = { mult = 40, chips = 250, dollars = 40, mult_odds = 4, chips_odds = 4, dollars_odds = 12 }, mod = {min = 0.9, max = 4} },
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end,
     loc_vars = function(self, info_queue, card)
         local mult_numerator, mult_denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.mult_odds,
             'felijo_lucky_mult')
@@ -590,4 +674,5 @@ FELIJO.T4Enhancement {
             return ret
         end
     end,
+    m_misprint_original = "m_felijo_lucky_t4",
 }
