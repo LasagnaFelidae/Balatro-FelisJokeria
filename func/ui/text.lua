@@ -24,3 +24,34 @@ G.ARGS.LOC_COLOURS.felijo_sgl = HEX('00DB8A')
 G.ARGS.LOC_COLOURS.felijo_ttm = HEX('7E5C2F')
 G.ARGS.LOC_COLOURS.felijo_ins_gld = HEX('F8A84F')
 G.ARGS.LOC_COLOURS.felijo_goobert = HEX('218812')
+
+SMODS.Gradient({
+    key = "t2_mp",
+    colours = {
+        HEX("97626B"),
+        HEX("ED9AA8"),
+    },
+    cycle = 2,
+})
+
+
+
+SMODS.Gradient({
+    key = "t3_mp",
+    colours = {
+        HEX("4D5A7E"),
+        HEX("8096D2"),
+    },
+    cycle = 2,
+})
+
+
+
+SMODS.Gradient({
+    key = "t4_mp",
+    colours = {
+        HEX("A8926D"),
+		HEX("F0CF99"),
+    },
+    cycle = 2,
+})

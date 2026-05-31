@@ -140,7 +140,58 @@ FELIJO.T4Enhancement {
 		end
 	end,
 }
+-- Wild
+FELIJO.T2Enhancement {
+	atlas = 'tieredEnhancements',
+    key = 'wild_t2_mp',
+    pos = { x = 1, y = 8 },
+    config = { extra = { mult = 4}, mod = {min = 0.5, max = 1.5} },
+    any_suit = true,
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.mult, card.ability.mod.min, card.ability.mod.max } }
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.play and context.repetition then
+            local modifier = pseudorandom(pseudoseed("sayasukakamu"), card.ability.mod.min, card.ability.mod.max)
+            return { mult = math.max(1,(card.ability.extra.mult) * modifier) }
+        end
+    end,
+    
 
+}
+FELIJO.T3Enhancement {
+	atlas = 'tieredEnhancements',
+    key = 'wild_t3_mp',
+    pos = { x = 2, y = 8 },
+    any_suit = true,
+    config = { extra = { repetitions = 1, mult = 6}, mod = {min = 0.7, max = 2.5} },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.repetitions, card.ability.extra.mult, card.ability.mod.min, card.ability.mod.max } }
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.play and context.repetition then
+            local modifier = pseudorandom(pseudoseed("sayasukakamu"), card.ability.mod.min, card.ability.mod.max)
+            return { repetitions = card.ability.extra.repetitions, mult = math.max(1,(card.ability.extra.mult) * modifier) }
+        end
+    end,
+}
+FELIJO.T4Enhancement {
+	atlas = 'tieredEnhancements',
+    key = 'wild_t4_mp',
+    pos = { x = 3, y = 8 },
+    any_suit = true,
+    config = { extra = { repetitions = 3, mult = 8}, mod = {min = 0.8, max = 3.5} },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.extra.repetitions, card.ability.extra.mult, card.ability.mod.min, card.ability.mod.max } }
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.play and context.repetition then
+            local modifier = pseudorandom(pseudoseed("sayasukakamu"), card.ability.mod.min, card.ability.mod.max)
+            return { repetitions = card.ability.extra.repetitions, mult = math.max(1,(card.ability.extra.mult) * modifier) }
+        end
+    end,
+
+}
 -- Bonus
 FELIJO.T2Enhancement {
 	atlas = 'lover_tieredEnhancements',

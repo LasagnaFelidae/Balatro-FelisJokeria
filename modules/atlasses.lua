@@ -160,19 +160,19 @@ SMODS.Atlas {
     py = 95
 }
 SMODS.Atlas {
-    key = "lover_t2Tarots",
+    key = "t2Tarots_mp",
     path = "crossmod/mylove/tiered/t2Tarots.png",
     px = 71,
     py = 95
 }
 SMODS.Atlas {
-    key = "lover_t3Tarots",
+    key = "t3Tarots_mp",
     path = "crossmod/mylove/tiered/t3Tarots.png",
     px = 71,
     py = 95
 }
 SMODS.Atlas {
-    key = "lover_t4Tarots",
+    key = "t4Tarots_mp",
     path = "crossmod/mylove/tiered/t4Tarots.png",
     px = 71,
     py = 95

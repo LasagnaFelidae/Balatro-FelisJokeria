@@ -3,29 +3,35 @@ return {
     descriptions = {
          Enhanced = {
             m_felijo_wild_t2_mp = {
-                name = "Wild Card [II]",
+                name = "ild CardW [II]",
                 text = {
                     "Can be used",
                     "as any suit",
                     "Can't be debuffed",
+                    "{C:mult}+#1#{} Mult",
+                    "multiplied by {X:planet,C:white}X#2# ~ X#3#{}",
                 },
             },
 			m_felijo_wild_t3_mp = {
-                name = "Wild Card [III]",
+                name = "ild CardW [III]",
                 text = {
                     "Can be used",
                     "as any suit",
                     "Can't be debuffed",
                     "Retriggers {C:attention}#1#{} time",
+                    "{C:mult}+#2#{} Mult",
+                    "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
                 },
             },
 			m_felijo_wild_t4_mp = {
-                name = "Wild Card [IV]",
+                name = "ild CardW [IV]",
                 text = {
                     "Can be used",
                     "as any suit",
                     "Can't be debuffed",
                     "Retriggers {C:attention}#1#{} times",
+                    "{C:mult}+#2#{} Mult",
+                    "multiplied by {X:planet,C:white}X#3# ~ X#4#{}",
                 },
             },
 
@@ -126,7 +132,7 @@ return {
 				}
             },
             m_felijo_lucky_t2_mp = {
-                name = "Lucky Card [II]",
+                name = "cky CardLu [II]",
                 text = {
                     "{C:green}#1# in #4#{} chance",
                     "for {C:mult}+#3#{} Mult",
@@ -138,7 +144,7 @@ return {
                 },
             },
 			m_felijo_lucky_t3_mp = {
-                name = "Lucky Card [III]",
+                name = "cky CardLu [III]",
                 text = {
                     "{C:green}#1# in #4#{} chance",
                     "for {C:mult}+#3#{} Mult",
@@ -150,7 +156,7 @@ return {
                 },
             },
 			m_felijo_lucky_t4_mp = {
-                name = "Lucky Card [IV]",
+                name = "cky CardLu [IV]",
                 text = {
                     "{C:green}#1# in #4#{} chance",
                     "for {C:mult}+#3#{} Mult",
@@ -279,5 +285,252 @@ return {
 			
 
 		},
+        mistarot = {
+			c_felijo_ascended_mp = {
+                name = "ndedThe Asce",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+		},
+		felijo_tier2_tarot_mp = {
+			c_felijo_t2_ascended_mp = {
+                name = "ndedThe Asce [II]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t2_chariot_mp = {
+                name = "riot The Cha [II]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t2_devil_mp = {
+                name = "vilThe De [II]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+            c_felijo_t2_empress_mp = {
+                name = "pressThe Em [II]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t2_heirophant_mp = {
+                name = "ophantThe Hier [II]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+            c_felijo_t2_lovers_mp = {
+                name = "ersThe Lov [II]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t2_justice_mp = {
+                name = "iceJust [II]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t2_tower_mp = {
+                name = "erThe Tow [II]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t2_magician_mp = {
+                name = "icianThe Mag [II]",
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+		},
+		felijo_tier3_tarot_mp = {
+			c_felijo_t3_ascended_mp = {
+                name = "ndedThe Asce [III]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t3_chariot_mp = {
+                name = "riot The Cha [III]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t3_devil_mp = {
+                name = "vilThe De [III]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+            c_felijo_t3_empress_mp = {
+                name = "pressThe Em [III]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t3_heirophant_mp = {
+                name = "ophantThe Hier [III]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+            c_felijo_t3_lovers_mp = {
+                name = "ersThe Lov [III]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t3_justice_mp = {
+                name = "iceJust [III]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t3_tower_mp = {
+                name = "erThe Tow [III]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t3_magician_mp = {
+                name = "icianThe Mag [III]",
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+		},
+		felijo_tier4_tarot_mp = {
+			c_felijo_t4_ascended_mp = {
+                name = "ndedThe Asce [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t4_chariot_mp = {
+                name = "riot The Cha [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t4_devil_mp = {
+                name = "vilThe De [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+            c_felijo_t4_empress_mp = {
+                name = "pressThe Em [IV]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t4_heirophant_mp = {
+                name = "ophantThe Hier [IV]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+            c_felijo_t4_lovers_mp = {
+                name = "ersThe Lov [IV]",
+                text = {
+                    "Enhances {C:attention}#1#",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+			c_felijo_t4_justice_mp = {
+                name = "iceJust [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t4_tower_mp = {
+                name = "erThe Tow [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{} selected",
+                    "card into a",
+                    "{C:attention}#2#",
+                },
+            },
+			c_felijo_t4_magician_mp = {
+                name = "icianThe Mag [IV]",
+                text = {
+                    "Enhances {C:attention}#1#{}",
+                    "selected cards to",
+                    "{C:attention}#2#s",
+                },
+            },
+		},
+    },
+    misc = {
+        dictionary = {
+            b_felijo_tier2_tarot_mp_cards = "ot CardsTar [II]",
+			b_felijo_tier3_tarot_mp_cards = "ot CardsTar [III]",
+			b_felijo_tier4_tarot_mp_cards = "ot CardsTar [IV]",
+            k_felijo_tier2_tarot_mp = "rotTa [II]",
+			k_felijo_tier3_tarot_mp = "rotTa [III]",
+			k_felijo_tier4_tarot_mp = "rotTa [IV]",
+        },
+        labels = {
+            felijo_tier2_tarot_mp = "rotTa [II]",
+			felijo_tier3_tarot_mp = "rotTa [III]",
+			felijo_tier4_tarot_mp = "rotTa [IV]",
+        },
     }
 }

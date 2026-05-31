@@ -71,7 +71,7 @@ assert(SMODS.load_file("./modules/content/jokers.lua"))()
 assert(SMODS.load_file("./modules/content/luckyfeli.lua"))()
 assert(SMODS.load_file("./modules/content/stickers.lua"))()
 --assert(SMODS.load_file("./modules/content/hands.lua"))()
-assert(SMODS.load_file("./modules/content/planet.lua"))()
+--assert(SMODS.load_file("./modules/content/planet.lua"))()
 assert(SMODS.load_file("./modules/content/tarots.lua"))()
 ----------------------------
 --┏━╸┏━┓┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳┓--
@@ -98,6 +98,7 @@ end
 
 if FELIJO.is_mod_loaded("baddirector") then
     assert(SMODS.load_file("./modules/content/crossmod/nxkoo.lua"))()
+    assert(SMODS.load_file("./modules/content/crossmod/tarots.nxkoo.lua"))()
 end
 --[[
 ▄▄▄▄  ▄▄▄▄▄ ▄▄▄▄  ▄▄    ▄▄▄▄▄ ▄▄ ▄▄ 
