@@ -6,7 +6,7 @@ SMODS.Joker {
 	rarity = 2,
 	cost = 6,
 	config = {
-		extra = { xmult = 0.01, money = 125.00,},
+		extra = { xmult = 0.01, money = 149.00,},
 	},	
 	loc_vars = function(self, info_queue, card)
 		return { vars = { card.ability.extra.xmult, 1+(card.ability.extra.xmult*card.ability.extra.money), card.ability.extra.money} }
