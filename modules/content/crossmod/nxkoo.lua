@@ -142,7 +142,7 @@ FELIJO.T4Enhancement {
 }
 -- Wild
 FELIJO.T2Enhancement {
-	atlas = 'tieredEnhancements',
+	atlas = 'lover_tieredEnhancements',
     key = 'wild_t2_mp',
     pos = { x = 1, y = 8 },
     config = { extra = { mult = 4}, mod = {min = 0.5, max = 1.5} },
@@ -160,7 +160,7 @@ FELIJO.T2Enhancement {
 
 }
 FELIJO.T3Enhancement {
-	atlas = 'tieredEnhancements',
+	atlas = 'lover_tieredEnhancements',
     key = 'wild_t3_mp',
     pos = { x = 2, y = 8 },
     any_suit = true,
@@ -176,7 +176,7 @@ FELIJO.T3Enhancement {
     end,
 }
 FELIJO.T4Enhancement {
-	atlas = 'tieredEnhancements',
+	atlas = 'lover_tieredEnhancements',
     key = 'wild_t4_mp',
     pos = { x = 3, y = 8 },
     any_suit = true,
