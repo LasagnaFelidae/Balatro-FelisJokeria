@@ -81,6 +81,17 @@ return {
 					"in deck",
 					}
                 }
+		    },
+			j_felijo_ins_glitched = {
+                name = {
+					"{B:1,V:2,f:felijo_Feli5x8,E:1}Glitched Card{}",
+					},
+                text = {
+					{
+					"This joker randomly changes itself",
+					"after every hand",	
+					}
+                }
 		    },		
 
 		},

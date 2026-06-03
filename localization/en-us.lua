@@ -362,11 +362,146 @@ return {
                 },
             },
             j_felijo_unlovable = {
-                name = "Unlovable",
+                name = "Biting the Bolster",
                 text = {
+                    {
                     "{C:green}#1# in #2#{} chance to gift",
                     "you a {C:attention}randomly tiered",
-                    "{C:tarot}#3#{}."
+                    "{C:tarot}#3#{}.",
+                    },
+                    {
+                    "{C:green}#4# in #5#{} chance to",
+                    "{E:2,C:red}\'bypass Eternal\'",
+                    "{C:white,s:0.1}IRRECOVERABLE, UNLOVABLE, SACK OF SHIT.",
+                    "{C:white,s:0.1}I CAN'T EVEN TAKE THE COURAGE OF DOING IT",
+                    "{C:white,s:0.1}FEAR OWNS ME AS I WAIT FOR THE MOMENT",
+                    "{C:white,s:0.1}WHERE YOU LEAVE ME TO DIE IN A FUCKING DITCH",
+                    "{C:inactive,s:0.8}\'You clumsy fuck! You ruined it again!\'"
+                    },
+                },
+            },
+            j_felijo_desperatemeasures = {
+                name = "Do Not Come Near",
+                text = {
+                    {
+                    "Tiered {C:tarot}#2#'{} grant",
+                    "{X:red,C:white}X#1#{} Mult",
+                    "when on hand"
+                    },
+                    {
+                    "{C:green}#3# in #4#{} chance to",
+                    "{E:2,C:red}\'bypass Eternal\'",
+                    "{C:white,s:0.4}YOU CRIED FOR NOTHING, AS ALWAYS.",
+                    "{C:inactive,s:0.8}\'I need time to think\'"
+                    },
+                },
+            },
+            j_felijo_truereligion = {
+                name = "True Religion",
+                text = {
+                    {
+                        "{C:hearts}Hearts{} retrigger for every",
+                        "Tiered {C:tarot}#2#{} on hand"
+                    },
+                    {
+                    "{C:green}#3# in #4#{} chance to",
+                    "{E:2,C:red}\'bypass Eternal\'",
+                    "{C:white,s:0.4}FINALLY A PLACE WHERE I BELONG.",
+                    "{C:inactive,s:0.8}\'Rotting.\'"
+                    },
+                },
+            },
+            j_felijo_productoffear = {
+                name = "Product of Fear",
+                text = {
+                    {
+                        "{C:hearts}Hearts{} can't be debuffed",
+                        "as long as Tiered",
+                        "{C:tarot}#1#'{} are on hand"
+                    },
+                    {
+                    "{C:green}#2# in #3#{} chance to",
+                    "{E:2,C:red}\'bypass Eternal\'",
+                    "{C:white,s:0.4}I CAN'T FEEL ANYTHING, AND IT'S GREAT.",
+                    "{C:inactive,s:0.8}\'Peace at last.\'"
+                    },
+                },
+            },
+            j_felijo_grazingonfear = {
+                name = "Grazing on Fear",
+                text = {
+                    {
+                        "{C:green}#2# in #3#{} chance to",
+                        "{E:2,C:red}\'bypass Eternal\'{} and",
+                        "set blind size to {C:blind}0{}",
+                        "{C:white,s:0.4}The big jump.",
+                        "{C:inactive,s:0.8}\'Deep in the water.\'"
+                    },
+                },
+            },
+            j_felijo_spearflowers = {
+                name = "Spear Flowers",
+                text = {
+                    {
+                        "Prevents {C:red}death{} with ",
+                        "a departure gift of {C:gold}$#1#",
+                        "as long as Tiered",
+                        "{C:tarot}#2#'{} are on hand"
+                    },
+                    {
+                    "{C:green}#3# in #4#{} chance to",
+                    "{E:2,C:red}\'bypass Eternal\'",
+                    "{C:white,s:0.4}BODY AND BLOOD...",
+                    "{C:inactive,s:0.8}\'Blooming again.\'"
+                    },
+                },
+            },
+            j_felijo_redcap = {
+                name = "Redcap",
+                text = {
+                    {
+                    "Tiered {C:tarot}#3#'{} grant",
+                    "{X:blind,C:white}X#1#{} Blind Size",
+                    "and {X:red,C:white}-#2#{} Mult",
+                    "when on hand"
+                    },
+                    {
+                    "{C:green}#4# in #5#{} chance to",
+                    "{E:2,C:red}\'bypass Eternal\'",
+                    "{C:white,s:0.4}SADLY, I CAN'T CUT THROUGH THIS.",
+                    "{C:inactive,s:0.8}\'Cut the pain away.\'"
+                    },
+                },
+            },
+            j_felijo_holeintheheart = {
+                name = "Hole in the Heart",
+                text = {
+                    {
+                        "Tiered {C:tarot}#3#'{} grant",
+                        "{C:blue}6#1#{} Chips",
+                        "and {C:red}-#2#{} Mult",
+                        "when on hand"
+                    },
+                    {
+                    "{C:green}#4# in #5#{} chance to",
+                    "{E:2,C:red}\'bypass Eternal\'",
+                    "{C:white,s:0.4}Felt like I was missing something important all along.",
+                    "{C:inactive,s:0.8}\'No.\'"
+                    },
+                },
+            },
+            j_felijo_fleamarket = {
+                name = {
+                    "{s:0.8}Flea Market",
+                    "Montgomery",
+                    },
+                text = {
+                    {
+                        "{C:attention}+#1#{} Shop Size",
+                        "{C:attention}+#2#{} Extra {C:planet}Boosters",
+                        "{C:attention}+#3#{} Extra {C:gold}Vouchers",
+                        "{C:inactive,s:0.8}\'It's Just Like A Mini Mall!\'",
+                    },
                 },
             },
 			j_felijo_lgd_jokerpp_a = {
@@ -546,6 +681,13 @@ return {
 				text = {
 				"The card has been brutally stitched",
 				"together by {C:clubs,E:1}The Mycologists{}."
+				},
+			},
+            felijo_stk_glitched = {
+				name = "Glitched Card",
+				text = {
+				"This joker randomly changes itself",
+                "after every hand",
 				},
 			},
 
@@ -1287,6 +1429,7 @@ return {
 			k_felijo_ins = "Inscryption",
 			k_felijo_rbx = "ROBLOX",
             k_felijo_toga_malware = "Malware",
+            k_felijo_bnb = "Hole in the Heart",
 			----------------
 			----------------
 			k_felijo_loic1 = "Charging...",
@@ -1405,6 +1548,7 @@ return {
 			felijo_subspace = "Subspaced",
 			felijo_stk_blunder = "Blunder",
 			felijo_stk_goobert = "Painted",
+            felijo_stk_glitched = "Glitched Card",
 			-------------
 			-------------
 			felijo_plt_gold = "Gold Pelt",

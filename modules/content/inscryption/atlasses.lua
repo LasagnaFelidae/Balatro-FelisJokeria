@@ -65,6 +65,16 @@ SMODS.Atlas({
     px = 71,
     py = 95
 })
+--Animated Jokers
+SMODS.Atlas({
+    key = "insGlitched",
+    path = "inscryption/jokers/glitched.png",
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 3,
+    px = 71,
+    py = 95,
+    fps = 5,
+})
 --Enhancements/Pelts
 SMODS.Atlas({
     key = "insPelts",

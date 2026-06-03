@@ -233,3 +233,41 @@ SMODS.Joker {  --Enhancement Tentacle
         end
     end,
 }
+
+SMODS.Joker {  --Glitched Card
+    atlas = 'insGlitched',
+    pos = { x = 0, y = 0 },
+    pools = {
+		["FelisJokeria"]= true,  
+		["Inscryption"]=true,
+		["Beast"] = true,		
+		["Other"] = true,  
+		["Tentacle"] = true,  
+	},
+    key = "felijo_ins_glitched",
+	unlocked = true,
+	discovered = false,	
+    rarity = 2,
+    cost = 8,
+	blueprint_compat = true,
+	attributes = {"joker"},
+    config = {},
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
+	end,
+	loc_vars = function(self, info_queue, center)
+		
+        return {vars = {colours = { HEX('F0C590'), HEX('351A09')} }}
+    end,
+
+	set_ability = function(self, card, initial, delay_sprites)
+		G.E_MANAGER:add_event(Event({
+				func = function()
+					card:juice_up(0.3, 0.5)
+					card:add_sticker("felijo_stk_glitched", true)
+					return true
+			end
+		}))
+	end,
+
+}

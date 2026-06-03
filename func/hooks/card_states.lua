@@ -7,9 +7,35 @@ function Card:set_debuff(should_debuff)
         self.perma_debuff = false
     end
 
-
-
+    if next(SMODS.find_card("j_felijo_productoffear")) and self.base.suit == "Hearts" then
+        local lovers =
+            {
+                "c_lovers",
+                "c_felijo_t2_lovers",
+                "c_felijo_t2_lovers_mp",
+                "c_felijo_t3_lovers",
+                "c_felijo_t3_lovers_mp",
+                "c_felijo_t4_lovers",
+                "c_felijo_t4_lovers_mp",
+                "c_bd_loverprints",
+            }
+        local debuff = false
+        for _, v in ipairs(G.consumeables.cards) do
+            for _, key in ipairs(lovers) do
+                if v.config.center.key == key then
+                    debuff = true
+                    break
+                end
+            end
+        end
+        if debuff == true then
+            self.debuff = false
+            self.perma_debuff = false
+        end
+        
+    end
 end
+
 
 local orig_card_drag = Card.drag
 function Card:drag()
