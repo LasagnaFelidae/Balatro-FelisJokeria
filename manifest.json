@@ -9,9 +9,9 @@
 	"badge_colour": "ffa410",
 	"badge_text_colour": "ffffff",
 	"display_name": "Feli's Jokeria",
-	"version": "0.7.12",
+	"version": "0.8.0",
 	"dependencies": [
-		"Steamodded (>=1.0.0~BETA-1606b)", 
+		"Steamodded (>=1.0.0~BETA-1620a)", 
 		"Lovely (>=0.8.0)", 
 		"Balatro (>=1.0.1o)",
 	],

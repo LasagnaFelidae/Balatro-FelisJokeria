@@ -86,8 +86,9 @@ FELIJO.Reptile { -- Uncommon Adder
 						G.STATE = G.STATES.HAND_PLAYED
 						G.STATE_COMPLETE = true
 						end_round()
-						return true
+						
 					end
+					return true
 				end
 			}))
 		end
