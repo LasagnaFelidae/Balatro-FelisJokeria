@@ -123,10 +123,11 @@ FELIJO.Vermin { -- Rare Pack Rat
         info_queue[#info_queue + 1] = G.P_CENTERS["p_felijo_pack_rat"]
 		return { vars = { card.ability.extra.chips, card.ability.extra.mult,  colours = { HEX('F0C590'), HEX('351A09') } } } 
     end,
+    remove_from_deck = function(self,card, from_debuff)
+        add_tag(Tag("tag_felijo_packrat_gift", false, 'Small')) 
+    end,
     calculate = function(self, card, context)
-        if context.joker_type_destroyed and context.card == card then
-            add_tag(Tag("tag_felijo_packrat_gift", false, 'Small')) 
-        end
+
         if context.modify_ante and context.ante_end then
             SMODS.add_card{ set = "Consumeables", edition = "e_negative" }
         end
