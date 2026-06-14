@@ -22,8 +22,7 @@ SMODS.Joker { -- Uncommon, Magpie
         return {vars = { center.ability.extra.chips, center.ability.extra.mult, center.ability.extra.xchips, (1 + center.ability.extra.xchips * center.ability.steam.badges), colours = { HEX('F0C590'), HEX('351A09')} }}
     end,
 	badgeCalc = function (self,card)
-		local level = 5
-		level = math.max((G.STEAM and G.STEAM.user.getPlayerSteamLevel() or 10), 10)
+		local level = math.max((G.STEAM and G.STEAM.user.getPlayerSteamLevel() or 10), 10)
 
 		local totalxp = 0
 		local lvl_groups = math.floor((level - 1) / 10)

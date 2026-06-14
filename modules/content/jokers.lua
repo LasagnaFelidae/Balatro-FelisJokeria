@@ -130,29 +130,20 @@ SMODS.Joker {
 	perishable_compat = false,
 	eternal_compat = false,
     attributes = {"joker_slot", "joker_slot"},
-
+	config = { extra = { text = "k_quest1_line1"}},
 	loc_vars = function(self, info_queue, card)
-		return { vars = {}}
+		local other_text = "k_quest1_line2"
+		return { vars = {localize(card.ability.extra.text), localize(other_text)}}
 	end,
 	add_to_deck = function(self, card,from_debuff)
-		for _, v in ipairs(G.jokers.cards) do
-			if (v.config.center.rarity == 1 or v.config.center.rarity == "Common") then
-				v.ability.extra_slots_used = -1
-			end
-		end
+		
 	end,
 	remove_from_deck = function(self,card,from_debuff)
-		for _, v in ipairs(G.jokers.cards) do
-			if (v.config.center.rarity == 1 or v.config.center.rarity == "Common") then
-				v.ability.extra_slots_used = 0
-			end
-		end
+		
 	end,
 	calculate = function(self, card, context)
 		if context.card_added or context.buying_card or context.modify_shop_card or context.modify_booster_card then
-			if (context.card.config.center.rarity == 1 or context.card.config.center.rarity == "Common") then
-					context.card.ability.extra_slots_used = -1
-			end
+			
 		end
 	end,
 }

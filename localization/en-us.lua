@@ -553,6 +553,16 @@ return {
 					},
                 },
             },
+            j_felijo_mypenis = {
+                name = "Testing sending text modifying through config",
+                text = {
+					{
+                    "#1#",
+                    "#2#"
+					},
+
+                },
+            },
 			
 			
 		-- LETTERJOKERS
@@ -1458,6 +1468,12 @@ return {
             --ach_felijo_spell_aikoyori = "Spell Aikoyori",
         },
 		dictionary={
+            --------------
+            ---QUESTS-----
+            --------------
+            k_quest1_line1 = "LOADSAMONEY!!!",
+			k_quest1_line2 = "Level up! {C:red}color!!!",
+            --------------
 			k_felijo_cash_succ = "LOADSAMONEY!!!",
 			k_felijo_lvl_succ = "Level up!",
 			k_felijo_nope_succ = "Nope!",

@@ -1,6 +1,11 @@
 FELIJO = SMODS.current_mod
 FELIJO.optional_features = {post_trigger = true,quantum_enhancements = true,}
-G.GAME = {}
+G.GAME = G.GAME and G.GAME or {}
+
+---fuck off wankers
+if FELIJO.is_mod_loaded("Gradelatro") then
+    error("Gradelatro is known to break and is not supported.")
+end
 -----------------------------
 --┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓--
 --┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓--
