@@ -1,4 +1,12 @@
 
+
+
+
+
+
+
+
+
 --[[
 SMODS.Joker {
     key = "joker",
@@ -52,10 +60,11 @@ SMODS.Joker {
 		end
     end,	
 	loc_vars = function(self, info_queue, card)
-		info_queue[#info_queue+1] = {key = 'felijo_bld_explode', set = 'Other'}
+		
 		local key = self.key
 		if card.ability.extra.ascended == true then
 			key = self.key .. "_a"
+			info_queue[#info_queue+1] = {key = 'felijo_bld_explode', set = 'Other'}
 		end
 		return { vars = {card.ability.extra.mult, card.ability.extra.mult_mod, math.min(5,((card.ability.extra.max_c + 1 ) - card.ability.extra.count)), }, key = key }
 	end,
