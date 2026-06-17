@@ -1,3 +1,38 @@
+local quest_table = {
+
+    -- vry easy
+    { key = 1,  line_1 = "Play a",         var_color = G.C.RED,        difficulty_pool = 1 }, -- rdm ez pkr hnd
+    { key = 3,  line_1 = "Earn",           var_color = G.C.MONEY,      difficulty_pool = 1 }, -- earn 10
+    { key = 4,  line_1 = "Buy any",            var_color = G.C.BLUE,       difficulty_pool = 1 }, -- 1 card buy
+    { key = 5,  line_1 = "Use any",            var_color = G.C.SECONDARY_SET.Tarot, difficulty_pool = 1 }, -- 1 consumable use
+    { key = 6,  line_1 = "Obtain a",         var_color = G.C.ORANGE,     difficulty_pool = 1 }, -- 1 joker
+    { key = 7,  line_1 = "Defeat a",         var_color = G.C.GREEN,      difficulty_pool = 1 }, -- 1 blind
+
+    -- easy
+    { key = 8,  line_1 = "Play a",         var_color = G.C.RED,        difficulty_pool = 2 }, -- rdm pkr hand
+    { key = 9,  line_1 = "Earn ",           var_color = G.C.MONEY,      difficulty_pool = 2 }, -- earn 18 - 25
+    { key = 10, line_1 = "Spend ",          var_color = G.C.MONEY,      difficulty_pool = 2 }, -- spend 20 - 30
+    { key = 11, line_1 = "Buy three",            var_color = G.C.BLUE,       difficulty_pool = 2 }, -- 3 cards
+    { key = 12, line_1 = "Use two",            var_color = G.C.SECONDARY_SET.Tarot, difficulty_pool = 2 }, -- 2 tarot 
+    { key = 13, line_1 = "Own three",            var_color = G.C.ORANGE,     difficulty_pool = 2 }, -- jokers
+    { key = 14, line_1 = "Reach",          var_color = G.C.GREEN,      difficulty_pool = 2 }, -- ante
+
+    -- hard
+    { key = 15, line_1 = "Score in one hand",          var_color = G.C.CHIPS,      difficulty_pool = 3 }, -- 50k chips
+    { key = 16, line_1 = "Use",            var_color = G.C.SECONDARY_SET.Spectral, difficulty_pool = 3 }, -- 1 spectral
+    { key = 17, line_1 = "Upgrade",        var_color = G.C.PURPLE,     difficulty_pool = 3 }, -- poker hand
+    { key = 18, line_1 = "Sell",           var_color = G.C.ORANGE,     difficulty_pool = 3 }, -- jokers
+    { key = 19, line_1 = "Reach ",          var_color = G.C.GREEN,      difficulty_pool = 3 }, -- ante
+
+    -- vry hard
+    { key = 20, line_1 = "Beat in one hand a ",          var_color = G.C.CHIPS,      difficulty_pool = 4 }, -- boss blind one shot
+    { key = 21, line_1 = "Play a",         var_color = G.C.RED,        difficulty_pool = 4 }, -- undiscovered hand
+    { key = 22, line_1 = "Own 5 ",            var_color = G.C.ORANGE,     difficulty_pool = 4 }, -- okers
+    { key = 23, line_1 = "Own a editioned ",            var_color = G.C.ORANGE,     difficulty_pool = 4 }, -- jokers (ediitioned)
+    { key = 24, line_1 = "Use 5 ",            var_color = G.C.SECONDARY_SET.Tarot, difficulty_pool = 4 }, -- consumables
+    { key = 25, line_1 = "Reach ",          var_color = G.C.GREEN,      difficulty_pool = 4 }, -- ante 
+}
+
 
 
 
