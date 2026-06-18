@@ -1,6 +1,28 @@
 return {
     descriptions = {
 		Joker = {
+            j_felijo_akyrs_lexicographer = {
+                name = {
+                    "The Lexicographer",
+                    "{C:felijo_inactive,s:0.5}Wryn Nguyen"
+                },
+                text = { 
+                    {
+                    "Enables the {C:purple}Pronoun Palace",
+                    "word dictionary"
+                    },
+                    {
+                    "Once per ante, when used,",
+                    "adds {C:attention}#1# {C:red,E:2}#2#{}",
+                    "{C:felijo_pink}Wildcards{}",
+                    },
+                    {
+                    "{C:inactive}(Currently {V:1}#3#{C:inactive})"
+
+                    },
+
+                }
+            },
 			j_felijo_ltr_dbl = {
                 name = "Double Letter Tile",
                 text = { 
@@ -74,5 +96,15 @@ return {
 				},
 			},			
 		},
+        Other = {
+			felijo_akyrs_wildcard	= {
+				name = "Wildcard (Aikoyori's Shenanigans)",
+				text= {
+					"A {C:felijo_pink}Wildcard",
+                    "is a {C:blue}letter{} that can be used",
+                    "as {C:attention}any character"
+				}
+			},
+        },
 	},
 }

@@ -197,6 +197,21 @@ SMODS.Atlas {
     py = 95
 
 }
+
+SMODS.Atlas {
+    key = "garfield",
+    path = "garfield/panels.png",
+    px = 71,
+    py = 95
+
+}
+
+SMODS.Atlas({
+    key = "pronounpalace",
+    path = "crossmod/aikoshen/pronounpalace.png",
+    px = 71,
+    py = 95
+})
 --[[
 SMODS.Atlas {
     key = "blindPlacehold",

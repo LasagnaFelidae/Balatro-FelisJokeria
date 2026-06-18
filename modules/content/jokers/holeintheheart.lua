@@ -361,7 +361,7 @@ FELIJO.LoverJoker { -- 6, 0 Grazing On Fear
 		info_queue[#info_queue+1] = {key = 'felijo_tiered', set = 'Other'}
 		info_queue[#info_queue+1] = {key = 'felijo_immutable', set = 'Other'}
 		info_queue[#info_queue+1] = G.P_CENTERS.c_lovers
-		return { vars = { card.ability.extra.xblindsize, localize { type = 'name_text', set = 'Tarot', key = "c_lovers" },card.ability.imm.n2, card.ability.imm.d2,} }
+		return { vars = { card.ability.extra.xblindsize, card.ability.imm.n2, card.ability.imm.d2,} }
 	end,
 	set_badges = function(self, card, badges)
 		badges[#badges+1] = create_badge(localize('k_felijo_bnb'), HEX('660000'), HEX('000000'), 1 )

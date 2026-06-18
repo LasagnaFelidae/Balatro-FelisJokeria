@@ -26,10 +26,17 @@ for _, file in ipairs(utils) do
     assert(SMODS.load_file("func/utils/" .. file))()
 end
 
+local dicts = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "func/dictionaries")
+for _, file in ipairs(dicts) do
+    assert(SMODS.load_file("func/dictionaries/" .. file))()
+end
+
 local hooks = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "func/hooks")
 for _, file in ipairs(hooks) do
     assert(SMODS.load_file("func/hooks/" .. file))()
 end
+
+
 
 local ui = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "func/ui")
 for _, file in ipairs(ui) do
@@ -38,7 +45,7 @@ end
 
 ---fuck off wankers
 if FELIJO.is_mod_loaded("Gradelatro") then
-    error("Gradelatro is known to break and is not supported.")
+    error("Gradelatro is known to break and is not supported. ERR-4I-5L0P")
 end
 
 assert(SMODS.load_file("./func/pools.lua"))()
@@ -109,6 +116,7 @@ if FELIJO.is_mod_loaded("RevosVault") then
     assert(SMODS.load_file("./modules/content/crossmod/revo.lua"))()
 end
 if FELIJO.is_mod_loaded("aikoyorisshenanigans") then
+    assert(SMODS.load_file("./modules/content/crossmod/achievements.aikoshen.lua"))()
     assert(SMODS.load_file("./modules/content/crossmod/aikoshen.lua"))()
 end
 if FELIJO.is_mod_loaded("Blindside") then

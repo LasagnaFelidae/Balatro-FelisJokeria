@@ -24,6 +24,9 @@ G.ARGS.LOC_COLOURS.felijo_sgl = HEX('00DB8A')
 G.ARGS.LOC_COLOURS.felijo_ttm = HEX('7E5C2F')
 G.ARGS.LOC_COLOURS.felijo_ins_gld = HEX('F8A84F')
 G.ARGS.LOC_COLOURS.felijo_goobert = HEX('218812')
+G.ARGS.LOC_COLOURS.felijo_garf_bg = HEX('FFAE52')
+G.ARGS.LOC_COLOURS.felijo_tiered = HEX('8E3600')
+G.ARGS.LOC_COLOURS.felijo_inactive = HEX("B7B7B7")
 
 SMODS.Gradient({
     key = "t2_mp",

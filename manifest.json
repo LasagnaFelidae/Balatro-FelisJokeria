@@ -5,11 +5,11 @@
 	"description": "The true Pistachio+ Experience",
 	"prefix": "felijo",
 	"main_file": "main.lua",
-	"priority": 67,
+	"priority": 800,
 	"badge_colour": "ffa410",
 	"badge_text_colour": "ffffff",
 	"display_name": "Feli's Jokeria",
-	"version": "0.9.2",
+	"version": "0.9.2.619",
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-1814a)", 
 		"Lovely (>=0.8.0)", 

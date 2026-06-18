@@ -8,6 +8,7 @@ local gameInitHook = Game.init_game_object
 function Game:init_game_object()
     local ret = gameInitHook(self)
     ret.felijo_totems_enabled = false
+    ret.pseudorandom = G.GAME.pseudorandom and G.GAME.pseudorandom or {}
 
     return ret
 end

@@ -386,7 +386,7 @@ return {
                     {
                     "Tiered {C:tarot}#2#'{} grant",
                     "{X:red,C:white}X#1#{} Mult",
-                    "when on hand"
+                    "while held"
                     },
                     {
                     "{C:green}#3# in #4#{} chance to",
@@ -401,7 +401,7 @@ return {
                 text = {
                     {
                         "{C:hearts}Hearts{} retrigger for every",
-                        "Tiered {C:tarot}#2#{} on hand"
+                        "Tiered {C:tarot}#2#{} held"
                     },
                     {
                     "{C:green}#3# in #4#{} chance to",
@@ -417,7 +417,7 @@ return {
                     {
                         "{C:hearts}Hearts{} can't be debuffed",
                         "as long as Tiered",
-                        "{C:tarot}#1#'{} are on hand"
+                        "{C:tarot}#1#'{} are held"
                     },
                     {
                     "{C:green}#2# in #3#{} chance to",
@@ -432,8 +432,8 @@ return {
                 text = {
                     {
                         "{C:green}#2# in #3#{} chance to",
-                        "{E:2,C:red}\'bypass Eternal\'{} and",
                         "set blind size to {C:blind}0{}",
+                        "and {E:2,C:red}\'bypass Eternal\'{}",
                         "{C:white,s:0.4}The big jump.",
                         "{C:inactive,s:0.8}\'Deep in the water.\'"
                     },
@@ -446,7 +446,7 @@ return {
                         "Prevents {C:red}death{} with ",
                         "a departure gift of {C:gold}$#1#",
                         "as long as Tiered",
-                        "{C:tarot}#2#'{} are on hand"
+                        "{C:tarot}#2#'{} are held"
                     },
                     {
                     "{C:green}#3# in #4#{} chance to",
@@ -463,7 +463,7 @@ return {
                     "Tiered {C:tarot}#3#'{} grant",
                     "{X:blind,C:white}X#1#{} Blind Size",
                     "and {X:red,C:white}-#2#{} Mult",
-                    "when on hand"
+                    "while held"
                     },
                     {
                     "{C:green}#4# in #5#{} chance to",
@@ -1470,10 +1470,12 @@ return {
 			c_felijo_medusa_1 = "Medusa II",
 		},
         achievement_names={
-            --ach_felijo_spell_aikoyori = "Unfortunately Aikoyori is not real",
+            ach_felijo_j_o_permit = "J/O Permit",
+            ach_felijo_red_letter = "Red Letter",
         },
         achievement_descriptions={
-            --ach_felijo_spell_aikoyori = "Spell Aikoyori",
+            ach_felijo_j_o_permit = {"Spell a slur of your choice", "(The Lexicographer is required)"},
+            ach_felijo_red_letter = {"Win a run with The Lexicographer", "(Letters must be enabled)"}
         },
 		dictionary={
             --------------
@@ -1508,6 +1510,7 @@ return {
             k_felijo_bd = "Bad Director",
             k_felijo_ghostcards = "GhostCards",
             k_felijo_phanta = "Phanta",
+            k_felijo_aikoshen = "Aikoyori's Shenanigans",
 			----------------
 			--J.CATEGORIES--
 			----------------
@@ -1515,6 +1518,8 @@ return {
 			k_felijo_rbx = "ROBLOX",
             k_felijo_toga_malware = "Malware",
             k_felijo_bnb = "Hole in the Heart",
+            k_felijo_garfield = "Garfield",
+            k_felijo_pronounpalace = "Pronoun Palace",
 			----------------
 			----------------
 			k_felijo_loic1 = "Charging...",

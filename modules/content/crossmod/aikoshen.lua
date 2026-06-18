@@ -6,6 +6,35 @@ else
 	as_disabled = true
 end
 
+local old_check_word = AKYRS.check_word
+
+AKYRS.check_word = function(str_arr_in)
+    local AKYRS_WORDS_REF = AKYRS_WORDS
+
+    local temp_french_check = nil
+
+    if next(SMODS.find_card("j_felijo_akyrs_lexicographer")) then
+        AKYRS_WORDS = LEXICOGRAPHER_DICT
+    end
+
+    local result = old_check_word(str_arr_in)
+    
+    if temp_french_check then
+        AKYRS_WORDS = FRENCH_DICT
+    end
+
+    if result == nil then
+        result = old_check_word(str_arr_in)
+    end
+    
+    
+    AKYRS_WORDS = old_dict
+
+    if result == nil then
+        result = old_check_word(str_arr_in)
+    end
+    return result
+end
 
 FELIJO.LetterJoker = SMODS.Joker:extend{
     akyrs_is_letter = true,
@@ -15,205 +44,70 @@ FELIJO.LetterJoker = SMODS.Joker:extend{
 	no_collection = as_disabled,
 	unlocked = true,
 	discovered = false,
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_aikoshen'), HEX('753F8E'), HEX('A4CA5A'), 1 )
+	end,
 }
 
 
 
---- WORD MULTIPLIERS
 
 FELIJO.LetterJoker {
-    key = "felijo_ltr_dbw",
-    atlas = 'aikoJokers',
-    pos = { x = 5, y = 0 },
-	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
-
+    key = "felijo_akyrs_lexicographer",
+    atlas = 'pronounpalace',
+    pos = { x = 0, y = 0 },
+	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true, ["Human"] = true, ["Pronoun Palace"] = true,  },
+	pronouns = "she_her",
     blueprint_compat = true,
     rarity = 1,
     cost = 4,
-	config = { extra = { xchips = 2, xmult = 2, odds = 4 } },
+	config = { extra = {}, letter_opener = {used = false, max_wilds= 2} },
+	can_use = function(self, card)
+        return not card.ability.letter_opener.used and G.GAME.blind.in_blind
+    end,
+	set_badges = function(self, card, badges)
+		badges[#badges+1] = create_badge(localize('k_felijo_pronounpalace'), HEX('E8C99A'), G.C.UI.TEXT_DARK,  1 )
+		badges[#badges+1] = create_badge(localize('k_felijo_aikoshen'), HEX('A4CA5A'), HEX('753F8E'),  1 )
+	end,
+
+	use = function(self, card, area, copier)
+        AKYRS.simple_event_add(
+            function ()
+                AKYRS.fill_hand()
+                for i = 1, card.ability.letter_opener.max_wilds do
+                    AKYRS.simple_event_add(
+                        function ()
+                            local wldcrd = Card(11.5,15,G.CARD_W,G.CARD_H,pseudorandom_element(G.P_CARDS,pseudoseed("lexicographer")),G.P_CENTERS['c_base'],{playing_card = G.playing_card})
+                            wldcrd.is_null = true
+                            wldcrd.ability.akyrs_self_destructs = true
+                            AKYRS.change_letter_to(wldcrd,"#")
+                            G.hand:emplace(wldcrd)
+                            return true
+                        end, 0.1
+                    )
+                end
+                card.ability.letter_opener.used = true
+                return true
+            end, 0
+        )
+    end,
     loc_vars = function(self, info_queue, card)
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_dbw')
-        return { vars = { card.ability.extra.xchips, card.ability.extra.xmult, numerator, denominator} }
+		info_queue[#info_queue+1] = { key = "akyrs_self_destructs", set = "Other",}
+        info_queue[#info_queue+1] = { key = "felijo_akyrs_wildcard", set = "Other",}
+		local is_used = card.ability.letter_opener.used == true and "Used" or "Active"
+		local is_used_clr = card.ability.letter_opener.used == true and G.C.RED or G.C.GREEN
+        return { vars = { card.ability.letter_opener.max_wilds, localize{type = 'name_text', key = "akyrs_self_destructs", set = 'Other'}, is_used, colours = {is_used_clr}}, } 
     end,
     calculate = function(self, card, context)
-		if context.joker_main then
-			if SMODS.pseudorandom_probability(card, 'felijo_ltr_dbw', 1, card.ability.extra.odds) and #context.scoring_hand > 3 then
-				return{
-					xchips = card.ability.extra.xchips,
-					xmult = card.ability.extra.xmult
-				}	
-			end	
+		if context.ante_change and context.ante_end then
+			if card.ability.letter_opener.used == true then 
+				card.ability.letter_opener.used = false 
+				return {
+					message = localize("k_reset")
+				}
+			end
 		end
     end
-}
-FELIJO.LetterJoker {
-    key = "felijo_ltr_tpw",
-    atlas = 'aikoJokers',
-    pos = { x = 6, y = 0 },
-	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
-    unlocked = true,
-    blueprint_compat = true,
-    rarity = 2,
-    cost = 6,
-	config = { extra = { xchips = 3, xmult = 3, odds = 6 } },
-    loc_vars = function(self, info_queue, card)
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_tpw')
-        return { vars = { card.ability.extra.xchips, card.ability.extra.xmult, numerator, denominator} }
-    end,
-    calculate = function(self, card, context)
-		if context.joker_main then
-			if SMODS.pseudorandom_probability(card, 'felijo_ltr_tpw', 1, card.ability.extra.odds) and #context.scoring_hand > 5 then
-				return{
-					xchips = card.ability.extra.xchips,
-					xmult = card.ability.extra.xmult
-				}	
-			end	
-		end
-    end
-}
-FELIJO.LetterJoker {
-    key = "felijo_ltr_qdw",
-    atlas = 'aikoJokers',
-    pos = { x = 7, y = 0 },
-	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
-    unlocked = true,
-    blueprint_compat = true,
-    rarity = 3,
-    cost = 8,
-	config = { extra = { xchips = 4, xmult = 4, odds = 8 } },
-    loc_vars = function(self, info_queue, card)
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_qdw')
-        return { vars = { card.ability.extra.xchips, card.ability.extra.xmult, numerator, denominator} }
-    end,
-    calculate = function(self, card, context)
-		if context.joker_main then
-			if SMODS.pseudorandom_probability(card, 'felijo_ltr_qdw', 1, card.ability.extra.odds) and #context.scoring_hand > 7 then
-				return{
-					xchips = card.ability.extra.xchips,
-					xmult = card.ability.extra.xmult
-				}	
-			end	
-		end
-    end
-}
-
---- LETTER MULTIPLIERS
-
-FELIJO.LetterJoker {
-    key = "felijo_ltr_dbl",
-    atlas = 'aikoJokers',
-    pos = { x = 2, y = 0 },
-	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true },
-    blueprint_compat = true,
-    rarity = 1,
-    cost = 4,
-	config = { extra = { cap = 5, repetitions = 1, odds = 8} },
-    loc_vars = function(self, info_queue, card)
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_dbl')
-        return { vars = { card.ability.extra.repetitions, card.ability.extra.cap, numerator, denominator } }
-    end,
-    calculate = function(self, card, context)
-		if context.before and not context.blueprint and not context.retrigger_joker then
-				card.ability.targets = {}
-				local cap_count = 0
-				for i = 1, #context.scoring_hand do -- I'm not sure about this one, did you mean context.scoring_hand?
-					if cap_count >= card.ability.extra.cap then break end
-					if SMODS.pseudorandom_probability(card, 'felijo_ltr_dbl', 1, card.ability.extra.odds) then
-						cap_count = cap_count + 1
-						card.ability.targets[#card.ability.targets+1] = context.scoring_hand[i] -- here too
-					end
-				end
-			end
-		if context.repetition and context.cardarea == G.play then
-			if type(card.ability.targets) == "table" then
-				for i = 1, #card.ability.targets do
-					if context.other_card == card.ability.targets[i] then
-						return {
-							repetitions = card.ability.extra.repetitions
-						}
-					end
-				end
-			end
-		end
-	end
-}
-
-FELIJO.LetterJoker {
-    key = "felijo_ltr_tpl",
-    atlas = 'aikoJokers',
-    pos = { x = 3, y = 0 },
-	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
-    blueprint_compat = true,
-    rarity = 2,
-    cost = 6,
-	config = { extra = { cap = 4, odds = 10, repetitions = 2 } },
-    loc_vars = function(self, info_queue, card)
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_tpl')
-        return { vars = { card.ability.extra.repetitions, card.ability.extra.cap, numerator, denominator } }
-    end,
-    calculate = function(self, card, context)
-		if context.before and not context.blueprint and not context.retrigger_joker then
-				card.ability.targets = {}
-				local cap_count = 0
-				for i = 1, #context.scoring_hand do -- I'm not sure about this one, did you mean context.scoring_hand?
-					if cap_count >= card.ability.extra.cap then break end
-					if SMODS.pseudorandom_probability(card, 'felijo_ltr_tpl', 1, card.ability.extra.odds) then
-						cap_count = cap_count + 1
-						card.ability.targets[#card.ability.targets+1] = context.scoring_hand[i] -- here too
-					end
-				end
-			end
-		if context.repetition and context.cardarea == G.play then
-			if type(card.ability.targets) == "table" then
-				for i = 1, #card.ability.targets do
-					if context.other_card == card.ability.targets[i] then
-						return {
-							repetitions = card.ability.extra.repetitions
-						}
-					end
-				end
-			end
-		end
-	end
-}
-
-FELIJO.LetterJoker {
-    key = "felijo_ltr_qdl",
-    atlas = 'aikoJokers',
-    pos = { x = 4, y = 0 },
-	pools = {["FelisJokeria"] = true, ["Letter"] = true, ["Scrabble"] = true  },
-    blueprint_compat = true,
-    rarity = 3,
-    cost = 8,
-	config = { extra = { cap = 3, odds = 12, repetitions = 3 } },
-    loc_vars = function(self, info_queue, card)
-		local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'felijo_ltr_qdl')
-        return { vars = { card.ability.extra.repetitions, card.ability.extra.cap, numerator, denominator } }
-    end,
-    calculate = function(self, card, context)
-		if context.before and not context.blueprint and not context.retrigger_joker then
-				card.ability.targets = {}
-				local cap_count = 0
-				for i = 1, #context.scoring_hand do -- I'm not sure about this one, did you mean context.scoring_hand?
-					if cap_count >= card.ability.extra.cap then break end
-					if SMODS.pseudorandom_probability(card, 'felijo_ltr_qdl', 1, card.ability.extra.odds) then
-						cap_count = cap_count + 1
-						card.ability.targets[#card.ability.targets+1] = context.scoring_hand[i] -- here too
-					end
-				end
-			end
-		if context.repetition and context.cardarea == G.play then
-			if type(card.ability.targets) == "table" then
-				for i = 1, #card.ability.targets do
-					if context.other_card == card.ability.targets[i] then
-						return {
-							repetitions = card.ability.extra.repetitions
-						}
-					end
-				end
-			end
-		end
-	end
 }
 
 --- FELI LEGENDARY
