@@ -196,36 +196,6 @@ FELIJO.enhancement_tiers = {
 
 }
 
-FELIJO.upgradablelist = {
-    "m_wild",
-	"m_felijo_wild_t2",
-	"m_felijo_wild_t3",
-	"m_bonus",
-	"m_felijo_bonus_t2",
-	"m_felijo_bonus_t3",
-	"m_mult",
-	"m_felijo_mult_t2",
-	"m_felijo_mult_t3",
-	"m_lucky",
-	"m_felijo_lucky_t2",
-	"m_felijo_lucky_t3",
-	"m_glass",
-	"m_felijo_glass_t2",
-	"m_felijo_glass_t3",
-	"m_steel",
-	"m_felijo_steel_t2",
-	"m_felijo_steel_t3",
-	"m_stone",
-	"m_felijo_stone_t2",
-	"m_felijo_stone_t3",
-	"m_gold",
-	"m_felijo_gold_t2",
-	"m_felijo_gold_t3",
-	"m_crv_superiore",
-	"m_felijo_enh_sup",
-	"m_felijo_enh_sup_t2",
-	"m_felijo_enh_sup_t3",
-}
 
 FELIJO.consumeables_table = {
     {key = "Tarot",                 weight = 1.00},

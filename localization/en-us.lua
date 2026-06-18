@@ -660,6 +660,14 @@ return {
                         "alternative texture"
 				}
 			},
+            felijo_bd_nxkoo_crossmod	= {
+				name = "BadDirector Ability",
+				text= {
+						"An additional {X:red,C:white}X1{} Mult",
+                        "is granted if a joker is {C:attention}Misprint",
+                        "or has the {C:dark_edition}Misprinted{} edition"
+				}
+			},
             felijo_phanta_crossmod	= {
 				name = "Phanta Ability",
 				text= {

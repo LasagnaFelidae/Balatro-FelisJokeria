@@ -35,17 +35,7 @@ SMODS.UndiscoveredSprite{
     pos = {x=3, y=0}
 }
 
-FELIJO.is_upgradable = function(card)
-    if not (card and card.ability and card.ability.name) then return false end
 
-    for _, enh in ipairs(FELIJO.upgradablelist) do
-        if SMODS.has_enhancement(card, enh) then
-            return true
-        end
-    end
-
-    return false
-end
 
 
 FELIJO.Consumable { -- 0 Campfire

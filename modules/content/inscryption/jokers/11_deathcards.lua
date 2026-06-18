@@ -669,15 +669,28 @@ unlocked = true,
 discovered = false,
 config = { extra = {chips = 6, mult = 7,} },
 set_badges = function(self, card, badges)
+	if BadDirector or FELIJO.is_mod_loaded("BadDirector") then
+		badges[#badges+1] = create_badge(localize('k_felijo_bd'), HEX('01c1e6'), HEX('ffffff'), 1 )
+	end
 	badges[#badges+1] = create_badge(localize('k_felijo_ins'), HEX('7f1232'), HEX('f2a655'), 1 )
 end,
 loc_vars = function(self, info_queue, card)
+	if BadDirector or FELIJO.is_mod_loaded("BadDirector") then
+		info_queue[#info_queue+1] = {key = 'felijo_bd_nxkoo_crossmod', set = 'Other'}
+	end
 	return { vars = {card.ability.extra.chips, card.ability.extra.mult, G.jokers and math.max(1, #G.jokers.cards + (#SMODS.find_card("j_lusty_joker", true)*0.5)) or 1, colours = { HEX('F0C590'), HEX('351A09')} } }
 end,
 calculate = function(self, card, context)
 	if context.joker_main then
+		local ct = 0
+		if BadDirector or FELIJO.is_mod_loaded("BadDirector") then
+			for i, jokers in ipairs(G.jokers.cards) do
+				if jokers.config.center.key == "j_misprint" then ct = ct + 1 end
+				if jokers.edition and jokers.edition.key == "e_bd_misprinted" then ct = ct + 1 end
+			end
+		end
 		return {
-			xmult = math.max(1, #G.jokers.cards + (#SMODS.find_card("j_lusty_joker", true)*0.5))
+			xmult = math.max(1, #G.jokers.cards + (#SMODS.find_card("j_lusty_joker", true)*0.5)+ (ct*1))
 		}
 	end
 end
