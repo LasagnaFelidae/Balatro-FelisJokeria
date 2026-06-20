@@ -76,8 +76,7 @@ return {
 			felijo_ttm_sgl_repulsive = {
 				name = "Repulsive",
 				text = {
-					"When anything tries to disable",
-					"this card, it does not"
+					"Can't be debuffed by any means"
 				},
 			},
 			felijo_ttm_sgl_stinky = {

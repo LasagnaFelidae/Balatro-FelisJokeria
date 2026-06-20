@@ -9,7 +9,7 @@ return {
 					},
 					{
                     "When {C:red}destroyed{}, create a copy that",
-                    "gains {X:edition, C:white}+#3#{} {C:chips}xChips{} and {C:mult}xMult{} ",
+                    "gains {X:edition, C:white}+#3#{} {C:chips}XChips{} and {C:mult}XMult{} ",
 					},
 					{
 					"After {C:attention}#5#{} rounds, selling",

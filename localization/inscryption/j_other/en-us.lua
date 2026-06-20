@@ -8,10 +8,10 @@ return {
 					},
                 text = {
 					{
-					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
+					"{X:chips,C:white}X#3#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-                    "Gives {C:chips}xChips relative to",
+                    "Gives {C:chips}XChips relative to",
 					"how leftmost it is",
 					"in the {C:attention}Joker{} area and",
 					"how many {C:attention}Jokers{} there are"
@@ -26,10 +26,10 @@ return {
 					},
                 text = {
 					{
-					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
+					"{X:chips,C:white}X#3#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-                    "Gives {X:chips,C:white}x#1#{} Chips per",
+                    "Gives {X:chips,C:white}X#1#{} Chips per",
 					"{C:tarot}Consumable{} owned",
 					}
                 }
@@ -42,10 +42,10 @@ return {
 					},
                 text = {
 					{
-					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
+					"{X:chips,C:white}X#3#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-                    "Gives {X:chips,C:white}x#1#{} Chips for",
+                    "Gives {X:chips,C:white}X#1#{} Chips for",
 					"each card in {C:attention}hand{}",
 					}
                 }
@@ -58,10 +58,10 @@ return {
 					},
                 text = {
 					{
-					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
+					"{X:chips,C:white}X#3#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-                    "Gives {X:chips,C:white}x#1#{} Chips for",
+                    "Gives {X:chips,C:white}X#1#{} Chips for",
 					"each {C:enhanced}Enhanced{} card",
 					"in deck",
 					}
@@ -74,10 +74,10 @@ return {
 					},
                 text = {
 					{
-					"{X:chips,C:white}x#3#{} Chips, {C:mult}+#2#{} Mult",
+					"{X:chips,C:white}X#3#{} Chips, {C:mult}+#2#{} Mult",
 					},
 					{
-                    "Gives {X:chips,C:white}x#1#{} Chips for",
+                    "Gives {X:chips,C:white}X#1#{} Chips for",
 					"each card with an {C:dark_edition}Edition{}",
 					"in deck",
 					}

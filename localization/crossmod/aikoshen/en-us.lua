@@ -78,7 +78,7 @@ return {
                 name = "Double Word Tile",
                 text = { 
                     "{C:green}#3# in #4#{} chance to",
-                    "Gain {X:chips,C:white}x#1#{} Chips and {X:mult,C:white}x#2#{} Mult",
+                    "Gain {X:chips,C:white}X#1#{} Chips and {X:mult,C:white}X#2#{} Mult",
                     "{s:0.7,C:inactive}(Hand needs to be 4 cards or more){}"
                 }
             },
@@ -86,7 +86,7 @@ return {
                 name = "Triple Word Tile",
                 text = { 
                     "{C:green}#3# in #4#{} chance to",
-                    "Gain {X:chips,C:white}x#1#{} Chips and {X:mult,C:white}x#2#{} Mult",
+                    "Gain {X:chips,C:white}X#1#{} Chips and {X:mult,C:white}X#2#{} Mult",
                     "{s:0.7,C:inactive}(Hand needs to be 6 cards or more){}"
                 }
             },
@@ -94,7 +94,7 @@ return {
                 name = "Quad Word Tile",
                 text = { 
                     "{C:green}#3# in #4#{} chance to",
-                    "Gain {X:chips,C:white}x#1#{} Chips and {X:mult,C:white}x#2#{} Mult",
+                    "Gain {X:chips,C:white}X#1#{} Chips and {X:mult,C:white}X#2#{} Mult",
                     "{s:0.7,C:inactive}(Hand needs to be 8 cards or more){}"
                 }
             },

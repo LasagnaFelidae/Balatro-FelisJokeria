@@ -116,7 +116,7 @@ return {
 					},
 					{
 					"{C:felijo_ins_gld}Pelt Cards{} now appear",
-					"{X:attention,C:white}x#1#{} as often",
+					"{X:attention,C:white}X#1#{} as often",
 					}
 				},		
 			},

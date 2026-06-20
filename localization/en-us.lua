@@ -289,7 +289,7 @@ return {
 				text = {
 					{
 						"{X:chips,C:white}#1#%{} of {C:attention}card rank{} as xChips",
-						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}x1{C:inactive,s:0.8} xChips)"
+						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}X1{C:inactive,s:0.8} xChips)"
 					},
 				},
 			
@@ -299,7 +299,7 @@ return {
                 text = {
 					{
 						"{X:chips,C:white}#1#%{} of {C:attention}card rank{} as xChips",
-						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}x1{C:inactive,s:0.8} Chips)"
+						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}X1{C:inactive,s:0.8} Chips)"
 					},
 				},
             },
@@ -308,7 +308,7 @@ return {
                 text = {
 					{
 						"{X:chips,C:white}#1#%{} of {C:attention}card rank{} as xChips",
-						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}x1{C:inactive,s:0.8} Chips)"
+						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}X1{C:inactive,s:0.8} Chips)"
 					},
 				},
             },
@@ -317,7 +317,7 @@ return {
                 text = {
 					{
 						"{X:chips,C:white}#1#%{} of {C:attention}card rank{} as xChips",
-						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}x1{C:inactive,s:0.8} Chips)"
+						"{C:inactive,s:0.8}(With a minimum of {X:chips,C:white,s:0.8}X1{C:inactive,s:0.8} Chips)"
 					},
 				},
             },
@@ -577,19 +577,19 @@ return {
 			  text = { 
 				{
 				"LocalThunk Games, Inc.",
-				"{B:1,C:white}#1# (#18##30#%){} | PRICE: {C:gold}$#3#{}, {X:diamonds,C:white}$#26#{} | {X:inactive,C:white}x#2#{}{X:gold,C:white}$#4#{}",
+				"{B:1,C:white}#1# (#18##30#%){} | PRICE: {C:gold}$#3#{}, {X:diamonds,C:white}$#26#{} | {X:inactive,C:white}X#2#{}{X:gold,C:white}$#4#{}",
 				},
 				{
 				"JimboCorp Industries, Limited",
-				"{B:2,C:white}#5# (#19##31#%){} | PRICE: {C:gold}$#7#{}, {X:diamonds,C:white}$#27#{} | {X:inactive,C:white}x#6#{}{X:gold,C:white}$#8#{}",
+				"{B:2,C:white}#5# (#19##31#%){} | PRICE: {C:gold}$#7#{}, {X:diamonds,C:white}$#27#{} | {X:inactive,C:white}X#6#{}{X:gold,C:white}$#8#{}",
 				},
 				{
 				"Spectral Innovations, LLC",
-				"{B:3,C:white}#9# (#20##32#%){} | PRICE: {C:gold}$#11#{}, {X:diamonds,C:white}$#28#{} | {X:inactive,C:white}x#10#{}{X:gold,C:white}$#12#{}",
+				"{B:3,C:white}#9# (#20##32#%){} | PRICE: {C:gold}$#11#{}, {X:diamonds,C:white}$#28#{} | {X:inactive,C:white}X#10#{}{X:gold,C:white}$#12#{}",
 				},
 				{
 				"Joker's Delicatessen International",
-				"{B:4,C:white}#13# (#21##33#%){} | PRICE: {C:gold}$#15#{}, {X:diamonds,C:white}$#29#{} | {X:inactive,C:white}x#14#{}{X:gold,C:white}$#16#{}",
+				"{B:4,C:white}#13# (#21##33#%){} | PRICE: {C:gold}$#15#{}, {X:diamonds,C:white}$#29#{} | {X:inactive,C:white}X#14#{}{X:gold,C:white}$#16#{}",
 				},
 				{
 				"Bonus Trend Modifier: {C:green}+#22#",

@@ -115,10 +115,10 @@ return {
                 text = {
                     "Delete a random amount",
                     "of jokers then",
-					"gain {X:red,C:white}x#2#{} Mult",
+					"gain {X:red,C:white}X#2#{} Mult",
 					"per deleted Joker",
                     "at the end of a round.",
-                    "{C:inactive}(Currently {X:red,C:white}x#1#{C:inactive})",
+                    "{C:inactive}(Currently {X:red,C:white}X#1#{C:inactive})",
 					"{C:inactive,s:0.8}(Slight chance of deleting everything)",
                 },
             },
