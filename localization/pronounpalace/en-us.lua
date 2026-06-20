@@ -44,7 +44,7 @@ return {
                 },
             },
             m_felijo_pp_wood = {
-                name = "Wood Card",
+                name = "Wooden Card",
                 text = {
                     {
                     "{C:red}+#1#{} Mult",
