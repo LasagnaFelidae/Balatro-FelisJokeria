@@ -102,7 +102,7 @@ for _, data in ipairs(FELIJO.tribe_table) do
 							iterations = iterations + 1
 							rf = pseudorandom_element(pool, pseudoseed(data.key)..iterations)
 						end
-						SMODS.add_card{set = "Joker", key = rf}
+						SMODS.add_card{set = "Joker", key = rf, allow_duplicates = true}
 
 						
 						card:juice_up(0.3, 0.5)
