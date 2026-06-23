@@ -1,14 +1,14 @@
 {
 	"id": "feli_fag",
-	"name": "Feli's Additions",
+	"name": "Feli's Additions Gallery",
 	"author": ["LasagnaFelidae"],
 	"description": "The true Pistachio+ Experience",
 	"prefix": "feli_fag",
 	"main_file": "main.lua",
 	"priority": 800,
 	"badge_colour": "FFAA66",
-	"badge_text_colour": "4F6367",
-	"display_name": "Feli's Additions",
+	"badge_text_colour": "374042",
+	"display_name": "Feli's A.G.",
 	"version": "0.10.0",
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-1814a)", 
