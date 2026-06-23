@@ -1,6 +1,6 @@
 {
 	"id": "feli_fag",
-	"name": "Feli's Additions Gallery",
+	"name": "Feli's Additions",
 	"author": ["LasagnaFelidae"],
 	"description": "The true Pistachio+ Experience",
 	"prefix": "feli_fag",
@@ -8,7 +8,7 @@
 	"priority": 800,
 	"badge_colour": "FFAA66",
 	"badge_text_colour": "4F6367",
-	"display_name": "Feli's Jokeria",
+	"display_name": "Feli's Additions",
 	"version": "0.10.0",
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-1814a)", 
